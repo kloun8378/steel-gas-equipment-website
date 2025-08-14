@@ -9,7 +9,7 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                Надёжные клапанные решения
+                Надёжное решение
               </h2>
               <p className="text-xl md:text-2xl mb-8 text-primary-50">
                 Производство и поставка промышленного газового оборудования с 2020 года
