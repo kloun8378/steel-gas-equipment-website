@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import SpeedValve from "./pages/SpeedValve";
 import SafetyValve from "./pages/SafetyValve";
 import Components from "./pages/Components";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/speed-valve" element={<SpeedValve />} />
           <Route path="/safety-valve" element={<SafetyValve />} />
           <Route path="/components" element={<Components />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

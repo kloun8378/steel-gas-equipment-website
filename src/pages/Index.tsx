@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 
 const Index = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [formData, setFormData] = useState({
@@ -18,10 +19,18 @@ const Index = () => {
     password: '',
     confirmPassword: ''
   });
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+  });
   const [errors, setErrors] = useState({
     email: false,
     password: false,
     confirmPassword: false
+  });
+  const [loginErrors, setLoginErrors] = useState({
+    email: false,
+    password: false
   });
 
   // Проверяем сохраненные данные при загрузке страницы
@@ -67,9 +76,47 @@ const Index = () => {
       const { email } = JSON.parse(savedCredentials);
       setIsLoggedIn(true);
       console.log('Автоматический вход:', email);
+      // Перенаправляем в личный кабинет
+      window.location.href = '/dashboard';
     } else {
-      // Здесь можно добавить форму входа
-      console.log('Нет сохраненных данных для входа');
+      // Открываем форму входа
+      setIsLoginOpen(true);
+    }
+  };
+
+  const handleLoginSubmit = () => {
+    const newErrors = {
+      email: !loginData.email.trim(),
+      password: !loginData.password.trim()
+    };
+    
+    setLoginErrors(newErrors);
+    
+    if (!Object.values(newErrors).some(error => error)) {
+      // Проверяем креденциалы
+      const savedCredentials = localStorage.getItem('userCredentials');
+      if (savedCredentials) {
+        const { email, password } = JSON.parse(savedCredentials);
+        if (loginData.email === email && loginData.password === password) {
+          setIsLoggedIn(true);
+          setIsLoginOpen(false);
+          setLoginData({ email: '', password: '' });
+          console.log('Успешный вход:', email);
+          // Перенаправляем в личный кабинет
+          window.location.href = '/dashboard';
+        } else {
+          alert('Неверный email или пароль');
+        }
+      } else {
+        alert('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
+      }
+    }
+  };
+
+  const handleLoginInputChange = (field: string, value: string) => {
+    setLoginData(prev => ({ ...prev, [field]: value }));
+    if (loginErrors[field as keyof typeof loginErrors]) {
+      setLoginErrors(prev => ({ ...prev, [field]: false }));
     }
   };
 
@@ -124,7 +171,7 @@ const Index = () => {
                   </>
                 ) : (
                   <>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => window.location.href = '/dashboard'}>
                       <Icon name="User" className="mr-2 h-4 w-4" />
                       Мой профиль
                     </DropdownMenuItem>
@@ -492,6 +539,53 @@ const Index = () => {
                 Создать аккаунт
               </Button>
               <Button variant="outline" onClick={() => setIsRegisterOpen(false)} className="flex-1">
+                Отмена
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Login Dialog */}
+      <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Войти в систему</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+              <Input
+                type="email"
+                placeholder="your@email.com"
+                value={loginData.email}
+                onChange={(e) => handleLoginInputChange('email', e.target.value)}
+                className={loginErrors.email ? "border-red-500 focus:border-red-500" : ""}
+              />
+              {loginErrors.email && (
+                <p className="text-red-500 text-xs mt-1">Пожалуйста, введите email</p>
+              )}
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Пароль</label>
+              <Input
+                type="password"
+                placeholder="Введите пароль"
+                value={loginData.password}
+                onChange={(e) => handleLoginInputChange('password', e.target.value)}
+                className={loginErrors.password ? "border-red-500 focus:border-red-500" : ""}
+              />
+              {loginErrors.password && (
+                <p className="text-red-500 text-xs mt-1">Пожалуйста, введите пароль</p>
+              )}
+            </div>
+            
+            <div className="flex gap-3 pt-4">
+              <Button onClick={handleLoginSubmit} className="flex-1">
+                Войти
+              </Button>
+              <Button variant="outline" onClick={() => setIsLoginOpen(false)} className="flex-1">
                 Отмена
               </Button>
             </div>
