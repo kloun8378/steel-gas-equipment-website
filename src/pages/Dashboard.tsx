@@ -208,18 +208,14 @@ const Dashboard = () => {
                   <p className="text-sm text-gray-400 mt-2">
                     Добавьте товары из каталога на главной странице
                   </p>
-                  <Button 
-                    variant="outline" 
-                    onClick={() => {
-                      window.location.href = '/';
-                      setTimeout(() => {
-                        window.location.hash = '#products';
-                      }, 500);
-                    }}
-                    className="mt-4"
-                  >
-                    Перейти к каталогу
-                  </Button>
+                  <a href="/#products">
+                    <Button 
+                      variant="outline" 
+                      className="mt-4 w-full"
+                    >
+                      Перейти к каталогу
+                    </Button>
+                  </a>
                 </div>
               ) : (
                 <div className="space-y-4">
