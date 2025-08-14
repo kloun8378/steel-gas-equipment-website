@@ -210,7 +210,12 @@ const Dashboard = () => {
                   </p>
                   <Button 
                     variant="outline" 
-                    onClick={() => window.location.href = '/#products'} 
+                    onClick={() => {
+                      window.location.href = '/';
+                      setTimeout(() => {
+                        window.location.hash = '#products';
+                      }, 500);
+                    }}
                     className="mt-4"
                   >
                     Перейти к каталогу
