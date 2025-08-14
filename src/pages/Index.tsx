@@ -32,11 +32,29 @@ const Index = () => {
     password: false
   });
 
+  // Функции для работы с базой пользователей
+  const getUsersDatabase = () => {
+    const users = localStorage.getItem('usersDatabase');
+    return users ? JSON.parse(users) : [];
+  };
+
+  const saveUserToDatabase = (email: string, password: string) => {
+    const users = getUsersDatabase();
+    const newUser = { email, password, registrationDate: new Date().toISOString() };
+    users.push(newUser);
+    localStorage.setItem('usersDatabase', JSON.stringify(users));
+  };
+
+  const findUserInDatabase = (email: string) => {
+    const users = getUsersDatabase();
+    return users.find((user: any) => user.email === email);
+  };
+
   // Проверяем сохраненные данные при загрузке страницы
   useEffect(() => {
-    const savedCredentials = localStorage.getItem('userCredentials');
-    if (savedCredentials) {
-      const { email, password } = JSON.parse(savedCredentials);
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const { email } = JSON.parse(currentUser);
       setIsLoggedIn(true);
       console.log('Пользователь автоматически вошел в систему:', email);
     }
@@ -51,13 +69,23 @@ const Index = () => {
     
     setErrors(newErrors);
     
-    // Если нет ошибок, выполняем регистрацию
+    // Если нет ошибок, проверяем регистрацию
     if (!Object.values(newErrors).some(error => error)) {
-      // Сохраняем данные в localStorage если установлен флаг "запомнить"
+      // Проверяем, не зарегистрирован ли уже такой email
+      const existingUser = findUserInDatabase(formData.email);
+      if (existingUser) {
+        alert('Пользователь с таким email уже зарегистрирован. Попробуйте войти в систему.');
+        return;
+      }
+
+      // Сохраняем пользователя в базу
+      saveUserToDatabase(formData.email, formData.password);
+      
+      // Сохраняем текущего пользователя если установлен флаг "запомнить"
       if (rememberMe) {
-        localStorage.setItem('userCredentials', JSON.stringify({
+        localStorage.setItem('currentUser', JSON.stringify({
           email: formData.email,
-          password: formData.password
+          loginDate: new Date().toISOString()
         }));
       }
       
@@ -70,9 +98,9 @@ const Index = () => {
   };
 
   const handleLogin = () => {
-    const savedCredentials = localStorage.getItem('userCredentials');
-    if (savedCredentials) {
-      const { email } = JSON.parse(savedCredentials);
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const { email } = JSON.parse(currentUser);
       setIsLoggedIn(true);
       console.log('Автоматический вход:', email);
       // Перенаправляем в личный кабинет
@@ -92,23 +120,41 @@ const Index = () => {
     setLoginErrors(newErrors);
     
     if (!Object.values(newErrors).some(error => error)) {
-      // Проверяем креденциалы
-      const savedCredentials = localStorage.getItem('userCredentials');
-      if (savedCredentials) {
-        const { email, password } = JSON.parse(savedCredentials);
-        if (loginData.email === email && loginData.password === password) {
-          setIsLoggedIn(true);
+      // Ищем пользователя в базе
+      const user = findUserInDatabase(loginData.email);
+      
+      if (!user) {
+        // Пользователь не найден, предлагаем регистрацию
+        if (confirm('Email не зарегистрирован. Хотите зарегистрироваться?')) {
           setIsLoginOpen(false);
-          setLoginData({ email: '', password: '' });
-          console.log('Успешный вход:', email);
-          // Перенаправляем в личный кабинет
-          window.location.href = '/dashboard';
-        } else {
-          alert('Неверный email или пароль');
+          setFormData({
+            email: loginData.email,
+            password: '',
+            confirmPassword: ''
+          });
+          setIsRegisterOpen(true);
         }
-      } else {
-        alert('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
+        return;
       }
+      
+      // Проверяем пароль
+      if (user.password !== loginData.password) {
+        alert('Неверный пароль');
+        return;
+      }
+      
+      // Успешный вход
+      localStorage.setItem('currentUser', JSON.stringify({
+        email: loginData.email,
+        loginDate: new Date().toISOString()
+      }));
+      
+      setIsLoggedIn(true);
+      setIsLoginOpen(false);
+      setLoginData({ email: '', password: '' });
+      console.log('Успешный вход:', loginData.email);
+      // Перенаправляем в личный кабинет
+      window.location.href = '/dashboard';
     }
   };
 
@@ -120,7 +166,7 @@ const Index = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('userCredentials');
+    localStorage.removeItem('currentUser');
     setIsLoggedIn(false);
     console.log('Выход из системы');
     // Переходим на главную страницу
