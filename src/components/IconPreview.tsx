@@ -39,13 +39,24 @@ export default function IconPreview() {
         {/* Новая заготовка */}
         <Card className="mt-8">
           <CardContent className="p-6">
-            <h2 className="text-xl font-semibold mb-4">Заготовка диаметром 60мм</h2>
-            <div className="flex justify-center mb-6">
-              <img 
-                src="/img/3e06d7e0-1a53-4a3c-899b-6572eaecf186.jpg" 
-                alt="Металлическая заготовка 60мм"
-                className="w-48 h-48 object-contain rounded-lg"
-              />
+            <h2 className="text-xl font-semibold mb-4">Металлические заготовки</h2>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center">
+                <img 
+                  src="/img/3e06d7e0-1a53-4a3c-899b-6572eaecf186.jpg" 
+                  alt="Металлическая заготовка 60мм"
+                  className="w-full h-40 object-contain rounded-lg mb-2"
+                />
+                <p className="text-sm font-medium">Диаметр 60мм</p>
+              </div>
+              <div className="text-center">
+                <img 
+                  src="/img/5202ca98-55b2-4cbd-9070-1d20d5e23bd3.jpg" 
+                  alt="Металлическая заготовка 80мм"
+                  className="w-full h-40 object-contain rounded-lg mb-2"
+                />
+                <p className="text-sm font-medium">Диаметр 80мм</p>
+              </div>
             </div>
           </CardContent>
         </Card>
