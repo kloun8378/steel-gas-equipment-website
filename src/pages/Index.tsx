@@ -144,33 +144,6 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Thermometer" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Датчики контроля</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Современные датчики для мониторинга параметров газовых систем</p>
-                <Badge>Умные</Badge>
-              </CardContent>
-            </Card>
-
-
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Wrench" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Запчасти</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Оригинальные запчасти и комплектующие для всего оборудования</p>
-                <Badge variant="secondary">В наличии</Badge>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
