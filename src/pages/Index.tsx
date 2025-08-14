@@ -46,10 +46,12 @@ const Index = () => {
                     <Icon name="Wrench" className="mr-2 h-5 w-5" />
                     Наша продукция
                   </Button>
-                  <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
-                    <Icon name="Phone" className="mr-2 h-5 w-5" />
-                    Консультация
-                  </Button>
+                  <a href="tel:+79609373542">
+                    <Button size="lg" className="bg-white text-primary hover:bg-white hover:text-primary border-0">
+                      <Icon name="Phone" className="mr-2 h-5 w-5" />
+                      Консультация
+                    </Button>
+                  </a>
                 </div>
               </div>
               <div className="relative">
