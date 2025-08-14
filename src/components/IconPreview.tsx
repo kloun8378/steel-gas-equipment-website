@@ -24,11 +24,11 @@ export default function IconPreview() {
           {/* Созданная иконка */}
           <Card>
             <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Улучшенная иконка</h2>
+              <h2 className="text-xl font-semibold mb-4">Точная иконка по описанию</h2>
               <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
-                  src="/img/c61de5d0-05cb-4a09-9a74-7378c8bffad9.jpg" 
-                  alt="Точная копия клапана"
+                  src="/img/eda5d83c-0948-4df7-996e-8756e7220b92.jpg" 
+                  alt="Круглая деталь с рисками, углублением и отверстиями"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
