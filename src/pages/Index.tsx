@@ -42,10 +42,12 @@ const Index = () => {
                   Надёжные решения для промышленности. Современные технологии, высокое качество, безопасность.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" variant="secondary" className="text-primary">
-                    <Icon name="Wrench" className="mr-2 h-5 w-5" />
-                    Наша продукция
-                  </Button>
+                  <a href="#products">
+                    <Button size="lg" className="bg-white text-primary hover:bg-white hover:text-primary border-0">
+                      <Icon name="Wrench" className="mr-2 h-5 w-5" />
+                      Наша продукция
+                    </Button>
+                  </a>
                   <a href="tel:+79609373542">
                     <Button size="lg" className="bg-white text-primary hover:bg-white hover:text-primary border-0">
                       <Icon name="Phone" className="mr-2 h-5 w-5" />
