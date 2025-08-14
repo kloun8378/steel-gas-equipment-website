@@ -210,15 +210,7 @@ const Dashboard = () => {
                   </p>
                   <Button 
                     variant="outline" 
-                    onClick={() => {
-                      window.location.href = '/';
-                      setTimeout(() => {
-                        const productsSection = document.getElementById('products');
-                        if (productsSection) {
-                          productsSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }, 100);
-                    }}
+                    onClick={() => window.location.href = '/#products'} 
                     className="mt-4"
                   >
                     Перейти к каталогу
