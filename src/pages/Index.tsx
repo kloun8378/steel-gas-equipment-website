@@ -6,10 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -20,6 +23,16 @@ const Index = () => {
     password: false,
     confirmPassword: false
   });
+
+  // Проверяем сохраненные данные при загрузке страницы
+  useEffect(() => {
+    const savedCredentials = localStorage.getItem('userCredentials');
+    if (savedCredentials) {
+      const { email, password } = JSON.parse(savedCredentials);
+      setIsLoggedIn(true);
+      console.log('Пользователь автоматически вошел в систему:', email);
+    }
+  }, []);
 
   const handleRegister = () => {
     const newErrors = {
@@ -32,11 +45,38 @@ const Index = () => {
     
     // Если нет ошибок, выполняем регистрацию
     if (!Object.values(newErrors).some(error => error)) {
-      // Здесь будет логика регистрации
-      console.log('Регистрация:', formData);
+      // Сохраняем данные в localStorage если установлен флаг "запомнить"
+      if (rememberMe) {
+        localStorage.setItem('userCredentials', JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        }));
+      }
+      
+      console.log('Регистрация успешна:', formData.email);
+      setIsLoggedIn(true);
       setIsRegisterOpen(false);
       setFormData({ email: '', password: '', confirmPassword: '' });
+      setRememberMe(false);
     }
+  };
+
+  const handleLogin = () => {
+    const savedCredentials = localStorage.getItem('userCredentials');
+    if (savedCredentials) {
+      const { email } = JSON.parse(savedCredentials);
+      setIsLoggedIn(true);
+      console.log('Автоматический вход:', email);
+    } else {
+      // Здесь можно добавить форму входа
+      console.log('Нет сохраненных данных для входа');
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userCredentials');
+    setIsLoggedIn(false);
+    console.log('Выход из системы');
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -71,14 +111,29 @@ const Index = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem>
-                  <Icon name="LogIn" className="mr-2 h-4 w-4" />
-                  Войти
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setIsRegisterOpen(true)}>
-                  <Icon name="UserPlus" className="mr-2 h-4 w-4" />
-                  Регистрация
-                </DropdownMenuItem>
+                {!isLoggedIn ? (
+                  <>
+                    <DropdownMenuItem onClick={handleLogin}>
+                      <Icon name="LogIn" className="mr-2 h-4 w-4" />
+                      Войти
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setIsRegisterOpen(true)}>
+                      <Icon name="UserPlus" className="mr-2 h-4 w-4" />
+                      Регистрация
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <>
+                    <DropdownMenuItem>
+                      <Icon name="User" className="mr-2 h-4 w-4" />
+                      Мой профиль
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleLogout}>
+                      <Icon name="LogOut" className="mr-2 h-4 w-4" />
+                      Выйти
+                    </DropdownMenuItem>
+                  </>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -419,6 +474,17 @@ const Index = () => {
                   {!formData.confirmPassword.trim() ? "Пожалуйста, подтвердите пароль" : "Пароли не совпадают"}
                 </p>
               )}
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="remember-me" 
+                checked={rememberMe}
+                onCheckedChange={setRememberMe}
+              />
+              <label htmlFor="remember-me" className="text-sm text-gray-700 cursor-pointer">
+                Запомнить логин и пароль
+              </label>
             </div>
             
             <div className="flex gap-3 pt-4">
