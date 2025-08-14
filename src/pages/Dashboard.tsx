@@ -210,7 +210,7 @@ const Dashboard = () => {
                   </p>
                   <Button 
                     variant="outline" 
-                    onClick={() => window.location.href = '/'} 
+                    onClick={() => window.location.href = '/#products'} 
                     className="mt-4"
                   >
                     Перейти к каталогу
