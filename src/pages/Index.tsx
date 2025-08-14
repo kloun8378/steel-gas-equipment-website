@@ -5,8 +5,47 @@ import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const Index = () => {
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [errors, setErrors] = useState({
+    email: false,
+    password: false,
+    confirmPassword: false
+  });
+
+  const handleRegister = () => {
+    const newErrors = {
+      email: !formData.email.trim(),
+      password: !formData.password.trim(),
+      confirmPassword: !formData.confirmPassword.trim() || formData.password !== formData.confirmPassword
+    };
+    
+    setErrors(newErrors);
+    
+    // Если нет ошибок, выполняем регистрацию
+    if (!Object.values(newErrors).some(error => error)) {
+      // Здесь будет логика регистрации
+      console.log('Регистрация:', formData);
+      setIsRegisterOpen(false);
+      setFormData({ email: '', password: '', confirmPassword: '' });
+    }
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    // Убираем ошибку при начале ввода
+    if (errors[field as keyof typeof errors]) {
+      setErrors(prev => ({ ...prev, [field]: false }));
+    }
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -36,7 +75,7 @@ const Index = () => {
                   <Icon name="LogIn" className="mr-2 h-4 w-4" />
                   Войти
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setIsRegisterOpen(true)}>
                   <Icon name="UserPlus" className="mr-2 h-4 w-4" />
                   Регистрация
                 </DropdownMenuItem>
@@ -330,6 +369,69 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Registration Dialog */}
+      <Dialog open={isRegisterOpen} onOpenChange={setIsRegisterOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Создать учетную запись</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+              <Input
+                type="email"
+                placeholder="your@email.com"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                className={errors.email ? "border-red-500 focus:border-red-500" : ""}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">Пожалуйста, введите email</p>
+              )}
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Пароль</label>
+              <Input
+                type="password"
+                placeholder="Введите пароль"
+                value={formData.password}
+                onChange={(e) => handleInputChange('password', e.target.value)}
+                className={errors.password ? "border-red-500 focus:border-red-500" : ""}
+              />
+              {errors.password && (
+                <p className="text-red-500 text-xs mt-1">Пожалуйста, введите пароль</p>
+              )}
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Подтверждение пароля</label>
+              <Input
+                type="password"
+                placeholder="Повторите пароль"
+                value={formData.confirmPassword}
+                onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
+                className={errors.confirmPassword ? "border-red-500 focus:border-red-500" : ""}
+              />
+              {errors.confirmPassword && (
+                <p className="text-red-500 text-xs mt-1">
+                  {!formData.confirmPassword.trim() ? "Пожалуйста, подтвердите пароль" : "Пароли не совпадают"}
+                </p>
+              )}
+            </div>
+            
+            <div className="flex gap-3 pt-4">
+              <Button onClick={handleRegister} className="flex-1">
+                Создать аккаунт
+              </Button>
+              <Button variant="outline" onClick={() => setIsRegisterOpen(false)} className="flex-1">
+                Отмена
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
