@@ -10,6 +10,7 @@ import SafetyValve from "./pages/SafetyValve";
 import Components from "./pages/Components";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import IconPreview from "./components/IconPreview";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<IconPreview />} />
           <Route path="/speed-valve" element={<SpeedValve />} />
           <Route path="/safety-valve" element={<SafetyValve />} />
           <Route path="/components" element={<Components />} />
