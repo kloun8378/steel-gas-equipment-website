@@ -24,11 +24,11 @@ export default function IconPreview() {
           {/* Созданная иконка */}
           <Card>
             <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Созданная иконка</h2>
+              <h2 className="text-xl font-semibold mb-4">Улучшенная иконка</h2>
               <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
-                  src="/img/13d7cd45-f810-4d63-80be-afab424ce2c8.jpg" 
-                  alt="Иконка клапана"
+                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
+                  alt="Улучшенная иконка клапана"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
@@ -43,7 +43,7 @@ export default function IconPreview() {
             <div className="flex items-center space-x-8">
               <div className="text-center">
                 <img 
-                  src="/img/13d7cd45-f810-4d63-80be-afab424ce2c8.jpg" 
+                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
                   alt="16px"
                   className="w-4 h-4 mx-auto mb-2"
                 />
@@ -51,7 +51,7 @@ export default function IconPreview() {
               </div>
               <div className="text-center">
                 <img 
-                  src="/img/13d7cd45-f810-4d63-80be-afab424ce2c8.jpg" 
+                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
                   alt="24px"
                   className="w-6 h-6 mx-auto mb-2"
                 />
@@ -59,7 +59,7 @@ export default function IconPreview() {
               </div>
               <div className="text-center">
                 <img 
-                  src="/img/13d7cd45-f810-4d63-80be-afab424ce2c8.jpg" 
+                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
                   alt="32px"
                   className="w-8 h-8 mx-auto mb-2"
                 />
@@ -67,7 +67,7 @@ export default function IconPreview() {
               </div>
               <div className="text-center">
                 <img 
-                  src="/img/13d7cd45-f810-4d63-80be-afab424ce2c8.jpg" 
+                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
                   alt="48px"
                   className="w-12 h-12 mx-auto mb-2"
                 />
@@ -75,7 +75,7 @@ export default function IconPreview() {
               </div>
               <div className="text-center">
                 <img 
-                  src="/img/13d7cd45-f810-4d63-80be-afab424ce2c8.jpg" 
+                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
                   alt="64px"
                   className="w-16 h-16 mx-auto mb-2"
                 />
