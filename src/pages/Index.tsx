@@ -48,13 +48,15 @@ const Index = () => {
                       Наша продукция
                     </Button>
                   </a>
-                  <a href="tel:+79609373542">
-                    <Button size="lg" className="bg-white text-primary hover:bg-white hover:text-primary border-0 group">
-                      <Icon name="Phone" className="mr-2 h-5 w-5" />
-                      <span className="md:group-hover:hidden">Консультация</span>
-                      <span className="hidden md:group-hover:inline">+7 960 937-35-42</span>
-                    </Button>
-                  </a>
+                  <div className="inline-block">
+                    <a href="tel:+79609373542" className="md:pointer-events-none">
+                      <Button size="lg" className="bg-white text-primary hover:bg-white hover:text-primary border-0 group">
+                        <Icon name="Phone" className="mr-2 h-5 w-5" />
+                        <span className="md:group-hover:hidden">Консультация</span>
+                        <span className="hidden md:group-hover:inline">+7 960 937-35-42</span>
+                      </Button>
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="relative">
