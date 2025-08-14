@@ -145,39 +145,35 @@ export default function SafetyValve() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 md:px-6 mt-16">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Icon name="ShieldCheck" className="h-6 w-6" />
-                <span className="font-bold text-lg">СтальПро</span>
+              <div className="flex items-center mb-4">
+                <Icon name="Factory" className="h-8 w-8 text-primary mr-3" />
+                <h5 className="text-xl font-bold">СтальПро</h5>
               </div>
-              <p className="text-gray-400 text-sm">
-                Надежные клапанные решения для промышленности
-              </p>
+              <p className="text-gray-400">Надёжные решения промышленного газового оборудования для вашего бизнеса.</p>
             </div>
-            
             <div>
-              <h3 className="font-semibold mb-4">Контакты</h3>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>+7 960 937-35-42</p>
-                <p>info@стальпро.ru</p>
-                <p>г. Москва, ул. Промышленная, 1</p>
-              </div>
+              <h6 className="font-semibold mb-4">Продукция</h6>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
+                <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
+                <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
+              </ul>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold mb-4">Продукция</h3>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>Предохранительные клапаны</p>
-                <p>Скоростные клапаны</p>
-                <p>Регулирующая арматура</p>
-              </div>
+              <h6 className="font-semibold mb-4">Контакты</h6>
+              <ul className="space-y-2 text-gray-400">
+                <li>Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</li>
+                <li>+7 960 937-35-42, +7 960 950-59-04</li>
+                <li>sadoxa1996@mail.ru</li>
+              </ul>
             </div>
           </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-400">
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 СтальПро. Все права защищены.</p>
           </div>
         </div>
