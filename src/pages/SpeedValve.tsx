@@ -62,7 +62,11 @@ export default function SpeedValve() {
               <Card>
                 <CardContent className="p-6">
                   <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                    <Icon name="Settings" className="h-24 w-24 text-gray-400" />
+                    <img 
+                      src="/img/70147842-87f4-40cf-97b7-d798329eed19.jpg" 
+                      alt="Скоростной межфланцевый клапан ДУ 25"
+                      className="w-full h-full object-contain rounded-lg"
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -93,7 +97,7 @@ export default function SpeedValve() {
                     <div>
                       <h3 className="font-semibold mb-2">Технические характеристики:</h3>
                       <div className="grid grid-cols-2 gap-2 text-sm">
-                        <div>Диаметр: DN 50-300</div>
+                        <div>Диаметр: DN 25</div>
                         <div>Давление: PN 16-40</div>
                         <div>Температура: -20°C до +180°C</div>
                         <div>Материал: Нержавеющая сталь</div>
