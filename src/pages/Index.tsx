@@ -252,7 +252,7 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="font-medium">Телефон</p>
-                    <p className="text-gray-600">+7 (495) 123-45-67</p>
+                    <p className="text-gray-600">+7 960 937-35-42, +7 960 950-59-04</p>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -337,7 +337,7 @@ const Index = () => {
               <h6 className="font-semibold mb-4">Контакты</h6>
               <ul className="space-y-2 text-gray-400">
                 <li>Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</li>
-                <li>+7 (495) 123-45-67</li>
+                <li>+7 960 937-35-42, +7 960 950-59-04</li>
                 <li>info@stalpro.ru</li>
               </ul>
             </div>
