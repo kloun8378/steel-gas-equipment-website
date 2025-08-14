@@ -280,10 +280,9 @@ const Index = () => {
             <div>
               <h6 className="font-semibold mb-4">Продукция</h6>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Газовые редукторы</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Горелки</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Арматура</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Автоматика</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Скоростной клапан</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Комплектующие</a></li>
               </ul>
             </div>
 
