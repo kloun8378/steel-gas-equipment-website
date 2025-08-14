@@ -170,12 +170,12 @@ const Dashboard = () => {
               </div>
               
               <div>
-                <Label htmlFor="company-description">Описание деятельности</Label>
+                <Label htmlFor="company-description">Адрес доставки</Label>
                 <Textarea
                   id="company-description"
                   value={companyData.description}
                   onChange={(e) => handleCompanyDataChange('description', e.target.value)}
-                  placeholder="Краткое описание деятельности предприятия"
+                  placeholder="Адрес для доставки заказов"
                   rows={3}
                 />
               </div>
