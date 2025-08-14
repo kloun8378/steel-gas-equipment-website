@@ -58,6 +58,29 @@ const Index = () => {
       setIsLoggedIn(true);
       console.log('Пользователь автоматически вошел в систему:', email);
     }
+
+    // Обработка якорных ссылок
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#products') {
+        setTimeout(() => {
+          const element = document.getElementById('products');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    };
+
+    // Проверяем hash при загрузке страницы
+    handleHashChange();
+
+    // Слушаем изменения hash
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const handleRegister = () => {
