@@ -108,39 +108,39 @@ const Index = () => {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Gauge" className="h-6 w-6 text-primary" />
+                  <Icon name="Zap" className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>Газовые редукторы</CardTitle>
+                <CardTitle>Скоростной клапан</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Высокоточные редукторы для контроля давления газа в промышленных системах</p>
-                <Badge>Новинка</Badge>
+                <p className="text-gray-600 mb-4">Быстрозакрывающиеся клапаны для аварийного отключения газопроводов</p>
+                <Badge>Безопасность</Badge>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Flame" className="h-6 w-6 text-primary" />
+                  <Icon name="ShieldCheck" className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>Газовые горелки</CardTitle>
+                <CardTitle>Предохранительный клапан</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Эффективные горелки для промышленных печей и нагревательного оборудования</p>
-                <Badge variant="secondary">Популярно</Badge>
+                <p className="text-gray-600 mb-4">Автоматические клапаны для защиты от превышения давления в системах</p>
+                <Badge variant="secondary">Надёжность</Badge>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Pipe" className="h-6 w-6 text-primary" />
+                  <Icon name="Package" className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>Трубопроводная арматура</CardTitle>
+                <CardTitle>Комплектующие</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Запорная и регулирующая арматура для газовых магистралей</p>
-                <Badge variant="outline">Сертифицировано</Badge>
+                <p className="text-gray-600 mb-4">Широкий ассортимент деталей и компонентов для газового оборудования</p>
+                <Badge variant="outline">В наличии</Badge>
               </CardContent>
             </Card>
 
@@ -157,18 +157,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Settings" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Автоматика</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Системы автоматического управления газовым оборудованием</p>
-                <Badge>Инновация</Badge>
-              </CardContent>
-            </Card>
+
 
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
