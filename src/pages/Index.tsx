@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   return (
@@ -22,9 +23,25 @@ const Index = () => {
               <a href="#certificates" className="text-gray-700 hover:text-primary transition-colors">Сертификаты</a>
               <a href="#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
             </div>
-            <Button className="hidden md:inline-flex">
-              Связаться с нами
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="hidden md:inline-flex">
+                  <Icon name="User" className="mr-2 h-4 w-4" />
+                  Личный кабинет
+                  <Icon name="ChevronDown" className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem>
+                  <Icon name="LogIn" className="mr-2 h-4 w-4" />
+                  Войти
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Icon name="UserPlus" className="mr-2 h-4 w-4" />
+                  Регистрация
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </nav>
       </header>
