@@ -125,7 +125,7 @@ const Dashboard = () => {
                   id="company-name"
                   value={companyData.name}
                   onChange={(e) => handleCompanyDataChange('name', e.target.value)}
-                  placeholder="ООО \"Ваша компания\""
+                  placeholder="ООО 'Ваша компания'"
                 />
               </div>
               
