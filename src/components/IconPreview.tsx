@@ -27,8 +27,8 @@ export default function IconPreview() {
               <h2 className="text-xl font-semibold mb-4">Улучшенная иконка</h2>
               <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
-                  src="/img/fabce04a-ae80-444f-99a8-d04e0c99c38b.jpg" 
-                  alt="Улучшенная иконка клапана"
+                  src="/img/c61de5d0-05cb-4a09-9a74-7378c8bffad9.jpg" 
+                  alt="Точная копия клапана"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
