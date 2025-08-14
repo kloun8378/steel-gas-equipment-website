@@ -51,11 +51,12 @@ export default function IconPreview() {
               </div>
               <div className="text-center">
                 <img 
-                  src="/img/5202ca98-55b2-4cbd-9070-1d20d5e23bd3.jpg" 
-                  alt="Металлическая заготовка 80мм"
+                  src="/img/3cf7f629-bc93-4dc0-952b-f9bf88ceacc5.jpg" 
+                  alt="Заготовка 80мм с рисками"
                   className="w-full h-40 object-contain rounded-lg mb-2"
                 />
-                <p className="text-sm font-medium">Диаметр 80мм</p>
+                <p className="text-sm font-medium">Диаметр 80мм с рисками</p>
+                <p className="text-xs text-gray-500">9 рисок глубиной 0.5мм, шаг 2мм</p>
               </div>
             </div>
           </CardContent>
