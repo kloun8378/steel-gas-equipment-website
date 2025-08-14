@@ -286,15 +286,7 @@ const Index = () => {
                 <li><a href="#" className="hover:text-white transition-colors">Автоматика</a></li>
               </ul>
             </div>
-            <div>
-              <h6 className="font-semibold mb-4">Услуги</h6>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Консультация</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Монтаж</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Обслуживание</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Запчасти</a></li>
-              </ul>
-            </div>
+
             <div>
               <h6 className="font-semibold mb-4">Контакты</h6>
               <ul className="space-y-2 text-gray-400">
