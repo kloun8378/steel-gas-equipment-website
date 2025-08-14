@@ -1,227 +1,265 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Icon from '@/components/ui/icon';
-import { useEffect, useState } from 'react';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import Icon from "@/components/ui/icon";
 
-export default function Dashboard() {
-  const [user, setUser] = useState<{email: string} | null>(null);
+const Dashboard = () => {
+  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [companyData, setCompanyData] = useState({
+    name: '',
+    inn: '',
+    address: '',
+    phone: '',
+    email: '',
+    description: ''
+  });
+  const [cart, setCart] = useState<any[]>([]);
 
   useEffect(() => {
-    // Проверяем авторизацию пользователя
-    const savedCredentials = localStorage.getItem('userCredentials');
-    if (savedCredentials) {
-      const { email } = JSON.parse(savedCredentials);
-      setUser({ email });
+    // Получаем данные текущего пользователя
+    const userData = localStorage.getItem('currentUser');
+    if (userData) {
+      const user = JSON.parse(userData);
+      setCurrentUser(user);
+      
+      // Загружаем данные компании для этого пользователя
+      const companyInfo = localStorage.getItem(`company_${user.email}`);
+      if (companyInfo) {
+        setCompanyData(JSON.parse(companyInfo));
+      }
+      
+      // Загружаем корзину для этого пользователя
+      const userCart = localStorage.getItem(`cart_${user.email}`);
+      if (userCart) {
+        setCart(JSON.parse(userCart));
+      }
     } else {
       // Если пользователь не авторизован, перенаправляем на главную
       window.location.href = '/';
     }
   }, []);
 
+  const handleCompanyDataChange = (field: string, value: string) => {
+    setCompanyData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const saveCompanyData = () => {
+    if (currentUser) {
+      localStorage.setItem(`company_${currentUser.email}`, JSON.stringify(companyData));
+      alert('Данные предприятия сохранены!');
+    }
+  };
+
   const handleLogout = () => {
-    localStorage.removeItem('userCredentials');
+    localStorage.removeItem('currentUser');
     window.location.href = '/';
   };
 
-  if (!user) {
+  const removeFromCart = (index: number) => {
+    const newCart = cart.filter((_, i) => i !== index);
+    setCart(newCart);
+    if (currentUser) {
+      localStorage.setItem(`cart_${currentUser.email}`, JSON.stringify(newCart));
+    }
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+
+  if (!currentUser) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="text-center">
           <Icon name="Loader2" className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p>Загрузка...</p>
+          <p className="text-gray-600 mb-4">Загрузка...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="bg-primary text-white py-4 px-4 md:px-6">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Icon name="User" className="h-8 w-8" />
-            <div>
-              <h1 className="text-xl md:text-2xl font-bold">СтальПро</h1>
-              <p className="text-sm opacity-90">Личный кабинет</p>
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center">
+              <Icon name="Factory" className="h-8 w-8 text-primary mr-3" />
+              <h1 className="text-2xl font-bold text-gray-900">СтальПро - Личный кабинет</h1>
             </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="/" className="hover:text-gray-200 transition-colors text-sm">
-              На главную
-            </a>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={handleLogout}
-              className="text-white border-white hover:bg-white hover:text-primary"
-            >
-              <Icon name="LogOut" className="mr-2 h-4 w-4" />
-              Выйти
-            </Button>
+            <div className="flex items-center gap-4">
+              <span className="text-gray-600">Добро пожаловать, {currentUser.email}</span>
+              <Button variant="outline" onClick={() => window.location.href = '/'}>
+                <Icon name="Home" className="mr-2 h-4 w-4" />
+                На главную
+              </Button>
+              <Button variant="outline" onClick={handleLogout}>
+                <Icon name="LogOut" className="mr-2 h-4 w-4" />
+                Выйти
+              </Button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 md:px-6 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Welcome Section */}
-          <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              Добро пожаловать!
-            </h1>
-            <p className="text-lg text-gray-600">
-              Добро пожаловать в ваш личный кабинет, <span className="font-semibold">{user.email}</span>
-            </p>
-          </div>
-
-          {/* Dashboard Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {/* Profile Card */}
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="User" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Мой профиль</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Управление личными данными и настройками аккаунта</p>
-                <Button size="sm" className="w-full">Редактировать профиль</Button>
-              </CardContent>
-            </Card>
-
-            {/* Orders Card */}
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="ShoppingCart" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Мои заказы</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">История заказов и текущий статус доставки</p>
-                <Button size="sm" variant="outline" className="w-full">Посмотреть заказы</Button>
-              </CardContent>
-            </Card>
-
-            {/* Support Card */}
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Phone" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Поддержка</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Техническая поддержка и консультации по продукции</p>
-                <Button size="sm" variant="outline" className="w-full">Связаться</Button>
-              </CardContent>
-            </Card>
-
-            {/* Catalog Card */}
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="FileText" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Каталоги</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Скачать каталоги продукции и технические характеристики</p>
-                <Button size="sm" variant="outline" className="w-full">Скачать</Button>
-              </CardContent>
-            </Card>
-
-            {/* Settings Card */}
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Settings" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Настройки</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Настройки уведомлений и конфиденциальности</p>
-                <Button size="sm" variant="outline" className="w-full">Настроить</Button>
-              </CardContent>
-            </Card>
-
-            {/* Products Card */}
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Icon name="Package" className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Продукция</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Просмотр полного каталога наших клапанов и комплектующих</p>
-                <Button size="sm" variant="outline" className="w-full">Каталог</Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="bg-white rounded-lg p-6">
-            <h2 className="text-xl font-bold mb-4">Быстрые действия</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Button className="flex items-center justify-center">
-                <Icon name="Plus" className="mr-2 h-4 w-4" />
-                Новый заказ
-              </Button>
-              <Button variant="outline" className="flex items-center justify-center">
-                <Icon name="Download" className="mr-2 h-4 w-4" />
-                Скачать прайс
-              </Button>
-              <Button variant="outline" className="flex items-center justify-center">
-                <Icon name="MessageSquare" className="mr-2 h-4 w-4" />
-                Задать вопрос
-              </Button>
-              <Button variant="outline" className="flex items-center justify-center">
-                <Icon name="Calculator" className="mr-2 h-4 w-4" />
-                Калькулятор
-              </Button>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center mb-4">
-                <Icon name="Factory" className="h-8 w-8 text-primary mr-3" />
-                <h5 className="text-xl font-bold">СтальПро</h5>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Карточка предприятия */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Icon name="Building2" className="mr-2 h-5 w-5" />
+                Карточка предприятия
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <Label htmlFor="company-name">Название предприятия</Label>
+                <Input
+                  id="company-name"
+                  value={companyData.name}
+                  onChange={(e) => handleCompanyDataChange('name', e.target.value)}
+                  placeholder="ООО \"Ваша компания\""
+                />
               </div>
-              <p className="text-gray-400">Надёжные решения промышленного газового оборудования для вашего бизнеса.</p>
-            </div>
-            <div>
-              <h6 className="font-semibold mb-4">Продукция</h6>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
-                <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
-                <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
-              </ul>
-            </div>
+              
+              <div>
+                <Label htmlFor="company-inn">ИНН</Label>
+                <Input
+                  id="company-inn"
+                  value={companyData.inn}
+                  onChange={(e) => handleCompanyDataChange('inn', e.target.value)}
+                  placeholder="1234567890"
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="company-address">Адрес</Label>
+                <Input
+                  id="company-address"
+                  value={companyData.address}
+                  onChange={(e) => handleCompanyDataChange('address', e.target.value)}
+                  placeholder="г. Барнаул, ул. Примерная 1"
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="company-phone">Телефон</Label>
+                <Input
+                  id="company-phone"
+                  value={companyData.phone}
+                  onChange={(e) => handleCompanyDataChange('phone', e.target.value)}
+                  placeholder="+7 (999) 123-45-67"
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="company-email">Email</Label>
+                <Input
+                  id="company-email"
+                  value={companyData.email}
+                  onChange={(e) => handleCompanyDataChange('email', e.target.value)}
+                  placeholder="company@example.com"
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="company-description">Описание деятельности</Label>
+                <Textarea
+                  id="company-description"
+                  value={companyData.description}
+                  onChange={(e) => handleCompanyDataChange('description', e.target.value)}
+                  placeholder="Краткое описание деятельности предприятия"
+                  rows={3}
+                />
+              </div>
+              
+              <Button onClick={saveCompanyData} className="w-full">
+                <Icon name="Save" className="mr-2 h-4 w-4" />
+                Сохранить данные
+              </Button>
+            </CardContent>
+          </Card>
 
-            <div>
-              <h6 className="font-semibold mb-4">Контакты</h6>
-              <ul className="space-y-2 text-gray-400">
-                <li>Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</li>
-                <li>+7 960 937-35-42, +7 960 950-59-04</li>
-                <li>sadoxa1996@mail.ru</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 СтальПро. Все права защищены.</p>
-          </div>
+          {/* Моя корзина */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
+                  Моя корзина
+                </div>
+                <span className="text-sm font-normal text-gray-500">
+                  {cart.length} {cart.length === 1 ? 'товар' : cart.length < 5 ? 'товара' : 'товаров'}
+                </span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {cart.length === 0 ? (
+                <div className="text-center py-8">
+                  <Icon name="ShoppingCart" className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500">Корзина пуста</p>
+                  <p className="text-sm text-gray-400 mt-2">
+                    Добавьте товары из каталога на главной странице
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    onClick={() => window.location.href = '/'} 
+                    className="mt-4"
+                  >
+                    Перейти к каталогу
+                  </Button>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {cart.map((item, index) => (
+                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                      <div className="flex-1">
+                        <h4 className="font-medium">{item.name}</h4>
+                        <p className="text-sm text-gray-500">{item.description}</p>
+                        <div className="flex items-center mt-2">
+                          <span className="text-sm">Количество: {item.quantity}</span>
+                          <span className="ml-4 font-medium">
+                            {(item.price * item.quantity).toLocaleString()} ₽
+                          </span>
+                        </div>
+                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => removeFromCart(index)}
+                        className="ml-4"
+                      >
+                        <Icon name="Trash2" className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ))}
+                  
+                  <div className="border-t pt-4">
+                    <div className="flex justify-between items-center font-bold text-lg">
+                      <span>Итого:</span>
+                      <span>{getTotalPrice().toLocaleString()} ₽</span>
+                    </div>
+                    <Button className="w-full mt-4">
+                      <Icon name="Send" className="mr-2 h-4 w-4" />
+                      Оформить заказ
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+          
         </div>
-      </footer>
+      </div>
     </div>
   );
-}
+};
+
+export default Dashboard;
