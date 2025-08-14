@@ -118,7 +118,7 @@ const Index = () => {
             <p className="text-xl text-gray-600">Полный спектр промышленного газового оборудования</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/speed-valve'}>
               <CardHeader>
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                   <Icon name="Zap" className="h-6 w-6 text-primary" />
