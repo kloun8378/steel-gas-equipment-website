@@ -54,7 +54,7 @@ export default function ContactForm() {
             </div>
           </div>
           <div>
-            <h4 className="text-2xl font-semibold mb-6">Оставьте заявку</h4>
+            <h4 className="text-2xl font-semibold mb-6">Задать вопрос</h4>
             <form className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Имя</label>
