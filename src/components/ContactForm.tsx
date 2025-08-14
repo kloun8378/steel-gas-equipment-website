@@ -70,7 +70,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Сообщение</label>
-                <Textarea placeholder="Расскажите о вашем проекте..." rows={4} />
+                <Textarea placeholder="" rows={4} />
               </div>
               <Button className="w-full" size="lg">
                 <Icon name="Send" className="mr-2 h-5 w-5" />
