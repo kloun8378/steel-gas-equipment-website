@@ -36,6 +36,20 @@ export default function IconPreview() {
           </Card>
         </div>
 
+        {/* Новая заготовка */}
+        <Card className="mt-8">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold mb-4">Заготовка диаметром 60мм</h2>
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/img/3e06d7e0-1a53-4a3c-899b-6572eaecf186.jpg" 
+                alt="Металлическая заготовка 60мм"
+                className="w-48 h-48 object-contain rounded-lg"
+              />
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Варианты использования */}
         <Card className="mt-8">
           <CardContent className="p-6">
