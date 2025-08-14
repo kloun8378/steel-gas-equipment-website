@@ -123,6 +123,8 @@ const Index = () => {
     localStorage.removeItem('userCredentials');
     setIsLoggedIn(false);
     console.log('Выход из системы');
+    // Переходим на главную страницу
+    window.location.href = '/';
   };
 
   const handleInputChange = (field: string, value: string) => {
