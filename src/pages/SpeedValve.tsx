@@ -11,7 +11,7 @@ export default function SpeedValve() {
           <div className="flex items-center space-x-2">
             <Icon name="Zap" className="h-8 w-8" />
             <div>
-              <h1 className="text-xl md:text-2xl font-bold">СТАРТКЛАПАН</h1>
+              <h1 className="text-xl md:text-2xl font-bold">СтальПро</h1>
               <p className="text-sm opacity-90">Клапанные технологии</p>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function SpeedValve() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Icon name="Zap" className="h-6 w-6" />
-                <span className="font-bold text-lg">СТАРТКЛАПАН</span>
+                <span className="font-bold text-lg">СтальПро</span>
               </div>
               <p className="text-gray-400 text-sm">
                 Надежные клапанные решения для промышленности
@@ -152,7 +152,7 @@ export default function SpeedValve() {
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-400">
-            <p>&copy; 2024 СТАРТКЛАПАН. Все права защищены.</p>
+            <p>&copy; 2024 СтальПро. Все права защищены.</p>
           </div>
         </div>
       </footer>
