@@ -16,17 +16,38 @@ export default function SpeedValve() {
     description: string;
     quantity: number;
   }) => {
-    const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const existingItem = existingCart.find((item: any) => item.id === product.id);
-    
-    if (existingItem) {
-      existingItem.quantity += product.quantity;
-    } else {
-      existingCart.push(product);
+    try {
+      const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const existingItem = existingCart.find((item: any) => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity += product.quantity;
+      } else {
+        existingCart.push(product);
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(existingCart));
+      
+      // Показываем уведомление
+      const notification = document.createElement('div');
+      notification.innerHTML = `
+        <div style="position: fixed; top: 20px; right: 20px; background: #22c55e; color: white; padding: 12px 16px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000; font-size: 14px;">
+          ✅ ${product.name} добавлен в корзину (${product.quantity} шт.)
+        </div>
+      `;
+      document.body.appendChild(notification);
+      
+      // Убираем уведомление через 3 секунды
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 3000);
+      
+    } catch (error) {
+      console.error('Ошибка при добавлении в корзину:', error);
+      alert('Ошибка при добавлении товара в корзину');
     }
-    
-    localStorage.setItem('cart', JSON.stringify(existingCart));
-    alert(`${product.name} добавлен в корзину (${product.quantity} шт.)`);
   };
   return (
     <div className="min-h-screen bg-gray-50">
@@ -127,14 +148,17 @@ export default function SpeedValve() {
                   <Button 
                     size="sm" 
                     className="w-full text-xs"
-                    onClick={() => addToCart({
-                      id: 'speed-valve-du25',
-                      name: 'Скоростной клапан межфланцевый ДУ25',
-                      price: 5500,
-                      image: 'https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png',
-                      description: 'Компактный быстродействующий клапан для малых диаметров трубопроводов',
-                      quantity: quantity25
-                    })}
+                    onClick={() => {
+                      console.log('Кнопка нажата, quantity25:', quantity25);
+                      addToCart({
+                        id: 'speed-valve-du25',
+                        name: 'Скоростной клапан межфланцевый ДУ25',
+                        price: 5500,
+                        image: 'https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png',
+                        description: 'Компактный быстродействующий клапан для малых диаметров трубопроводов',
+                        quantity: quantity25
+                      });
+                    }}
                   >
                     <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
                     Заказать
@@ -200,14 +224,17 @@ export default function SpeedValve() {
                   <Button 
                     size="sm" 
                     className="w-full text-xs"
-                    onClick={() => addToCart({
-                      id: 'speed-valve-du32',
-                      name: 'Скоростной клапан межфланцевый ДУ32',
-                      price: 6100,
-                      image: 'https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg',
-                      description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
-                      quantity: quantity32
-                    })}
+                    onClick={() => {
+                      console.log('Кнопка ДУ32 нажата, quantity32:', quantity32);
+                      addToCart({
+                        id: 'speed-valve-du32',
+                        name: 'Скоростной клапан межфланцевый ДУ32',
+                        price: 6100,
+                        image: 'https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg',
+                        description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
+                        quantity: quantity32
+                      });
+                    }}
                   >
                     <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
                     Заказать
