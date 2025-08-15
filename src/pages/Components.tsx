@@ -19,7 +19,7 @@ export default function Components() {
           <nav className="hidden md:flex space-x-6 text-sm">
             <a href="/" className="hover:text-gray-200 transition-colors">Главная</a>
             <a href="/#products" className="text-white font-medium">Продукция</a>
-            <a href="#" className="hover:text-gray-200 transition-colors">Контакты</a>
+            <a href="/#contacts" className="hover:text-gray-200 transition-colors">Контакты</a>
           </nav>
         </div>
       </header>
