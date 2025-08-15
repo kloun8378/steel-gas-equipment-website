@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
 
 export default function Components() {
@@ -50,14 +51,38 @@ export default function Components() {
               {/* Пружина */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
-                  <div className="bg-white p-6 rounded-lg mb-4 border">
-                    <img 
-                      src="https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg" 
-                      alt="Пружина ППЦЗ-12"
-                      className="w-full h-48 object-contain bg-white rounded"
-                      style={{backgroundColor: '#ffffff'}}
-                    />
-                  </div>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
+                        <img 
+                          src="https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg" 
+                          alt="Пружина ППЦЗ-12"
+                          className="w-full h-48 object-contain bg-white rounded"
+                          style={{backgroundColor: '#ffffff'}}
+                        />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-80 p-0">
+                      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-gray-50 p-4 border-b">
+                          <h3 className="text-lg font-bold text-gray-900">Пружина ППЦЗ-12</h3>
+                        </div>
+                        <div className="p-4 space-y-3 text-sm">
+                          <p className="text-gray-700">
+                            Пружина предохранительного клапана применяется в клапане ППЦЗ-12.
+                          </p>
+                          <p className="text-gray-700">
+                            Служит для замены пружины в старом клапане, которая потеряла свои свойства.
+                          </p>
+                          <div className="border-t pt-3 mt-3">
+                            <div className="text-lg font-bold text-primary">
+                              2 700 ₽ <span className="text-sm text-gray-500">с НДС</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
                   <CardTitle className="text-xl">Пружина ППЦЗ-12</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
