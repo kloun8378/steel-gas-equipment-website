@@ -44,6 +44,43 @@ export default function Components() {
             </p>
           </div>
 
+          {/* Product Card */}
+          <div className="mb-12">
+            <Card className="max-w-md mx-auto hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <div className="bg-white p-6 rounded-lg mb-4">
+                  <img 
+                    src="https://cdn.poehali.dev/files/7e62030a-1278-4905-89db-0cdf279ba00b.jpg" 
+                    alt="Пружина ППЦЗ-12"
+                    className="w-full h-48 object-contain"
+                  />
+                </div>
+                <CardTitle className="text-xl">Пружина ППЦЗ-12</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <div className="mb-6">
+                  <p className="text-2xl font-bold text-primary mb-2">2 700 ₽</p>
+                  <p className="text-sm text-gray-600">с НДС</p>
+                </div>
+                
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <label className="text-sm font-medium">Количество:</label>
+                  <input 
+                    type="number" 
+                    min="1" 
+                    defaultValue="1"
+                    className="w-16 px-2 py-1 border rounded text-center"
+                  />
+                </div>
+                
+                <Button className="w-full" size="lg">
+                  <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
+                  Заказать
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
 
         </div>
       </main>
