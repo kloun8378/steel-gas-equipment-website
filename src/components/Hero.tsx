@@ -1,7 +1,23 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 
 export default function Hero() {
+  const [showPhone, setShowPhone] = useState(false);
+
+  const handleConsultationClick = () => {
+    // Проверяем, мобильное ли устройство
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // На мобильном - звонок
+      window.location.href = "tel:+79609373542";
+    } else {
+      // На ПК - показать номер
+      setShowPhone(true);
+      setTimeout(() => setShowPhone(false), 3000); // Скрыть через 3 секунды
+    }
+  };
   return (
     <section id="home" className="relative overflow-hidden">
       <div className="bg-gradient-to-br from-primary to-primary/80 text-white">
@@ -28,13 +44,23 @@ export default function Hero() {
                   <Icon name="Package" className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Наша продукция
                 </Button>
-                <a href="tel:+79609373542" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full bg-white text-primary hover:bg-white hover:text-primary border-0">
+                <div className="w-full sm:w-auto relative">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-white text-primary hover:bg-white hover:text-primary border-0"
+                    onClick={handleConsultationClick}
+                  >
                     <Icon name="Phone" className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                     <span className="sm:hidden">+7 960 937-35-42</span>
                     <span className="hidden sm:inline">Консультация</span>
                   </Button>
-                </a>
+                  {showPhone && (
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white text-primary px-4 py-2 rounded-lg shadow-lg border-2 border-primary z-10">
+                      <div className="text-lg font-semibold">+7 960 937-35-42</div>
+                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-white"></div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <div className="text-center mt-8 lg:mt-0">
