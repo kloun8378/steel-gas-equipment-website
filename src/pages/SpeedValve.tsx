@@ -2,8 +2,32 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
+import { useState } from 'react';
 
 export default function SpeedValve() {
+  const [quantity25, setQuantity25] = useState(1);
+  const [quantity32, setQuantity32] = useState(1);
+
+  const addToCart = (product: {
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    description: string;
+    quantity: number;
+  }) => {
+    const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingItem = existingCart.find((item: any) => item.id === product.id);
+    
+    if (existingItem) {
+      existingItem.quantity += product.quantity;
+    } else {
+      existingCart.push(product);
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(existingCart));
+    alert(`${product.name} добавлен в корзину (${product.quantity} шт.)`);
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -93,13 +117,25 @@ export default function SpeedValve() {
                   <div className="flex items-center gap-2 mb-2">
                     <input 
                       type="number" 
-                      defaultValue="1" 
+                      value={quantity25}
+                      onChange={(e) => setQuantity25(Math.max(1, parseInt(e.target.value) || 1))}
                       min="1" 
                       className="w-16 px-2 py-1 text-xs border rounded text-center"
                     />
                     <span className="text-xs text-gray-600">шт.</span>
                   </div>
-                  <Button size="sm" className="w-full text-xs">
+                  <Button 
+                    size="sm" 
+                    className="w-full text-xs"
+                    onClick={() => addToCart({
+                      id: 'speed-valve-du25',
+                      name: 'Скоростной клапан межфланцевый ДУ25',
+                      price: 5500,
+                      image: 'https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png',
+                      description: 'Компактный быстродействующий клапан для малых диаметров трубопроводов',
+                      quantity: quantity25
+                    })}
+                  >
                     <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
                     Заказать
                   </Button>
@@ -154,13 +190,25 @@ export default function SpeedValve() {
                   <div className="flex items-center gap-2 mb-2">
                     <input 
                       type="number" 
-                      defaultValue="1" 
+                      value={quantity32}
+                      onChange={(e) => setQuantity32(Math.max(1, parseInt(e.target.value) || 1))}
                       min="1" 
                       className="w-16 px-2 py-1 text-xs border rounded text-center"
                     />
                     <span className="text-xs text-gray-600">шт.</span>
                   </div>
-                  <Button size="sm" className="w-full text-xs">
+                  <Button 
+                    size="sm" 
+                    className="w-full text-xs"
+                    onClick={() => addToCart({
+                      id: 'speed-valve-du32',
+                      name: 'Скоростной клапан межфланцевый ДУ32',
+                      price: 6100,
+                      image: 'https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg',
+                      description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
+                      quantity: quantity32
+                    })}
+                  >
                     <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
                     Заказать
                   </Button>
