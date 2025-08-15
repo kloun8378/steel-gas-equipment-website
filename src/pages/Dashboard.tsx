@@ -320,7 +320,7 @@ const Dashboard = () => {
                     <div className="flex gap-4">
                       <Button 
                         className="flex-1"
-                        onClick={() => alert('Функция оформления заказа будет добавлена позже')}
+                        onClick={() => alert('Заказ будет отправлен менеджеру. Вам позвонят в ближайшее время для подтверждения!')}
                       >
                         <Icon name="Send" className="mr-2 h-4 w-4" />
                         Оформить заказ

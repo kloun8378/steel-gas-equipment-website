@@ -336,7 +336,7 @@ export default function SpeedValve() {
                 <div className="mt-4 flex gap-4">
                   <Button 
                     className="flex-1"
-                    onClick={() => alert('Функция оформления заказа будет добавлена позже')}
+                    onClick={() => window.location.href = '/dashboard'}
                   >
                     <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
                     Оформить заказ
