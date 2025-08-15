@@ -44,42 +44,81 @@ export default function Components() {
             </p>
           </div>
 
-          {/* Product Card */}
+          {/* Products Grid */}
           <div className="mb-12">
-            <Card className="max-w-md mx-auto hover:shadow-lg transition-shadow">
-              <CardHeader className="text-center">
-                <div className="bg-white p-6 rounded-lg mb-4 border">
-                  <img 
-                    src="https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg" 
-                    alt="Пружина ППЦЗ-12"
-                    className="w-full h-48 object-contain bg-white rounded"
-                    style={{backgroundColor: '#ffffff'}}
-                  />
-                </div>
-                <CardTitle className="text-xl">Пружина ППЦЗ-12</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="mb-6">
-                  <p className="text-2xl font-bold text-primary mb-2">2 700 ₽</p>
-                  <p className="text-sm text-gray-600">с НДС</p>
-                </div>
-                
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <label className="text-sm font-medium">Количество:</label>
-                  <input 
-                    type="number" 
-                    min="1" 
-                    defaultValue="1"
-                    className="w-16 px-2 py-1 border rounded text-center"
-                  />
-                </div>
-                
-                <Button className="w-full" size="lg">
-                  <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
-                  Заказать
-                </Button>
-              </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Пружина */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <div className="bg-white p-6 rounded-lg mb-4 border">
+                    <img 
+                      src="https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg" 
+                      alt="Пружина ППЦЗ-12"
+                      className="w-full h-48 object-contain bg-white rounded"
+                      style={{backgroundColor: '#ffffff'}}
+                    />
+                  </div>
+                  <CardTitle className="text-xl">Пружина ППЦЗ-12</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="mb-6">
+                    <p className="text-2xl font-bold text-primary mb-2">2 700 ₽</p>
+                    <p className="text-sm text-gray-600">с НДС</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <label className="text-sm font-medium">Количество:</label>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      defaultValue="1"
+                      className="w-16 px-2 py-1 border rounded text-center"
+                    />
+                  </div>
+                  
+                  <Button className="w-full" size="lg">
+                    <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
+                    Заказать
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Золотник */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <div className="bg-white p-6 rounded-lg mb-4 border">
+                    <img 
+                      src="https://cdn.poehali.dev/files/7bb7d237-f284-4013-a981-6846c8504c80.jpg" 
+                      alt="Золотник ППЦЗ-12"
+                      className="w-full h-48 object-contain bg-white rounded"
+                      style={{backgroundColor: '#ffffff'}}
+                    />
+                  </div>
+                  <CardTitle className="text-xl">Золотник ППЦЗ-12</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="mb-6">
+                    <p className="text-2xl font-bold text-primary mb-2">1 110 ₽</p>
+                    <p className="text-sm text-gray-600">с НДС</p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <label className="text-sm font-medium">Количество:</label>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      defaultValue="1"
+                      className="w-16 px-2 py-1 border rounded text-center"
+                    />
+                  </div>
+                  
+                  <Button className="w-full" size="lg">
+                    <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
+                    Заказать
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
 
