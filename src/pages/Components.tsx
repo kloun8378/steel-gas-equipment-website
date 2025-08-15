@@ -3,8 +3,79 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
+import { useState, useEffect } from 'react';
 
 export default function Components() {
+  const [quantitySpring, setQuantitySpring] = useState(1);
+  const [quantityValve, setQuantityValve] = useState(1);
+  const [cartItems, setCartItems] = useState<any[]>([]);
+
+  useEffect(() => {
+    loadCart();
+  }, []);
+
+  const loadCart = () => {
+    try {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      setCartItems(cart);
+    } catch (error) {
+      console.error('Ошибка загрузки корзины:', error);
+      setCartItems([]);
+    }
+  };
+
+  const addToCart = (product: any) => {
+    console.log('Добавляем товар:', product);
+    
+    try {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const existingItem = cart.find((item: any) => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity += product.quantity;
+      } else {
+        cart.push(product);
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setCartItems(cart);
+      alert(`Товар "${product.name}" добавлен в корзину (${product.quantity} шт.)`);
+    } catch (error) {
+      console.error('Ошибка:', error);
+      alert('Ошибка при добавлении товара');
+    }
+  };
+
+  const removeFromCart = (productId: string) => {
+    try {
+      const cart = cartItems.filter(item => item.id !== productId);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setCartItems(cart);
+    } catch (error) {
+      console.error('Ошибка удаления:', error);
+    }
+  };
+
+  const updateQuantity = (productId: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      removeFromCart(productId);
+      return;
+    }
+    
+    try {
+      const cart = cartItems.map(item => 
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      );
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setCartItems(cart);
+    } catch (error) {
+      console.error('Ошибка обновления количества:', error);
+    }
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -96,12 +167,24 @@ export default function Components() {
                     <input 
                       type="number" 
                       min="1" 
-                      defaultValue="1"
+                      value={quantitySpring}
+                      onChange={(e) => setQuantitySpring(Math.max(1, parseInt(e.target.value) || 1))}
                       className="w-16 px-2 py-1 border rounded text-center"
                     />
                   </div>
                   
-                  <Button className="w-full" size="lg">
+                  <Button 
+                    className="w-full" 
+                    size="lg"
+                    onClick={() => addToCart({
+                      id: 'spring-ppcz12',
+                      name: 'Пружина ППЦЗ-12',
+                      price: 2700,
+                      image: 'https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg',
+                      description: 'Пружина предохранительного клапана для замены в старом клапане',
+                      quantity: quantitySpring
+                    })}
+                  >
                     <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
                     Заказать
                   </Button>
@@ -153,12 +236,24 @@ export default function Components() {
                     <input 
                       type="number" 
                       min="1" 
-                      defaultValue="1"
+                      value={quantityValve}
+                      onChange={(e) => setQuantityValve(Math.max(1, parseInt(e.target.value) || 1))}
                       className="w-16 px-2 py-1 border rounded text-center"
                     />
                   </div>
                   
-                  <Button className="w-full" size="lg">
+                  <Button 
+                    className="w-full" 
+                    size="lg"
+                    onClick={() => addToCart({
+                      id: 'valve-ppcz12',
+                      name: 'Золотник ППЦЗ-12',
+                      price: 1110,
+                      image: 'https://cdn.poehali.dev/files/7bb7d237-f284-4013-a981-6846c8504c80.jpg',
+                      description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12',
+                      quantity: quantityValve
+                    })}
+                  >
                     <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
                     Заказать
                   </Button>
@@ -169,6 +264,96 @@ export default function Components() {
 
 
         </div>
+
+        {/* МОЯ КОРЗИНА */}
+        {cartItems.length > 0 && (
+          <section className="bg-white py-8 border-t">
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">МОЯ КОРЗИНА</h2>
+              
+              <div className="space-y-4">
+                {cartItems.map((item) => (
+                  <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                    
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <div className="text-lg font-bold text-primary mt-1">
+                        {item.price.toLocaleString()} ₽
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      >
+                        -
+                      </Button>
+                      <span className="w-8 text-center">{item.quantity}</span>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      >
+                        +
+                      </Button>
+                    </div>
+                    
+                    <div className="text-right">
+                      <div className="font-bold text-lg">
+                        {(item.price * item.quantity).toLocaleString()} ₽
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        onClick={() => removeFromCart(item.id)}
+                        className="mt-2"
+                      >
+                        <Icon name="Trash2" className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-6 pt-6 border-t">
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font-bold">ИТОГО:</span>
+                  <span className="text-2xl font-bold text-primary">
+                    {getTotalPrice().toLocaleString()} ₽
+                  </span>
+                </div>
+                
+                <div className="mt-4 flex gap-4">
+                  <Button 
+                    className="flex-1"
+                    onClick={() => alert('Функция оформления заказа будет добавлена позже')}
+                  >
+                    <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
+                    Оформить заказ
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    onClick={() => {
+                      localStorage.removeItem('cart');
+                      setCartItems([]);
+                    }}
+                  >
+                    <Icon name="Trash2" className="mr-2 h-4 w-4" />
+                    Очистить корзину
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       {/* Footer */}
