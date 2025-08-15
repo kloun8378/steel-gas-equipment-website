@@ -15,7 +15,16 @@ export default function Hero() {
                 Производство и поставка промышленного газового оборудования с 2020 года
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-gray-100"
+                  onClick={() => {
+                    document.getElementById('products')?.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }}
+                >
                   <Icon name="Package" className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Наша продукция
                 </Button>
