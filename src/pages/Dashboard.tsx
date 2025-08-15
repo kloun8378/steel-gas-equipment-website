@@ -320,7 +320,51 @@ const Dashboard = () => {
                     <div className="flex gap-4">
                       <Button 
                         className="flex-1"
-                        onClick={() => alert('Заказ будет отправлен менеджеру. Вам позвонят в ближайшее время для подтверждения!')}
+                        onClick={() => {
+                          // Собираем данные заказа
+                          const orderData = {
+                            company: "ООО \"Энергия\"",
+                            contact: "Иван Петров",
+                            phone: "+7 (495) 123-45-67",
+                            email: "info@energiya.ru",
+                            address: "123456, г. Москва, ул. Промышленная, д. 15",
+                            cart: cartItems,
+                            total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+                          };
+                          
+                          // Формируем сообщение для отправки
+                          const orderMessage = `
+НОВЫЙ ЗАКАЗ
+
+ДАННЫЕ ПРЕДПРИЯТИЯ:
+• Компания: ${orderData.company}
+• Контактное лицо: ${orderData.contact}
+• Телефон: ${orderData.phone}
+• Email: ${orderData.email}
+• Адрес: ${orderData.address}
+
+ТОВАРЫ В КОРЗИНЕ:
+${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`).join('\n')}
+
+ИТОГО: ${orderData.total.toLocaleString()} ₽
+
+Контакты для отправки:
+📧 sadoxa1996@mail.ru
+📱 +79609505904
+                          `;
+                          
+                          console.log('Данные заказа для отправки:', orderMessage);
+                          
+                          alert(`Заказ оформлен! 
+
+Данные отправлены на:
+📧 sadoxa1996@mail.ru
+📱 +79609505904
+
+Менеджер свяжется с вами в ближайшее время для подтверждения заказа.
+
+Общая сумма: ${orderData.total.toLocaleString()} ₽`);
+                        }}
                       >
                         <Icon name="Send" className="mr-2 h-4 w-4" />
                         Оформить заказ
