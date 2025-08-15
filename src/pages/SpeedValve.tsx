@@ -55,22 +55,7 @@ export default function SpeedValve() {
           </div>
 
           {/* Product Content */}
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Product Image */}
-            <div className="space-y-4">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                    <img 
-                      src="/img/70147842-87f4-40cf-97b7-d798329eed19.jpg" 
-                      alt="Скоростной межфланцевый клапан ДУ 25"
-                      className="w-full h-full object-contain rounded-lg"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
+          <div className="max-w-4xl mx-auto">
             {/* Product Info */}
             <div className="space-y-6">
               <Card>
@@ -105,13 +90,6 @@ export default function SpeedValve() {
                   </div>
                 </CardContent>
               </Card>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button size="lg" variant="outline" className="flex-1 text-sm sm:text-base">
-                  <Icon name="Phone" className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  Получить консультацию
-                </Button>
-              </div>
             </div>
           </div>
         </div>
