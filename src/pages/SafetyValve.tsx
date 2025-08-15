@@ -102,10 +102,6 @@ export default function SafetyValve() {
               </Card>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="flex-1">
-                  <Icon name="FileText" className="mr-2 h-5 w-5" />
-                  Скачать каталог
-                </Button>
                 <Button size="lg" variant="outline" className="flex-1">
                   <Icon name="Phone" className="mr-2 h-5 w-5" />
                   Получить консультацию

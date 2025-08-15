@@ -107,10 +107,6 @@ export default function SpeedValve() {
               </Card>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button size="lg" className="flex-1 text-sm sm:text-base">
-                  <Icon name="FileText" className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  Скачать каталог
-                </Button>
                 <Button size="lg" variant="outline" className="flex-1 text-sm sm:text-base">
                   <Icon name="Phone" className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Получить консультацию
