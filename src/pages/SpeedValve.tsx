@@ -18,7 +18,6 @@ export default function SpeedValve() {
           <nav className="hidden md:flex space-x-4 lg:space-x-6 text-sm">
             <a href="/" className="hover:text-gray-200 transition-colors">Главная</a>
             <a href="#" className="text-white font-medium">Продукция</a>
-            <a href="#" className="hover:text-gray-200 transition-colors">О компании</a>
             <a href="#" className="hover:text-gray-200 transition-colors">Контакты</a>
           </nav>
         </div>
