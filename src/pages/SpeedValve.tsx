@@ -43,6 +43,50 @@ export default function SpeedValve() {
             </p>
           </div>
 
+          {/* Product Gallery */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* ДУ25 */}
+            <Card>
+              <CardContent className="p-6">
+                <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-4 border">
+                  <img 
+                    src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
+                    alt="Скоростной клапан межфланцевый ДУ25"
+                    className="w-full h-full object-contain rounded-lg p-4"
+                  />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Скоростной клапан межфланцевый ДУ25
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Компактный быстродействующий клапан для малых диаметров трубопроводов
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* ДУ32 */}
+            <Card>
+              <CardContent className="p-6">
+                <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-4 border">
+                  <img 
+                    src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
+                    alt="Скоростной клапан межфланцевый ДУ32"
+                    className="w-full h-full object-contain rounded-lg p-4"
+                  />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Скоростной клапан межфланцевый ДУ32
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Надежное решение для средних диаметров с высокой скоростью срабатывания
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
         </div>
       </main>
