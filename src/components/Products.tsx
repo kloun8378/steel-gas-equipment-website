@@ -39,8 +39,8 @@ export default function Products() {
 
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/components'}>
             <CardHeader>
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <Icon name="Package" className="h-6 w-6 text-primary" />
+              <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
+                <img src="https://cdn.poehali.dev/files/be943ef4-8cf5-4fa2-a955-780a17fd8cdb.jpg" alt="Комплектующие" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Комплектующие</CardTitle>
             </CardHeader>
