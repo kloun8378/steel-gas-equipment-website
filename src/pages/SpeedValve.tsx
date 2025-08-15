@@ -2,11 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function SpeedValve() {
   const [quantity25, setQuantity25] = useState(1);
   const [quantity32, setQuantity32] = useState(1);
+  const [cartItems, setCartItems] = useState<any[]>([]);
+
+  useEffect(() => {
+    loadCart();
+  }, []);
+
+  const loadCart = () => {
+    try {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      setCartItems(cart);
+    } catch (error) {
+      console.error('Ошибка загрузки корзины:', error);
+      setCartItems([]);
+    }
+  };
 
   const addToCart = (product: any) => {
     console.log('Добавляем товар:', product);
@@ -22,11 +37,43 @@ export default function SpeedValve() {
       }
       
       localStorage.setItem('cart', JSON.stringify(cart));
+      setCartItems(cart); // Обновляем состояние
       alert(`Товар "${product.name}" добавлен в корзину (${product.quantity} шт.)`);
     } catch (error) {
       console.error('Ошибка:', error);
       alert('Ошибка при добавлении товара');
     }
+  };
+
+  const removeFromCart = (productId: string) => {
+    try {
+      const cart = cartItems.filter(item => item.id !== productId);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setCartItems(cart);
+    } catch (error) {
+      console.error('Ошибка удаления:', error);
+    }
+  };
+
+  const updateQuantity = (productId: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      removeFromCart(productId);
+      return;
+    }
+    
+    try {
+      const cart = cartItems.map(item => 
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      );
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setCartItems(cart);
+    } catch (error) {
+      console.error('Ошибка обновления количества:', error);
+    }
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
   return (
@@ -219,6 +266,96 @@ export default function SpeedValve() {
           </div>
 
         </div>
+
+        {/* МОЯ КОРЗИНА */}
+        {cartItems.length > 0 && (
+          <section className="bg-white py-8 border-t">
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">МОЯ КОРЗИНА</h2>
+              
+              <div className="space-y-4">
+                {cartItems.map((item) => (
+                  <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                    
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <div className="text-lg font-bold text-primary mt-1">
+                        {item.price.toLocaleString()} ₽
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      >
+                        -
+                      </Button>
+                      <span className="w-8 text-center">{item.quantity}</span>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      >
+                        +
+                      </Button>
+                    </div>
+                    
+                    <div className="text-right">
+                      <div className="font-bold text-lg">
+                        {(item.price * item.quantity).toLocaleString()} ₽
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        onClick={() => removeFromCart(item.id)}
+                        className="mt-2"
+                      >
+                        <Icon name="Trash2" className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-6 pt-6 border-t">
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font-bold">ИТОГО:</span>
+                  <span className="text-2xl font-bold text-primary">
+                    {getTotalPrice().toLocaleString()} ₽
+                  </span>
+                </div>
+                
+                <div className="mt-4 flex gap-4">
+                  <Button 
+                    className="flex-1"
+                    onClick={() => alert('Функция оформления заказа будет добавлена позже')}
+                  >
+                    <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
+                    Оформить заказ
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    onClick={() => {
+                      localStorage.removeItem('cart');
+                      setCartItems([]);
+                    }}
+                  >
+                    <Icon name="Trash2" className="mr-2 h-4 w-4" />
+                    Очистить корзину
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       {/* Footer */}
