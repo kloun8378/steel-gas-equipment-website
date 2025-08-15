@@ -53,7 +53,7 @@ export default function SpeedValve() {
                     src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
                     alt="Скоростной клапан межфланцевый ДУ25"
                     className="w-full h-full object-cover object-top rounded-lg"
-                    style={{ objectPosition: 'center 10%' }}
+                    style={{ objectPosition: 'center -20%' }}
                   />
                 </div>
                 <div className="text-center">
@@ -75,7 +75,7 @@ export default function SpeedValve() {
                     src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
                     alt="Скоростной клапан межфланцевый ДУ32"
                     className="w-full h-full object-cover object-top rounded-lg"
-                    style={{ objectPosition: 'center 10%' }}
+                    style={{ objectPosition: 'center -20%' }}
                   />
                 </div>
                 <div className="text-center">
