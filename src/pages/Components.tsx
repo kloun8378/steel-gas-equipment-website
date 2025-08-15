@@ -50,7 +50,7 @@ export default function Components() {
               <CardHeader className="text-center">
                 <div className="bg-white p-6 rounded-lg mb-4 border">
                   <img 
-                    src="https://cdn.poehali.dev/files/7e62030a-1278-4905-89db-0cdf279ba00b.jpg" 
+                    src="https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg" 
                     alt="Пружина ППЦЗ-12"
                     className="w-full h-48 object-contain bg-white rounded"
                     style={{backgroundColor: '#ffffff'}}
