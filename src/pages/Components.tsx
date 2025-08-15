@@ -48,11 +48,12 @@ export default function Components() {
           <div className="mb-12">
             <Card className="max-w-md mx-auto hover:shadow-lg transition-shadow">
               <CardHeader className="text-center">
-                <div className="bg-white p-6 rounded-lg mb-4">
+                <div className="bg-white p-6 rounded-lg mb-4 border">
                   <img 
                     src="https://cdn.poehali.dev/files/7e62030a-1278-4905-89db-0cdf279ba00b.jpg" 
                     alt="Пружина ППЦЗ-12"
-                    className="w-full h-48 object-contain"
+                    className="w-full h-48 object-contain bg-white rounded"
+                    style={{backgroundColor: '#ffffff'}}
                   />
                 </div>
                 <CardTitle className="text-xl">Пружина ППЦЗ-12</CardTitle>
