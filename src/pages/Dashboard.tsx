@@ -332,9 +332,9 @@ const Dashboard = () => {
                             total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
                           };
                           
-                          // Формируем сообщение для отправки
-                          const orderMessage = `
-НОВЫЙ ЗАКАЗ
+                          // Формируем тему и тело письма
+                          const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
+                          const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
 
 ДАННЫЕ ПРЕДПРИЯТИЯ:
 • Компания: ${orderData.company}
@@ -348,22 +348,12 @@ ${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${ite
 
 ИТОГО: ${orderData.total.toLocaleString()} ₽
 
-Контакты для отправки:
-📧 sadoxa1996@mail.ru
-📱 +79609505904
-                          `;
+--
+Заказ отправлен через систему poehali.dev`);
                           
-                          console.log('Данные заказа для отправки:', orderMessage);
-                          
-                          alert(`Заказ оформлен! 
-
-Данные отправлены на:
-📧 sadoxa1996@mail.ru
-📱 +79609505904
-
-Менеджер свяжется с вами в ближайшее время для подтверждения заказа.
-
-Общая сумма: ${orderData.total.toLocaleString()} ₽`);
+                          // Открываем почтовый клиент с готовым письмом
+                          const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
+                          window.open(mailtoLink, '_self');
                         }}
                       >
                         <Icon name="Send" className="mr-2 h-4 w-4" />
