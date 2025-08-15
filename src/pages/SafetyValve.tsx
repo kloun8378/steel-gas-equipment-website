@@ -43,6 +43,45 @@ export default function SafetyValve() {
             </p>
           </div>
 
+          {/* Product Gallery */}
+          <div className="flex justify-center">
+            {/* ППЦЗ-12 */}
+            <Card className="max-w-xs">
+              <CardContent className="p-4">
+                <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto">
+                  <img 
+                    src="https://cdn.poehali.dev/files/5b63616f-f204-4d56-a0f3-7223f98ee9d4.jpeg" 
+                    alt="Предохранительные клапаны ППЦЗ-12"
+                    className="w-full h-full object-contain rounded-lg p-2"
+                  />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Предохранительные клапаны ППЦЗ-12
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-2">
+                    Надежная защита оборудования от превышения давления
+                  </p>
+                  <div className="text-lg font-bold text-primary mb-3">
+                    9 000 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <input 
+                      type="number" 
+                      defaultValue="1" 
+                      min="1" 
+                      className="w-16 px-2 py-1 text-xs border rounded text-center"
+                    />
+                    <span className="text-xs text-gray-600">шт.</span>
+                  </div>
+                  <Button size="sm" className="w-full text-xs">
+                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
+                    Заказать
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
         </div>
       </main>
