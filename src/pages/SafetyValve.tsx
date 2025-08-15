@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
 
 export default function SafetyValve() {
@@ -48,13 +49,58 @@ export default function SafetyValve() {
             {/* ППЦЗ-12 */}
             <Card className="max-w-xs">
               <CardContent className="p-4">
-                <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto">
-                  <img 
-                    src="https://cdn.poehali.dev/files/5b63616f-f204-4d56-a0f3-7223f98ee9d4.jpeg" 
-                    alt="Предохранительные клапаны ППЦЗ-12"
-                    className="w-full h-full object-contain rounded-lg p-2"
-                  />
-                </div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
+                      <img 
+                        src="https://cdn.poehali.dev/files/5b63616f-f204-4d56-a0f3-7223f98ee9d4.jpeg" 
+                        alt="Предохранительные клапаны ППЦЗ-12"
+                        className="w-full h-full object-contain rounded-lg p-2"
+                      />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[480px] p-0">
+                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                      <div className="bg-gray-50 p-4 border-b">
+                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ППЦЗ-12</h3>
+                      </div>
+                      <div className="p-4 space-y-2 text-sm">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div><span className="font-semibold">Тип клапана:</span> Пружинный прямого действия</div>
+                          <div><span className="font-semibold">Рабочая среда:</span> СУГ по ГОСТ 20448-90 или ГОСТ 27578-87</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div><span className="font-semibold">Рабочее давление Рр, МПа:</span> 1,6</div>
+                          <div><span className="font-semibold">Расчетное давление Ррасч, МПа:</span> 1,84</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div><span className="font-semibold">Давление настройки Рн, МПа:</span> от 1,6 до 1,84</div>
+                          <div><span className="font-semibold">Диаметр условного прохода Ду,мм:</span> 25</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div><span className="font-semibold">Расчетное проходное сечение F, мм²:</span> 412</div>
+                          <div><span className="font-semibold">Пропускная способность G, кг/час:</span> 4271</div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div><span className="font-semibold">Коэффициент расхода для газообразных сред:</span> 0,58</div>
+                          <div><span className="font-semibold">Рабочая температура, °С:</span> от -40 до +45</div>
+                        </div>
+                        <div className="border-t pt-3 mt-3">
+                          <div className="font-semibold mb-2">Габаритные размеры:</div>
+                          <div className="grid grid-cols-3 gap-4 text-xs">
+                            <div><span className="font-medium">Диаметр, мм:</span> 83(92)</div>
+                            <div><span className="font-medium">Высота, мм:</span> 231(238)</div>
+                            <div><span className="font-medium">Масса, кг не более:</span> 3,6</div>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div><span className="font-semibold">Средний срок службы, лет, не менее:</span> 15</div>
+                          <div><span className="font-semibold">Тип соединения с сосудом:</span> Резьбовое М 72х2</div>
+                        </div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
                 <div className="text-center">
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Предохранительные клапаны ППЦЗ-12
