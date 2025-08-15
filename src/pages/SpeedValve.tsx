@@ -43,55 +43,7 @@ export default function SpeedValve() {
             </p>
           </div>
 
-          {/* Product Tabs */}
-          <div className="mb-6 sm:mb-8 overflow-x-auto">
-            <div className="border-b border-gray-200">
-              <nav className="-mb-px flex whitespace-nowrap">
-                <button className="border-b-2 border-primary text-primary py-2 px-3 sm:px-4 text-xs sm:text-sm font-medium flex-shrink-0">
-                  Скоростной межфланцевый клапан
-                </button>
-              </nav>
-            </div>
-          </div>
 
-          {/* Product Content */}
-          <div className="max-w-4xl mx-auto">
-            {/* Product Info */}
-            <div className="space-y-6">
-              <Card>
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-bold mb-4">Скоростной межфланцевый клапан</h2>
-                  <div className="space-y-4 text-gray-700">
-                    <p>
-                      Высокоскоростной межфланцевый клапан обеспечивает быстрое и надежное 
-                      перекрытие потока в трубопроводных системах.
-                    </p>
-                    
-                    <div>
-                      <h3 className="font-semibold mb-2">Особенности:</h3>
-                      <ul className="list-disc list-inside space-y-1 text-sm">
-                        <li>Время срабатывания менее 0.5 секунды</li>
-                        <li>Межфланцевое соединение</li>
-                        <li>Высокая герметичность</li>
-                        <li>Устойчивость к коррозии</li>
-                        <li>Простота обслуживания</li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="font-semibold mb-2">Технические характеристики:</h3>
-                      <div className="grid grid-cols-2 gap-2 text-sm">
-                        <div>Диаметр: DN 25</div>
-                        <div>Давление: PN 16-40</div>
-                        <div>Температура: -20°C до +180°C</div>
-                        <div>Материал: Нержавеющая сталь</div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
         </div>
       </main>
 
