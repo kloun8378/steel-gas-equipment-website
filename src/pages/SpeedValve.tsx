@@ -48,11 +48,12 @@ export default function SpeedValve() {
             {/* ДУ25 */}
             <Card>
               <CardContent className="p-6">
-                <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-4 border">
+                <div className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden">
                   <img 
                     src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
                     alt="Скоростной клапан межфланцевый ДУ25"
-                    className="w-full h-full object-contain rounded-lg p-4"
+                    className="w-full h-full object-cover object-top rounded-lg"
+                    style={{ objectPosition: 'center 20%' }}
                   />
                 </div>
                 <div className="text-center">
@@ -69,11 +70,12 @@ export default function SpeedValve() {
             {/* ДУ32 */}
             <Card>
               <CardContent className="p-6">
-                <div className="aspect-square bg-white rounded-lg flex items-center justify-center mb-4 border">
+                <div className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden">
                   <img 
                     src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
                     alt="Скоростной клапан межфланцевый ДУ32"
-                    className="w-full h-full object-contain rounded-lg p-4"
+                    className="w-full h-full object-cover object-top rounded-lg"
+                    style={{ objectPosition: 'center 20%' }}
                   />
                 </div>
                 <div className="text-center">
