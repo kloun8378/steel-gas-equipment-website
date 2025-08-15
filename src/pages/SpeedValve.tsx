@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
 
 export default function SpeedValve() {
@@ -48,14 +49,37 @@ export default function SpeedValve() {
             {/* ДУ25 */}
             <Card className="max-w-xs mx-auto">
               <CardContent className="p-4">
-                <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto">
-                  <img 
-                    src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
-                    alt="Скоростной клапан межфланцевый ДУ25"
-                    className="w-full h-full object-cover object-top rounded-lg"
-                    style={{ objectPosition: 'center -90%' }}
-                  />
-                </div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
+                      <img 
+                        src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
+                        alt="Скоростной клапан межфланцевый ДУ25"
+                        className="w-full h-full object-cover object-top rounded-lg"
+                        style={{ objectPosition: 'center -90%' }}
+                      />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-96 p-0">
+                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                      <div className="bg-gray-50 p-4 border-b">
+                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ДУ25</h3>
+                      </div>
+                      <div className="p-4 space-y-3 text-sm">
+                        <div><span className="font-semibold">Условное давление:</span> 4,0 МПа (40 кгс/см²)</div>
+                        <div><span className="font-semibold">Климатическое исполнение:</span> УХЛI (от -60С до +40С)</div>
+                        <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
+                        <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
+                        <div><span className="font-semibold">Проход условный, DN:</span> 25</div>
+                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 35</div>
+                        <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
+                        <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
+                        <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
+                        <div><span className="font-semibold">Пружина:</span> Проволока по ГОСТ9389-75 с покрытием МЗН3</div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
                 <div className="text-center">
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Скоростной клапан межфланцевый ДУ25
@@ -86,14 +110,37 @@ export default function SpeedValve() {
             {/* ДУ32 */}
             <Card className="max-w-xs mx-auto">
               <CardContent className="p-4">
-                <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto">
-                  <img 
-                    src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
-                    alt="Скоростной клапан межфланцевый ДУ32"
-                    className="w-full h-full object-cover object-top rounded-lg"
-                    style={{ objectPosition: 'center -90%' }}
-                  />
-                </div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
+                      <img 
+                        src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
+                        alt="Скоростной клапан межфланцевый ДУ32"
+                        className="w-full h-full object-cover object-top rounded-lg"
+                        style={{ objectPosition: 'center -90%' }}
+                      />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-96 p-0">
+                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                      <div className="bg-gray-50 p-4 border-b">
+                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ДУ32</h3>
+                      </div>
+                      <div className="p-4 space-y-3 text-sm">
+                        <div><span className="font-semibold">Условное давление:</span> 4,0 МПа (40 кгс/см²)</div>
+                        <div><span className="font-semibold">Климатическое исполнение:</span> УХЛI (от -60С до +40С)</div>
+                        <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
+                        <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
+                        <div><span className="font-semibold">Проход условный, DN:</span> 32</div>
+                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 40</div>
+                        <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
+                        <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
+                        <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
+                        <div><span className="font-semibold">Пружина:</span> Проволока по ГОСТ9389-75 с покрытием МЗН3</div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
                 <div className="text-center">
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Скоростной клапан межфланцевый ДУ32
