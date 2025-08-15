@@ -13,8 +13,8 @@ export default function Products() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/speed-valve'}>
             <CardHeader>
-              <div className="bg-primary/10 w-20 h-20 rounded-lg flex items-center justify-center mb-6">
-                <img src="https://cdn.poehali.dev/files/325bf062-4575-4a61-bc99-a9e74f8e8c88.jpeg" alt="Скоростной клапан" className="h-16 w-16 object-contain rounded" />
+              <div className="bg-primary/10 w-28 h-28 rounded-lg flex items-center justify-center mb-8">
+                <img src="https://cdn.poehali.dev/files/325bf062-4575-4a61-bc99-a9e74f8e8c88.jpeg" alt="Скоростной клапан" className="h-24 w-24 object-contain rounded" />
               </div>
               <CardTitle>Скоростной клапан</CardTitle>
             </CardHeader>
@@ -26,8 +26,8 @@ export default function Products() {
 
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/safety-valve'}>
             <CardHeader>
-              <div className="bg-primary/10 w-20 h-20 rounded-lg flex items-center justify-center mb-6">
-                <img src="https://cdn.poehali.dev/files/0b178660-e5bf-42f9-b1da-46595bb6466c.jpeg" alt="Предохранительный клапан" className="h-16 w-16 object-contain rounded" />
+              <div className="bg-primary/10 w-28 h-28 rounded-lg flex items-center justify-center mb-8">
+                <img src="https://cdn.poehali.dev/files/0b178660-e5bf-42f9-b1da-46595bb6466c.jpeg" alt="Предохранительный клапан" className="h-24 w-24 object-contain rounded" />
               </div>
               <CardTitle>Предохранительный клапан</CardTitle>
             </CardHeader>
