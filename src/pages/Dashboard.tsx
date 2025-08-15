@@ -31,11 +31,36 @@ const Dashboard = () => {
         setCompanyData(JSON.parse(companyInfo));
       }
       
-      // Загружаем корзину для этого пользователя
-      const userCart = localStorage.getItem(`cart_${user.email}`);
-      if (userCart) {
-        setCart(JSON.parse(userCart));
-      }
+      // Загружаем корзину (общую для всех страниц)
+      const loadCart = () => {
+        const userCart = localStorage.getItem('cart');
+        if (userCart) {
+          setCart(JSON.parse(userCart));
+        } else {
+          setCart([]);
+        }
+      };
+      
+      loadCart();
+      
+      // Слушаем изменения в localStorage для автообновления корзины
+      const handleStorageChange = (e: StorageEvent) => {
+        if (e.key === 'cart') {
+          loadCart();
+        }
+      };
+      
+      window.addEventListener('storage', handleStorageChange);
+      
+      // Проверяем изменения каждые 2 секунды для случаев на той же вкладке
+      const interval = setInterval(() => {
+        loadCart();
+      }, 2000);
+      
+      return () => {
+        window.removeEventListener('storage', handleStorageChange);
+        clearInterval(interval);
+      };
     } else {
       // Если пользователь не авторизован, перенаправляем на главную
       window.location.href = '/';
@@ -61,9 +86,24 @@ const Dashboard = () => {
   const removeFromCart = (index: number) => {
     const newCart = cart.filter((_, i) => i !== index);
     setCart(newCart);
-    if (currentUser) {
-      localStorage.setItem(`cart_${currentUser.email}`, JSON.stringify(newCart));
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  };
+
+  const updateQuantity = (index: number, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      removeFromCart(index);
+      return;
     }
+    
+    const newCart = [...cart];
+    newCart[index] = { ...newCart[index], quantity: newQuantity };
+    setCart(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  };
+
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem('cart');
   };
 
   const getTotalPrice = () => {
@@ -220,37 +260,79 @@ const Dashboard = () => {
               ) : (
                 <div className="space-y-4">
                   {cart.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div key={index} className="flex items-center gap-4 p-4 border rounded-lg">
+                      {item.image && (
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="w-16 h-16 object-cover rounded"
+                        />
+                      )}
+                      
                       <div className="flex-1">
                         <h4 className="font-medium">{item.name}</h4>
                         <p className="text-sm text-gray-500">{item.description}</p>
-                        <div className="flex items-center mt-2">
-                          <span className="text-sm">Количество: {item.quantity}</span>
-                          <span className="ml-4 font-medium">
-                            {(item.price * item.quantity).toLocaleString()} ₽
-                          </span>
+                        <div className="text-lg font-bold text-primary mt-1">
+                          {item.price.toLocaleString()} ₽ за шт.
                         </div>
                       </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => removeFromCart(index)}
-                        className="ml-4"
-                      >
-                        <Icon name="Trash2" className="h-4 w-4" />
-                      </Button>
+                      
+                      <div className="flex items-center gap-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => updateQuantity(index, item.quantity - 1)}
+                        >
+                          -
+                        </Button>
+                        <span className="w-8 text-center font-medium">{item.quantity}</span>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => updateQuantity(index, item.quantity + 1)}
+                        >
+                          +
+                        </Button>
+                      </div>
+                      
+                      <div className="text-right">
+                        <div className="font-bold text-lg">
+                          {(item.price * item.quantity).toLocaleString()} ₽
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => removeFromCart(index)}
+                          className="mt-2"
+                        >
+                          <Icon name="Trash2" className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   ))}
                   
                   <div className="border-t pt-4">
-                    <div className="flex justify-between items-center font-bold text-lg">
-                      <span>Итого:</span>
+                    <div className="flex justify-between items-center font-bold text-lg mb-4">
+                      <span>ИТОГО:</span>
                       <span>{getTotalPrice().toLocaleString()} ₽</span>
                     </div>
-                    <Button className="w-full mt-4">
-                      <Icon name="Send" className="mr-2 h-4 w-4" />
-                      Оформить заказ
-                    </Button>
+                    
+                    <div className="flex gap-4">
+                      <Button 
+                        className="flex-1"
+                        onClick={() => alert('Функция оформления заказа будет добавлена позже')}
+                      >
+                        <Icon name="Send" className="mr-2 h-4 w-4" />
+                        Оформить заказ
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        onClick={clearCart}
+                      >
+                        <Icon name="Trash2" className="mr-2 h-4 w-4" />
+                        Очистить корзину
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
