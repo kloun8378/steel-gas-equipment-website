@@ -60,9 +60,25 @@ export default function SpeedValve() {
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Скоростной клапан межфланцевый ДУ25
                   </h3>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-600 mb-2">
                     Компактный быстродействующий клапан для малых диаметров трубопроводов
                   </p>
+                  <div className="text-lg font-bold text-primary mb-3">
+                    5 500 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <input 
+                      type="number" 
+                      defaultValue="1" 
+                      min="1" 
+                      className="w-16 px-2 py-1 text-xs border rounded text-center"
+                    />
+                    <span className="text-xs text-gray-600">шт.</span>
+                  </div>
+                  <Button size="sm" className="w-full text-xs">
+                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
+                    Заказать
+                  </Button>
                 </div>
               </CardContent>
             </Card>
