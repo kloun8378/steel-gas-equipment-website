@@ -26,8 +26,8 @@ export default function Products() {
 
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/safety-valve'}>
             <CardHeader>
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <Icon name="ShieldCheck" className="h-6 w-6 text-primary" />
+              <div className="bg-primary/10 w-20 h-20 rounded-lg flex items-center justify-center mb-6">
+                <img src="https://cdn.poehali.dev/files/0b178660-e5bf-42f9-b1da-46595bb6466c.jpeg" alt="Предохранительный клапан" className="h-16 w-16 object-contain rounded" />
               </div>
               <CardTitle>Предохранительный клапан</CardTitle>
             </CardHeader>
