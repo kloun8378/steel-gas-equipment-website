@@ -46,21 +46,21 @@ export default function SpeedValve() {
           {/* Product Gallery */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {/* ДУ25 */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden">
+            <Card className="max-w-xs mx-auto">
+              <CardContent className="p-4">
+                <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto">
                   <img 
                     src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
                     alt="Скоростной клапан межфланцевый ДУ25"
                     className="w-full h-full object-cover object-top rounded-lg"
-                    style={{ objectPosition: 'center -80%' }}
+                    style={{ objectPosition: 'center -90%' }}
                   />
                 </div>
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Скоростной клапан межфланцевый ДУ25
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs text-gray-600">
                     Компактный быстродействующий клапан для малых диаметров трубопроводов
                   </p>
                 </div>
@@ -68,21 +68,21 @@ export default function SpeedValve() {
             </Card>
 
             {/* ДУ32 */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden">
+            <Card className="max-w-xs mx-auto">
+              <CardContent className="p-4">
+                <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto">
                   <img 
                     src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
                     alt="Скоростной клапан межфланцевый ДУ32"
                     className="w-full h-full object-cover object-top rounded-lg"
-                    style={{ objectPosition: 'center -80%' }}
+                    style={{ objectPosition: 'center -90%' }}
                   />
                 </div>
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Скоростной клапан межфланцевый ДУ32
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs text-gray-600">
                     Надежное решение для средних диаметров с высокой скоростью срабатывания
                   </p>
                 </div>
