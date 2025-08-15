@@ -111,14 +111,35 @@ export default function Components() {
               {/* Золотник */}
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
-                  <div className="bg-white p-6 rounded-lg mb-4 border">
-                    <img 
-                      src="https://cdn.poehali.dev/files/7bb7d237-f284-4013-a981-6846c8504c80.jpg" 
-                      alt="Золотник ППЦЗ-12"
-                      className="w-full h-48 object-contain bg-white rounded"
-                      style={{backgroundColor: '#ffffff'}}
-                    />
-                  </div>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
+                        <img 
+                          src="https://cdn.poehali.dev/files/7bb7d237-f284-4013-a981-6846c8504c80.jpg" 
+                          alt="Золотник ППЦЗ-12"
+                          className="w-full h-48 object-contain bg-white rounded"
+                          style={{backgroundColor: '#ffffff'}}
+                        />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-96 p-0">
+                      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-gray-50 p-4 border-b">
+                          <h3 className="text-lg font-bold text-gray-900">Золотник ППЦЗ-12</h3>
+                        </div>
+                        <div className="p-4 space-y-3 text-sm">
+                          <p className="text-gray-700">
+                            Золотник для пружинного клапана прямого действия ППЦЗ-12, который предназначен для установки на перевозчиках и стационарных емкостях работающих с сжиженными углеводородными газами (СУГ).
+                          </p>
+                          <div className="border-t pt-3 mt-3">
+                            <div className="text-lg font-bold text-primary">
+                              1 110 ₽ <span className="text-sm text-gray-500">с НДС</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
                   <CardTitle className="text-xl">Золотник ППЦЗ-12</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
