@@ -55,7 +55,7 @@ export default function Hero() {
                     <span className="hidden sm:inline">Консультация</span>
                   </Button>
                   {showPhone && (
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white text-primary px-4 py-2 rounded-lg shadow-lg border-2 border-primary z-10">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white text-primary px-4 py-2 rounded-lg shadow-lg border-2 border-primary z-10 whitespace-nowrap">
                       <div className="text-lg font-semibold">+7 960 937-35-42</div>
                       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-white"></div>
                     </div>
