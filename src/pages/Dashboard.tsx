@@ -328,8 +328,8 @@ const Dashboard = () => {
                             phone: "+7 (495) 123-45-67",
                             email: "info@energiya.ru",
                             address: "123456, г. Москва, ул. Промышленная, д. 15",
-                            cart: cartItems,
-                            total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+                            cart: cart,
+                            total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
                           };
                           
                           // Формируем тему и тело письма
