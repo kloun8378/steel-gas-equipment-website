@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
+import { sendOrderEmail } from "@/services/emailService";
 
 const Dashboard = () => {
   const [currentUser, setCurrentUser] = useState<any>(null);
@@ -320,7 +321,7 @@ const Dashboard = () => {
                     <div className="flex gap-4">
                       <Button 
                         className="flex-1"
-                        onClick={() => {
+                        onClick={async () => {
                           // Собираем данные заказа
                           const orderData = {
                             company: "ООО \"Энергия\"",
@@ -332,9 +333,22 @@ const Dashboard = () => {
                             total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
                           };
                           
-                          // Формируем тему и тело письма
-                          const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
-                          const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
+                          try {
+                            // Пытаемся отправить через EmailJS
+                            const success = await sendOrderEmail(orderData);
+                            
+                            if (success) {
+                              alert('✅ Заказ успешно отправлен на sadoxa1996@mail.ru!');
+                              clearCart(); // Очищаем корзину после успешной отправки
+                            } else {
+                              throw new Error('EmailJS не настроен');
+                            }
+                          } catch (error) {
+                            // Если EmailJS не работает, используем mailto как fallback
+                            console.log('Fallback to mailto:', error);
+                            
+                            const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
+                            const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
 
 ДАННЫЕ ПРЕДПРИЯТИЯ:
 • Компания: ${orderData.company}
@@ -350,10 +364,10 @@ ${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${ite
 
 --
 Заказ отправлен через систему poehali.dev`);
-                          
-                          // Открываем почтовый клиент с готовым письмом
-                          const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
-                          window.open(mailtoLink, '_self');
+                            
+                            const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
+                            window.open(mailtoLink, '_self');
+                          }
                         }}
                       >
                         <Icon name="Send" className="mr-2 h-4 w-4" />
