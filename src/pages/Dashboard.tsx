@@ -322,6 +322,8 @@ const Dashboard = () => {
                       <Button 
                         className="flex-1"
                         onClick={async () => {
+                          console.log('Кнопка нажата, корзина:', cart);
+                          
                           if (cart.length === 0) {
                             alert('❌ Корзина пуста! Добавьте товары для оформления заказа.');
                             return;
