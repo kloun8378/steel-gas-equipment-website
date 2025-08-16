@@ -321,54 +321,38 @@ const Dashboard = () => {
                     <div className="flex gap-4">
                       <Button 
                         className="flex-1"
-                        onClick={() => {
-                          console.log('Кнопка нажата');
-                          
+                        onClick={async () => {
                           if (cart.length === 0) {
                             alert('❌ Корзина пуста! Добавьте товары для оформления заказа.');
                             return;
                           }
 
+                          alert('📤 Отправляю заказ через EmailJS...');
+
                           // Собираем данные заказа
                           const orderData = {
                             company: "ООО \"Энергия\"",
-                            contact: "Иван Петров", 
-                            phone: "+7 (495) 123-45-67",
+                            contact: "Иван Петров",
+                            phone: "+7 (495) 123-45-67", 
                             email: "info@energiya.ru",
                             address: "123456, г. Москва, ул. Промышленная, д. 15",
                             cart: cart,
                             total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
                           };
 
-                          // Формируем письмо
-                          const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
-                          const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
-
-ДАННЫЕ ПРЕДПРИЯТИЯ:
-• Компания: ${orderData.company}
-• Контактное лицо: ${orderData.contact}
-• Телефон: ${orderData.phone}
-• Email: ${orderData.email}  
-• Адрес: ${orderData.address}
-
-ТОВАРЫ В КОРЗИНЕ:
-${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`).join('\n')}
-
-ИТОГО: ${orderData.total.toLocaleString()} ₽
-
---
-Заказ от ${new Date().toLocaleDateString('ru-RU')}`);
-
-                          // Отправляем
-                          const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
-                          console.log('Открываю:', mailtoLink);
-                          window.location.href = mailtoLink;
-                          
-                          // Очищаем корзину
-                          setTimeout(() => {
-                            clearCart();
-                            alert('✅ Почтовый клиент открыт! Отправьте письмо.');
-                          }, 1000);
+                          try {
+                            const result = await sendOrderEmail(orderData);
+                            
+                            if (result) {
+                              alert('✅ ЗАКАЗ УСПЕШНО ОТПРАВЛЕН НА sadoxa1996@mail.ru через EmailJS!');
+                              clearCart();
+                            } else {
+                              alert('❌ Ошибка отправки через EmailJS. Проверьте настройки.');
+                            }
+                          } catch (error) {
+                            console.error('EmailJS error:', error);
+                            alert('❌ Ошибка EmailJS: ' + String(error));
+                          }
                         }}
                       >
                         <Icon name="Send" className="mr-2 h-4 w-4" />
