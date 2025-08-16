@@ -24,24 +24,38 @@ interface OrderData {
 
 export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => {
   try {
+    console.log('🚀 Начинаем отправку EmailJS');
+    console.log('📋 Конфигурация:', EMAILJS_CONFIG);
+    
     // Инициализация EmailJS
     emailjs.init(EMAILJS_CONFIG.publicKey);
+    console.log('✅ EmailJS инициализирован');
 
-    // Формируем данные для отправки
+    // Упрощенные данные для отправки
     const templateParams = {
+      to_name: 'Получатель',
       to_email: 'sadoxa1996@mail.ru',
       from_name: orderData.company,
-      company: orderData.company,
-      contact: orderData.contact,
-      phone: orderData.phone,
-      email: orderData.email,
-      address: orderData.address,
-      cart_items: orderData.cart.map(item => 
-        `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`
-      ).join('\n'),
-      total: orderData.total.toLocaleString(),
-      order_date: new Date().toLocaleDateString('ru-RU')
+      message: `НОВЫЙ ЗАКАЗ
+
+ДАННЫЕ ПРЕДПРИЯТИЯ:
+• Компания: ${orderData.company}
+• Контактное лицо: ${orderData.contact}
+• Телефон: ${orderData.phone}
+• Email: ${orderData.email}
+• Адрес: ${orderData.address}
+
+ТОВАРЫ В КОРЗИНЕ:
+${orderData.cart.map(item => 
+  `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`
+).join('\n')}
+
+ИТОГО: ${orderData.total.toLocaleString()} ₽
+
+Дата заказа: ${new Date().toLocaleDateString('ru-RU')}`
     };
+
+    console.log('📦 Параметры для отправки:', templateParams);
 
     // Отправка письма
     const response = await emailjs.send(
@@ -50,11 +64,13 @@ export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => 
       templateParams
     );
 
-    console.log('Email отправлен успешно:', response);
+    console.log('✅ Email отправлен успешно:', response);
     return true;
 
   } catch (error) {
-    console.error('Ошибка отправки email:', error);
+    console.error('❌ Детальная ошибка отправки email:', error);
+    console.error('❌ Тип ошибки:', typeof error);
+    console.error('❌ Сообщение ошибки:', error instanceof Error ? error.message : String(error));
     return false;
   }
 };
