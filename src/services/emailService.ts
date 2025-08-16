@@ -2,9 +2,9 @@ import emailjs from '@emailjs/browser';
 
 // EmailJS конфигурация (замените на ваши реальные ключи)
 const EMAILJS_CONFIG = {
-  serviceId: 'service_osw4pc5', // Создайте в emailjs.com
-  templateId: 'template_order', // Создайте шаблон в emailjs.com
-  publicKey: 'UsA8zjcYvrlcSqY1b' // Ваш Public Key из emailjs.com
+  serviceId: 'service_osw4pc5',
+  templateId: '_a6ZxzTOr5qpPTybr_2Ji',
+  publicKey: 'UsA8zjcYvrlcSqY1b'
 };
 
 interface OrderData {

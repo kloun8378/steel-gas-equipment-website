@@ -321,7 +321,7 @@ const Dashboard = () => {
                     <div className="flex gap-4">
                       <Button 
                         className="flex-1"
-                        onClick={() => {
+                        onClick={async () => {
                           if (cart.length === 0) {
                             alert('❌ Корзина пуста! Добавьте товары для оформления заказа.');
                             return;
@@ -338,9 +338,22 @@ const Dashboard = () => {
                             total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
                           };
                           
-                          // Формируем письмо для отправки
-                          const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
-                          const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
+                          try {
+                            // Пытаемся отправить через EmailJS
+                            const success = await sendOrderEmail(orderData);
+                            
+                            if (success) {
+                              alert('✅ Заказ успешно отправлен на sadoxa1996@mail.ru!');
+                              clearCart();
+                            } else {
+                              throw new Error('EmailJS не сработал');
+                            }
+                          } catch (error) {
+                            // Fallback: открываем почтовый клиент
+                            console.log('Fallback to mailto:', error);
+                            
+                            const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
+                            const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
 
 ДАННЫЕ ПРЕДПРИЯТИЯ:
 • Компания: ${orderData.company}
@@ -356,16 +369,12 @@ ${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${ite
 
 --
 Заказ отправлен ${new Date().toLocaleDateString('ru-RU')} через систему poehali.dev`);
-                          
-                          // Открываем почтовый клиент с готовым письмом
-                          const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
-                          window.open(mailtoLink, '_self');
-                          
-                          // Уведомляем пользователя
-                          alert('📧 Открыт почтовый клиент для отправки заказа на sadoxa1996@mail.ru');
-                          
-                          // Очищаем корзину
-                          clearCart();
+                            
+                            const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
+                            window.open(mailtoLink, '_self');
+                            alert('📧 Открыт почтовый клиент для отправки заказа на sadoxa1996@mail.ru');
+                            clearCart();
+                          }
                         }}
                       >
                         <Icon name="Send" className="mr-2 h-4 w-4" />
