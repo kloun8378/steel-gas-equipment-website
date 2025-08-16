@@ -322,12 +322,12 @@ const Dashboard = () => {
                       <Button 
                         className="flex-1"
                         onClick={async () => {
-                          console.log('Кнопка нажата, корзина:', cart);
-                          
                           if (cart.length === 0) {
                             alert('❌ Корзина пуста! Добавьте товары для оформления заказа.');
                             return;
                           }
+
+                          alert('📤 Отправляю заказ...');
 
                           // Собираем данные заказа
                           const orderData = {
@@ -339,43 +339,19 @@ const Dashboard = () => {
                             cart: cart,
                             total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
                           };
-                          
+
                           try {
-                            // Пытаемся отправить через EmailJS
                             const success = await sendOrderEmail(orderData);
                             
                             if (success) {
-                              alert('✅ Заказ успешно отправлен на sadoxa1996@mail.ru!');
+                              alert('✅ ЗАКАЗ УСПЕШНО ОТПРАВЛЕН НА sadoxa1996@mail.ru!');
                               clearCart();
                             } else {
-                              throw new Error('EmailJS не сработал');
+                              alert('❌ Ошибка отправки через EmailJS');
                             }
                           } catch (error) {
-                            // Fallback: открываем почтовый клиент
-                            console.log('Fallback to mailto:', error);
-                            
-                            const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
-                            const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
-
-ДАННЫЕ ПРЕДПРИЯТИЯ:
-• Компания: ${orderData.company}
-• Контактное лицо: ${orderData.contact}
-• Телефон: ${orderData.phone}
-• Email: ${orderData.email}
-• Адрес: ${orderData.address}
-
-ТОВАРЫ В КОРЗИНЕ:
-${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`).join('\n')}
-
-ИТОГО: ${orderData.total.toLocaleString()} ₽
-
---
-Заказ отправлен ${new Date().toLocaleDateString('ru-RU')} через систему poehali.dev`);
-                            
-                            const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
-                            window.open(mailtoLink, '_self');
-                            alert('📧 Открыт почтовый клиент для отправки заказа на sadoxa1996@mail.ru');
-                            clearCart();
+                            console.error('Ошибка отправки заказа:', error);
+                            alert('❌ Ошибка отправки заказа: ' + error);
                           }
                         }}
                       >
