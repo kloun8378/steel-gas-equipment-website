@@ -347,11 +347,34 @@ const Dashboard = () => {
                               alert('✅ ЗАКАЗ УСПЕШНО ОТПРАВЛЕН НА sadoxa1996@mail.ru!');
                               clearCart();
                             } else {
-                              alert('❌ Ошибка отправки через EmailJS');
+                              throw new Error('EmailJS не настроен');
                             }
                           } catch (error) {
-                            console.error('Ошибка отправки заказа:', error);
-                            alert('❌ Ошибка отправки заказа: ' + error);
+                            console.error('Fallback to mailto:', error);
+                            
+                            // Fallback: открываем почтовый клиент
+                            const subject = encodeURIComponent(`Новый заказ от ${orderData.company}`);
+                            const body = encodeURIComponent(`НОВЫЙ ЗАКАЗ
+
+ДАННЫЕ ПРЕДПРИЯТИЯ:
+• Компания: ${orderData.company}
+• Контактное лицо: ${orderData.contact}
+• Телефон: ${orderData.phone}
+• Email: ${orderData.email}
+• Адрес: ${orderData.address}
+
+ТОВАРЫ В КОРЗИНЕ:
+${orderData.cart.map(item => `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`).join('\n')}
+
+ИТОГО: ${orderData.total.toLocaleString()} ₽
+
+--
+Заказ отправлен ${new Date().toLocaleDateString('ru-RU')} через систему poehali.dev`);
+                            
+                            const mailtoLink = `mailto:sadoxa1996@mail.ru?subject=${subject}&body=${body}`;
+                            window.open(mailtoLink, '_self');
+                            alert('📧 Открыт почтовый клиент для отправки заказа');
+                            clearCart();
                           }
                         }}
                       >
