@@ -83,7 +83,6 @@ export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => 
 Адрес: ${companyInfo.address || 'Не указан'}
 Телефон: ${companyInfo.phone || 'Не указан'}
 Email: ${companyInfo.email || 'Не указан'}
-Контакт: ${orderData.contact || 'Не указано'}
 Доставка: ${companyInfo.description || 'Не указан'}
 
 🛒 ТОВАРЫ:
