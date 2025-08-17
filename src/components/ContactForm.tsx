@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -28,55 +29,60 @@ export default function ContactForm() {
     setSubmitStatus('idle');
 
     try {
-      // Отправка на email через EmailJS
+      // Инициализация EmailJS
+      emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY');
+      
+      // Параметры для контактной формы
       const emailParams = {
+        to_name: 'СтальПро Менеджер',
         to_email: 'sadoxa1996@mail.ru',
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
         message: formData.message,
-        to_name: 'Администратор',
-        reply_to: formData.email
+        reply_to: formData.email,
+        subject: `Заявка с сайта от ${formData.name}`
       };
 
-      // Используем EmailJS для отправки email
-      const emailResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: 'service_default',
-          template_id: 'template_contact',
-          user_id: 'user_public_key',
-          template_params: emailParams
-        })
-      });
+      // Отправляем через EmailJS SDK
+      const emailResponse = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
+        process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID || 'YOUR_CONTACT_TEMPLATE_ID',
+        emailParams
+      );
 
-      // Отправка SMS через SMS.ru API
-      const smsText = `Новая заявка с сайта от ${formData.name}. Email: ${formData.email}, Телефон: ${formData.phone}, Сообщение: ${formData.message}`;
+      console.log('✅ Контактная форма отправлена успешно:', emailResponse);
       
-      const smsResponse = await fetch('https://sms.ru/sms/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          api_id: 'your_api_key',
-          to: '79609505904',
-          msg: smsText,
-          json: '1'
-        })
-      });
+      // Опционально: отправка SMS (требует настройки SMS.ru)
+      try {
+        if (process.env.REACT_APP_SMS_API_KEY) {
+          const smsText = `Новая заявка с сайта от ${formData.name}. Email: ${formData.email}, Телефон: ${formData.phone}`;
+          
+          await fetch('https://sms.ru/sms/send', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              api_id: process.env.REACT_APP_SMS_API_KEY,
+              to: '79609505904',
+              msg: smsText,
+              json: '1'
+            })
+          });
+        }
+      } catch (smsError) {
+        console.warn('SMS отправка не удалась:', smsError);
+      }
 
-      if (emailResponse.ok) {
+      if (emailResponse.status === 200) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
         
         // Показать уведомление об успешной отправке
         alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
       } else {
-        throw new Error('Ошибка отправки');
+        throw new Error(`EmailJS ошибка: ${emailResponse.text || 'Неизвестная ошибка'}`);
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);

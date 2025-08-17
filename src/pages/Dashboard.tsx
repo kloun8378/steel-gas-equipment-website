@@ -291,14 +291,15 @@ const Dashboard = () => {
                             const result = await sendOrderEmail(orderData);
                             
                             if (result) {
-                              showSuccess('ЗАКАЗ УСПЕШНО ОТПРАВЛЕН НА sadoxa1996@mail.ru через EmailJS!');
+                              showSuccess('✅ ЗАКАЗ УСПЕШНО ОТПРАВЛЕН! Мы свяжемся с вами в ближайшее время.');
                               clearCart();
                             } else {
-                              showError('Ошибка отправки через EmailJS. Проверьте настройки.');
+                              showError('❌ Ошибка отправки заказа. Проверьте настройки EmailJS или обратитесь к администратору.');
+                              console.error('💡 Проверьте файл EMAILJS_SETUP.md для настройки EmailJS');
                             }
                           } catch (error) {
-                            console.error('EmailJS error:', error);
-                            showError('Ошибка EmailJS: ' + String(error));
+                            console.error('❌ EmailJS error:', error);
+                            showError(`❌ Ошибка EmailJS: ${error instanceof Error ? error.message : String(error)}\n💡 Проверьте настройки в .env файле`);
                           }
                         }}
                       >
