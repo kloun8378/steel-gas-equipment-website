@@ -291,10 +291,10 @@ const Dashboard = () => {
                             const result = await sendOrderEmail(orderData);
                             
                             if (result) {
-                              showSuccess('✅ ЗАКАЗ ПРИНЯТ! Данные сохранены. В реальном проекте будет отправлен email на sadoxa1996@mail.ru');
+                              showSuccess('✅ ЗАКАЗ ПРИНЯТ! Для получения писем на sadoxa1996@mail.ru настройте EmailJS по инструкции в файле EMAILJS_SETUP_GUIDE.md');
                               clearCart();
                             } else {
-                              showError('❌ Ошибка при сохранении заказа. Попробуйте еще раз.');
+                              showError('❌ Ошибка при обработке заказа. Попробуйте еще раз.');
                             }
                           } catch (error) {
                             console.error('❌ EmailJS error:', error);

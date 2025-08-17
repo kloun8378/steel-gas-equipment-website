@@ -1,11 +1,12 @@
 import emailjs from '@emailjs/browser';
 import { CartItem } from '@/context/CartContext';
 
-// EmailJS конфигурация - ЗАМЕНИТЕ НА ВАШИ РЕАЛЬНЫЕ ЗНАЧЕНИЯ!
+// EmailJS конфигурация - ТРЕБУЕТ НАСТРОЙКИ!
+// Следуйте инструкции в файле EMAILJS_SETUP_GUIDE.md
 const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',     // Получите из EmailJS Dashboard
-  templateId: 'YOUR_TEMPLATE_ID',   // Получите из EmailJS Dashboard  
-  publicKey: 'YOUR_PUBLIC_KEY'      // Получите из EmailJS Dashboard
+  serviceId: 'service_REPLACE_ME',     // Замените после регистрации на emailjs.com
+  templateId: 'template_REPLACE_ME',   // Замените после создания шаблона
+  publicKey: 'REPLACE_ME_PUBLIC_KEY'   // Замените на ваш Public Key
 };
 
 interface OrderData {
@@ -21,9 +22,9 @@ interface OrderData {
 export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => {
   try {
     // Проверяем настройку EmailJS
-    if (EMAILJS_CONFIG.serviceId === 'YOUR_SERVICE_ID' || 
-        EMAILJS_CONFIG.templateId === 'YOUR_TEMPLATE_ID' || 
-        EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY') {
+    if (EMAILJS_CONFIG.serviceId.includes('REPLACE_ME') || 
+        EMAILJS_CONFIG.templateId.includes('REPLACE_ME') || 
+        EMAILJS_CONFIG.publicKey.includes('REPLACE_ME')) {
       console.log('⚠️ EmailJS НЕ НАСТРОЕН! Перейдите в режим демонстрации...');
       
       // Сохраняем заказ локально как fallback
