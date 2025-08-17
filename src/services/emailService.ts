@@ -1,10 +1,10 @@
 import emailjs from '@emailjs/browser';
 import { CartItem } from '@/context/CartContext';
 
-// EmailJS конфигурация
+// EmailJS конфигурация - обновленная
 const EMAILJS_CONFIG = {
   serviceId: 'service_osw4pc5',
-  templateId: 'template_a6ZxzTOr5qpPTybr_2Ji', 
+  templateId: 'template_a6zxztor5qptybr_2ji', // Исправлен формат в нижнем регистре
   publicKey: 'UsA8zjcYvrlcSqY1b'
 };
 
@@ -25,11 +25,10 @@ export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => 
     // Инициализация EmailJS
     emailjs.init(EMAILJS_CONFIG.publicKey);
 
-    // Параметры для отправки
+    // Параметры для отправки (упрощенные для совместимости)
     const templateParams = {
-      to_name: 'Получатель',
-      to_email: 'sadoxa1996@mail.ru',
-      from_name: orderData.company,
+      user_name: orderData.company,
+      user_email: orderData.email,
       message: `НОВЫЙ ЗАКАЗ
 
 ДАННЫЕ ПРЕДПРИЯТИЯ:
@@ -60,7 +59,42 @@ ${orderData.cart.map(item =>
     return true;
 
   } catch (error) {
-    console.error('❌ Ошибка отправки email:', error);
+    console.error('❌ Детальная ошибка отправки email:', error);
+    console.error('❌ Тип ошибки:', typeof error);
+    console.error('❌ Сообщение ошибки:', error instanceof Error ? error.message : String(error));
+    console.error('❌ Конфигурация:', EMAILJS_CONFIG);
+    
+    // Попробуем альтернативный подход отправки
+    try {
+      console.log('🔄 Пробуем альтернативную отправку...');
+      
+      const altResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: EMAILJS_CONFIG.serviceId,
+          template_id: EMAILJS_CONFIG.templateId,
+          user_id: EMAILJS_CONFIG.publicKey,
+          template_params: {
+            user_name: orderData.company,
+            user_email: orderData.email,
+            message: `Заказ от ${orderData.company}\nТелефон: ${orderData.phone}\nТовары: ${orderData.cart.length} шт.\nСумма: ${orderData.total} ₽`
+          }
+        })
+      });
+      
+      if (altResponse.ok) {
+        console.log('✅ Альтернативная отправка успешна!');
+        return true;
+      } else {
+        console.error('❌ Альтернативная отправка тоже не сработала:', await altResponse.text());
+      }
+    } catch (altError) {
+      console.error('❌ Альтернативная отправка не удалась:', altError);
+    }
+    
     return false;
   }
 };
