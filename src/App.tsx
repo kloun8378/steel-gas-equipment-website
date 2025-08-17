@@ -13,6 +13,7 @@ import SafetyValve from "./pages/SafetyValve";
 import Components from "./pages/Components";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
+import ForgotPassword from "./pages/ForgotPassword";
 import NotFound from "./pages/NotFound";
 import IconPreview from "./components/IconPreview";
 
@@ -72,6 +73,7 @@ const App = () => (
               <Route path="/safety-valve" element={<SafetyValve />} />
               <Route path="/components" element={<Components />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/dashboard" element={
                 <ProtectedRoute>
                   <Dashboard />

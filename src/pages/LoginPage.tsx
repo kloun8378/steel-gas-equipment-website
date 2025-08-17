@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -117,6 +118,15 @@ const LoginPage = () => {
                 >
                   {isLoading ? 'Вход...' : 'Войти'}
                 </Button>
+
+                <div className="text-center">
+                  <Link 
+                    to="/forgot-password" 
+                    className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    Забыли пароль?
+                  </Link>
+                </div>
 
                 <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded">
                   <strong>Демо аккаунты:</strong><br/>
