@@ -2,79 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useCart } from '@/context/CartContext';
 
 export default function SpeedValve() {
   const [quantity25, setQuantity25] = useState(1);
   const [quantity32, setQuantity32] = useState(1);
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
 
-  useEffect(() => {
-    loadCart();
-  }, []);
 
-  const loadCart = () => {
-    try {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      setCartItems(cart);
-    } catch (error) {
-      console.error('Ошибка загрузки корзины:', error);
-      setCartItems([]);
-    }
-  };
-
-  const addToCart = (product: any) => {
-    console.log('Добавляем товар:', product);
-    
-    try {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const existingItem = cart.find((item: any) => item.id === product.id);
-      
-      if (existingItem) {
-        existingItem.quantity += product.quantity;
-      } else {
-        cart.push(product);
-      }
-      
-      localStorage.setItem('cart', JSON.stringify(cart));
-      setCartItems(cart); // Обновляем состояние
-      alert(`Товар "${product.name}" добавлен в корзину (${product.quantity} шт.)`);
-    } catch (error) {
-      console.error('Ошибка:', error);
-      alert('Ошибка при добавлении товара');
-    }
-  };
-
-  const removeFromCart = (productId: string) => {
-    try {
-      const cart = cartItems.filter(item => item.id !== productId);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      setCartItems(cart);
-    } catch (error) {
-      console.error('Ошибка удаления:', error);
-    }
-  };
-
-  const updateQuantity = (productId: string, newQuantity: number) => {
-    if (newQuantity <= 0) {
-      removeFromCart(productId);
-      return;
-    }
-    
-    try {
-      const cart = cartItems.map(item => 
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      );
-      localStorage.setItem('cart', JSON.stringify(cart));
-      setCartItems(cart);
-    } catch (error) {
-      console.error('Ошибка обновления количества:', error);
-    }
-  };
-
-  const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -268,13 +204,13 @@ export default function SpeedValve() {
         </div>
 
         {/* МОЯ КОРЗИНА */}
-        {cartItems.length > 0 && (
+        {cart.length > 0 && (
           <section className="bg-white py-8 border-t">
             <div className="max-w-4xl mx-auto px-4">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">МОЯ КОРЗИНА</h2>
               
               <div className="space-y-4">
-                {cartItems.map((item) => (
+                {cart.map((item) => (
                   <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
                     <img 
                       src={item.image} 
@@ -343,10 +279,7 @@ export default function SpeedValve() {
                   </Button>
                   <Button 
                     variant="outline"
-                    onClick={() => {
-                      localStorage.removeItem('cart');
-                      setCartItems([]);
-                    }}
+                    onClick={clearCart}
                   >
                     <Icon name="Trash2" className="mr-2 h-4 w-4" />
                     Очистить корзину
