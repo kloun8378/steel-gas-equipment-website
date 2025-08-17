@@ -3,9 +3,9 @@ import { CartItem } from '@/context/CartContext';
 
 // EmailJS конфигурация - ТРЕБУЕТ НАСТРОЙКИ!
 const EMAILJS_CONFIG = {
-  serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID', // Например: service_abc123def
-  templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID', // Например: template_abc123def
-  publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY' // Например: abcd1234efgh5678ijkl
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID', // Например: service_abc123def
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID', // Например: template_abc123def
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY' // Например: abcd1234efgh5678ijkl
 };
 
 interface OrderData {
