@@ -7,7 +7,6 @@ import Certificates from "@/components/Certificates";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import AuthModals from "@/components/AuthModals";
-import { ToastProvider } from "@/hooks/useToast";
 
 const Index = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -206,8 +205,7 @@ const Index = () => {
   };
 
   return (
-    <ToastProvider>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         <Header
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}
@@ -243,8 +241,7 @@ const Index = () => {
           handleRegister={handleRegister}
           handleLoginSubmit={handleLoginSubmit}
         />
-      </div>
-    </ToastProvider>
+    </div>
   );
 };
 
