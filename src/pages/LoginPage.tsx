@@ -94,7 +94,7 @@ const LoginPage = () => {
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="login">Вход</TabsTrigger>
               <TabsTrigger value="register">Регистрация</TabsTrigger>
-              <TabsTrigger value="forgot">Восстановление</TabsTrigger>
+              <TabsTrigger value="forgot">Забыли пароль?</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login" className="space-y-4">
