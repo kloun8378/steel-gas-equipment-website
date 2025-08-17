@@ -56,23 +56,6 @@ const Dashboard = () => {
     logout();
   };
 
-
-    
-    const newCart = [...cart];
-    newCart[index] = { ...newCart[index], quantity: newQuantity };
-    setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-  };
-
-  const clearCart = () => {
-    setCart([]);
-    localStorage.removeItem('cart');
-  };
-
-  const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
-
   if (!user) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
