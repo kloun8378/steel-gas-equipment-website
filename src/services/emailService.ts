@@ -1,12 +1,11 @@
 import emailjs from '@emailjs/browser';
 import { CartItem } from '@/context/CartContext';
 
-// EmailJS конфигурация - ТРЕБУЕТ НАСТРОЙКИ!
-// Следуйте инструкции в файле EMAILJS_SETUP_GUIDE.md
+// EmailJS конфигурация - НАСТРОЕНО!
 const EMAILJS_CONFIG = {
-  serviceId: 'service_REPLACE_ME',     // Замените после регистрации на emailjs.com
-  templateId: 'template_REPLACE_ME',   // Замените после создания шаблона
-  publicKey: 'REPLACE_ME_PUBLIC_KEY'   // Замените на ваш Public Key
+  serviceId: 'service_osw4pc5',
+  templateId: 'template_npe77ik', 
+  publicKey: 'UsA8zjcYvrlcSqY1b'
 };
 
 interface OrderData {
