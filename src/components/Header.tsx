@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
 
 interface HeaderProps {
@@ -13,6 +16,27 @@ interface HeaderProps {
 
 export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
+  const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
+  const [isPasswordResetSent, setIsPasswordResetSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Имитация отправки email для восстановления пароля
+    setTimeout(() => {
+      setIsPasswordResetSent(true);
+      setIsLoading(false);
+    }, 1500);
+  };
+
+  const resetForgotPasswordState = () => {
+    setIsForgotPasswordOpen(false);
+    setForgotPasswordEmail('');
+    setIsPasswordResetSent(false);
+  };
 
   return (
     <header className="bg-white shadow-sm">
@@ -51,6 +75,91 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                     <Icon name="UserPlus" className="mr-2 h-4 w-4" />
                     Регистрация
                   </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <Dialog open={isForgotPasswordOpen} onOpenChange={setIsForgotPasswordOpen}>
+                    <DialogTrigger asChild>
+                      <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                        <Icon name="KeyRound" className="mr-2 h-4 w-4" />
+                        Забыли пароль?
+                      </DropdownMenuItem>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-md">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">
+                          <Icon name="KeyRound" size={20} />
+                          Восстановление пароля
+                        </DialogTitle>
+                        <DialogDescription>
+                          Введите ваш email для получения инструкций по восстановлению пароля
+                        </DialogDescription>
+                      </DialogHeader>
+                      
+                      {isPasswordResetSent ? (
+                        <div className="text-center space-y-4 py-4">
+                          <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                            <Icon name="Mail" size={24} className="text-green-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Письмо отправлено!</h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                              Инструкции отправлены на {forgotPasswordEmail}
+                            </p>
+                          </div>
+                          <div className="bg-blue-50 p-4 rounded-lg">
+                            <p className="text-sm text-blue-800">
+                              Проверьте папку "Спам", если письмо не пришло
+                            </p>
+                          </div>
+                          <Button onClick={resetForgotPasswordState} className="w-full">
+                            Закрыть
+                          </Button>
+                        </div>
+                      ) : (
+                        <form onSubmit={handleForgotPassword} className="space-y-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="forgot-email">Email</Label>
+                            <Input
+                              id="forgot-email"
+                              type="email"
+                              placeholder="your@email.com"
+                              value={forgotPasswordEmail}
+                              onChange={(e) => setForgotPasswordEmail(e.target.value)}
+                              required
+                              disabled={isLoading}
+                            />
+                          </div>
+                          
+                          <div className="flex gap-2">
+                            <Button 
+                              type="button" 
+                              variant="outline" 
+                              onClick={resetForgotPasswordState}
+                              className="flex-1"
+                            >
+                              Отмена
+                            </Button>
+                            <Button 
+                              type="submit" 
+                              disabled={isLoading}
+                              className="flex-1"
+                            >
+                              {isLoading ? (
+                                <>
+                                  <Icon name="Loader2" size={16} className="mr-2 animate-spin" />
+                                  Отправляем...
+                                </>
+                              ) : (
+                                <>
+                                  <Icon name="Send" size={16} className="mr-2" />
+                                  Отправить
+                                </>
+                              )}
+                            </Button>
+                          </div>
+                        </form>
+                      )}
+                    </DialogContent>
+                  </Dialog>
                 </>
               ) : (
                 <>
@@ -116,6 +225,17 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                     <Button onClick={() => { onRegister(); setIsOpen(false); }} variant="outline" className="justify-start">
                       <Icon name="UserPlus" className="mr-2 h-4 w-4" />
                       Регистрация
+                    </Button>
+                    <Button 
+                      onClick={() => { 
+                        setIsForgotPasswordOpen(true); 
+                        setIsOpen(false); 
+                      }} 
+                      variant="ghost" 
+                      className="justify-start"
+                    >
+                      <Icon name="KeyRound" className="mr-2 h-4 w-4" />
+                      Забыли пароль?
                     </Button>
                   </div>
                 ) : (

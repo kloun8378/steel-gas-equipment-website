@@ -23,8 +23,6 @@ const LoginPage = () => {
     address: ''
   });
   const [error, setError] = useState('');
-  const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
-  const [isPasswordResetSent, setIsPasswordResetSent] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,20 +61,7 @@ const LoginPage = () => {
     }
   };
 
-  const handleForgotPassword = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
 
-    if (!forgotPasswordEmail) {
-      setError('Введите email');
-      return;
-    }
-
-    // Имитация отправки email для восстановления пароля
-    setTimeout(() => {
-      setIsPasswordResetSent(true);
-    }, 1500);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
@@ -91,10 +76,9 @@ const LoginPage = () => {
 
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="login">Вход</TabsTrigger>
               <TabsTrigger value="register">Регистрация</TabsTrigger>
-              <TabsTrigger value="forgot">Забыли пароль?</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login" className="space-y-4">
@@ -234,85 +218,7 @@ const LoginPage = () => {
               </form>
             </TabsContent>
 
-            <TabsContent value="forgot" className="space-y-4">
-              {isPasswordResetSent ? (
-                <div className="text-center space-y-4">
-                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <Icon name="Mail" size={24} className="text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Письмо отправлено</h3>
-                    <p className="text-sm text-gray-600 mb-4">
-                      Инструкции по восстановлению пароля отправлены на {forgotPasswordEmail}
-                    </p>
-                  </div>
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <p className="text-sm text-blue-800">
-                      Проверьте папку "Спам", если письмо не пришло в течение нескольких минут.
-                    </p>
-                  </div>
-                  <Button 
-                    onClick={() => {
-                      setIsPasswordResetSent(false);
-                      setForgotPasswordEmail('');
-                    }}
-                    variant="outline"
-                    className="w-full"
-                  >
-                    Отправить повторно
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleForgotPassword} className="space-y-4">
-                  <div className="text-center mb-4">
-                    <div className="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
-                      <Icon name="KeyRound" size={24} className="text-blue-600" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900">Восстановление пароля</h3>
-                    <p className="text-sm text-gray-600">
-                      Введите email для получения инструкций
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="forgot-email">Email</Label>
-                    <Input
-                      id="forgot-email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={forgotPasswordEmail}
-                      onChange={(e) => setForgotPasswordEmail(e.target.value)}
-                      required
-                      disabled={isLoading}
-                    />
-                  </div>
 
-                  {error && (
-                    <div className="text-red-500 text-sm bg-red-50 p-2 rounded">
-                      {error}
-                    </div>
-                  )}
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full"
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <>
-                        <Icon name="Loader2" size={16} className="mr-2 animate-spin" />
-                        Отправляем...
-                      </>
-                    ) : (
-                      <>
-                        <Icon name="Send" size={16} className="mr-2" />
-                        Отправить инструкции
-                      </>
-                    )}
-                  </Button>
-                </form>
-              )}
-            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>
