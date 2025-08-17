@@ -14,10 +14,8 @@ export default function SpeedValve() {
 
   const handleAddToCart = (product: any) => {
     if (!user) {
-      // Если пользователь не авторизован, предлагаем регистрацию
-      if (confirm('Для оформления заказа необходимо зарегистрироваться. Перейти к регистрации?')) {
-        window.location.href = '/login';
-      }
+      // Автоматически перенаправляем на регистрацию
+      window.location.href = '/login';
       return;
     }
     // Если авторизован, добавляем в корзину
