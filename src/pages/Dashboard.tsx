@@ -284,7 +284,8 @@ const Dashboard = () => {
                             email: user?.email || 'Не указан',
                             address: user?.address || 'Не указан',
                             cart: cart,
-                            total: getTotalPrice()
+                            total: getTotalPrice(),
+                            companyData: companyData
                           };
 
                           try {
