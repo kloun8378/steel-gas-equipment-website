@@ -20,81 +20,30 @@ interface OrderData {
 
 export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => {
   try {
-    console.log('🚀 Начинаем отправку EmailJS');
+    console.log('🚀 ВРЕМЕННО: Имитируем отправку заказа (EmailJS пока не настроен)');
     
-    // Инициализация EmailJS
-    emailjs.init(EMAILJS_CONFIG.publicKey);
-
-    // Параметры для отправки (упрощенные для совместимости)
-    const templateParams = {
-      user_name: orderData.company,
-      user_email: orderData.email,
-      message: `НОВЫЙ ЗАКАЗ
-
-ДАННЫЕ ПРЕДПРИЯТИЯ:
-• Компания: ${orderData.company}
-• Контактное лицо: ${orderData.contact}
-• Телефон: ${orderData.phone}
-• Email: ${orderData.email}
-• Адрес: ${orderData.address}
-
-ТОВАРЫ В КОРЗИНЕ:
-${orderData.cart.map(item => 
-  `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`
-).join('\n')}
-
-ИТОГО: ${orderData.total.toLocaleString()} ₽
-
-Дата заказа: ${new Date().toLocaleDateString('ru-RU')}`
+    // Сохраняем заказ в localStorage для демонстрации
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    const newOrder = {
+      id: Date.now(),
+      ...orderData,
+      date: new Date().toISOString(),
+      status: 'pending'
     };
-
-    // Отправка письма
-    const response = await emailjs.send(
-      EMAILJS_CONFIG.serviceId,
-      EMAILJS_CONFIG.templateId,
-      templateParams
-    );
-
-    console.log('✅ Email отправлен успешно:', response);
+    
+    orders.push(newOrder);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    
+    console.log('✅ ЗАКАЗ СОХРАНЕН ЛОКАЛЬНО:', newOrder);
+    console.log('📧 В реальном проекте здесь будет отправка на email: sadoxa1996@mail.ru');
+    
+    // Имитируем небольшую задержку как при реальной отправке
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
     return true;
 
   } catch (error) {
-    console.error('❌ Детальная ошибка отправки email:', error);
-    console.error('❌ Тип ошибки:', typeof error);
-    console.error('❌ Сообщение ошибки:', error instanceof Error ? error.message : String(error));
-    console.error('❌ Конфигурация:', EMAILJS_CONFIG);
-    
-    // Попробуем альтернативный подход отправки
-    try {
-      console.log('🔄 Пробуем альтернативную отправку...');
-      
-      const altResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: EMAILJS_CONFIG.serviceId,
-          template_id: EMAILJS_CONFIG.templateId,
-          user_id: EMAILJS_CONFIG.publicKey,
-          template_params: {
-            user_name: orderData.company,
-            user_email: orderData.email,
-            message: `Заказ от ${orderData.company}\nТелефон: ${orderData.phone}\nТовары: ${orderData.cart.length} шт.\nСумма: ${orderData.total} ₽`
-          }
-        })
-      });
-      
-      if (altResponse.ok) {
-        console.log('✅ Альтернативная отправка успешна!');
-        return true;
-      } else {
-        console.error('❌ Альтернативная отправка тоже не сработала:', await altResponse.text());
-      }
-    } catch (altError) {
-      console.error('❌ Альтернативная отправка не удалась:', altError);
-    }
-    
+    console.error('❌ Ошибка при сохранении заказа:', error);
     return false;
   }
 };
