@@ -1,11 +1,11 @@
 import emailjs from '@emailjs/browser';
 import { CartItem } from '@/context/CartContext';
 
-// EmailJS конфигурация - обновленная
+// EmailJS конфигурация - ЗАМЕНИТЕ НА ВАШИ РЕАЛЬНЫЕ ЗНАЧЕНИЯ!
 const EMAILJS_CONFIG = {
-  serviceId: 'service_osw4pc5',
-  templateId: 'template_a6zxztor5qptybr_2ji', // Исправлен формат в нижнем регистре
-  publicKey: 'UsA8zjcYvrlcSqY1b'
+  serviceId: 'YOUR_SERVICE_ID',     // Получите из EmailJS Dashboard
+  templateId: 'YOUR_TEMPLATE_ID',   // Получите из EmailJS Dashboard  
+  publicKey: 'YOUR_PUBLIC_KEY'      // Получите из EmailJS Dashboard
 };
 
 interface OrderData {
@@ -20,26 +20,63 @@ interface OrderData {
 
 export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => {
   try {
-    console.log('🚀 ВРЕМЕННО: Имитируем отправку заказа (EmailJS пока не настроен)');
+    // Проверяем настройку EmailJS
+    if (EMAILJS_CONFIG.serviceId === 'YOUR_SERVICE_ID' || 
+        EMAILJS_CONFIG.templateId === 'YOUR_TEMPLATE_ID' || 
+        EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY') {
+      console.log('⚠️ EmailJS НЕ НАСТРОЕН! Перейдите в режим демонстрации...');
+      
+      // Сохраняем заказ локально как fallback
+      const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+      const newOrder = {
+        id: Date.now(),
+        ...orderData,
+        date: new Date().toISOString(),
+        status: 'pending'
+      };
+      orders.push(newOrder);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      
+      console.log('📧 НАСТРОЙТЕ EmailJS для отправки на: sadoxa1996@mail.ru');
+      return true;
+    }
     
-    // Сохраняем заказ в localStorage для демонстрации
-    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-    const newOrder = {
-      id: Date.now(),
-      ...orderData,
-      date: new Date().toISOString(),
-      status: 'pending'
+    console.log('🚀 Отправляем заказ через EmailJS');
+    
+    // Инициализация EmailJS
+    emailjs.init(EMAILJS_CONFIG.publicKey);
+
+    // Параметры для отправки
+    const templateParams = {
+      user_name: orderData.company,
+      user_email: orderData.email,
+      message: `НОВЫЙ ЗАКАЗ
+
+ДАННЫЕ ПРЕДПРИЯТИЯ:
+• Компания: ${orderData.company}
+• Контактное лицо: ${orderData.contact}
+• Телефон: ${orderData.phone}
+• Email: ${orderData.email}
+• Адрес: ${orderData.address}
+
+ТОВАРЫ В КОРЗИНЕ:
+${orderData.cart.map(item => 
+  `• ${item.name} - ${item.quantity} шт. × ${item.price.toLocaleString()} ₽ = ${(item.price * item.quantity).toLocaleString()} ₽`
+).join('\n')}
+
+ИТОГО: ${orderData.total.toLocaleString()} ₽
+
+Дата заказа: ${new Date().toLocaleDateString('ru-RU')}`
     };
-    
-    orders.push(newOrder);
-    localStorage.setItem('orders', JSON.stringify(orders));
-    
-    console.log('✅ ЗАКАЗ СОХРАНЕН ЛОКАЛЬНО:', newOrder);
-    console.log('📧 В реальном проекте здесь будет отправка на email: sadoxa1996@mail.ru');
-    
-    // Имитируем небольшую задержку как при реальной отправке
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
+    // Отправка письма
+    const response = await emailjs.send(
+      EMAILJS_CONFIG.serviceId,
+      EMAILJS_CONFIG.templateId,
+      templateParams
+    );
+
+    console.log('✅ Email отправлен успешно на sadoxa1996@mail.ru:', response);
     return true;
 
   } catch (error) {
