@@ -4,8 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/useToast";
 
 export default function ContactForm() {
+  const { showSuccess, showError } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -73,11 +75,11 @@ ${formData.message}
       setFormData({ name: '', email: '', phone: '', message: '' });
       
       // Показать уведомление об успешной отправке
-      alert('✅ Сообщение отправлено! Ваш вопрос направлен на sadoxa1996@mail.ru. Мы свяжемся с вами в ближайшее время.');
+      showSuccess('Сообщение отправлено! В ближайшее время с вами свяжется наш менеджер');
     } catch (error) {
       console.error('❌ Ошибка отправки контактной формы:', error);
       setSubmitStatus('error');
-      alert('❌ Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
+      showError('Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
     } finally {
       setIsSubmitting(false);
     }

@@ -7,6 +7,7 @@ import Certificates from "@/components/Certificates";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import AuthModals from "@/components/AuthModals";
+import { ToastProvider } from "@/hooks/useToast";
 
 const Index = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -205,43 +206,45 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header
-        isLoggedIn={isLoggedIn}
-        onLogin={handleLogin}
-        onRegister={() => setIsRegisterOpen(true)}
-        onLogout={handleLogout}
-      />
+    <ToastProvider>
+      <div className="min-h-screen bg-white">
+        <Header
+          isLoggedIn={isLoggedIn}
+          onLogin={handleLogin}
+          onRegister={() => setIsRegisterOpen(true)}
+          onLogout={handleLogout}
+        />
+        
+        <Hero />
+        
+        <Features />
+        
+        <Products />
+        
+        <Certificates />
+        
+        <ContactForm />
+        
+        <Footer />
       
-      <Hero />
-      
-      <Features />
-      
-      <Products />
-      
-      <Certificates />
-      
-      <ContactForm />
-      
-      <Footer />
-      
-      <AuthModals
-        isRegisterOpen={isRegisterOpen}
-        isLoginOpen={isLoginOpen}
-        setIsRegisterOpen={setIsRegisterOpen}
-        setIsLoginOpen={setIsLoginOpen}
-        rememberMe={rememberMe}
-        setRememberMe={setRememberMe}
-        formData={formData}
-        loginData={loginData}
-        errors={errors}
-        loginErrors={loginErrors}
-        handleInputChange={handleInputChange}
-        handleLoginInputChange={handleLoginInputChange}
-        handleRegister={handleRegister}
-        handleLoginSubmit={handleLoginSubmit}
-      />
-    </div>
+        <AuthModals
+          isRegisterOpen={isRegisterOpen}
+          isLoginOpen={isLoginOpen}
+          setIsRegisterOpen={setIsRegisterOpen}
+          setIsLoginOpen={setIsLoginOpen}
+          rememberMe={rememberMe}
+          setRememberMe={setRememberMe}
+          formData={formData}
+          loginData={loginData}
+          errors={errors}
+          loginErrors={loginErrors}
+          handleInputChange={handleInputChange}
+          handleLoginInputChange={handleLoginInputChange}
+          handleRegister={handleRegister}
+          handleLoginSubmit={handleLoginSubmit}
+        />
+      </div>
+    </ToastProvider>
   );
 };
 
