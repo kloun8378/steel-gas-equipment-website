@@ -8,10 +8,12 @@ import Icon from "@/components/ui/icon";
 import { sendOrderEmail } from "@/services/emailService";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
+import { useToast } from "@/hooks/useToast";
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
   const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { showSuccess, showError, showInfo } = useToast();
   const [companyData, setCompanyData] = useState({
     name: '',
     inn: '',
@@ -48,7 +50,7 @@ const Dashboard = () => {
   const saveCompanyData = () => {
     if (user) {
       localStorage.setItem(`company_${user.email}`, JSON.stringify(companyData));
-      alert('✅ Данные компании сохранены!');
+      showSuccess('Данные компании сохранены!');
     }
   };
 
@@ -205,8 +207,8 @@ const Dashboard = () => {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {cart.map((item, index) => (
-                    <div key={index} className="flex items-center gap-4 p-4 border rounded-lg">
+                  {cart.map((item) => (
+                    <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
                       {item.image && (
                         <img 
                           src={item.image} 
@@ -217,7 +219,7 @@ const Dashboard = () => {
                       
                       <div className="flex-1">
                         <h4 className="font-medium">{item.name}</h4>
-                        <p className="text-sm text-gray-500">{item.description}</p>
+                        {item.description && <p className="text-sm text-gray-500">{item.description}</p>}
                         <div className="text-lg font-bold text-primary mt-1">
                           {item.price.toLocaleString()} ₽ за шт.
                         </div>
@@ -227,7 +229,7 @@ const Dashboard = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          onClick={() => updateQuantity(index, item.quantity - 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
                         >
                           -
                         </Button>
@@ -235,7 +237,7 @@ const Dashboard = () => {
                         <Button
                           size="sm"
                           variant="outline"
-                          onClick={() => updateQuantity(index, item.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           +
                         </Button>
@@ -248,7 +250,7 @@ const Dashboard = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => removeFromCart(index)}
+                          onClick={() => removeFromCart(item.id)}
                           className="mt-2"
                         >
                           <Icon name="Trash2" className="h-4 w-4" />
@@ -268,11 +270,11 @@ const Dashboard = () => {
                         className="flex-1"
                         onClick={async () => {
                           if (cart.length === 0) {
-                            alert('❌ Корзина пуста! Добавьте товары для оформления заказа.');
+                            showError('Корзина пуста! Добавьте товары для оформления заказа.');
                             return;
                           }
 
-                          alert('📤 Отправляю заказ через EmailJS...');
+                          showInfo('Отправляю заказ через EmailJS...');
 
                           // Собираем данные заказа
                           const orderData = {
@@ -289,14 +291,14 @@ const Dashboard = () => {
                             const result = await sendOrderEmail(orderData);
                             
                             if (result) {
-                              alert('✅ ЗАКАЗ УСПЕШНО ОТПРАВЛЕН НА sadoxa1996@mail.ru через EmailJS!');
+                              showSuccess('ЗАКАЗ УСПЕШНО ОТПРАВЛЕН НА sadoxa1996@mail.ru через EmailJS!');
                               clearCart();
                             } else {
-                              alert('❌ Ошибка отправки через EmailJS. Проверьте настройки.');
+                              showError('Ошибка отправки через EmailJS. Проверьте настройки.');
                             }
                           } catch (error) {
                             console.error('EmailJS error:', error);
-                            alert('❌ Ошибка EmailJS: ' + String(error));
+                            showError('Ошибка EmailJS: ' + String(error));
                           }
                         }}
                       >

@@ -1,4 +1,5 @@
 import emailjs from '@emailjs/browser';
+import { CartItem } from '@/context/CartContext';
 
 // EmailJS конфигурация (замените на ваши реальные ключи)
 const EMAILJS_CONFIG = {
@@ -13,12 +14,7 @@ interface OrderData {
   phone: string;
   email: string;
   address: string;
-  cart: Array<{
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-  }>;
+  cart: CartItem[];
   total: number;
 }
 
