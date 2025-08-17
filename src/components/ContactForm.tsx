@@ -29,65 +29,55 @@ export default function ContactForm() {
     setSubmitStatus('idle');
 
     try {
-      // Инициализация EmailJS
-      emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY');
+      // Используем те же настройки EmailJS что и для заказов
+      emailjs.init('UsA8zjcYvrlcSqY1b');
       
-      // Параметры для контактной формы
+      // Формируем письмо в том же стиле что и заказы
+      const messageContent = `
+🔔 НОВОЕ СООБЩЕНИЕ - СТАЛЬПРО
+==================================================
+
+📧 КОНТАКТНАЯ ФОРМА
+
+👤 ОТПРАВИТЕЛЬ:
+Имя: ${formData.name}
+Email: ${formData.email}
+Телефон: ${formData.phone}
+
+💬 СООБЩЕНИЕ:
+${formData.message}
+
+📅 ДАТА: ${new Date().toLocaleDateString('ru-RU')} в ${new Date().toLocaleTimeString('ru-RU')}
+
+--
+🤖 СтальПро | poehali.dev
+`;
+
+      // Параметры для отправки
       const emailParams = {
-        to_name: 'СтальПро Менеджер',
-        to_email: 'sadoxa1996@mail.ru',
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        message: formData.message,
-        reply_to: formData.email,
-        subject: `Заявка с сайта от ${formData.name}`
+        user_name: formData.name,
+        user_email: formData.email,
+        message: messageContent
       };
 
-      // Отправляем через EmailJS SDK
+      // Отправляем через тот же шаблон что и заказы
       const emailResponse = await emailjs.send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
-        process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID || 'YOUR_CONTACT_TEMPLATE_ID',
+        'service_osw4pc5',
+        'template_npe77ik',
         emailParams
       );
 
       console.log('✅ Контактная форма отправлена успешно:', emailResponse);
       
-      // Опционально: отправка SMS (требует настройки SMS.ru)
-      try {
-        if (process.env.REACT_APP_SMS_API_KEY) {
-          const smsText = `Новая заявка с сайта от ${formData.name}. Email: ${formData.email}, Телефон: ${formData.phone}`;
-          
-          await fetch('https://sms.ru/sms/send', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-              api_id: process.env.REACT_APP_SMS_API_KEY,
-              to: '79609505904',
-              msg: smsText,
-              json: '1'
-            })
-          });
-        }
-      } catch (smsError) {
-        console.warn('SMS отправка не удалась:', smsError);
-      }
-
-      if (emailResponse.status === 200) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        
-        // Показать уведомление об успешной отправке
-        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
-      } else {
-        throw new Error(`EmailJS ошибка: ${emailResponse.text || 'Неизвестная ошибка'}`);
-      }
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      
+      // Показать уведомление об успешной отправке
+      alert('✅ Сообщение отправлено! Ваш вопрос направлен на sadoxa1996@mail.ru. Мы свяжемся с вами в ближайшее время.');
     } catch (error) {
-      console.error('Ошибка отправки формы:', error);
+      console.error('❌ Ошибка отправки контактной формы:', error);
       setSubmitStatus('error');
-      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+      alert('❌ Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
     } finally {
       setIsSubmitting(false);
     }
