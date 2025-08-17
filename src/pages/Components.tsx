@@ -5,11 +5,25 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Components() {
   const [quantitySpring, setQuantitySpring] = useState(1);
   const [quantityValve, setQuantityValve] = useState(1);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { user } = useAuth();
+
+  const handleAddToCart = (product: any) => {
+    if (!user) {
+      // Если пользователь не авторизован, предлагаем регистрацию
+      if (confirm('Для оформления заказа необходимо зарегистрироваться. Перейти к регистрации?')) {
+        window.location.href = '/login';
+      }
+      return;
+    }
+    // Если авторизован, добавляем в корзину
+    addToCart(product);
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -110,7 +124,7 @@ export default function Components() {
                   <Button 
                     className="w-full" 
                     size="lg"
-                    onClick={() => addToCart({
+                    onClick={() => handleAddToCart({
                       id: 'spring-ppcz12',
                       name: 'Пружина ППЦЗ-12',
                       price: 2700,
@@ -179,7 +193,7 @@ export default function Components() {
                   <Button 
                     className="w-full" 
                     size="lg"
-                    onClick={() => addToCart({
+                    onClick={() => handleAddToCart({
                       id: 'valve-ppcz12',
                       name: 'Золотник ППЦЗ-12',
                       price: 1110,

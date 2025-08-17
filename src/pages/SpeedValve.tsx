@@ -4,11 +4,25 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 
 export default function SpeedValve() {
   const [quantity25, setQuantity25] = useState(1);
   const [quantity32, setQuantity32] = useState(1);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { user } = useAuth();
+
+  const handleAddToCart = (product: any) => {
+    if (!user) {
+      // Если пользователь не авторизован, предлагаем регистрацию
+      if (confirm('Для оформления заказа необходимо зарегистрироваться. Перейти к регистрации?')) {
+        window.location.href = '/login';
+      }
+      return;
+    }
+    // Если авторизован, добавляем в корзину
+    addToCart(product);
+  };
 
 
 
@@ -111,7 +125,7 @@ export default function SpeedValve() {
                   <Button 
                     size="sm" 
                     className="w-full text-xs"
-                    onClick={() => addToCart({
+                    onClick={() => handleAddToCart({
                       id: 'speed-valve-du25',
                       name: 'Скоростной клапан межфланцевый ДУ25',
                       price: 5500,
@@ -184,7 +198,7 @@ export default function SpeedValve() {
                   <Button 
                     size="sm" 
                     className="w-full text-xs"
-                    onClick={() => addToCart({
+                    onClick={() => handleAddToCart({
                       id: 'speed-valve-du32',
                       name: 'Скоростной клапан межфланцевый ДУ32',
                       price: 6100,

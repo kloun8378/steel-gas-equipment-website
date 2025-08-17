@@ -4,10 +4,24 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 
 export default function SafetyValve() {
   const [quantity, setQuantity] = useState(1);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { user } = useAuth();
+
+  const handleAddToCart = (product: any) => {
+    if (!user) {
+      // Если пользователь не авторизован, предлагаем регистрацию
+      if (confirm('Для оформления заказа необходимо зарегистрироваться. Перейти к регистрации?')) {
+        window.location.href = '/login';
+      }
+      return;
+    }
+    // Если авторизован, добавляем в корзину
+    addToCart(product);
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -128,7 +142,7 @@ export default function SafetyValve() {
                   <Button 
                     size="sm" 
                     className="w-full text-xs"
-                    onClick={() => addToCart({
+                    onClick={() => handleAddToCart({
                       id: 'safety-valve-ppcz12',
                       name: 'Предохранительные клапаны ППЦЗ-12',
                       price: 9000,
