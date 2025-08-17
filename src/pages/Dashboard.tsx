@@ -6,9 +6,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 import { sendOrderEmail } from "@/services/emailService";
+import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/context/CartContext";
 
 const Dashboard = () => {
-  const [currentUser, setCurrentUser] = useState<any>(null);
+  const { user, logout } = useAuth();
+  const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const [companyData, setCompanyData] = useState({
     name: '',
     inn: '',
@@ -17,84 +20,43 @@ const Dashboard = () => {
     email: '',
     description: ''
   });
-  const [cart, setCart] = useState<any[]>([]);
 
   useEffect(() => {
-    // Получаем данные текущего пользователя
-    const userData = localStorage.getItem('currentUser');
-    if (userData) {
-      const user = JSON.parse(userData);
-      setCurrentUser(user);
-      
+    if (user) {
       // Загружаем данные компании для этого пользователя
       const companyInfo = localStorage.getItem(`company_${user.email}`);
       if (companyInfo) {
         setCompanyData(JSON.parse(companyInfo));
+      } else {
+        // Заполняем данными из профиля пользователя
+        setCompanyData({
+          name: user.company,
+          inn: '',
+          address: user.address,
+          phone: user.phone,
+          email: user.email,
+          description: ''
+        });
       }
-      
-      // Загружаем корзину (общую для всех страниц)
-      const loadCart = () => {
-        const userCart = localStorage.getItem('cart');
-        if (userCart) {
-          setCart(JSON.parse(userCart));
-        } else {
-          setCart([]);
-        }
-      };
-      
-      loadCart();
-      
-      // Слушаем изменения в localStorage для автообновления корзины
-      const handleStorageChange = (e: StorageEvent) => {
-        if (e.key === 'cart') {
-          loadCart();
-        }
-      };
-      
-      window.addEventListener('storage', handleStorageChange);
-      
-      // Проверяем изменения каждые 2 секунды для случаев на той же вкладке
-      const interval = setInterval(() => {
-        loadCart();
-      }, 2000);
-      
-      return () => {
-        window.removeEventListener('storage', handleStorageChange);
-        clearInterval(interval);
-      };
-    } else {
-      // Если пользователь не авторизован, перенаправляем на главную
-      window.location.href = '/';
     }
-  }, []);
+  }, [user]);
 
   const handleCompanyDataChange = (field: string, value: string) => {
     setCompanyData(prev => ({ ...prev, [field]: value }));
   };
 
   const saveCompanyData = () => {
-    if (currentUser) {
-      localStorage.setItem(`company_${currentUser.email}`, JSON.stringify(companyData));
-      alert('Данные предприятия сохранены!');
+    if (user) {
+      localStorage.setItem(`company_${user.email}`, JSON.stringify(companyData));
+      alert('✅ Данные компании сохранены!');
     }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('currentUser');
-    window.location.href = '/';
+    logout();
   };
 
-  const removeFromCart = (index: number) => {
-    const newCart = cart.filter((_, i) => i !== index);
-    setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-  };
 
-  const updateQuantity = (index: number, newQuantity: number) => {
-    if (newQuantity <= 0) {
-      removeFromCart(index);
-      return;
-    }
     
     const newCart = [...cart];
     newCart[index] = { ...newCart[index], quantity: newQuantity };
@@ -331,13 +293,13 @@ const Dashboard = () => {
 
                           // Собираем данные заказа
                           const orderData = {
-                            company: "ООО \"Энергия\"",
-                            contact: "Иван Петров",
-                            phone: "+7 (495) 123-45-67", 
-                            email: "info@energiya.ru",
-                            address: "123456, г. Москва, ул. Промышленная, д. 15",
+                            company: user?.company || 'Неизвестная компания',
+                            contact: user?.name || 'Неизвестный контакт',
+                            phone: user?.phone || 'Не указан', 
+                            email: user?.email || 'Не указан',
+                            address: user?.address || 'Не указан',
                             cart: cart,
-                            total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+                            total: getTotalPrice()
                           };
 
                           try {
