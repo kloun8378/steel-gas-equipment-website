@@ -168,7 +168,7 @@ const LoginPage = () => {
                   <Label htmlFor="register-company">Компания *</Label>
                   <Input
                     id="register-company"
-                    placeholder="ООО \"Ваша компания\""
+                    placeholder="ООО 'Ваша компания'"
                     value={registerForm.company}
                     onChange={(e) => setRegisterForm(prev => ({ ...prev, company: e.target.value }))}
                     disabled={isLoading}
