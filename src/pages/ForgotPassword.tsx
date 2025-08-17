@@ -27,7 +27,7 @@ export default function ForgotPassword() {
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
             <div className="mx-auto w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <Icon name="Mail" className="h-6 w-6 text-green-600" />
+              <Icon name="Mail" size={24} className="text-green-600" />
             </div>
             <CardTitle className="text-xl font-bold text-gray-900">
               Письмо отправлено
@@ -58,7 +58,7 @@ export default function ForgotPassword() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-            <Icon name="KeyRound" className="h-6 w-6 text-blue-600" />
+            <Icon name="KeyRound" size={24} className="text-blue-600" />
           </div>
           <CardTitle className="text-xl font-bold text-gray-900">
             Восстановление пароля
@@ -91,12 +91,12 @@ export default function ForgotPassword() {
             >
               {isLoading ? (
                 <>
-                  <Icon name="Loader2" className="mr-2 h-4 w-4 animate-spin" />
+                  <Icon name="Loader2" size={16} className="mr-2 animate-spin" />
                   Отправляем...
                 </>
               ) : (
                 <>
-                  <Icon name="Send" className="mr-2 h-4 w-4" />
+                  <Icon name="Send" size={16} className="mr-2" />
                   Отправить инструкции
                 </>
               )}
