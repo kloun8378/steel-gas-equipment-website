@@ -27,45 +27,27 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Валидация формы
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
-      showError('Пожалуйста, заполните все поля формы');
-      return;
-    }
-
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
-      console.log('📤 Отправляем контактную форму...');
-      
-      // Имитация отправки с задержкой
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Сохраняем в localStorage для демонстрации
-      const messages = JSON.parse(localStorage.getItem('contact_messages') || '[]');
-      const newMessage = {
-        id: Date.now(),
-        ...formData,
-        date: new Date().toISOString(),
-        status: 'new'
-      };
-      messages.push(newMessage);
-      localStorage.setItem('contact_messages', JSON.stringify(messages));
-      
-      console.log('✅ Сообщение сохранено:', newMessage);
-      
-      setSubmitStatus('success');
+      // Простая отправка через EmailJS
+      await emailjs.send(
+        'service_osw4pc5',
+        'template_npe77ik',
+        {
+          user_name: formData.name,
+          user_email: formData.email,
+          message: `Имя: ${formData.name}\nEmail: ${formData.email}\nТелефон: ${formData.phone}\n\nСообщение:\n${formData.message}`
+        },
+        'UsA8zjcYvrlcSqY1b'
+      );
+
+      // Очищаем форму и показываем успех
       setFormData({ name: '', email: '', phone: '', message: '' });
-      
-      // Показать уведомление об успешной отправке
       showSuccess('Сообщение отправлено! В ближайшее время с вами свяжется наш менеджер');
       
     } catch (error) {
-      console.error('❌ Ошибка отправки контактной формы:', error);
-      setSubmitStatus('error');
-      showError('Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
+      showError('Ошибка отправки. Попробуйте еще раз');
     } finally {
       setIsSubmitting(false);
     }
@@ -173,7 +155,7 @@ export default function ContactForm() {
                 type="submit" 
                 className="w-full" 
                 size="lg"
-                disabled={isSubmitting || !formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()}
+                disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <>
