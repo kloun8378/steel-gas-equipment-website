@@ -73,7 +73,7 @@ const Dashboard = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
-  if (!currentUser) {
+  if (!user) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="text-center">
@@ -95,7 +95,7 @@ const Dashboard = () => {
               <h1 className="text-2xl font-bold text-gray-900">СтальПро - Личный кабинет</h1>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-gray-600">Добро пожаловать, {currentUser.email}</span>
+              <span className="text-gray-600">Добро пожаловать, {user.email}</span>
               <Button variant="outline" onClick={() => window.location.href = '/'}>
                 <Icon name="Home" className="mr-2 h-4 w-4" />
                 На главную
