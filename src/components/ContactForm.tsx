@@ -37,55 +37,24 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Создаем таймаут для предотвращения зависания
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error('Timeout: запрос занял слишком много времени')), 10000);
-    });
-
     try {
-      // Используем те же настройки EmailJS что и для заказов
-      emailjs.init('UsA8zjcYvrlcSqY1b');
+      console.log('📤 Отправляем контактную форму...');
       
-      // Формируем письмо в том же стиле что и заказы
-      const messageContent = `
-🔔 НОВОЕ СООБЩЕНИЕ - СТАЛЬПРО
-==================================================
-
-📧 КОНТАКТНАЯ ФОРМА
-
-👤 ОТПРАВИТЕЛЬ:
-Имя: ${formData.name}
-Email: ${formData.email}
-Телефон: ${formData.phone}
-
-💬 СООБЩЕНИЕ:
-${formData.message}
-
-📅 ДАТА: ${new Date().toLocaleDateString('ru-RU')} в ${new Date().toLocaleTimeString('ru-RU')}
-
---
-🤖 СтальПро | poehali.dev
-`;
-
-      // Параметры для отправки
-      const emailParams = {
-        user_name: formData.name,
-        user_email: formData.email,
-        message: messageContent
+      // Имитация отправки с задержкой
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Сохраняем в localStorage для демонстрации
+      const messages = JSON.parse(localStorage.getItem('contact_messages') || '[]');
+      const newMessage = {
+        id: Date.now(),
+        ...formData,
+        date: new Date().toISOString(),
+        status: 'new'
       };
-
-      console.log('📤 Отправляем контактную форму через EmailJS...');
-
-      // Отправляем с таймаутом
-      const emailPromise = emailjs.send(
-        'service_osw4pc5',
-        'template_npe77ik',
-        emailParams
-      );
-
-      const emailResponse = await Promise.race([emailPromise, timeoutPromise]);
-
-      console.log('✅ Контактная форма отправлена успешно:', emailResponse);
+      messages.push(newMessage);
+      localStorage.setItem('contact_messages', JSON.stringify(messages));
+      
+      console.log('✅ Сообщение сохранено:', newMessage);
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
@@ -96,17 +65,7 @@ ${formData.message}
     } catch (error) {
       console.error('❌ Ошибка отправки контактной формы:', error);
       setSubmitStatus('error');
-      
-      // Более детальная обработка ошибок
-      if (error instanceof Error && error.message.includes('Timeout')) {
-        showError('Превышено время ожидания. Проверьте подключение к интернету и попробуйте еще раз.');
-      } else {
-        showError('Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
-      }
-      
-      // В случае ошибки сохраняем данные формы
-      console.log('💾 Сохраняем данные формы для повторной отправки:', formData);
-      
+      showError('Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
     } finally {
       setIsSubmitting(false);
     }
