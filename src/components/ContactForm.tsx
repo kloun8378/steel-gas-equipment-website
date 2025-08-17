@@ -27,8 +27,20 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Валидация формы
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      showError('Пожалуйста, заполните все поля формы');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
+
+    // Создаем таймаут для предотвращения зависания
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('Timeout: запрос занял слишком много времени')), 10000);
+    });
 
     try {
       // Используем те же настройки EmailJS что и для заказов
@@ -62,12 +74,16 @@ ${formData.message}
         message: messageContent
       };
 
-      // Отправляем через тот же шаблон что и заказы
-      const emailResponse = await emailjs.send(
+      console.log('📤 Отправляем контактную форму через EmailJS...');
+
+      // Отправляем с таймаутом
+      const emailPromise = emailjs.send(
         'service_osw4pc5',
         'template_npe77ik',
         emailParams
       );
+
+      const emailResponse = await Promise.race([emailPromise, timeoutPromise]);
 
       console.log('✅ Контактная форма отправлена успешно:', emailResponse);
       
@@ -76,10 +92,21 @@ ${formData.message}
       
       // Показать уведомление об успешной отправке
       showSuccess('Сообщение отправлено! В ближайшее время с вами свяжется наш менеджер');
+      
     } catch (error) {
       console.error('❌ Ошибка отправки контактной формы:', error);
       setSubmitStatus('error');
-      showError('Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
+      
+      // Более детальная обработка ошибок
+      if (error instanceof Error && error.message.includes('Timeout')) {
+        showError('Превышено время ожидания. Проверьте подключение к интернету и попробуйте еще раз.');
+      } else {
+        showError('Произошла ошибка при отправке сообщения. Попробуйте еще раз или свяжитесь с нами по телефону +7 960 937-35-42');
+      }
+      
+      // В случае ошибки сохраняем данные формы
+      console.log('💾 Сохраняем данные формы для повторной отправки:', formData);
+      
     } finally {
       setIsSubmitting(false);
     }
@@ -187,7 +214,7 @@ ${formData.message}
                 type="submit" 
                 className="w-full" 
                 size="lg"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()}
               >
                 {isSubmitting ? (
                   <>
