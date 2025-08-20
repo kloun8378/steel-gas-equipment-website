@@ -86,10 +86,17 @@ const LoginPage = () => {
         to_email: email,
         user_email: email,
         reset_link: resetLink,
-        reset_url: resetLink, // Дублируем для надёжности
+        reset_url: resetLink,
         button_text: 'Восстановить пароль',
         button_link: resetLink,
-        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}`,
+        // HTML кнопка для EmailJS (используйте в шаблоне {{{html_button}}})
+        html_button: `<div style="text-align: center; margin: 30px 0;"><a href="${resetLink}" style="background-color: #2563eb; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block;">Восстановить пароль</a></div>`,
+        // Простая HTML ссылка (используйте в шаблоне {{{html_link}}})
+        html_link: `<a href="${resetLink}" style="color: #2563eb; font-weight: bold;">${resetLink}</a>`,
+        // Текстовая ссылка с инструкцией
+        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}
+
+Если ссылка не работает, скопируйте её и вставьте в адресную строку браузера.`,
         from_name: 'СтальПро - Система закупок'
       };
       
