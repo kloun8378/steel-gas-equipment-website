@@ -9,9 +9,6 @@ import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
 import emailjs from '@emailjs/browser';
 
-// Инициализация EmailJS
-emailjs.init("UsA8zjcYvrlcSqY1b");
-
 const LoginPage = () => {
   const { login, register, isLoading } = useAuth();
   const [loginForm, setLoginForm] = useState({

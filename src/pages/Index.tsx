@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import Products from "@/components/Products";
-import Certificates from "@/components/Certificates";
-import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
-import AuthModals from "@/components/AuthModals";
+
+const Features = lazy(() => import("@/components/Features"));
+const Products = lazy(() => import("@/components/Products"));
+const Certificates = lazy(() => import("@/components/Certificates"));
+const ContactForm = lazy(() => import("@/components/ContactForm"));
+const Footer = lazy(() => import("@/components/Footer"));
+const AuthModals = lazy(() => import("@/components/AuthModals"));
 
 const Index = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -215,32 +216,44 @@ const Index = () => {
         
         <Hero />
         
-        <Features />
+        <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-48 rounded-lg w-full max-w-4xl"></div></div>}>
+          <Features />
+        </Suspense>
         
-        <Products />
+        <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-64 rounded-lg w-full max-w-6xl"></div></div>}>
+          <Products />
+        </Suspense>
         
-        <Certificates />
+        <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-32 rounded-lg w-full max-w-4xl"></div></div>}>
+          <Certificates />
+        </Suspense>
         
-        <ContactForm />
+        <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-96 rounded-lg w-full max-w-4xl"></div></div>}>
+          <ContactForm />
+        </Suspense>
         
-        <Footer />
+        <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-48 rounded-lg w-full"></div></div>}>
+          <Footer />
+        </Suspense>
       
-        <AuthModals
-          isRegisterOpen={isRegisterOpen}
-          isLoginOpen={isLoginOpen}
-          setIsRegisterOpen={setIsRegisterOpen}
-          setIsLoginOpen={setIsLoginOpen}
-          rememberMe={rememberMe}
-          setRememberMe={setRememberMe}
-          formData={formData}
-          loginData={loginData}
-          errors={errors}
-          loginErrors={loginErrors}
-          handleInputChange={handleInputChange}
-          handleLoginInputChange={handleLoginInputChange}
-          handleRegister={handleRegister}
-          handleLoginSubmit={handleLoginSubmit}
-        />
+        <Suspense fallback={null}>
+          <AuthModals
+            isRegisterOpen={isRegisterOpen}
+            isLoginOpen={isLoginOpen}
+            setIsRegisterOpen={setIsRegisterOpen}
+            setIsLoginOpen={setIsLoginOpen}
+            rememberMe={rememberMe}
+            setRememberMe={setRememberMe}
+            formData={formData}
+            loginData={loginData}
+            errors={errors}
+            loginErrors={loginErrors}
+            handleInputChange={handleInputChange}
+            handleLoginInputChange={handleLoginInputChange}
+            handleRegister={handleRegister}
+            handleLoginSubmit={handleLoginSubmit}
+          />
+        </Suspense>
     </div>
   );
 };
