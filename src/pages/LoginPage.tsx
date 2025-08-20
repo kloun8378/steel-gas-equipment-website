@@ -72,17 +72,28 @@ const LoginPage = () => {
   // Функция отправки сброса пароля
   const sendPasswordReset = async (email: string) => {
     try {
+      const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`;
+      
       console.log('Отправка email восстановления для:', email);
+      console.log('Ссылка для восстановления:', resetLink);
+      
+      const templateParams = {
+        to_email: email,
+        user_email: email,
+        reset_link: resetLink,
+        resetlink: resetLink,
+        link: resetLink,
+        url: resetLink,
+        from_name: 'СтальПро - Система закупок',
+        message: `Перейдите по ссылке для восстановления пароля: ${resetLink}`
+      };
+      
+      console.log('Параметры шаблона:', templateParams);
       
       const result = await emailjs.send(
         'service_osw4pc5',
         'template_hgdylqe',
-        {
-          to_email: email,
-          user_email: email,
-          reset_link: `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`,
-          from_name: 'СтальПро - Система закупок'
-        }
+        templateParams
       );
       
       console.log('EmailJS результат:', result);
