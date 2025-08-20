@@ -15,7 +15,7 @@ export default function Certificates() {
           <div className="bg-white p-8 rounded-lg shadow-sm text-center max-w-md">
             <div className="mb-6">
               <img 
-                src="https://cdn.poehali.dev/files/d6a270b4-0337-4f9e-9853-b3f25a52aad9.jpeg" 
+                src="/img/certificate-eac.jpg" 
                 alt="Сертификат EAC" 
                 className="w-full h-auto rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" 
                 onClick={() => setIsModalOpen(true)}
@@ -41,7 +41,7 @@ export default function Certificates() {
               <Icon name="X" className="h-6 w-6" />
             </button>
             <img 
-              src="https://cdn.poehali.dev/files/d6a270b4-0337-4f9e-9853-b3f25a52aad9.jpeg" 
+              src="/img/certificate-eac.jpg" 
               alt="Сертификат EAC" 
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}

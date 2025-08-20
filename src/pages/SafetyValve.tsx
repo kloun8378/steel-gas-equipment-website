@@ -69,7 +69,7 @@ export default function SafetyValve() {
                   <PopoverTrigger asChild>
                     <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
                       <img 
-                        src="https://cdn.poehali.dev/files/5b63616f-f204-4d56-a0f3-7223f98ee9d4.jpeg" 
+                        src="/img/safety-valve.jpg" 
                         alt="Предохранительные клапаны ППЦЗ-12"
                         className="w-full h-full object-contain rounded-lg p-2"
                       />
@@ -144,7 +144,7 @@ export default function SafetyValve() {
                       id: 'safety-valve-ppcz12',
                       name: 'Предохранительные клапаны ППЦЗ-12',
                       price: 9000,
-                      image: 'https://cdn.poehali.dev/files/5b63616f-f204-4d56-a0f3-7223f98ee9d4.jpeg',
+                      image: '/img/safety-valve.jpg',
                       description: 'Надежная защита оборудования от превышения давления',
                       quantity: quantity
                     })}
