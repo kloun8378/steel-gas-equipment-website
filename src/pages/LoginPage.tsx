@@ -89,7 +89,10 @@ const LoginPage = () => {
         to_email: email,
         user_email: email,
         reset_link: resetLink,
-        reset_button: `<a href="${resetLink}" style="display: inline-block; padding: 12px 24px; background-color: #0066cc; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 20px 0;">Восстановить пароль</a>`,
+        reset_url: resetLink, // Дублируем для надёжности
+        button_text: 'Восстановить пароль',
+        button_link: resetLink,
+        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}`,
         from_name: 'СтальПро - Система закупок'
       };
       
