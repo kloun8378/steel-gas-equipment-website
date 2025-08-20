@@ -72,8 +72,8 @@ export default function Hero() {
                     <div className="text-xs sm:text-sm text-primary-100">Проектов</div>
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-bold">4</div>
-                    <div className="text-xs sm:text-sm text-primary-100">Года опыта</div>
+                    <div className="text-2xl sm:text-3xl font-bold">5</div>
+                    <div className="text-xs sm:text-sm text-primary-100">Лет опыта</div>
                   </div>
                   <div>
                     <div className="text-2xl sm:text-3xl font-bold">24/7</div>
