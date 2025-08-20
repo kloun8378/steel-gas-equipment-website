@@ -7,6 +7,10 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
+import emailjs from '@emailjs/browser';
+
+// Инициализация EmailJS
+emailjs.init("YOUR_PUBLIC_KEY");
 
 const LoginPage = () => {
   const { login, register, isLoading } = useAuth();
@@ -23,6 +27,10 @@ const LoginPage = () => {
     address: ''
   });
   const [error, setError] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [resetLoading, setResetLoading] = useState(false);
+  const [resetMessage, setResetMessage] = useState('');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,6 +67,46 @@ const LoginPage = () => {
     if (!success) {
       setError('Пользователь с таким email уже существует');
     }
+  };
+
+  // Функция отправки сброса пароля
+  const sendPasswordReset = async (email: string) => {
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        {
+          to_email: email,
+          reset_link: `${window.location.origin}/reset-password?email=${email}&token=reset_token_here`
+        }
+      );
+      return { success: true };
+    } catch (error: any) {
+      return { success: false, error: error.text };
+    }
+  };
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setResetLoading(true);
+    setResetMessage('');
+
+    if (!forgotEmail) {
+      setResetMessage('Введите email адрес');
+      setResetLoading(false);
+      return;
+    }
+
+    const result = await sendPasswordReset(forgotEmail);
+    
+    if (result.success) {
+      setResetMessage('Письмо с инструкциями отправлено на ваш email');
+      setForgotEmail('');
+    } else {
+      setResetMessage('Ошибка отправки: ' + (result.error || 'Неизвестная ошибка'));
+    }
+    
+    setResetLoading(false);
   };
 
 
@@ -121,7 +169,15 @@ const LoginPage = () => {
                   {isLoading ? 'Вход...' : 'Войти'}
                 </Button>
 
-
+                <div className="text-center">
+                  <button
+                    type="button"
+                    onClick={() => setShowForgotPassword(true)}
+                    className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+                  >
+                    Забыли пароль?
+                  </button>
+                </div>
 
                 <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded">
                   <strong>Демо аккаунты:</strong><br/>
@@ -222,6 +278,73 @@ const LoginPage = () => {
           </Tabs>
         </CardContent>
       </Card>
+
+      {/* Модальное окно восстановления пароля */}
+      {showForgotPassword && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <Card className="w-full max-w-md">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Восстановление пароля</CardTitle>
+                <button
+                  onClick={() => {
+                    setShowForgotPassword(false);
+                    setResetMessage('');
+                    setForgotEmail('');
+                  }}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <Icon name="X" size={20} />
+                </button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleForgotPassword} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="forgot-email">Email</Label>
+                  <Input
+                    id="forgot-email"
+                    type="email"
+                    placeholder="Введите ваш email"
+                    value={forgotEmail}
+                    onChange={(e) => setForgotEmail(e.target.value)}
+                    disabled={resetLoading}
+                    required
+                  />
+                </div>
+
+                {resetMessage && (
+                  <div className={`text-sm p-3 rounded ${
+                    resetMessage.includes('отправлено') 
+                      ? 'text-green-700 bg-green-50' 
+                      : 'text-red-700 bg-red-50'
+                  }`}>
+                    {resetMessage}
+                  </div>
+                )}
+
+                <Button 
+                  type="submit" 
+                  className="w-full"
+                  disabled={resetLoading}
+                >
+                  {resetLoading ? (
+                    <>
+                      <Icon name="Loader2" size={16} className="mr-2 animate-spin" />
+                      Отправка...
+                    </>
+                  ) : (
+                    <>
+                      <Icon name="Mail" size={16} className="mr-2" />
+                      Отправить инструкции
+                    </>
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };
