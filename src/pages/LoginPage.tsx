@@ -71,10 +71,21 @@ const LoginPage = () => {
     try {
       console.log('🚀 Начало отправки email для:', email);
       
-      // Проверяем инициализацию EmailJS
+      // Детальная проверка EmailJS
+      console.log('🔍 Проверка EmailJS:', {
+        emailjs_loaded: !!window.emailjs,
+        emailjs_send: !!(window.emailjs && window.emailjs.send),
+        user_agent: navigator.userAgent
+      });
+      
       if (!window.emailjs) {
-        console.error('❌ EmailJS не загружен!');
+        console.error('❌ EmailJS не загружен! Проверьте подключение скрипта в index.html');
         return { success: false, error: 'EmailJS не загружен' };
+      }
+      
+      if (!window.emailjs.send) {
+        console.error('❌ EmailJS.send не доступен!');
+        return { success: false, error: 'EmailJS.send не найден' };
       }
       
       const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`;
@@ -104,31 +115,51 @@ const LoginPage = () => {
       console.log('🔧 Service ID:', 'service_osw4pc5');
       console.log('📝 Template ID:', 'template_hgdylqe');
       
+      console.log('📤 Отправляем через EmailJS...');
+      console.log('📋 Все параметры:', {
+        service: 'service_osw4pc5',
+        template: 'template_hgdylqe',
+        params: templateParams
+      });
+      
       const result = await emailjs.send(
         'service_osw4pc5',
         'template_hgdylqe',
         templateParams
       );
       
-      console.log('✅ EmailJS успешно отправлен:', result);
-      console.log('📊 Статус ответа:', result.status);
-      console.log('📝 Текст ответа:', result.text);
+      console.log('✅ EmailJS ответ получен:', result);
+      console.log('📊 Полный объект ответа:', JSON.stringify(result, null, 2));
       
       if (result.status === 200) {
+        console.log('🎉 Письмо успешно отправлено!');
         return { success: true };
       } else {
-        console.error('❌ Неожиданный статус:', result.status);
-        return { success: false, error: `Статус: ${result.status}` };
+        console.error('❌ Неожиданный статус:', result.status, result.text);
+        return { success: false, error: `Ошибка ${result.status}: ${result.text}` };
       }
     } catch (error: any) {
-      console.error('❌ Ошибка EmailJS:', error);
-      console.error('📋 Детали ошибки:', {
+      console.error('❌ Критическая ошибка EmailJS:', error);
+      console.error('🔍 Тип ошибки:', typeof error);
+      console.error('📝 Объект ошибки:', JSON.stringify(error, null, 2));
+      console.error('📋 Свойства ошибки:', {
         message: error.message,
         text: error.text,
         status: error.status,
-        name: error.name
+        name: error.name,
+        stack: error.stack
       });
-      return { success: false, error: error.text || error.message || 'Неизвестная ошибка' };
+      
+      // Детальный анализ типа ошибки
+      if (error.text) {
+        return { success: false, error: `EmailJS ошибка: ${error.text}` };
+      } else if (error.message) {
+        return { success: false, error: `Ошибка: ${error.message}` };
+      } else if (error.status) {
+        return { success: false, error: `HTTP ${error.status}` };
+      } else {
+        return { success: false, error: 'Неизвестная ошибка при отправке письма' };
+      }
     }
   };
 
