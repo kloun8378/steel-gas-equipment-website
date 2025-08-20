@@ -144,7 +144,7 @@ export default function Components() {
                     <PopoverTrigger asChild>
                       <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
                         <img 
-                          src="/img/valve-component.jpg" 
+                          src="https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg" 
                           alt="Золотник ППЦЗ-12"
                           className="w-full h-48 object-contain bg-white rounded"
                           style={{backgroundColor: '#ffffff'}}
@@ -195,7 +195,7 @@ export default function Components() {
                       id: 'valve-ppcz12',
                       name: 'Золотник ППЦЗ-12',
                       price: 1110,
-                      image: '/img/valve-component.jpg',
+                      image: 'https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg',
                       description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12',
                       quantity: quantityValve
                     })}
