@@ -14,7 +14,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/speed-valve'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="https://cdn.poehali.dev/files/325bf062-4575-4a61-bc99-a9e74f8e8c88.jpeg" alt="Скоростной клапан" className="h-48 w-48 object-contain rounded" />
+                <img src="/img/speed-valve-product.jpg" alt="Скоростной клапан" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Скоростной клапан</CardTitle>
             </CardHeader>
@@ -27,7 +27,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/safety-valve'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="https://cdn.poehali.dev/files/0b178660-e5bf-42f9-b1da-46595bb6466c.jpeg" alt="Предохранительный клапан" className="h-48 w-48 object-contain rounded" />
+                <img src="/img/safety-valve-product.jpg" alt="Предохранительный клапан" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Предохранительный клапан</CardTitle>
             </CardHeader>
@@ -40,7 +40,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/components'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="https://cdn.poehali.dev/files/be943ef4-8cf5-4fa2-a955-780a17fd8cdb.jpg" alt="Комплектующие" className="h-48 w-48 object-contain rounded" />
+                <img src="/img/components-product.jpg" alt="Комплектующие" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Комплектующие</CardTitle>
             </CardHeader>
