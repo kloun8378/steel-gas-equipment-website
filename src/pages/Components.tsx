@@ -72,7 +72,7 @@ export default function Components() {
                     <PopoverTrigger asChild>
                       <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
                         <img 
-                          src="/img/spring-component.jpg" 
+                          src="https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg" 
                           alt="Пружина ППЦЗ-12"
                           className="w-full h-48 object-contain bg-white rounded"
                           style={{backgroundColor: '#ffffff'}}
@@ -126,7 +126,7 @@ export default function Components() {
                       id: 'spring-ppcz12',
                       name: 'Пружина ППЦЗ-12',
                       price: 2700,
-                      image: '/img/spring-component.jpg',
+                      image: 'https://cdn.poehali.dev/files/0dbb6381-c034-430c-92d1-6219babf932a.jpg',
                       description: 'Пружина предохранительного клапана для замены в старом клапане',
                       quantity: quantitySpring
                     })}
@@ -144,7 +144,7 @@ export default function Components() {
                     <PopoverTrigger asChild>
                       <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
                         <img 
-                          src="/img/valve-component.jpg" 
+                          src="https://cdn.poehali.dev/files/7bb7d237-f284-4013-a981-6846c8504c80.jpg" 
                           alt="Золотник ППЦЗ-12"
                           className="w-full h-48 object-contain bg-white rounded"
                           style={{backgroundColor: '#ffffff'}}
@@ -195,7 +195,7 @@ export default function Components() {
                       id: 'valve-ppcz12',
                       name: 'Золотник ППЦЗ-12',
                       price: 1110,
-                      image: '/img/valve-component.jpg',
+                      image: 'https://cdn.poehali.dev/files/7bb7d237-f284-4013-a981-6846c8504c80.jpg',
                       description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12',
                       quantity: quantityValve
                     })}

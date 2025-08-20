@@ -73,7 +73,7 @@ export default function SpeedValve() {
                   <PopoverTrigger asChild>
                     <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
                       <img 
-                        src="/img/speed-valve-du25.png" 
+                        src="https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png" 
                         alt="Скоростной клапан межфланцевый ДУ25"
                         className="w-full h-full object-cover object-top rounded-lg"
                         style={{ objectPosition: 'center -90%' }}
@@ -127,7 +127,7 @@ export default function SpeedValve() {
                       id: 'speed-valve-du25',
                       name: 'Скоростной клапан межфланцевый ДУ25',
                       price: 5500,
-                      image: '/img/speed-valve-du25.png',
+                      image: 'https://cdn.poehali.dev/files/19f2b4fd-71bc-4185-a13b-ff66d38d80bd.png',
                       description: 'Компактный быстродействующий клапан для малых диаметров трубопроводов',
                       quantity: quantity25
                     })}
@@ -146,7 +146,7 @@ export default function SpeedValve() {
                   <PopoverTrigger asChild>
                     <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
                       <img 
-                        src="/img/speed-valve-du32.jpg" 
+                        src="https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg" 
                         alt="Скоростной клапан межфланцевый ДУ32"
                         className="w-full h-full object-cover object-top rounded-lg"
                         style={{ objectPosition: 'center -90%' }}
@@ -200,7 +200,7 @@ export default function SpeedValve() {
                       id: 'speed-valve-du32',
                       name: 'Скоростной клапан межфланцевый ДУ32',
                       price: 6100,
-                      image: '/img/speed-valve-du32.jpg',
+                      image: 'https://cdn.poehali.dev/files/073be8ef-8ece-4d3e-8716-87a047249bd2.jpg',
                       description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
                       quantity: quantity32
                     })}

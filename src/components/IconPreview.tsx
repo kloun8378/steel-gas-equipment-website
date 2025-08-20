@@ -13,7 +13,7 @@ export default function IconPreview() {
               <h2 className="text-xl font-semibold mb-4">Исходное изображение</h2>
               <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
                 <img 
-                  src="/img/icon-preview.jpg" 
+                  src="https://cdn.poehali.dev/files/3a99b275-5054-43ca-bc16-1c3e461b9e21.jpeg" 
                   alt="Оригинальное изображение клапана"
                   className="w-full h-full object-cover"
                 />

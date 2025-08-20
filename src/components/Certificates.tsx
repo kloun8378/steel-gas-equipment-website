@@ -15,7 +15,7 @@ export default function Certificates() {
           <div className="bg-white p-8 rounded-lg shadow-sm text-center max-w-md">
             <div className="mb-6">
               <img 
-                src="/img/certificate.jpg" 
+                src="https://cdn.poehali.dev/files/32b3ed69-8eae-4b4c-89cf-ed2e12c0e1c4.jpg" 
                 alt="Сертификат EAC" 
                 className="w-full h-auto rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" 
                 onClick={() => setIsModalOpen(true)}
