@@ -10,7 +10,7 @@ import Icon from '@/components/ui/icon';
 import emailjs from '@emailjs/browser';
 
 // Инициализация EmailJS
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("UsA8zjcYvrlcSqY1b");
 
 const LoginPage = () => {
   const { login, register, isLoading } = useAuth();
@@ -73,8 +73,8 @@ const LoginPage = () => {
   const sendPasswordReset = async (email: string) => {
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_osw4pc5',
+        'template_hgdylqe',
         {
           to_email: email,
           reset_link: `${window.location.origin}/reset-password?email=${email}&token=reset_token_here`
