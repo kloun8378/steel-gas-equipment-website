@@ -72,23 +72,29 @@ const LoginPage = () => {
   // Функция отправки сброса пароля
   const sendPasswordReset = async (email: string) => {
     try {
+      console.log('🚀 Начало отправки email для:', email);
+      
+      // Проверяем инициализацию EmailJS
+      if (!window.emailjs) {
+        console.error('❌ EmailJS не загружен!');
+        return { success: false, error: 'EmailJS не загружен' };
+      }
+      
       const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`;
       
-      console.log('Отправка email восстановления для:', email);
-      console.log('Ссылка для восстановления:', resetLink);
+      console.log('🔗 Ссылка для восстановления:', resetLink);
+      console.log('🌐 Домен:', window.location.origin);
       
       const templateParams = {
         to_email: email,
         user_email: email,
         reset_link: resetLink,
-        resetlink: resetLink,
-        link: resetLink,
-        url: resetLink,
-        from_name: 'СтальПро - Система закупок',
-        message: `Перейдите по ссылке для восстановления пароля: ${resetLink}`
+        from_name: 'СтальПро - Система закупок'
       };
       
-      console.log('Параметры шаблона:', templateParams);
+      console.log('📧 Параметры шаблона:', templateParams);
+      console.log('🔧 Service ID:', 'service_osw4pc5');
+      console.log('📝 Template ID:', 'template_hgdylqe');
       
       const result = await emailjs.send(
         'service_osw4pc5',
@@ -96,11 +102,25 @@ const LoginPage = () => {
         templateParams
       );
       
-      console.log('EmailJS результат:', result);
-      return { success: true };
+      console.log('✅ EmailJS успешно отправлен:', result);
+      console.log('📊 Статус ответа:', result.status);
+      console.log('📝 Текст ответа:', result.text);
+      
+      if (result.status === 200) {
+        return { success: true };
+      } else {
+        console.error('❌ Неожиданный статус:', result.status);
+        return { success: false, error: `Статус: ${result.status}` };
+      }
     } catch (error: any) {
-      console.error('Ошибка EmailJS:', error);
-      return { success: false, error: error.text || error.message };
+      console.error('❌ Ошибка EmailJS:', error);
+      console.error('📋 Детали ошибки:', {
+        message: error.message,
+        text: error.text,
+        status: error.status,
+        name: error.name
+      });
+      return { success: false, error: error.text || error.message || 'Неизвестная ошибка' };
     }
   };
 
@@ -116,22 +136,22 @@ const LoginPage = () => {
     }
 
     try {
+      console.log('🎯 Отправляем восстановление пароля для:', forgotEmail);
       const result = await sendPasswordReset(forgotEmail);
+      
+      console.log('📋 Результат отправки:', result);
       
       if (result.success) {
         setResetMessage('✅ Письмо с инструкциями отправлено на ваш email');
         setForgotEmail('');
         setTimeout(() => setShowForgotPassword(false), 3000);
       } else {
-        // Для демонстрации покажем успешное сообщение даже при ошибке
-        console.warn('EmailJS не настроен, показываем демо сообщение');
-        setResetMessage('✅ Письмо с инструкциями отправлено на ваш email (демо режим)');
-        setForgotEmail('');
-        setTimeout(() => setShowForgotPassword(false), 3000);
+        console.error('❌ Ошибка отправки EmailJS:', result.error);
+        setResetMessage(`❌ Ошибка отправки: ${result.error || 'Неизвестная ошибка'}`);
       }
     } catch (error: any) {
-      console.error('Ошибка при отправке:', error);
-      setResetMessage('❌ Произошла ошибка при отправке письма');
+      console.error('❌ Критическая ошибка при отправке:', error);
+      setResetMessage('❌ Произошла критическая ошибка при отправке письма');
     }
     
     setResetLoading(false);
