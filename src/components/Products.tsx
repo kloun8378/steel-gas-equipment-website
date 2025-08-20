@@ -14,7 +14,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/speed-valve'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="https://cdn.poehali.dev/files/0fcfdb71-2cf7-499e-8be3-5e6f4cd2cbf6.jpeg" alt="Скоростной клапан" className="h-48 w-48 object-contain rounded" />
+                <img src="https://cdn.poehali.dev/files/b06b9c47-3595-445a-8018-e804cae33a49.jpeg" alt="Скоростной клапан" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Скоростной клапан</CardTitle>
             </CardHeader>
