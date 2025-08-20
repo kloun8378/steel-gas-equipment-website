@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
 import emailjs from '@emailjs/browser';
-import { EMAILJS_CONFIG } from '@/config/emailjs';
 
 interface HeaderProps {
   isLoggedIn: boolean;
@@ -29,12 +28,12 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
 
     try {
       // Инициализация EmailJS
-      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+      emailjs.init("UsA8zjcYvrlcSqY1b");
       
       // Отправка email через EmailJS
       await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
+        'service_osw4pc5',
+        'template_hgdylqe',
         {
           to_email: forgotPasswordEmail,
           reset_link: `${window.location.origin}/reset-password?email=${encodeURIComponent(forgotPasswordEmail)}`,
