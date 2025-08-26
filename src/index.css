@@ -7,6 +7,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: clamp(14px, 2.5vw, 18px);
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   :root {
@@ -103,5 +108,41 @@
 
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Автомасштабирование для контейнеров */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: clamp(1rem, 5vw, 2rem);
+    padding-right: clamp(1rem, 5vw, 2rem);
+  }
+
+  /* Responsive типографика */
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  h2 {
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+  }
+  h3 {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+  }
+  h4 {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+
+  /* Кнопки адаптивного размера */
+  button {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+  }
+
+  /* Изображения responsive */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }

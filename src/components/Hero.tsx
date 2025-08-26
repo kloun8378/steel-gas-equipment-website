@@ -21,13 +21,13 @@ export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden">
       <div className="bg-gradient-to-br from-primary to-primary/80 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-4 sm:mb-6">
+        <div className="container mx-auto py-8 sm:py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+            <div className="text-center lg:text-left px-4 lg:px-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 lg:mb-6">
                 Надёжное решение
               </h2>
-              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-primary-50">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-primary-50">
                 Производство и поставка промышленного газового оборудования с 2020 года
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">

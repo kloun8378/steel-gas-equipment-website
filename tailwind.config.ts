@@ -12,10 +12,28 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: 'clamp(1rem, 5vw, 2rem)',
+				sm: 'clamp(1rem, 4vw, 1.5rem)',
+				lg: 'clamp(1.5rem, 5vw, 2rem)',
+				xl: 'clamp(2rem, 6vw, 3rem)'
+			},
 			screens: {
+				'sm': '640px',
+				'md': '768px', 
+				'lg': '1024px',
+				'xl': '1280px',
 				'2xl': '1400px'
 			}
+		},
+		screens: {
+			'xs': '475px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px',
+			'3xl': '1920px'
 		},
 		extend: {
 			fontFamily: {
