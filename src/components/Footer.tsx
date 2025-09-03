@@ -32,6 +32,18 @@ export default function Footer() {
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2024 СтальПро. Все права защищены.</p>
+          <div className="mt-4">
+            <a href="https://webmaster.yandex.ru/siteinfo/?site=https://стальпро.com">
+              <img 
+                width="88" 
+                height="31" 
+                alt="Яндекс.Вебмастер" 
+                style={{borderRadius: "8px"}} 
+                src="https://yandex.ru/cycounter?https://стальпро.com&theme=light&lang=ru"
+                className="mx-auto"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
