@@ -72,9 +72,9 @@ export default function Components() {
                     <PopoverTrigger asChild>
                       <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
                         <img 
-                          src="/img/cd9e08e0-2232-4cf0-87bd-e52ebd37c2d4.jpg" 
-                          alt="Пружина ППЦЗ-12 СтальПро"
-                          className="w-full h-48 object-cover bg-white rounded"
+                          src="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" 
+                          alt="Пружина ППЦЗ-12"
+                          className="w-full h-48 object-contain bg-white rounded"
                           style={{backgroundColor: '#ffffff'}}
                         />
                       </div>
@@ -126,7 +126,7 @@ export default function Components() {
                       id: 'spring-ppcz12',
                       name: 'Пружина ППЦЗ-12',
                       price: 2700,
-                      image: '/img/cd9e08e0-2232-4cf0-87bd-e52ebd37c2d4.jpg',
+                      image: 'https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg',
                       description: 'Пружина предохранительного клапана для замены в старом клапане',
                       quantity: quantitySpring
                     })}

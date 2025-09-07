@@ -69,9 +69,9 @@ export default function SafetyValve() {
                   <PopoverTrigger asChild>
                     <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
                       <img 
-                        src="/img/44799ab0-a3b2-4b31-98bd-db3757da0a06.jpg" 
-                        alt="Предохранительные клапаны ППЦЗ-12 СтальПро"
-                        className="w-full h-full object-cover rounded-lg p-2"
+                        src="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" 
+                        alt="Предохранительные клапаны ППЦЗ-12"
+                        className="w-full h-full object-contain rounded-lg p-2"
                       />
                     </div>
                   </PopoverTrigger>

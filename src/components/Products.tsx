@@ -14,7 +14,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/speed-valve'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="/img/15059b14-1f83-41ce-afc2-b6670ee1ffd5.jpg" alt="Скоростной клапан СтальПро" className="h-48 w-48 object-cover rounded" />
+                <img src="https://cdn.poehali.dev/files/b2d17fd0-86c8-43bc-9f92-b0ff62fcc066.jpeg" alt="Скоростной клапан" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Скоростной клапан</CardTitle>
             </CardHeader>
@@ -27,7 +27,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/safety-valve'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="/img/21dda82c-a459-4015-9754-c6a811055f11.jpg" alt="Предохранительный клапан СтальПро" className="h-48 w-48 object-cover rounded" />
+                <img src="https://cdn.poehali.dev/files/b84b5f14-4911-46cd-bdc6-16727593726b.jpeg" alt="Предохранительный клапан" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Предохранительный клапан</CardTitle>
             </CardHeader>
@@ -40,7 +40,7 @@ export default function Products() {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/components'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                <img src="/img/4c576db8-0c33-4d6c-8e43-a8cae1c1c9c1.jpg" alt="Комплектующие СтальПро" className="h-48 w-48 object-cover rounded" />
+                <img src="https://cdn.poehali.dev/files/824091c2-2817-4a8f-8c47-9734738ccefa.jpg" alt="Комплектующие" className="h-48 w-48 object-contain rounded" />
               </div>
               <CardTitle>Комплектующие</CardTitle>
             </CardHeader>

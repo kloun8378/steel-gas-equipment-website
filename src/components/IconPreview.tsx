@@ -13,8 +13,8 @@ export default function IconPreview() {
               <h2 className="text-xl font-semibold mb-4">Исходное изображение</h2>
               <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
                 <img 
-                  src="/img/cd9e08e0-2232-4cf0-87bd-e52ebd37c2d4.jpg" 
-                  alt="Оригинальное изображение клапана СтальПро"
+                  src="/img/icon-preview.jpg" 
+                  alt="Оригинальное изображение клапана"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -27,8 +27,8 @@ export default function IconPreview() {
               <h2 className="text-xl font-semibold mb-4">Точная иконка по описанию</h2>
               <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
-                  src="https://cdn.poehali.dev/files/b0e1924f-f80f-4948-83bf-2a56d257b1e0.jpg" 
-                  alt="Логотип Тталпро с промышленным оборудованием"
+                  src="/img/eda5d83c-0948-4df7-996e-8756e7220b92.jpg" 
+                  alt="Круглая деталь с рисками, углублением и отверстиями"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>

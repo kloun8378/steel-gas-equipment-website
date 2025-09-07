@@ -15,8 +15,8 @@ export default function Certificates() {
           <div className="bg-white p-8 rounded-lg shadow-sm text-center max-w-md">
             <div className="mb-6">
               <img 
-                src="/img/8004b04c-962f-462a-9eb7-90bf45997073.jpg" 
-                alt="Сертификат EAC СтальПро - Декларация о соответствии Евразийского экономического союза" 
+                src="https://cdn.poehali.dev/files/91e5038c-c7c6-47b1-9b01-5179024ac29f.jpeg" 
+                alt="Сертификат EAC - Декларация о соответствии Евразийского экономического союза" 
                 className="w-full h-auto rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" 
                 onClick={() => setIsModalOpen(true)}
               />
@@ -42,8 +42,8 @@ export default function Certificates() {
               <Icon name="X" className="h-6 w-6" />
             </button>
             <img 
-              src="/img/8004b04c-962f-462a-9eb7-90bf45997073.jpg" 
-              alt="Сертификат EAC СтальПро - Декларация о соответствии Евразийского экономического союза" 
+              src="https://cdn.poehali.dev/files/91e5038c-c7c6-47b1-9b01-5179024ac29f.jpeg" 
+              alt="Сертификат EAC - Декларация о соответствии Евразийского экономического союза" 
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
