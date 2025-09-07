@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
+import StructuredData from "./components/StructuredData";
 
 // Главная страница загружается сразу
 import Index from "./pages/Index";
@@ -81,6 +82,7 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <CartProvider>
+            <StructuredData />
             <ScrollToAnchor />
             <Routes>
               <Route path="/" element={<Index />} />
