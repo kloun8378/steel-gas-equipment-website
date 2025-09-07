@@ -16,6 +16,8 @@ import Index from "./pages/Index";
 const SpeedValve = lazy(() => import("./pages/SpeedValve"));
 const SafetyValve = lazy(() => import("./pages/SafetyValve"));
 const Components = lazy(() => import("./pages/Components"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Blog = lazy(() => import("./pages/Blog"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
@@ -99,6 +101,16 @@ const App = () => (
               <Route path="/components" element={
                 <Suspense fallback={<PageLoader />}>
                   <Components />
+                </Suspense>
+              } />
+              <Route path="/faq" element={
+                <Suspense fallback={<PageLoader />}>
+                  <FAQ />
+                </Suspense>
+              } />
+              <Route path="/blog" element={
+                <Suspense fallback={<PageLoader />}>
+                  <Blog />
                 </Suspense>
               } />
               <Route path="/login" element={

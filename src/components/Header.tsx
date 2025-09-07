@@ -73,6 +73,8 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
           <div className="hidden md:flex space-x-8">
             <a href="#home" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
             <a href="#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
+            <a href="/blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
+            <a href="/faq" className="text-gray-700 hover:text-primary transition-colors">FAQ</a>
             <a href="#certificates" className="text-gray-700 hover:text-primary transition-colors">Сертификаты</a>
             <a href="#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
           </div>
@@ -220,6 +222,20 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                   onClick={() => setIsOpen(false)}
                 >
                   Продукция
+                </a>
+                <a 
+                  href="/blog" 
+                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Блог
+                </a>
+                <a 
+                  href="/faq" 
+                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  FAQ
                 </a>
                 <a 
                   href="#certificates" 
