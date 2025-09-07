@@ -27,8 +27,8 @@ export default function IconPreview() {
               <h2 className="text-xl font-semibold mb-4">Точная иконка по описанию</h2>
               <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
-                  src="/img/eda5d83c-0948-4df7-996e-8756e7220b92.jpg" 
-                  alt="Круглая деталь с рисками, углублением и отверстиями"
+                  src="/img/ceb10d29-5ede-4618-8db6-11728da34d45.jpg" 
+                  alt="Логотип СтальПро с промышленным оборудованием"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
