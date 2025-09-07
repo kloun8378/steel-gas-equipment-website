@@ -29,7 +29,7 @@ const blogPosts = [
     category: "Техническая информация",
     date: "2024-12-15",
     author: "Инженер СтальПро",
-    image: "/img/320cfa56-027d-46b1-888b-40b895562848.jpg"
+    image: "/img/cc26b52b-4249-44c3-89a9-85aa4631579e.jpg"
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ const blogPosts = [
     category: "Обслуживание",
     date: "2024-12-10",
     author: "Сервисная служба",
-    image: "/img/320cfa56-027d-46b1-888b-40b895562848.jpg"
+    image: "/img/cc26b52b-4249-44c3-89a9-85aa4631579e.jpg"
   },
   {
     id: 3,
@@ -104,7 +104,7 @@ const blogPosts = [
     category: "Новости отрасли",
     date: "2024-12-05",
     author: "Отдел качества",
-    image: "/img/320cfa56-027d-46b1-888b-40b895562848.jpg"
+    image: "/img/cc26b52b-4249-44c3-89a9-85aa4631579e.jpg"
   },
   {
     id: 4,
@@ -154,7 +154,7 @@ const blogPosts = [
     category: "Монтаж",
     date: "2024-11-28",
     author: "Монтажная служба",
-    image: "/img/320cfa56-027d-46b1-888b-40b895562848.jpg"
+    image: "/img/cc26b52b-4249-44c3-89a9-85aa4631579e.jpg"
   },
   {
     id: 5,
@@ -200,7 +200,7 @@ const blogPosts = [
     category: "Автоматизация",
     date: "2024-11-20",
     author: "Отдел автоматизации",
-    image: "/img/320cfa56-027d-46b1-888b-40b895562848.jpg"
+    image: "/img/cc26b52b-4249-44c3-89a9-85aa4631579e.jpg"
   }
 ];
 
