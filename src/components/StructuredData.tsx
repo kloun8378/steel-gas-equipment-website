@@ -13,7 +13,7 @@ export default function StructuredData() {
       "name": "СтальПро",
       "legalName": "СтальПро",
       "url": "https://xn--80awjdfch6f.com",
-      "logo": "https://xn--80awjdfch6f.com/img/ceb10d29-5ede-4618-8db6-11728da34d45.jpg",
+      "logo": "https://xn--80awjdfch6f.com/img/42c7fcc8-f438-4f78-a235-d06d0b03a158.jpg",
       "description": "Производство и поставка газовой арматуры, промышленного газового оборудования",
       "foundingDate": "2020",
       "address": {
@@ -52,7 +52,7 @@ export default function StructuredData() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "СтальПро",
-      "image": "https://xn--80awjdfch6f.com/img/ceb10d29-5ede-4618-8db6-11728da34d45.jpg",
+      "image": "https://xn--80awjdfch6f.com/img/42c7fcc8-f438-4f78-a235-d06d0b03a158.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ул. Кавалерийская 14, бокс 171",
