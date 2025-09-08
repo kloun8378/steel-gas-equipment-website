@@ -15,7 +15,7 @@ export default function SEOHead({
   title = "СтальПро - Газовая арматура",
   description = "Производство и поставка газовой арматуры, промышленного газового оборудования. Краны, редукторы, фильтры. Сертификаты качества.",
   keywords = seoKeywords,
-  image = "/img/4b1fb5d3-c6cc-427f-851f-115a90481335.jpg",
+  image = "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
   url = "https://xn--80awjdfch6f.com",
   type = "website",
   noindex = false
