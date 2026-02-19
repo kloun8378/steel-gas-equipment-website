@@ -57,7 +57,8 @@ export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => 
     }, PUBLIC_KEY);
 
     return true;
-  } catch {
+  } catch (e) {
+    console.error('EmailJS error:', JSON.stringify(e));
     return false;
   }
 };

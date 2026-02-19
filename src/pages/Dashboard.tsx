@@ -344,10 +344,9 @@ const Dashboard = () => {
                             clearCart();
                             loadOrders();
 
-                            try {
-                              await sendOrderEmail(orderData);
-                            } catch {
-                              // email необязателен
+                            const emailSent = await sendOrderEmail(orderData);
+                            if (!emailSent) {
+                              console.error('EmailJS: письмо не отправлено');
                             }
 
                             showSuccess(`Заказ #${orderResult.order.id} успешно оформлен!`);
