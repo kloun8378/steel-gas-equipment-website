@@ -72,33 +72,11 @@ const LoginPage = () => {
     }
   };
 
-  // Функция отправки сброса пароля
   const sendPasswordReset = async (email: string) => {
     try {
-      console.log('🚀 Начало отправки email для:', email);
-      
-      // Детальная проверка EmailJS
-      console.log('🔍 Проверка EmailJS:', {
-        emailjs_loaded: !!window.emailjs,
-        emailjs_send: !!(window.emailjs && window.emailjs.send),
-        user_agent: navigator.userAgent
-      });
-      
-      if (!window.emailjs) {
-        console.error('❌ EmailJS не загружен! Проверьте подключение скрипта в index.html');
-        return { success: false, error: 'EmailJS не загружен' };
-      }
-      
-      if (!window.emailjs.send) {
-        console.error('❌ EmailJS.send не доступен!');
-        return { success: false, error: 'EmailJS.send не найден' };
-      }
-      
+      emailjs.init('UsA8zjcYvrlcSqY1b');
       const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`;
-      
-      console.log('🔗 Ссылка для восстановления:', resetLink);
-      console.log('🌐 Домен:', window.location.origin);
-      
+
       const templateParams = {
         to_email: email,
         user_email: email,
@@ -106,66 +84,21 @@ const LoginPage = () => {
         reset_url: resetLink,
         button_text: 'Восстановить пароль',
         button_link: resetLink,
-        // HTML кнопка для EmailJS (используйте в шаблоне {{{html_button}}})
         html_button: `<div style="text-align: center; margin: 30px 0;"><a href="${resetLink}" style="background-color: #2563eb; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block;">Восстановить пароль</a></div>`,
-        // Простая HTML ссылка (используйте в шаблоне {{{html_link}}})
         html_link: `<a href="${resetLink}" style="color: #2563eb; font-weight: bold;">${resetLink}</a>`,
-        // Текстовая ссылка с инструкцией
-        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}
-
-Если ссылка не работает, скопируйте её и вставьте в адресную строку браузера.`,
+        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}\n\nЕсли ссылка не работает, скопируйте её и вставьте в адресную строку браузера.`,
         from_name: 'СтальПро - Система закупок'
       };
-      
-      console.log('📧 Параметры шаблона:', templateParams);
-      console.log('🔧 Service ID:', 'service_osw4pc5');
-      console.log('📝 Template ID:', 'template_hgdylqe');
-      
-      console.log('📤 Отправляем через EmailJS...');
-      console.log('📋 Все параметры:', {
-        service: 'service_osw4pc5',
-        template: 'template_hgdylqe',
-        params: templateParams
-      });
-      
-      const result = await emailjs.send(
-        'service_osw4pc5',
-        'template_hgdylqe',
-        templateParams
-      );
-      
-      console.log('✅ EmailJS ответ получен:', result);
-      console.log('📊 Полный объект ответа:', JSON.stringify(result, null, 2));
-      
+
+      const result = await emailjs.send('service_osw4pc5', 'template_hgdylqe', templateParams);
+
       if (result.status === 200) {
-        console.log('🎉 Письмо успешно отправлено!');
         return { success: true };
-      } else {
-        console.error('❌ Неожиданный статус:', result.status, result.text);
-        return { success: false, error: `Ошибка ${result.status}: ${result.text}` };
       }
-    } catch (error: any) {
-      console.error('❌ Критическая ошибка EmailJS:', error);
-      console.error('🔍 Тип ошибки:', typeof error);
-      console.error('📝 Объект ошибки:', JSON.stringify(error, null, 2));
-      console.error('📋 Свойства ошибки:', {
-        message: error.message,
-        text: error.text,
-        status: error.status,
-        name: error.name,
-        stack: error.stack
-      });
-      
-      // Детальный анализ типа ошибки
-      if (error.text) {
-        return { success: false, error: `EmailJS ошибка: ${error.text}` };
-      } else if (error.message) {
-        return { success: false, error: `Ошибка: ${error.message}` };
-      } else if (error.status) {
-        return { success: false, error: `HTTP ${error.status}` };
-      } else {
-        return { success: false, error: 'Неизвестная ошибка при отправке письма' };
-      }
+      return { success: false, error: `Ошибка ${result.status}` };
+    } catch (error: unknown) {
+      const err = error as Record<string, string>;
+      return { success: false, error: err.text || err.message || 'Ошибка отправки письма' };
     }
   };
 
@@ -194,9 +127,8 @@ const LoginPage = () => {
         console.error('❌ Ошибка отправки EmailJS:', result.error);
         setResetMessage(`❌ Ошибка отправки: ${result.error || 'Неизвестная ошибка'}`);
       }
-    } catch (error: any) {
-      console.error('❌ Критическая ошибка при отправке:', error);
-      setResetMessage('❌ Произошла критическая ошибка при отправке письма');
+    } catch {
+      setResetMessage('Произошла ошибка при отправке письма');
     }
     
     setResetLoading(false);
