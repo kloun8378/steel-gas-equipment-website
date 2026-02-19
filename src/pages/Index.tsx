@@ -1,13 +1,13 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import AuthModals from "@/components/AuthModals";
 
 const Features = lazy(() => import("@/components/Features"));
 const Products = lazy(() => import("@/components/Products"));
 const Certificates = lazy(() => import("@/components/Certificates"));
 const ContactForm = lazy(() => import("@/components/ContactForm"));
 const Footer = lazy(() => import("@/components/Footer"));
-const AuthModals = lazy(() => import("@/components/AuthModals"));
 
 const Index = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
