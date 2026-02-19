@@ -11,12 +11,21 @@ import { useCart } from "@/context/CartContext";
 import { useToast } from "@/hooks/useToast";
 import api from "@/services/api";
 
+interface OrderItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image?: string;
+  description?: string;
+}
+
 interface Order {
   id: number;
   totalPrice: number;
   status: string;
   companyName: string;
-  items: Array<{ id: string; name: string; price: number; quantity: number }>;
+  items: OrderItem[];
   createdAt: string;
 }
 
@@ -38,7 +47,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
-  const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { cart, addToCart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { showSuccess, showError, showInfo } = useToast();
   const [orders, setOrders] = useState<Order[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
@@ -418,6 +427,32 @@ const Dashboard = () => {
                           </div>
                         ))}
                       </div>
+                    </div>
+                    <div className="mt-3">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          order.items.forEach((item) => {
+                            addToCart({
+                              id: item.id,
+                              name: item.name,
+                              price: item.price,
+                              image: item.image || '',
+                              description: item.description,
+                            });
+                            if (item.quantity > 1) {
+                              const existing = cart.find(c => c.id === item.id);
+                              const newQty = (existing ? existing.quantity : 0) + item.quantity;
+                              updateQuantity(item.id, newQty);
+                            }
+                          });
+                          showSuccess('Товары из заказа добавлены в корзину');
+                        }}
+                      >
+                        <Icon name="RefreshCw" className="mr-2 h-4 w-4" />
+                        Повторить заказ
+                      </Button>
                     </div>
                   </div>
                 ))}
