@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
-import api from '@/services/api';
+import emailjs from '@emailjs/browser';
 
 const LoginPage = () => {
   const { login, register, isLoading } = useAuth();
@@ -75,24 +75,14 @@ const LoginPage = () => {
   const sendPasswordReset = async (email: string) => {
     try {
       const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`;
-
-      await api.sendEmail({
-        type: 'reset',
-        template_id: 'template_hgdylqe',
-        params: {
-          to_email: email,
-          user_email: email,
-          reset_link: resetLink,
-          reset_url: resetLink,
-          button_text: 'Восстановить пароль',
-          button_link: resetLink,
-          html_button: `<div style="text-align: center; margin: 30px 0;"><a href="${resetLink}" style="background-color: #2563eb; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; display: inline-block;">Восстановить пароль</a></div>`,
-          html_link: `<a href="${resetLink}" style="color: #2563eb; font-weight: bold;">${resetLink}</a>`,
-          message: `Для восстановления пароля перейдите по ссылке: ${resetLink}\n\nЕсли ссылка не работает, скопируйте её и вставьте в адресную строку браузера.`,
-          from_name: 'СтальПро - Система закупок'
-        }
+      emailjs.init('UsA8zjcYvrlcSqY1b');
+      await emailjs.send('service_osw4pc5', 'template_hgdylqe', {
+        to_email: email,
+        user_email: email,
+        reset_link: resetLink,
+        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}`,
+        from_name: 'СтальПро - Система закупок'
       });
-
       return { success: true };
     } catch (error: unknown) {
       const err = error as Error;
