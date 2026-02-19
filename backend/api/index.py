@@ -259,18 +259,22 @@ def send_emailjs(service_id, template_id, template_params, public_key, private_k
         'service_id': service_id,
         'template_id': template_id,
         'user_id': public_key,
+        'accessToken': private_key or '',
         'template_params': template_params
     }
-    if private_key:
-        payload['accessToken'] = private_key
 
     data = json.dumps(payload).encode('utf-8')
     req = urllib.request.Request(
         'https://api.emailjs.com/api/v1.0/email/send',
         data=data,
-        headers={'Content-Type': 'application/json', 'origin': 'https://stalpro.com'}
+        headers={
+            'Content-Type': 'application/json',
+            'Origin': 'https://xn--80awjdfch6f.com'
+        }
     )
-    resp = urllib.request.urlopen(req, timeout=10)
+    resp = urllib.request.urlopen(req, timeout=15)
+    body_resp = resp.read().decode('utf-8')
+    print('EmailJS response: status=%d body=%s' % (resp.status, body_resp))
     return resp.status == 200
 
 def handle_send_email(event, conn):
