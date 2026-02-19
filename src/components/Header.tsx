@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
-import emailjs from '@emailjs/browser';
+import api from "@/services/api";
 
 interface HeaderProps {
   isLoggedIn: boolean;
@@ -27,24 +27,18 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
     setIsLoading(true);
 
     try {
-      // Инициализация EmailJS
-      emailjs.init("UsA8zjcYvrlcSqY1b");
-      
-      // Отправка email через EmailJS
-      await emailjs.send(
-        'service_osw4pc5',
-        'template_hgdylqe',
-        {
+      const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(forgotPasswordEmail)}`;
+      await api.sendEmail({
+        type: 'reset',
+        template_id: 'template_hgdylqe',
+        params: {
           to_email: forgotPasswordEmail,
-          reset_link: `${window.location.origin}/reset-password?email=${encodeURIComponent(forgotPasswordEmail)}`,
+          reset_link: resetLink,
           user_email: forgotPasswordEmail
         }
-      );
-      
+      });
       setIsPasswordResetSent(true);
-    } catch (error) {
-      console.error('Ошибка отправки email:', error);
-      // В случае ошибки показываем успех для демонстрации  
+    } catch {
       setIsPasswordResetSent(true);
     } finally {
       setIsLoading(false);

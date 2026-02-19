@@ -1,9 +1,11 @@
-"""API для авторизации, профиля компании и корзины пользователей"""
+"""API для авторизации, профиля компании, корзины и email-уведомлений"""
 import json
 import os
 import hashlib
 import secrets
 import psycopg2
+import urllib.request
+import urllib.parse
 
 CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
@@ -252,6 +254,59 @@ def handle_create_order(event, conn):
 
     return json_response(200, {'order': {'id': order_row[0], 'total': total, 'items': items, 'createdAt': str(order_row[1])}})
 
+def send_emailjs(service_id, template_id, template_params, public_key, private_key=None):
+    payload = {
+        'service_id': service_id,
+        'template_id': template_id,
+        'user_id': public_key,
+        'template_params': template_params
+    }
+    if private_key:
+        payload['accessToken'] = private_key
+
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(
+        'https://api.emailjs.com/api/v1.0/email/send',
+        data=data,
+        headers={'Content-Type': 'application/json', 'origin': 'https://stalpro.com'}
+    )
+    resp = urllib.request.urlopen(req, timeout=10)
+    return resp.status == 200
+
+def handle_send_email(event, conn):
+    body = json.loads(event.get('body', '{}'))
+    email_type = body.get('type', 'contact')
+    
+    service_id = os.environ.get('EMAILJS_SERVICE_ID', '')
+    public_key = os.environ.get('EMAILJS_PUBLIC_KEY', '')
+    private_key = os.environ.get('EMAILJS_PRIVATE_KEY', '')
+
+    if not service_id or not public_key:
+        return json_response(500, {'error': 'Email не настроен'})
+
+    if email_type == 'contact':
+        template_id = os.environ.get('EMAILJS_TEMPLATE_ID', '')
+        template_params = {
+            'user_name': body.get('name', ''),
+            'user_email': body.get('email', ''),
+            'message': 'Имя: %s\nEmail: %s\nТелефон: %s\n\nСообщение:\n%s' % (
+                body.get('name', ''), body.get('email', ''), body.get('phone', ''), body.get('message', '')
+            )
+        }
+    elif email_type == 'order':
+        template_id = os.environ.get('EMAILJS_TEMPLATE_ID', '')
+        template_params = body.get('params', {})
+    elif email_type == 'reset':
+        template_id = body.get('template_id', os.environ.get('EMAILJS_TEMPLATE_ID', ''))
+        template_params = body.get('params', {})
+    else:
+        return json_response(400, {'error': 'Неизвестный тип письма'})
+
+    ok = send_emailjs(service_id, template_id, template_params, public_key, private_key)
+    if ok:
+        return json_response(200, {'ok': True})
+    return json_response(500, {'error': 'Ошибка отправки письма'})
+
 def handle_get_orders(event, conn):
     token = get_auth_token(event)
     user = get_user_by_token(conn, token)
@@ -315,8 +370,10 @@ def handler(event, context):
             return handle_create_order(event, conn)
         elif action == 'orders' and method == 'GET':
             return handle_get_orders(event, conn)
+        elif action == 'send-email' and method == 'POST':
+            return handle_send_email(event, conn)
         else:
-            return json_response(200, {'status': 'ok', 'actions': ['register', 'login', 'me', 'logout', 'profile', 'cart', 'order', 'orders']})
+            return json_response(200, {'status': 'ok', 'actions': ['register', 'login', 'me', 'logout', 'profile', 'cart', 'order', 'orders', 'send-email']})
     except Exception as e:
         return json_response(500, {'error': str(e)})
     finally:

@@ -85,6 +85,10 @@ export const api = {
     return await request('orders', 'GET');
   },
 
+  sendEmail: async (data: { type: string; name?: string; email?: string; phone?: string; message?: string; params?: Record<string, unknown>; template_id?: string }) => {
+    return await request('send-email', 'POST', data);
+  },
+
   getToken,
   setToken,
   clearToken,

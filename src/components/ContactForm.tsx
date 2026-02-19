@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
-import emailjs from '@emailjs/browser';
+import api from "@/services/api";
 import { useToast } from "@/hooks/useToast";
 
 export default function ContactForm() {
@@ -30,23 +30,18 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Простая отправка через EmailJS
-      await emailjs.send(
-        'service_osw4pc5',
-        'template_npe77ik',
-        {
-          user_name: formData.name,
-          user_email: formData.email,
-          message: `Имя: ${formData.name}\nEmail: ${formData.email}\nТелефон: ${formData.phone}\n\nСообщение:\n${formData.message}`
-        },
-        'UsA8zjcYvrlcSqY1b'
-      );
+      await api.sendEmail({
+        type: 'contact',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message
+      });
 
-      // Очищаем форму и показываем успех
       setFormData({ name: '', email: '', phone: '', message: '' });
       showSuccess('Сообщение отправлено! В ближайшее время с вами свяжется наш менеджер');
       
-    } catch (error) {
+    } catch {
       showError('Ошибка отправки. Попробуйте еще раз');
     } finally {
       setIsSubmitting(false);
