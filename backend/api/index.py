@@ -252,8 +252,39 @@ def handle_create_order(event, conn):
 
     return json_response(200, {'order': {'id': order_row[0], 'total': total, 'items': items, 'createdAt': str(order_row[1])}})
 
+def handle_get_orders(event, conn):
+    token = get_auth_token(event)
+    user = get_user_by_token(conn, token)
+    if not user:
+        return json_response(401, {'error': 'Не авторизован'})
+
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT id, total_price, status, company_name, delivery_address, phone, email, items_json, created_at FROM orders WHERE user_id = %d ORDER BY created_at DESC"
+        % user['id']
+    )
+    rows = cur.fetchall()
+    cur.close()
+
+    orders = []
+    for r in rows:
+        items = json.loads(r[7]) if r[7] else []
+        orders.append({
+            'id': r[0],
+            'totalPrice': float(r[1]),
+            'status': r[2],
+            'companyName': r[3],
+            'deliveryAddress': r[4],
+            'phone': r[5],
+            'email': r[6],
+            'items': items,
+            'createdAt': str(r[8])
+        })
+
+    return json_response(200, {'orders': orders})
+
 def handler(event, context):
-    """API для управления пользователями, профилями компаний и корзиной покупок"""
+    """API для управления пользователями, профилями компаний, корзиной и заказами"""
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': ''}
 
@@ -282,8 +313,10 @@ def handler(event, context):
             return handle_update_cart(event, conn)
         elif action == 'order' and method == 'POST':
             return handle_create_order(event, conn)
+        elif action == 'orders' and method == 'GET':
+            return handle_get_orders(event, conn)
         else:
-            return json_response(200, {'status': 'ok', 'actions': ['register', 'login', 'me', 'logout', 'profile', 'cart', 'order']})
+            return json_response(200, {'status': 'ok', 'actions': ['register', 'login', 'me', 'logout', 'profile', 'cart', 'order', 'orders']})
     except Exception as e:
         return json_response(500, {'error': str(e)})
     finally:

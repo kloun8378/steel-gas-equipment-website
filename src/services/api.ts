@@ -81,6 +81,10 @@ export const api = {
     return await request('order', 'POST');
   },
 
+  getOrders: async () => {
+    return await request('orders', 'GET');
+  },
+
   getToken,
   setToken,
   clearToken,
