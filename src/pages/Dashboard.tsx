@@ -9,6 +9,7 @@ import { sendOrderEmail } from "@/services/emailService";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/hooks/useToast";
+import api from "@/services/api";
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -25,21 +26,22 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (user) {
-      // Загружаем данные компании для этого пользователя
-      const companyInfo = localStorage.getItem(`company_${user.email}`);
-      if (companyInfo) {
-        setCompanyData(JSON.parse(companyInfo));
-      } else {
-        // Заполняем данными из профиля пользователя
-        setCompanyData({
-          name: user.company,
-          inn: '',
-          address: user.address,
-          phone: user.phone,
-          email: user.email,
-          description: ''
+      api.getProfile()
+        .then((data) => {
+          if (data.profile) {
+            setCompanyData(data.profile);
+          }
+        })
+        .catch(() => {
+          setCompanyData({
+            name: user.company,
+            inn: '',
+            address: user.address,
+            phone: user.phone,
+            email: user.email,
+            description: ''
+          });
         });
-      }
     }
   }, [user]);
 
@@ -47,10 +49,14 @@ const Dashboard = () => {
     setCompanyData(prev => ({ ...prev, [field]: value }));
   };
 
-  const saveCompanyData = () => {
+  const saveCompanyData = async () => {
     if (user) {
-      localStorage.setItem(`company_${user.email}`, JSON.stringify(companyData));
-      showSuccess('Данные компании сохранены!');
+      try {
+        await api.saveProfile(companyData);
+        showSuccess('Данные компании сохранены!');
+      } catch {
+        showError('Ошибка сохранения данных');
+      }
     }
   };
 
@@ -274,32 +280,33 @@ const Dashboard = () => {
                             return;
                           }
 
-                          showInfo('Отправляю заказ через EmailJS...');
-
-                          // Собираем данные заказа
-                          const orderData = {
-                            company: user?.company || 'Неизвестная компания',
-                            contact: user?.name || 'Неизвестный контакт',
-                            phone: user?.phone || 'Не указан', 
-                            email: user?.email || 'Не указан',
-                            address: user?.address || 'Не указан',
-                            cart: cart,
-                            total: getTotalPrice(),
-                            companyData: companyData
-                          };
+                          showInfo('Оформляю заказ...');
 
                           try {
-                            const result = await sendOrderEmail(orderData);
-                            
-                            if (result) {
-                              showSuccess('✅ ЗАКАЗ ОТПРАВЛЕН! Email с деталями заказа отправлен на sadoxa1996@mail.ru');
-                              clearCart();
-                            } else {
-                              showError('❌ Ошибка при обработке заказа. Попробуйте еще раз.');
+                            const orderResult = await api.createOrder();
+
+                            const orderData = {
+                              company: user?.company || 'Неизвестная компания',
+                              contact: user?.name || 'Неизвестный контакт',
+                              phone: user?.phone || 'Не указан', 
+                              email: user?.email || 'Не указан',
+                              address: user?.address || 'Не указан',
+                              cart: orderResult.order.items,
+                              total: orderResult.order.total,
+                              companyData: companyData
+                            };
+
+                            clearCart();
+
+                            try {
+                              await sendOrderEmail(orderData);
+                            } catch {
+                              // email необязателен
                             }
+
+                            showSuccess(`Заказ #${orderResult.order.id} успешно оформлен!`);
                           } catch (error) {
-                            console.error('❌ EmailJS error:', error);
-                            showError(`❌ Ошибка EmailJS: ${error instanceof Error ? error.message : String(error)}\n💡 Проверьте настройки в .env файле`);
+                            showError(error instanceof Error ? error.message : 'Ошибка оформления заказа');
                           }
                         }}
                       >

@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { useAuth } from './AuthContext';
+import api from '@/services/api';
 
 export interface CartItem {
   id: string;
@@ -25,53 +26,50 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const { user } = useAuth();
+  const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Функция для получения ключа корзины пользователя
-  const getCartKey = () => {
-    return user ? `cart_${user.id}` : 'cart_guest';
-  };
-
-  // Загружаем корзину пользователя при изменении пользователя
   useEffect(() => {
-    const cartKey = getCartKey();
-    const savedCart = localStorage.getItem(cartKey);
-    
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch (error) {
-        console.error('Ошибка загрузки корзины:', error);
-        setCart([]);
-      }
+    if (user) {
+      api.getCart()
+        .then((data) => setCart(data.cart || []))
+        .catch(() => setCart([]));
     } else {
       setCart([]);
     }
   }, [user]);
 
-  // Сохраняем корзину в localStorage при изменении
-  useEffect(() => {
-    const cartKey = getCartKey();
-    localStorage.setItem(cartKey, JSON.stringify(cart));
-  }, [cart, user]);
+  const syncToServer = (items: CartItem[]) => {
+    if (!user) return;
+    if (syncTimer.current) clearTimeout(syncTimer.current);
+    syncTimer.current = setTimeout(() => {
+      api.updateCart(items).catch(() => {});
+    }, 500);
+  };
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setCart(currentCart => {
       const existingItem = currentCart.find(cartItem => cartItem.id === item.id);
-      
+      let newCart: CartItem[];
       if (existingItem) {
-        return currentCart.map(cartItem =>
+        newCart = currentCart.map(cartItem =>
           cartItem.id === item.id
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
       } else {
-        return [...currentCart, { ...item, quantity: 1 }];
+        newCart = [...currentCart, { ...item, quantity: 1 }];
       }
+      syncToServer(newCart);
+      return newCart;
     });
   };
 
   const removeFromCart = (id: string) => {
-    setCart(currentCart => currentCart.filter(item => item.id !== id));
+    setCart(currentCart => {
+      const newCart = currentCart.filter(item => item.id !== id);
+      syncToServer(newCart);
+      return newCart;
+    });
   };
 
   const updateQuantity = (id: string, quantity: number) => {
@@ -79,16 +77,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeFromCart(id);
       return;
     }
-
-    setCart(currentCart =>
-      currentCart.map(item =>
+    setCart(currentCart => {
+      const newCart = currentCart.map(item =>
         item.id === id ? { ...item, quantity } : item
-      )
-    );
+      );
+      syncToServer(newCart);
+      return newCart;
+    });
   };
 
   const clearCart = () => {
     setCart([]);
+    if (user) {
+      api.updateCart([]).catch(() => {});
+    }
   };
 
   const getTotalPrice = () => {

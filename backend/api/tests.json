@@ -1,0 +1,39 @@
+{
+  "tests": [
+    {
+      "name": "Health check",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"status": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Register user",
+      "method": "POST",
+      "path": "/?action=register",
+      "body": {"email": "test_auto@test.com", "password": "test123", "name": "Test User", "company": "Test Co"},
+      "expectedStatus": 200,
+      "expectedBody": {"token": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Login user",
+      "method": "POST",
+      "path": "/?action=login",
+      "body": {"email": "test_auto@test.com", "password": "test123"},
+      "expectedStatus": 200,
+      "expectedBody": {"token": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Login wrong password",
+      "method": "POST",
+      "path": "/?action=login",
+      "body": {"email": "test_auto@test.com", "password": "wrong"},
+      "expectedStatus": 401,
+      "expectedBody": {"error": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { useState, useEffect, Suspense, lazy } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AuthModals from "@/components/AuthModals";
+import { useAuth } from "@/context/AuthContext";
 
 const Features = lazy(() => import("@/components/Features"));
 const Products = lazy(() => import("@/components/Products"));
@@ -10,9 +11,9 @@ const ContactForm = lazy(() => import("@/components/ContactForm"));
 const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
+  const { user, login, register, logout } = useAuth();
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -33,34 +34,7 @@ const Index = () => {
     password: false
   });
 
-  // Функции для работы с базой пользователей
-  const getUsersDatabase = () => {
-    const users = localStorage.getItem('usersDatabase');
-    return users ? JSON.parse(users) : [];
-  };
-
-  const saveUserToDatabase = (email: string, password: string) => {
-    const users = getUsersDatabase();
-    const newUser = { email, password, registrationDate: new Date().toISOString() };
-    users.push(newUser);
-    localStorage.setItem('usersDatabase', JSON.stringify(users));
-  };
-
-  const findUserInDatabase = (email: string) => {
-    const users = getUsersDatabase();
-    return users.find((user: any) => user.email === email);
-  };
-
-  // Проверяем сохраненные данные при загрузке страницы
   useEffect(() => {
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      const { email } = JSON.parse(currentUser);
-      setIsLoggedIn(true);
-      console.log('Пользователь автоматически вошел в систему:', email);
-    }
-
-    // Обработка якорных ссылок
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash === '#products') {
@@ -73,112 +47,68 @@ const Index = () => {
       }
     };
 
-    // Проверяем hash при загрузке страницы
     handleHashChange();
-
-    // Слушаем изменения hash
     window.addEventListener('hashchange', handleHashChange);
-
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     const newErrors = {
       email: !formData.email.trim(),
       password: !formData.password.trim(),
       confirmPassword: !formData.confirmPassword.trim() || formData.password !== formData.confirmPassword
     };
-    
-    setErrors(newErrors);
-    
-    // Если нет ошибок, проверяем регистрацию
-    if (!Object.values(newErrors).some(error => error)) {
-      // Проверяем, не зарегистрирован ли уже такой email
-      const existingUser = findUserInDatabase(formData.email);
-      if (existingUser) {
-        alert('Пользователь с таким email уже зарегистрирован. Попробуйте войти в систему.');
-        return;
-      }
 
-      // Сохраняем пользователя в базу
-      saveUserToDatabase(formData.email, formData.password);
-      
-      // Сохраняем текущего пользователя если установлен флаг "запомнить"
-      if (rememberMe) {
-        localStorage.setItem('currentUser', JSON.stringify({
-          email: formData.email,
-          loginDate: new Date().toISOString()
-        }));
+    setErrors(newErrors);
+
+    if (!Object.values(newErrors).some(error => error)) {
+      const success = await register({
+        email: formData.email,
+        password: formData.password,
+        name: '',
+        company: '',
+        phone: '',
+        address: ''
+      });
+
+      if (success) {
+        setIsRegisterOpen(false);
+        setFormData({ email: '', password: '', confirmPassword: '' });
+        setRememberMe(false);
+      } else {
+        alert('Пользователь с таким email уже зарегистрирован.');
       }
-      
-      console.log('Регистрация успешна:', formData.email);
-      setIsLoggedIn(true);
-      setIsRegisterOpen(false);
-      setFormData({ email: '', password: '', confirmPassword: '' });
-      setRememberMe(false);
     }
   };
 
   const handleLogin = () => {
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      const { email } = JSON.parse(currentUser);
-      setIsLoggedIn(true);
-      console.log('Автоматический вход:', email);
-      // Перенаправляем в личный кабинет
+    if (user) {
       window.location.href = '/dashboard';
     } else {
-      // Открываем форму входа
       setIsLoginOpen(true);
     }
   };
 
-  const handleLoginSubmit = () => {
+  const handleLoginSubmit = async () => {
     const newErrors = {
       email: !loginData.email.trim(),
       password: !loginData.password.trim()
     };
-    
+
     setLoginErrors(newErrors);
-    
+
     if (!Object.values(newErrors).some(error => error)) {
-      // Ищем пользователя в базе
-      const user = findUserInDatabase(loginData.email);
-      
-      if (!user) {
-        // Пользователь не найден, предлагаем регистрацию
-        if (confirm('Email не зарегистрирован. Хотите зарегистрироваться?')) {
-          setIsLoginOpen(false);
-          setFormData({
-            email: loginData.email,
-            password: '',
-            confirmPassword: ''
-          });
-          setIsRegisterOpen(true);
-        }
-        return;
+      const success = await login(loginData.email, loginData.password);
+
+      if (success) {
+        setIsLoginOpen(false);
+        setLoginData({ email: '', password: '' });
+        window.location.href = '/dashboard';
+      } else {
+        alert('Неверный email или пароль');
       }
-      
-      // Проверяем пароль
-      if (user.password !== loginData.password) {
-        alert('Неверный пароль');
-        return;
-      }
-      
-      // Успешный вход
-      localStorage.setItem('currentUser', JSON.stringify({
-        email: loginData.email,
-        loginDate: new Date().toISOString()
-      }));
-      
-      setIsLoggedIn(true);
-      setIsLoginOpen(false);
-      setLoginData({ email: '', password: '' });
-      console.log('Успешный вход:', loginData.email);
-      // Перенаправляем в личный кабинет
-      window.location.href = '/dashboard';
     }
   };
 
@@ -190,16 +120,12 @@ const Index = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('currentUser');
-    setIsLoggedIn(false);
-    console.log('Выход из системы');
-    // Переходим на главную страницу
+    logout();
     window.location.href = '/';
   };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // Убираем ошибку при начале ввода
     if (errors[field as keyof typeof errors]) {
       setErrors(prev => ({ ...prev, [field]: false }));
     }
@@ -208,52 +134,50 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
         <Header
-          isLoggedIn={isLoggedIn}
+          isLoggedIn={!!user}
           onLogin={handleLogin}
           onRegister={() => setIsRegisterOpen(true)}
           onLogout={handleLogout}
         />
-        
+
         <Hero />
-        
+
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-48 rounded-lg w-full max-w-4xl"></div></div>}>
           <Features />
         </Suspense>
-        
+
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-64 rounded-lg w-full max-w-6xl"></div></div>}>
           <Products />
         </Suspense>
-        
+
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-32 rounded-lg w-full max-w-4xl"></div></div>}>
           <Certificates />
         </Suspense>
-        
+
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-96 rounded-lg w-full max-w-4xl"></div></div>}>
           <ContactForm />
         </Suspense>
-        
+
         <Suspense fallback={<div className="py-8 flex justify-center"><div className="animate-pulse bg-gray-200 h-48 rounded-lg w-full"></div></div>}>
           <Footer />
         </Suspense>
-      
-        <Suspense fallback={null}>
-          <AuthModals
-            isRegisterOpen={isRegisterOpen}
-            isLoginOpen={isLoginOpen}
-            setIsRegisterOpen={setIsRegisterOpen}
-            setIsLoginOpen={setIsLoginOpen}
-            rememberMe={rememberMe}
-            setRememberMe={setRememberMe}
-            formData={formData}
-            loginData={loginData}
-            errors={errors}
-            loginErrors={loginErrors}
-            handleInputChange={handleInputChange}
-            handleLoginInputChange={handleLoginInputChange}
-            handleRegister={handleRegister}
-            handleLoginSubmit={handleLoginSubmit}
-          />
-        </Suspense>
+
+        <AuthModals
+          isRegisterOpen={isRegisterOpen}
+          isLoginOpen={isLoginOpen}
+          setIsRegisterOpen={setIsRegisterOpen}
+          setIsLoginOpen={setIsLoginOpen}
+          rememberMe={rememberMe}
+          setRememberMe={setRememberMe}
+          formData={formData}
+          loginData={loginData}
+          errors={errors}
+          loginErrors={loginErrors}
+          handleInputChange={handleInputChange}
+          handleLoginInputChange={handleLoginInputChange}
+          handleRegister={handleRegister}
+          handleLoginSubmit={handleLoginSubmit}
+        />
     </div>
   );
 };

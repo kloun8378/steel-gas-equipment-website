@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,7 @@ import emailjs from '@emailjs/browser';
 
 const LoginPage = () => {
   const { login, register, isLoading } = useAuth();
+  const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({
     email: '',
     password: ''
@@ -39,7 +40,9 @@ const LoginPage = () => {
     }
 
     const success = await login(loginForm.email, loginForm.password);
-    if (!success) {
+    if (success) {
+      navigate('/dashboard');
+    } else {
       setError('Неверный email или пароль');
     }
   };
@@ -55,13 +58,16 @@ const LoginPage = () => {
 
     const success = await register({
       email: registerForm.email,
+      password: registerForm.password,
       name: registerForm.name,
       company: registerForm.company,
       phone: registerForm.phone,
       address: registerForm.address
     });
 
-    if (!success) {
+    if (success) {
+      navigate('/dashboard');
+    } else {
       setError('Пользователь с таким email уже существует');
     }
   };

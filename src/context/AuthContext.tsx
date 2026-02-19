@@ -1,100 +1,89 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { User } from '@/types/user';
+import api from '@/services/api';
 
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<boolean>;
-  register: (userData: Omit<User, 'id' | 'createdAt'>) => Promise<boolean>;
+  register: (userData: Omit<User, 'id' | 'createdAt'> & { password?: string }) => Promise<boolean>;
   logout: () => void;
   isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-import { DEMO_USERS, DEMO_PASSWORD } from '@/constants/users';
-
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Проверяем сохраненного пользователя
-    const savedUser = localStorage.getItem('currentUser');
-    if (savedUser) {
-      try {
-        const userData = JSON.parse(savedUser);
-        setUser({
-          ...userData,
-          createdAt: new Date(userData.createdAt)
-        });
-      } catch (error) {
-        console.error('Ошибка загрузки пользователя:', error);
-        localStorage.removeItem('currentUser');
-      }
+    const token = api.getToken();
+    if (token) {
+      api.me()
+        .then((data) => {
+          setUser({
+            ...data.user,
+            id: String(data.user.id),
+            createdAt: new Date(data.user.createdAt),
+          });
+        })
+        .catch(() => {
+          api.clearToken();
+        })
+        .finally(() => setIsLoading(false));
+    } else {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
-    
-    // Эмуляция проверки пароля (в реальном проекте здесь будет API)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    const foundUser = DEMO_USERS.find(u => u.email === email);
-    
-    if (foundUser && password === DEMO_PASSWORD) {
-      setUser(foundUser);
-      localStorage.setItem('currentUser', JSON.stringify(foundUser));
-      setIsLoading(false);
+    try {
+      const data = await api.login(email, password);
+      setUser({
+        ...data.user,
+        id: String(data.user.id),
+        createdAt: new Date(data.user.createdAt),
+      });
       return true;
+    } catch {
+      return false;
+    } finally {
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
-    return false;
   };
 
-  const register = async (userData: Omit<User, 'id' | 'createdAt'>): Promise<boolean> => {
+  const register = async (userData: Omit<User, 'id' | 'createdAt'> & { password?: string }): Promise<boolean> => {
     setIsLoading(true);
-    
-    // Эмуляция регистрации
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Проверяем, существует ли пользователь
-    const existingUser = DEMO_USERS.find(u => u.email === userData.email);
-    if (existingUser) {
-      setIsLoading(false);
+    try {
+      const data = await api.register({
+        email: userData.email,
+        password: userData.password || '',
+        name: userData.name,
+        company: userData.company,
+        phone: userData.phone,
+        address: userData.address,
+      });
+      setUser({
+        ...data.user,
+        id: String(data.user.id),
+        createdAt: new Date(data.user.createdAt),
+      });
+      return true;
+    } catch {
       return false;
+    } finally {
+      setIsLoading(false);
     }
-    
-    const newUser: User = {
-      ...userData,
-      id: Date.now().toString(),
-      createdAt: new Date()
-    };
-    
-    DEMO_USERS.push(newUser);
-    setUser(newUser);
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-    
-    setIsLoading(false);
-    return true;
   };
 
   const logout = () => {
+    api.logout();
     setUser(null);
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('cart'); // Очищаем корзину при выходе
   };
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      login,
-      register,
-      logout,
-      isLoading
-    }}>
+    <AuthContext.Provider value={{ user, login, register, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
