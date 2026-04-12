@@ -323,7 +323,7 @@ def send_emailjs(service_id, template_id, template_params, public_key, private_k
         data=data,
         headers={
             'Content-Type': 'application/json',
-            'Origin': 'https://xn--80awjdfch6f.com'
+            'Origin': 'https://steel-gas-equipment-website.poehali.dev'
         }
     )
     resp = urllib.request.urlopen(req, timeout=15)
