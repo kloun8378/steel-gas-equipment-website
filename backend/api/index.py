@@ -313,9 +313,10 @@ def handle_send_email(event, conn):
     email_type = body.get('type', 'contact')
 
     if email_type == 'contact':
-        subject = 'Новое сообщение с сайта СТАЛЬПРО'
+        name = body.get('name', '')
+        subject = 'Новое сообщение от %s - СТАЛЬПРО' % name
         text = 'Имя: %s\nEmail: %s\nТелефон: %s\n\nСообщение:\n%s' % (
-            body.get('name', ''), body.get('email', ''), body.get('phone', ''), body.get('message', '')
+            name, body.get('email', ''), body.get('phone', ''), body.get('message', '')
         )
     elif email_type == 'reset':
         params = body.get('params', {})
