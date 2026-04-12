@@ -62,7 +62,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
           
           {/* Десктоп меню */}
           <div className="hidden md:flex space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
+            <a href="/" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
             <a href="#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
             <a href="/blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
             <a href="/faq" className="text-gray-700 hover:text-primary transition-colors">FAQ</a>
@@ -201,7 +201,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
             <SheetContent side="right" className="w-[280px] sm:w-[400px]">
               <nav className="flex flex-col space-y-4 mt-8">
                 <a 
-                  href="#home" 
+                  href="/" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
