@@ -13,7 +13,7 @@ export interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -46,18 +46,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, 500);
   };
 
-  const addToCart = (item: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => {
+    const addQty = item.quantity ?? 1;
     setCart(currentCart => {
       const existingItem = currentCart.find(cartItem => cartItem.id === item.id);
       let newCart: CartItem[];
       if (existingItem) {
         newCart = currentCart.map(cartItem =>
           cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            ? { ...cartItem, quantity: cartItem.quantity + addQty }
             : cartItem
         );
       } else {
-        newCart = [...currentCart, { ...item, quantity: 1 }];
+        newCart = [...currentCart, { ...item, quantity: addQty }];
       }
       syncToServer(newCart);
       return newCart;
