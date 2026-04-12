@@ -59,8 +59,12 @@ export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => 
     }, PUBLIC_KEY);
 
     return true;
-  } catch (e) {
-    console.error('EmailJS error:', JSON.stringify(e));
+  } catch (e: unknown) {
+    console.error('EmailJS error:', e instanceof Error ? e.message : JSON.stringify(e));
+    if (e && typeof e === 'object' && 'text' in e) {
+      const errObj = e as { status?: number; text?: string };
+      console.error('EmailJS status:', errObj.status, 'text:', errObj.text);
+    }
     return false;
   }
 };
