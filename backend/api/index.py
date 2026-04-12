@@ -286,6 +286,7 @@ def handle_create_order(event, conn):
                 'ИТОГО: %s р'
             ) % (order_id, order_date_str, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
 
+            private_key = os.environ.get('EMAILJS_PRIVATE_KEY', '')
             send_emailjs(service_id, template_id, {
                 'message': message,
                 'order_number': str(order_id),
@@ -294,7 +295,7 @@ def handle_create_order(event, conn):
                 'email_address': email_val,
                 'total_amount': total_str,
                 'order_date': order_date_str,
-            }, public_key)
+            }, public_key, private_key)
             print('Order email sent for order #%d' % order_id)
     except Exception as e:
         print('Email send error: %s' % str(e))
