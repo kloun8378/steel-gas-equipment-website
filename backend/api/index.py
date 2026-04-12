@@ -252,7 +252,54 @@ def handle_create_order(event, conn):
     conn.commit()
     cur.close()
 
-    return json_response(200, {'order': {'id': order_row[0], 'total': total, 'items': items, 'createdAt': str(order_row[1])}})
+    order_id = order_row[0]
+    order_date = order_row[1]
+
+    # Отправка письма о заказе через EmailJS
+    try:
+        service_id = os.environ.get('EMAILJS_SERVICE_ID', '')
+        public_key = os.environ.get('EMAILJS_PUBLIC_KEY', '')
+        template_id = os.environ.get('EMAILJS_TEMPLATE_ORDER_ID', '')
+
+        if service_id and public_key and template_id:
+            items_text = '\n'.join([
+                '%d. %s - %d шт x %s р = %s р' % (
+                    i+1, item['name'], item['quantity'],
+                    '{:,.0f}'.format(item['price']).replace(',', ' '),
+                    '{:,.0f}'.format(item['price'] * item['quantity']).replace(',', ' ')
+                )
+                for i, item in enumerate(items)
+            ])
+            total_str = '{:,.0f}'.format(total).replace(',', ' ')
+            order_date_str = order_date.strftime('%d.%m.%Y %H:%M') if hasattr(order_date, 'strftime') else str(order_date)
+
+            message = (
+                'НОВЫЙ ЗАКАЗ - СТАЛЬПРО\n'
+                '==================================================\n\n'
+                'ЗАКАЗ #%d\n%s\n\n'
+                'ПРЕДПРИЯТИЕ:\n'
+                'Компания: %s\n'
+                'Телефон: %s\n'
+                'Email: %s\n'
+                'Адрес доставки: %s\n\n'
+                'ТОВАРЫ:\n%s\n\n'
+                'ИТОГО: %s р'
+            ) % (order_id, order_date_str, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
+
+            send_emailjs(service_id, template_id, {
+                'message': message,
+                'order_number': str(order_id),
+                'company_name': company_name,
+                'phone': phone_val,
+                'email_address': email_val,
+                'total_amount': total_str,
+                'order_date': order_date_str,
+            }, public_key)
+            print('Order email sent for order #%d' % order_id)
+    except Exception as e:
+        print('Email send error: %s' % str(e))
+
+    return json_response(200, {'order': {'id': order_id, 'total': total, 'items': items, 'createdAt': str(order_date)}})
 
 def send_emailjs(service_id, template_id, template_params, public_key, private_key=None):
     payload = {
