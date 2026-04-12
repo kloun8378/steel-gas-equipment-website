@@ -42,6 +42,7 @@ export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => 
     const emailContent = `НОВЫЙ ЗАКАЗ - СТАЛЬПРО\n==================================================\n\nЗАКАЗ ${orderNumber}\n${orderDate.toLocaleDateString('ru-RU')} в ${orderDate.toLocaleTimeString('ru-RU')}\n\nПРЕДПРИЯТИЕ:\nКомпания: ${companyInfo.name || 'Не указано'}\nИНН: ${companyInfo.inn || 'Не указан'}\nАдрес: ${companyInfo.address || 'Не указан'}\nТелефон: ${companyInfo.phone || 'Не указан'}\nEmail: ${companyInfo.email || 'Не указан'}\nДоставка: ${companyInfo.description || 'Не указан'}\n\nТОВАРЫ:\n${orderData.cart.map((item, index) => `${index + 1}. ${item.name} - ${item.quantity} шт x ${item.price.toLocaleString('ru-RU')} р = ${(item.price * item.quantity).toLocaleString('ru-RU')} р`).join('\n')}\n\nИТОГО: ${orderData.total.toLocaleString('ru-RU')} р\n\nКОНТАКТ: ${companyInfo.phone} | ${companyInfo.email}`;
 
     await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+      to_email: 'sadoxa1996@mail.ru',
       user_name: orderData.company,
       user_email: orderData.email,
       order_number: orderNumber,
