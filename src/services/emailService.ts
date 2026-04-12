@@ -26,6 +26,7 @@ interface OrderData {
 }
 
 export const sendOrderEmail = async (orderData: OrderData): Promise<boolean> => {
+  console.log('sendOrderEmail called:', JSON.stringify({ company: orderData.company, email: orderData.email, cartLength: orderData.cart.length, total: orderData.total }));
   try {
     const orderDate = new Date();
     const orderNumber = `ORD-${orderDate.getFullYear()}${String(orderDate.getMonth() + 1).padStart(2, '0')}${String(orderDate.getDate()).padStart(2, '0')}-${Date.now().toString().slice(-6)}`;
