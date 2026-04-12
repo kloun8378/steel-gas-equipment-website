@@ -298,7 +298,13 @@ def handle_create_order(event, conn):
             }, public_key, private_key)
             print('Order email sent for order #%d' % order_id)
     except Exception as e:
-        print('Email send error: %s' % str(e))
+        print('Email send error: %s | service=%s template=%s public_key=%s private_key_len=%d' % (
+            str(e),
+            os.environ.get('EMAILJS_SERVICE_ID', 'MISSING'),
+            os.environ.get('EMAILJS_TEMPLATE_ORDER_ID', 'MISSING'),
+            os.environ.get('EMAILJS_PUBLIC_KEY', 'MISSING'),
+            len(os.environ.get('EMAILJS_PRIVATE_KEY', ''))
+        ))
 
     return json_response(200, {'order': {'id': order_id, 'total': total, 'items': items, 'createdAt': str(order_date)}})
 
