@@ -6,6 +6,9 @@ import secrets
 import psycopg2
 import urllib.request
 import urllib.parse
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
@@ -255,115 +258,78 @@ def handle_create_order(event, conn):
     order_id = order_row[0]
     order_date = order_row[1]
 
-    # Отправка письма о заказе через EmailJS
+    # Отправка письма о заказе через SMTP
     try:
-        service_id = os.environ.get('EMAILJS_SERVICE_ID', '')
-        public_key = os.environ.get('EMAILJS_PUBLIC_KEY', '')
-        template_id = os.environ.get('EMAILJS_TEMPLATE_ORDER_ID', '')
+        items_text = '\n'.join([
+            '%d. %s - %d шт x %s р = %s р' % (
+                i+1, item['name'], item['quantity'],
+                '{:,.0f}'.format(item['price']).replace(',', ' '),
+                '{:,.0f}'.format(item['price'] * item['quantity']).replace(',', ' ')
+            )
+            for i, item in enumerate(items)
+        ])
+        total_str = '{:,.0f}'.format(total).replace(',', ' ')
+        order_date_str = order_date.strftime('%d.%m.%Y %H:%M') if hasattr(order_date, 'strftime') else str(order_date)
 
-        if service_id and public_key and template_id:
-            items_text = '\n'.join([
-                '%d. %s - %d шт x %s р = %s р' % (
-                    i+1, item['name'], item['quantity'],
-                    '{:,.0f}'.format(item['price']).replace(',', ' '),
-                    '{:,.0f}'.format(item['price'] * item['quantity']).replace(',', ' ')
-                )
-                for i, item in enumerate(items)
-            ])
-            total_str = '{:,.0f}'.format(total).replace(',', ' ')
-            order_date_str = order_date.strftime('%d.%m.%Y %H:%M') if hasattr(order_date, 'strftime') else str(order_date)
+        subject = 'Новый заказ #%d - СТАЛЬПРО' % order_id
+        body = (
+            'НОВЫЙ ЗАКАЗ - СТАЛЬПРО\n'
+            '==================================================\n\n'
+            'ЗАКАЗ #%d\n%s\n\n'
+            'ПРЕДПРИЯТИЕ:\n'
+            'Компания: %s\n'
+            'Телефон: %s\n'
+            'Email: %s\n'
+            'Адрес доставки: %s\n\n'
+            'ТОВАРЫ:\n%s\n\n'
+            'ИТОГО: %s р'
+        ) % (order_id, order_date_str, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
 
-            message = (
-                'НОВЫЙ ЗАКАЗ - СТАЛЬПРО\n'
-                '==================================================\n\n'
-                'ЗАКАЗ #%d\n%s\n\n'
-                'ПРЕДПРИЯТИЕ:\n'
-                'Компания: %s\n'
-                'Телефон: %s\n'
-                'Email: %s\n'
-                'Адрес доставки: %s\n\n'
-                'ТОВАРЫ:\n%s\n\n'
-                'ИТОГО: %s р'
-            ) % (order_id, order_date_str, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
-
-            private_key = os.environ.get('EMAILJS_PRIVATE_KEY', '')
-            send_emailjs(service_id, template_id, {
-                'message': message,
-                'order_number': str(order_id),
-                'company_name': company_name,
-                'phone': phone_val,
-                'email_address': email_val,
-                'total_amount': total_str,
-                'order_date': order_date_str,
-            }, public_key, private_key)
-            print('Order email sent for order #%d' % order_id)
+        send_smtp(subject, body)
+        print('Order email sent for order #%d' % order_id)
     except Exception as e:
-        print('Email send error: %s | service=%s template=%s public_key=%s private_key_len=%d' % (
-            str(e),
-            os.environ.get('EMAILJS_SERVICE_ID', 'MISSING'),
-            os.environ.get('EMAILJS_TEMPLATE_ORDER_ID', 'MISSING'),
-            os.environ.get('EMAILJS_PUBLIC_KEY', 'MISSING'),
-            len(os.environ.get('EMAILJS_PRIVATE_KEY', ''))
-        ))
+        print('Email send error: %s' % str(e))
 
     return json_response(200, {'order': {'id': order_id, 'total': total, 'items': items, 'createdAt': str(order_date)}})
 
-def send_emailjs(service_id, template_id, template_params, public_key, private_key=None):
-    payload = {
-        'service_id': service_id,
-        'template_id': template_id,
-        'user_id': public_key,
-        'accessToken': private_key or '',
-        'template_params': template_params
-    }
+def send_smtp(subject, body, to_email='sadoxa1996@mail.ru'):
+    from_email = 'sadoxa1996@mail.ru'
+    password = os.environ.get('MAIL_APP_PASSWORD', '')
 
-    data = json.dumps(payload).encode('utf-8')
-    req = urllib.request.Request(
-        'https://api.emailjs.com/api/v1.0/email/send',
-        data=data,
-        headers={
-            'Content-Type': 'application/json',
-            'Origin': 'https://steel-gas-equipment-website.poehali.dev'
-        }
-    )
-    resp = urllib.request.urlopen(req, timeout=15)
-    body_resp = resp.read().decode('utf-8')
-    print('EmailJS response: status=%d body=%s' % (resp.status, body_resp))
-    return resp.status == 200
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = subject
+    msg['From'] = from_email
+    msg['To'] = to_email
+    msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+    with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
+        server.login(from_email, password)
+        server.sendmail(from_email, to_email, msg.as_string())
+    print('SMTP email sent to %s' % to_email)
+    return True
 
 def handle_send_email(event, conn):
     body = json.loads(event.get('body', '{}'))
     email_type = body.get('type', 'contact')
-    
-    service_id = os.environ.get('EMAILJS_SERVICE_ID', '')
-    public_key = os.environ.get('EMAILJS_PUBLIC_KEY', '')
-    private_key = os.environ.get('EMAILJS_PRIVATE_KEY', '')
-
-    if not service_id or not public_key:
-        return json_response(500, {'error': 'Email не настроен'})
 
     if email_type == 'contact':
-        template_id = os.environ.get('EMAILJS_TEMPLATE_ID', '')
-        template_params = {
-            'user_name': body.get('name', ''),
-            'user_email': body.get('email', ''),
-            'message': 'Имя: %s\nEmail: %s\nТелефон: %s\n\nСообщение:\n%s' % (
-                body.get('name', ''), body.get('email', ''), body.get('phone', ''), body.get('message', '')
-            )
-        }
-    elif email_type == 'order':
-        template_id = os.environ.get('EMAILJS_TEMPLATE_ID', '')
-        template_params = body.get('params', {})
+        subject = 'Новое сообщение с сайта СТАЛЬПРО'
+        text = 'Имя: %s\nEmail: %s\nТелефон: %s\n\nСообщение:\n%s' % (
+            body.get('name', ''), body.get('email', ''), body.get('phone', ''), body.get('message', '')
+        )
     elif email_type == 'reset':
-        template_id = body.get('template_id', os.environ.get('EMAILJS_TEMPLATE_ID', ''))
-        template_params = body.get('params', {})
+        params = body.get('params', {})
+        subject = 'Сброс пароля - СТАЛЬПРО'
+        text = 'Ссылка для сброса пароля:\n%s' % params.get('reset_link', '')
     else:
         return json_response(400, {'error': 'Неизвестный тип письма'})
 
-    ok = send_emailjs(service_id, template_id, template_params, public_key, private_key)
-    if ok:
+    try:
+        send_smtp(subject, text)
         return json_response(200, {'ok': True})
-    return json_response(500, {'error': 'Ошибка отправки письма'})
+    except Exception as e:
+        print('Email send error: %s' % str(e))
+        return json_response(500, {'error': 'Ошибка отправки письма'})
 
 def handle_get_orders(event, conn):
     token = get_auth_token(event)
