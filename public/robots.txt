@@ -1,51 +1,16 @@
 User-agent: *
 Allow: /
 
-# Разрешаем индексацию всего сайта
-Allow: /speed-valve
-Allow: /safety-valve
-Allow: /components
-Allow: /catalog
-Allow: /about
-Allow: /contacts
-Allow: /services
-Allow: /certificates
-Allow: /news
-Allow: /blog
-Allow: /faq
-Allow: /products/
-Allow: /regions/
+Disallow: /login
+Disallow: /reset-password
+Disallow: /dashboard
 
-# Запрещаем индексацию служебных файлов
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /static/
-Disallow: *.json$
-Disallow: *.ts$
-Disallow: *.tsx$
-
-# Указываем путь к sitemap
 Sitemap: https://xn--80awjdfch6f.com/sitemap.xml
 
-# Настройки для популярных поисковиков
 User-agent: Googlebot
 Allow: /
 
 User-agent: Yandex
 Allow: /
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-# Задержка между запросами (в секундах)
 Crawl-delay: 1
