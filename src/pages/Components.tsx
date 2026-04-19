@@ -10,6 +10,7 @@ import { useAuth } from '@/context/AuthContext';
 export default function Components() {
   const [quantitySpring, setQuantitySpring] = useState(1);
   const [quantityValve, setQuantityValve] = useState(1);
+  const [quantityFlange, setQuantityFlange] = useState(1);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
 
@@ -200,6 +201,83 @@ export default function Components() {
                       image: 'https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg',
                       description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12',
                       quantity: quantityValve
+                    })}
+                  >
+                    <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
+                    Заказать
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Фланец */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <div className="bg-white p-6 rounded-lg mb-4 border cursor-pointer hover:shadow-md transition-shadow">
+                        <img 
+                          src="https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG" 
+                          alt="Фланец на 8 отверстий к клапану ППЦЗ-12"
+                          className="w-full h-48 object-contain bg-white rounded"
+                          loading="lazy"
+                          style={{backgroundColor: '#ffffff'}}
+                        />
+                      </div>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-96 p-0">
+                      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-gray-50 p-4 border-b">
+                          <h3 className="text-lg font-bold text-gray-900">Фланец на 8 отверстий к ППЦЗ-12</h3>
+                        </div>
+                        <div className="p-4 space-y-2 text-sm">
+                          <div><span className="font-semibold">Вид арматуры:</span> Фланцы</div>
+                          <div><span className="font-semibold">Тип арматуры:</span> Предохранительная арматура</div>
+                          <div><span className="font-semibold">Рабочая среда:</span> СУГ</div>
+                          <div><span className="font-semibold">Рабочая температура:</span> от -40 до +45°С</div>
+                          <div><span className="font-semibold">Места установки:</span> Автоцистерны и стационарные резервуары для хранения СУГ</div>
+                          <div><span className="font-semibold">Dn (дюйм):</span> 1"</div>
+                          <div><span className="font-semibold">Dn (мм):</span> 25 мм</div>
+                          <div><span className="font-semibold">Класс герметичности:</span> А</div>
+                          <div><span className="font-semibold">Масса:</span> не более 5 кг</div>
+                          <div><span className="font-semibold">Материал:</span> Сталь</div>
+                          <div><span className="font-semibold">Расчётный срок службы:</span> 10 лет</div>
+                          <div><span className="font-semibold">Страна производитель:</span> Россия</div>
+                          <div className="border-t pt-3 mt-3">
+                            <div className="text-lg font-bold text-primary">
+                              4 372 ₽ <span className="text-sm text-gray-500">с НДС</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+                  <CardTitle className="text-xl">Фланец на 8 отверстий к ППЦЗ-12</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="mb-6">
+                    <p className="text-2xl font-bold text-primary mb-2">4 372 ₽</p>
+                    <p className="text-sm text-gray-600">с НДС</p>
+                  </div>
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <label className="text-sm font-medium">Количество:</label>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      value={quantityFlange}
+                      onChange={(e) => setQuantityFlange(Math.max(1, parseInt(e.target.value) || 1))}
+                      className="w-16 px-2 py-1 border rounded text-center"
+                    />
+                  </div>
+                  <Button 
+                    className="w-full" 
+                    size="lg"
+                    onClick={() => handleAddToCart({
+                      id: 'flange-ppcz12',
+                      name: 'Фланец на 8 отверстий к клапану ППЦЗ-12',
+                      price: 4372,
+                      image: 'https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG',
+                      description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
+                      quantity: quantityFlange
                     })}
                   >
                     <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
