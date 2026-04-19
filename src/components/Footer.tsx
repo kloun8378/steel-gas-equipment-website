@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               <Icon name="Factory" className="h-8 w-8 text-primary mr-3" />
-              <h5 className="text-xl font-bold">СтальПро</h5>
+              <h5 className="text-xl font-bold">СтальПроКлапан</h5>
             </div>
             <p className="text-gray-400">Надёжные решения промышленного газового оборудования для вашего бизнеса.</p>
           </div>
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 СтальПро. Все права защищены.</p>
+          <p>&copy; 2025 СтальПроКлапан. Все права защищены.</p>
           <div className="mt-4">
             <a href="https://webmaster.yandex.ru/siteinfo/?site=https://стальпро.com">
               <img 

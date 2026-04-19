@@ -54,7 +54,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
           <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
             <Icon name="Factory" className="h-6 w-6 sm:h-8 sm:w-8 text-primary mr-2 sm:mr-3" />
             <div>
-              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">СтальПро</h1>
+              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">СтальПроКлапан</h1>
               <p className="text-xs sm:text-sm text-gray-600 -mt-1">газовая арматура</p>
             </div>
           </a>
