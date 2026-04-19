@@ -111,7 +111,7 @@ export default function SpeedValve() {
                     Компактный быстродействующий клапан для малых диаметров трубопроводов
                   </p>
                   <div className="text-lg font-bold text-primary mb-3">
-                    5 500 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                    5 592 ₽ <span className="text-xs text-gray-500">с НДС</span>
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <input 
@@ -129,7 +129,7 @@ export default function SpeedValve() {
                     onClick={() => handleAddToCart({
                       id: 'speed-valve-du25',
                       name: 'Скоростной клапан межфланцевый ДУ25',
-                      price: 5500,
+                      price: 5592,
                       image: 'https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png',
                       description: 'Компактный быстродействующий клапан для малых диаметров трубопроводов',
                       quantity: quantity25
@@ -185,7 +185,7 @@ export default function SpeedValve() {
                     Надежное решение для средних диаметров с высокой скоростью срабатывания
                   </p>
                   <div className="text-lg font-bold text-primary mb-3">
-                    6 100 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                    6 202 ₽ <span className="text-xs text-gray-500">с НДС</span>
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <input 
@@ -203,7 +203,7 @@ export default function SpeedValve() {
                     onClick={() => handleAddToCart({
                       id: 'speed-valve-du32',
                       name: 'Скоростной клапан межфланцевый ДУ32',
-                      price: 6100,
+                      price: 6202,
                       image: 'https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg',
                       description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
                       quantity: quantity32
