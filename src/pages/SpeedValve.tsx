@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -28,6 +29,18 @@ export default function SpeedValve() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Скоростной клапан межфланцевый ДУ25, ДУ32, ДУ40, ДУ50 — СтальПро</title>
+        <meta name="description" content="Скоростной клапан межфланцевый ДУ25 для перекрытия протока жидкости. Применяется на АГЗС и ГНС. Тип соединения — межфланцевый. ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050. Арматура СУГ, комплектующие АГНС." />
+        <meta name="keywords" content="скоростной клапан межфланцевый, клапан межфланцевый ДУ25, клапан скоростной межфланцевый, ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050, арматура СУГ, комплектующие АГНС, клапан АГЗС, клапан ГНС, скоростной клапан купить" />
+        <meta property="og:title" content="Скоростной клапан межфланцевый ДУ25, ДУ32, ДУ40, ДУ50 — СтальПро" />
+        <meta property="og:description" content="Скоростной клапан межфланцевый ДУ25 предназначен для перекрытия протока жидкости. Используют на АГЗС и ГНС, устанавливают в технологической системе." />
+        <meta property="og:url" content="https://xn--80awjdfch6f.com/speed-valve" />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
+        <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
+      </Helmet>
+
       {/* Header */}
       <header className="bg-primary text-white py-3 sm:py-4 px-4 md:px-6">
         <div className="container mx-auto flex items-center justify-between">
