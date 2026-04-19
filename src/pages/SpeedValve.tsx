@@ -240,7 +240,8 @@ export default function SpeedValve() {
                         <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
                         <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
                         <div><span className="font-semibold">Проход условный, DN:</span> 40</div>
-                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 46</div>
+                        <div><span className="font-semibold">Диаметр клапана (мм):</span> 90</div>
+                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 50</div>
                         <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
                         <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
                         <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
@@ -257,7 +258,7 @@ export default function SpeedValve() {
                     Надежное решение для средних диаметров с высокой скоростью срабатывания
                   </p>
                   <div className="text-lg font-bold text-primary mb-3">
-                    6 800 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                    7 015 ₽ <span className="text-xs text-gray-500">с НДС</span>
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <input 
@@ -275,7 +276,7 @@ export default function SpeedValve() {
                     onClick={() => handleAddToCart({
                       id: 'speed-valve-du40',
                       name: 'Скоростной клапан межфланцевый ДУ40',
-                      price: 6800,
+                      price: 7015,
                       image: 'https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg',
                       description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
                       quantity: quantity40
