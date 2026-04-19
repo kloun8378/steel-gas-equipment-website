@@ -94,7 +94,7 @@ export default function Components() {
                           </p>
                           <div className="border-t pt-3 mt-3">
                             <div className="text-lg font-bold text-primary">
-                              2 700 ₽ <span className="text-sm text-gray-500">с НДС</span>
+                              2 745 ₽ <span className="text-sm text-gray-500">с НДС</span>
                             </div>
                           </div>
                         </div>
@@ -105,7 +105,7 @@ export default function Components() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <div className="mb-6">
-                    <p className="text-2xl font-bold text-primary mb-2">2 700 ₽</p>
+                    <p className="text-2xl font-bold text-primary mb-2">2 745 ₽</p>
                     <p className="text-sm text-gray-600">с НДС</p>
                   </div>
                   
@@ -126,7 +126,7 @@ export default function Components() {
                     onClick={() => handleAddToCart({
                       id: 'spring-ppcz12',
                       name: 'Пружина ППЦЗ-12',
-                      price: 2700,
+                      price: 2745,
                       image: 'https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg',
                       description: 'Пружина предохранительного клапана для замены в старом клапане',
                       quantity: quantitySpring
@@ -164,7 +164,7 @@ export default function Components() {
                           </p>
                           <div className="border-t pt-3 mt-3">
                             <div className="text-lg font-bold text-primary">
-                              1 110 ₽ <span className="text-sm text-gray-500">с НДС</span>
+                              1 129 ₽ <span className="text-sm text-gray-500">с НДС</span>
                             </div>
                           </div>
                         </div>
@@ -175,7 +175,7 @@ export default function Components() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <div className="mb-6">
-                    <p className="text-2xl font-bold text-primary mb-2">1 110 ₽</p>
+                    <p className="text-2xl font-bold text-primary mb-2">1 129 ₽</p>
                     <p className="text-sm text-gray-600">с НДС</p>
                   </div>
                   
@@ -196,7 +196,7 @@ export default function Components() {
                     onClick={() => handleAddToCart({
                       id: 'valve-ppcz12',
                       name: 'Золотник ППЦЗ-12',
-                      price: 1110,
+                      price: 1129,
                       image: 'https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg',
                       description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12',
                       quantity: quantityValve
