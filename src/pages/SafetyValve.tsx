@@ -126,7 +126,7 @@ export default function SafetyValve() {
                     Надежная защита оборудования от превышения давления
                   </p>
                   <div className="text-lg font-bold text-primary mb-3">
-                    9 000 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                    9 659 ₽ <span className="text-xs text-gray-500">с НДС</span>
                   </div>
                   <div className="flex items-center gap-2 mb-2">
                     <input 
@@ -144,7 +144,7 @@ export default function SafetyValve() {
                     onClick={() => handleAddToCart({
                       id: 'safety-valve-ppcz12',
                       name: 'Предохранительные клапаны ППЦЗ-12',
-                      price: 9000,
+                      price: 9659,
                       image: 'https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg',
                       description: 'Надежная защита оборудования от превышения давления',
                       quantity: quantity
