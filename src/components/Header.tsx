@@ -6,8 +6,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
-import emailjs from '@emailjs/browser';
-
 interface HeaderProps {
   isLoggedIn: boolean;
   onLogin: () => void;
@@ -28,6 +26,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
 
     try {
       const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(forgotPasswordEmail)}`;
+      const emailjs = await import('@emailjs/browser');
       emailjs.init('UsA8zjcYvrlcSqY1b');
       await emailjs.send('service_osw4pc5', 'template_hgdylqe', {
         to_email: forgotPasswordEmail,
