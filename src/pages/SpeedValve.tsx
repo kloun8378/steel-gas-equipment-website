@@ -12,7 +12,7 @@ export default function SpeedValve() {
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Record<string, unknown>) => {
     if (!user) {
       // Автоматически перенаправляем на регистрацию
       window.location.href = '/login';
@@ -76,6 +76,7 @@ export default function SpeedValve() {
                         src="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" 
                         alt="Скоростной клапан межфланцевый ДУ25"
                         className="w-full h-full object-cover object-top rounded-lg"
+                        loading="lazy"
                         style={{ objectPosition: 'center -90%' }}
                       />
                     </div>
@@ -149,6 +150,7 @@ export default function SpeedValve() {
                         src="https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg" 
                         alt="Скоростной клапан межфланцевый ДУ32"
                         className="w-full h-full object-cover object-top rounded-lg"
+                        loading="lazy"
                         style={{ objectPosition: 'center -90%' }}
                       />
                     </div>

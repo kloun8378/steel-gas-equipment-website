@@ -11,7 +11,7 @@ export default function SafetyValve() {
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Record<string, unknown>) => {
     if (!user) {
       // Автоматически перенаправляем на регистрацию
       window.location.href = '/login';
@@ -72,6 +72,7 @@ export default function SafetyValve() {
                         src="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" 
                         alt="Предохранительные клапаны ППЦЗ-12"
                         className="w-full h-full object-contain rounded-lg p-2"
+                        loading="lazy"
                       />
                     </div>
                   </PopoverTrigger>

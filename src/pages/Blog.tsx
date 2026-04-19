@@ -282,6 +282,7 @@ export default function Blog() {
                         src={post.image} 
                         alt={post.title}
                         className="w-full h-48 object-cover"
+                        loading="lazy"
                       />
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-3">
@@ -337,6 +338,7 @@ export default function Blog() {
                   src={selectedPost.image} 
                   alt={selectedPost.title}
                   className="w-full h-64 object-cover"
+                  loading="lazy"
                 />
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-6">

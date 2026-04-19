@@ -18,6 +18,7 @@ export default function Certificates() {
                 src="https://cdn.poehali.dev/files/3bb99370-bb47-4591-ae74-985e2d66547b.jpg" 
                 alt="Сертификат EAC - Декларация о соответствии Евразийского экономического союза" 
                 className="w-full h-auto rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" 
+                loading="lazy"
                 onClick={() => setIsModalOpen(true)}
               />
             </div>

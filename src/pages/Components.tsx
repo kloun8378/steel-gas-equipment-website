@@ -13,7 +13,7 @@ export default function Components() {
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Record<string, unknown>) => {
     if (!user) {
       // Автоматически перенаправляем на регистрацию
       window.location.href = '/login';
@@ -75,6 +75,7 @@ export default function Components() {
                           src="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" 
                           alt="Пружина ППЦЗ-12"
                           className="w-full h-48 object-contain bg-white rounded"
+                          loading="lazy"
                           style={{backgroundColor: '#ffffff'}}
                         />
                       </div>
@@ -147,6 +148,7 @@ export default function Components() {
                           src="https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg" 
                           alt="Золотник ППЦЗ-12"
                           className="w-full h-48 object-contain bg-white rounded"
+                          loading="lazy"
                           style={{backgroundColor: '#ffffff'}}
                         />
                       </div>
