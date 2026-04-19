@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -99,9 +100,17 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>FAQ — вопросы о клапанах ППЦЗ-12, ТПА11, доставке | СтальПроКлапан</title>
+        <meta name="description" content="Ответы на вопросы о клапанах СУГ: ППЦЗ-12, ТПА11-025/032/040/050. Цены, доставка, гарантия, запчасти, сертификаты. Клапаны для АГЗС и ГНС от СтальПроКлапан, Барнаул." />
+        <meta name="keywords" content="FAQ клапаны СУГ, вопросы ППЦЗ-12, цена скоростной клапан, доставка арматура СУГ, гарантия клапан, запчасти ППЦЗ-12, сертификат EAC клапан, клапан АГЗС купить, ТПА11 вопросы" />
+        <meta property="og:title" content="Вопросы и ответы о клапанах СУГ — СтальПроКлапан" />
+        <meta property="og:url" content="https://xn--80awjdfch6f.com/faq" />
+        <link rel="canonical" href="https://xn--80awjdfch6f.com/faq" />
+      </Helmet>
       <SEOHead 
-        title="FAQ - Часто задаваемые вопросы | СтальПро"
-        description="Ответы на популярные вопросы о газовой арматуре, клапанах, доставке, гарантии и сервисе от СтальПро. Полезная информация для клиентов."
+        title="FAQ - Часто задаваемые вопросы | СтальПроКлапан"
+        description="Ответы на популярные вопросы о клапанах СУГ, ППЦЗ-12, ТПА11, доставке, гарантии и сервисе от СтальПроКлапан."
       />
       <Header />
       

@@ -1,4 +1,5 @@
 import { useState, useEffect, Suspense, lazy } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AuthModals from "@/components/AuthModals";
@@ -132,6 +133,17 @@ const Index = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>СтальПроКлапан — скоростные и предохранительные клапаны СУГ, Барнаул</title>
+      <meta name="description" content="СтальПроКлапан — производитель скоростных и предохранительных клапанов для СУГ. Клапаны ППЦЗ-12, ТПА11-025/032/040/050 для АГЗС, ГНС, автоцистерн. Комплектующие и запчасти. Доставка по РФ." />
+      <meta name="keywords" content="скоростной клапан купить, предохранительный клапан ППЦЗ-12, клапан СУГ, арматура АГЗС, арматура ГНС, ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050, клапан межфланцевый купить, ППЦЗ-12 цена, запчасти ППЦЗ-12, СтальПроКлапан, газовая арматура Барнаул, клапаны для газа купить, арматура СУГ Барнаул, VENGO аналог, AZT аналог, REGO аналог" />
+      <meta property="og:title" content="СтальПроКлапан — клапаны СУГ для АГЗС и ГНС" />
+      <meta property="og:description" content="Скоростные и предохранительные клапаны для СУГ. ППЦЗ-12, ТПА11-025/032/040/050. Комплектующие и запчасти. Доставка по всей России." />
+      <meta property="og:url" content="https://xn--80awjdfch6f.com/" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://xn--80awjdfch6f.com/" />
+    </Helmet>
     <div className="min-h-screen bg-white">
         <Header
           isLoggedIn={!!user}
@@ -179,6 +191,7 @@ const Index = () => {
           handleLoginSubmit={handleLoginSubmit}
         />
     </div>
+    </>
   );
 };
 
