@@ -254,6 +254,9 @@ export default function SafetyValve() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
               {relatedProducts.map((product) => (
                 <div key={product.id} className="border rounded-lg p-4 flex flex-col gap-2">
+                  <div className="w-full h-40 rounded-md overflow-hidden bg-gray-100 mb-1">
+                    <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
+                  </div>
                   <div className="font-semibold text-sm text-gray-900">{product.name}</div>
                   <div className="text-xs text-gray-500">{product.description}</div>
                   <div className="text-sm font-bold text-primary">{product.priceLabel}</div>
