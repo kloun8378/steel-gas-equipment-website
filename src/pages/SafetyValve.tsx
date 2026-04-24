@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
@@ -45,6 +44,7 @@ const relatedProducts = [
 
 export default function SafetyValve() {
   const [quantity, setQuantity] = useState(1);
+  const [showSpecs, setShowSpecs] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
   const [relatedQuantities, setRelatedQuantities] = useState<Record<string, number>>({});
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
@@ -139,9 +139,11 @@ export default function SafetyValve() {
             {/* ППЦЗ-12 */}
             <Card className="max-w-xs">
               <CardContent className="p-4">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
+                <div className="relative">
+                    <div
+                      className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
+                      onClick={() => setShowSpecs(!showSpecs)}
+                    >
                       <img 
                         src="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" 
                         alt="Предохранительные клапаны ППЦЗ-12"
@@ -149,8 +151,8 @@ export default function SafetyValve() {
                         loading="lazy"
                       />
                     </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-[480px] p-0">
+                  {showSpecs && (
+                    <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 w-[420px] -translate-x-1/4">
                     <div className="bg-white rounded-lg overflow-hidden shadow-lg">
                       <div className="bg-gray-50 p-4 border-b">
                         <h3 className="text-lg font-bold text-gray-900">Технические характеристики ППЦЗ-12</h3>
@@ -190,8 +192,9 @@ export default function SafetyValve() {
                         </div>
                       </div>
                     </div>
-                  </PopoverContent>
-                </Popover>
+                    </div>
+                  )}
+                </div>
                 <div className="text-center">
                   <h3 className="text-sm font-semibold text-gray-900 mb-1">
                     Предохранительные клапаны ППЦЗ-12

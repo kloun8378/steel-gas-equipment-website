@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Icon from '@/components/ui/icon';
 
 interface TechSpec {
@@ -39,27 +39,33 @@ export default function SpeedValveProductCard({
   techTitle,
   techSpecs,
 }: SpeedValveProductCardProps) {
+  const [showSpecs, setShowSpecs] = useState(false);
+
   return (
     <Card className="max-w-xs mx-auto">
       <CardContent className="p-4">
-        <Popover>
-          <PopoverTrigger asChild>
-            <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="w-full h-full object-cover object-top rounded-lg"
-                loading="lazy"
-                style={imageStyle}
-              />
-            </div>
-          </PopoverTrigger>
-          <PopoverContent className="w-96 p-0">
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="bg-gray-50 p-4 border-b">
-                <h3 className="text-lg font-bold text-gray-900">{techTitle}</h3>
+        <div className="relative">
+          <div
+            className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
+            onClick={() => setShowSpecs(!showSpecs)}
+          >
+            <img
+              src={image}
+              alt={imageAlt}
+              className="w-full h-full object-cover object-top rounded-lg"
+              loading="lazy"
+              style={imageStyle}
+            />
+          </div>
+          {showSpecs && (
+            <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1">
+              <div className="bg-gray-50 p-3 border-b flex justify-between items-center">
+                <h3 className="text-sm font-bold text-gray-900">{techTitle}</h3>
+                <button onClick={() => setShowSpecs(false)} className="text-gray-400 hover:text-gray-600">
+                  <Icon name="X" className="h-4 w-4" />
+                </button>
               </div>
-              <div className="p-4 space-y-3 text-sm">
+              <div className="p-3 space-y-2 text-xs max-h-64 overflow-y-auto">
                 {techSpecs.map((spec, i) => (
                   <div key={i}>
                     <span className="font-semibold">{spec.label}:</span> {spec.value}
@@ -67,8 +73,8 @@ export default function SpeedValveProductCard({
                 ))}
               </div>
             </div>
-          </PopoverContent>
-        </Popover>
+          )}
+        </div>
         <div className="text-center">
           <h3 className="text-sm font-semibold text-gray-900 mb-1">{name}</h3>
           <p className="text-xs text-gray-600 mb-2">{description}</p>
