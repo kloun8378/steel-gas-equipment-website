@@ -4,7 +4,6 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     font-size: clamp(14px, 2.5vw, 18px);
   }
 
@@ -142,5 +141,40 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Оптимизация рендеринга секций ниже сгиба */
+  section + section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
+  }
+
+  /* Аппаратное ускорение анимаций */
+  .animate-pulse {
+    will-change: opacity;
+  }
+
+  /* Оптимизация шрифтов */
+  body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Плавный скролл только если нет prefers-reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
