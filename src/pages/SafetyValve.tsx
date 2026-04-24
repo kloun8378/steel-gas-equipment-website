@@ -139,11 +139,11 @@ export default function SafetyValve() {
           {/* Product Gallery */}
           <div className="flex flex-wrap justify-center gap-6 items-stretch">
             {/* ППЦЗ-12 */}
-            <Card className="w-full max-w-sm flex flex-col">
-              <CardContent className="p-4 flex flex-col flex-1">
+            <Card className="w-full max-w-md flex flex-col">
+              <CardContent className="p-6 flex flex-col flex-1">
                 <div className="relative">
                     <div
-                      className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
+                      className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden w-56 h-56 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
                       onClick={() => setShowSpecs(!showSpecs)}
                     >
                       <img 
@@ -198,25 +198,25 @@ export default function SafetyValve() {
                   )}
                 </div>
                 <div className="text-center flex flex-col flex-1">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1 min-h-[2.5rem] flex items-start justify-center">
+                  <h3 className="text-base font-semibold text-gray-900 mb-2 min-h-[3rem] flex items-start justify-center">
                     Предохранительные клапаны ППЦЗ-12
                   </h3>
-                  <p className="text-xs text-gray-600 mb-2">
+                  <p className="text-sm text-gray-600 mb-3">
                     Надежная защита оборудования от превышения давления
                   </p>
-                  <div className="text-lg font-bold text-primary mb-3">
-                    9 659 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                  <div className="text-2xl font-bold text-primary mb-4">
+                    9 659 ₽ <span className="text-sm text-gray-500">с НДС</span>
                   </div>
                   <div className="mt-auto">
-                    <div className="flex items-center justify-center gap-2 mb-2">
+                    <div className="flex items-center justify-center gap-2 mb-3">
                       <input 
                         type="number" 
                         value={quantity}
                         onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
                         min="1" 
-                        className="w-16 px-2 py-1 text-xs border rounded text-center"
+                        className="w-20 px-3 py-2 text-sm border rounded text-center"
                       />
-                      <span className="text-xs text-gray-600">шт.</span>
+                      <span className="text-sm text-gray-600">шт.</span>
                     </div>
                     <Button 
                       size="lg" 
@@ -248,11 +248,11 @@ export default function SafetyValve() {
             </Card>
 
             {/* ПК-32-Л */}
-            <Card className="w-full max-w-sm flex flex-col">
-              <CardContent className="p-4 flex flex-col flex-1">
+            <Card className="w-full max-w-md flex flex-col">
+              <CardContent className="p-6 flex flex-col flex-1">
                 <div className="relative">
                   <div
-                    className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
+                    className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden w-56 h-56 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
                     onClick={() => setShowSpecs2(!showSpecs2)}
                   >
                     <img
@@ -286,25 +286,25 @@ export default function SafetyValve() {
                   )}
                 </div>
                 <div className="text-center flex flex-col flex-1">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1 min-h-[2.5rem] flex items-start justify-center">
+                  <h3 className="text-base font-semibold text-gray-900 mb-2 min-h-[3rem] flex items-start justify-center">
                     Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом
                   </h3>
-                  <p className="text-xs text-gray-600 mb-2">
+                  <p className="text-sm text-gray-600 mb-3">
                     Комплект для надёжной защиты резервуаров СУГ
                   </p>
-                  <div className="text-lg font-bold text-primary mb-3">
-                    15 860 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                  <div className="text-2xl font-bold text-primary mb-4">
+                    15 860 ₽ <span className="text-sm text-gray-500">с НДС</span>
                   </div>
                   <div className="mt-auto">
-                    <div className="flex items-center justify-center gap-2 mb-2">
+                    <div className="flex items-center justify-center gap-2 mb-3">
                       <input
                         type="number"
                         value={quantity2}
                         onChange={(e) => setQuantity2(Math.max(1, parseInt(e.target.value) || 1))}
                         min="1"
-                        className="w-16 px-2 py-1 text-xs border rounded text-center"
+                        className="w-20 px-3 py-2 text-sm border rounded text-center"
                       />
-                      <span className="text-xs text-gray-600">шт.</span>
+                      <span className="text-sm text-gray-600">шт.</span>
                     </div>
                     <Button
                       size="lg"
