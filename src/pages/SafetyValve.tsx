@@ -339,20 +339,20 @@ export default function SafetyValve() {
         </div>
 
         <Dialog open={relatedOpen} onOpenChange={setRelatedOpen}>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="max-w-3xl">
             <DialogHeader>
-              <DialogTitle>Сопутствующие товары к ППЦЗ-12</DialogTitle>
+              <DialogTitle className="text-xl">Сопутствующие товары к ППЦЗ-12</DialogTitle>
             </DialogHeader>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
               {relatedProducts.map((product) => (
-                <div key={product.id} className="border rounded-lg p-4 flex flex-col gap-2">
-                  <div className="w-full h-40 rounded-md overflow-hidden bg-gray-100 mb-1">
+                <div key={product.id} className="border rounded-xl p-5 flex flex-col gap-3">
+                  <div className="w-full h-56 rounded-lg overflow-hidden bg-gray-100">
                     <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
                   </div>
-                  <div className="font-semibold text-sm text-gray-900">{product.name}</div>
-                  <div className="text-xs text-gray-500">{product.description}</div>
-                  <div className="text-sm font-bold text-primary">{product.priceLabel}</div>
-                  <div className="flex items-center gap-2 mt-auto">
+                  <div className="font-semibold text-base text-gray-900">{product.name}</div>
+                  <div className="text-sm text-gray-500">{product.description}</div>
+                  <div className="text-xl font-bold text-primary">{product.priceLabel}</div>
+                  <div className="flex items-center gap-3 mt-auto">
                     <input
                       type="number"
                       min="1"
@@ -361,12 +361,12 @@ export default function SafetyValve() {
                         ...prev,
                         [product.id]: Math.max(1, parseInt(e.target.value) || 1)
                       }))}
-                      className="w-14 px-2 py-1 text-xs border rounded text-center"
+                      className="w-18 px-3 py-2 text-sm border rounded text-center"
                     />
-                    <span className="text-xs text-gray-500">шт.</span>
+                    <span className="text-sm text-gray-500">шт.</span>
                     <Button
-                      size="sm"
-                      className="flex-1 text-xs"
+                      size="default"
+                      className="flex-1"
                       onClick={() => handleAddToCart({
                         id: product.id,
                         name: product.name,
@@ -376,7 +376,7 @@ export default function SafetyValve() {
                         quantity: relatedQuantities[product.id] ?? 1,
                       })}
                     >
-                      <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
+                      <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
                       В корзину
                     </Button>
                   </div>
