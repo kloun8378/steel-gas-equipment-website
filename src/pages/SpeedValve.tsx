@@ -1,128 +1,52 @@
-import { Helmet } from 'react-helmet-async';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
+import SpeedValveHead from '@/components/speed-valve/SpeedValveHead';
+import SpeedValveHeader from '@/components/speed-valve/SpeedValveHeader';
+import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCard';
+import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
+import Icon from '@/components/ui/icon';
 
 export default function SpeedValve() {
   const [quantity25, setQuantity25] = useState(1);
   const [quantity32, setQuantity32] = useState(1);
   const [quantity40, setQuantity40] = useState(1);
   const [quantity50, setQuantity50] = useState(1);
-  const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { addToCart } = useCart();
   const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
     if (!user) {
-      // Автоматически перенаправляем на регистрацию
       window.location.href = '/login';
       return;
     }
-    // Если авторизован, добавляем в корзину
     addToCart(product);
   };
 
-
+  const commonSpecs = [
+    { label: 'Условное давление', value: '4,0 МПа (40 кгс/см²)' },
+    { label: 'Климатическое исполнение', value: 'УХЛI (от -60С до +40С)' },
+    { label: 'Температура рабочей среды', value: 'не более 300С' },
+    { label: 'Присоединение к трубопроводу', value: 'межфланцевое' },
+    { label: 'Средний срок службы', value: '5 лет' },
+    { label: 'Материал корпуса', value: 'сталь 12X18H10T' },
+    { label: 'Материал тарелки', value: 'сталь 12X18H10T' },
+    { label: 'Пружина', value: 'Проволока по ГОСТ9389-75 с покрытием МЗН3' },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>Скоростной клапан межфланцевый ДУ25, ДУ32, ДУ40, ДУ50 — СтальПроКлапан</title>
-        <meta name="description" content="Скоростной клапан межфланцевый ДУ25 для перекрытия протока жидкости. Применяется на АГЗС и ГНС. Тип соединения — межфланцевый. ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050. Арматура СУГ, комплектующие АГНС." />
-        <meta name="keywords" content="скоростной клапан межфланцевый, клапан межфланцевый ДУ25, клапан скоростной межфланцевый, ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050, арматура СУГ, комплектующие АГНС, клапан АГЗС, клапан ГНС, скоростной клапан купить" />
-        <meta property="og:title" content="Скоростной клапан межфланцевый ДУ25, ДУ32, ДУ40, ДУ50 — СтальПроКлапан" />
-        <meta property="og:description" content="Скоростной клапан межфланцевый ДУ25 предназначен для перекрытия протока жидкости. Используют на АГЗС и ГНС, устанавливают в технологической системе." />
-        <meta property="og:url" content="https://xn--80awjdfch6f.com/speed-valve" />
-        <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          "name": "Скоростные клапаны межфланцевые",
-          "description": "Скоростные клапаны межфланцевые для АГЗС, ГНС, автоцистерн СУГ",
-          "itemListElement": [
-            {
-              "@type": "ListItem", "position": 1,
-              "item": {
-                "@type": "Product",
-                "name": "Скоростной клапан межфланцевый ДУ25 (ТПА11-025)",
-                "image": "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
-                "description": "Скоростной клапан межфланцевый ДУ25, давление 4,0 МПа, сталь 12X18H10T, срок службы 5 лет",
-                "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
-                "offers": { "@type": "Offer", "price": "5592", "priceCurrency": "RUB", "availability": "https://schema.org/InStock" }
-              }
-            },
-            {
-              "@type": "ListItem", "position": 2,
-              "item": {
-                "@type": "Product",
-                "name": "Скоростной клапан межфланцевый ДУ32 (ТПА11-032)",
-                "image": "https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg",
-                "description": "Скоростной клапан межфланцевый ДУ32, давление 4,0 МПа, сталь 12X18H10T, срок службы 5 лет",
-                "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
-                "offers": { "@type": "Offer", "price": "6202", "priceCurrency": "RUB", "availability": "https://schema.org/InStock" }
-              }
-            },
-            {
-              "@type": "ListItem", "position": 3,
-              "item": {
-                "@type": "Product",
-                "name": "Скоростной клапан межфланцевый ДУ40 (ТПА11-040)",
-                "image": "https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg",
-                "description": "Скоростной клапан межфланцевый ДУ40, давление 4,0 МПа, диаметр 90 мм, срок службы 5 лет",
-                "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
-                "offers": { "@type": "Offer", "price": "7015", "priceCurrency": "RUB", "availability": "https://schema.org/InStock" }
-              }
-            },
-            {
-              "@type": "ListItem", "position": 4,
-              "item": {
-                "@type": "Product",
-                "name": "Скоростной клапан межфланцевый ДУ50 (ТПА11-050)",
-                "image": "https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg",
-                "description": "Скоростной клапан межфланцевый ДУ50, давление 4,0 МПа, диаметр 107 мм, срок службы 5 лет",
-                "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
-                "offers": { "@type": "Offer", "price": "10065", "priceCurrency": "RUB", "availability": "https://schema.org/InStock" }
-              }
-            }
-          ]
-        })}</script>
-      </Helmet>
+      <SpeedValveHead />
+      <SpeedValveHeader />
 
-      {/* Header */}
-      <header className="bg-primary text-white py-3 sm:py-4 px-4 md:px-6">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Icon name="Factory" className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-            <div>
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold">СтальПроКлапан</h1>
-              <p className="text-xs sm:text-sm opacity-90">Клапанные технологии</p>
-            </div>
-          </div>
-          <nav className="hidden md:flex space-x-4 lg:space-x-6 text-sm">
-            <a href="/" className="hover:text-gray-200 transition-colors">Главная</a>
-            <a href="/#products" className="text-white font-medium">Продукция</a>
-            <a href="/#contacts" className="hover:text-gray-200 transition-colors">Контакты</a>
-          </nav>
-        </div>
-      </header>
-
-      {/* Main Content */}
       <main className="container mx-auto px-4 md:px-6 py-6 sm:py-8">
         <div className="max-w-6xl mx-auto">
-          {/* Breadcrumb */}
           <div className="mb-4 sm:mb-6 text-sm text-gray-600">
             <a href="/" className="hover:text-primary">Главная</a>
             <span className="mx-2">/</span>
             <span>Скоростной клапан</span>
           </div>
 
-          {/* Page Title */}
           <div className="mb-6 sm:mb-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Скоростной клапан
@@ -132,396 +56,96 @@ export default function SpeedValve() {
             </p>
           </div>
 
-          {/* Product Gallery */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {/* ДУ25 */}
-            <Card className="max-w-xs mx-auto">
-              <CardContent className="p-4">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
-                      <img 
-                        src="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" 
-                        alt="Скоростной клапан межфланцевый ДУ25"
-                        className="w-full h-full object-cover object-top rounded-lg"
-                        loading="lazy"
-                        style={{ objectPosition: 'center -90%' }}
-                      />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-96 p-0">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                      <div className="bg-gray-50 p-4 border-b">
-                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ДУ25</h3>
-                      </div>
-                      <div className="p-4 space-y-3 text-sm">
-                        <div><span className="font-semibold">Условное давление:</span> 4,0 МПа (40 кгс/см²)</div>
-                        <div><span className="font-semibold">Климатическое исполнение:</span> УХЛI (от -60С до +40С)</div>
-                        <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
-                        <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
-                        <div><span className="font-semibold">Проход условный, DN:</span> 25</div>
-                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 35</div>
-                        <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
-                        <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Пружина:</span> Проволока по ГОСТ9389-75 с покрытием МЗН3</div>
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-                <div className="text-center">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
-                    Скоростной клапан межфланцевый ДУ25
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Компактный быстродействующий клапан для малых диаметров трубопроводов
-                  </p>
-                  <div className="text-lg font-bold text-primary mb-3">
-                    5 592 ₽ <span className="text-xs text-gray-500">с НДС</span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <input 
-                      type="number" 
-                      value={quantity25}
-                      onChange={(e) => setQuantity25(Math.max(1, parseInt(e.target.value) || 1))}
-                      min="1" 
-                      className="w-16 px-2 py-1 text-xs border rounded text-center"
-                    />
-                    <span className="text-xs text-gray-600">шт.</span>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    className="w-full text-xs"
-                    onClick={() => handleAddToCart({
-                      id: 'speed-valve-du25',
-                      name: 'Скоростной клапан межфланцевый ДУ25',
-                      price: 5592,
-                      image: 'https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png',
-                      description: 'Компактный быстродействующий клапан для малых диаметров трубопроводов',
-                      quantity: quantity25
-                    })}
-                  >
-                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                    Заказать
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <SpeedValveProductCard
+              id="speed-valve-du25"
+              name="Скоростной клапан межфланцевый ДУ25"
+              description="Компактный быстродействующий клапан для малых диаметров трубопроводов"
+              price="5 592 ₽"
+              priceRaw={5592}
+              image="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png"
+              imageAlt="Скоростной клапан межфланцевый ДУ25"
+              imageStyle={{ objectPosition: 'center -90%' }}
+              quantity={quantity25}
+              onQuantityChange={setQuantity25}
+              onAddToCart={handleAddToCart}
+              techTitle="Технические характеристики ДУ25"
+              techSpecs={[
+                ...commonSpecs.slice(0, 4),
+                { label: 'Проход условный, DN', value: '25' },
+                { label: 'Строительная длина, B (мм)', value: '35' },
+                ...commonSpecs.slice(4),
+              ]}
+            />
 
-            {/* ДУ32 */}
-            <Card className="max-w-xs mx-auto">
-              <CardContent className="p-4">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
-                      <img 
-                        src="https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg" 
-                        alt="Скоростной клапан межфланцевый ДУ32"
-                        className="w-full h-full object-cover object-top rounded-lg"
-                        loading="lazy"
-                        style={{ objectPosition: 'center -90%' }}
-                      />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-96 p-0">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                      <div className="bg-gray-50 p-4 border-b">
-                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ДУ32</h3>
-                      </div>
-                      <div className="p-4 space-y-3 text-sm">
-                        <div><span className="font-semibold">Условное давление:</span> 4,0 МПа (40 кгс/см²)</div>
-                        <div><span className="font-semibold">Климатическое исполнение:</span> УХЛI (от -60С до +40С)</div>
-                        <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
-                        <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
-                        <div><span className="font-semibold">Проход условный, DN:</span> 32</div>
-                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 40</div>
-                        <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
-                        <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Пружина:</span> Проволока по ГОСТ9389-75 с покрытием МЗН3</div>
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-                <div className="text-center">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
-                    Скоростной клапан межфланцевый ДУ32
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Надежное решение для средних диаметров с высокой скоростью срабатывания
-                  </p>
-                  <div className="text-lg font-bold text-primary mb-3">
-                    6 202 ₽ <span className="text-xs text-gray-500">с НДС</span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <input 
-                      type="number" 
-                      value={quantity32}
-                      onChange={(e) => setQuantity32(Math.max(1, parseInt(e.target.value) || 1))}
-                      min="1" 
-                      className="w-16 px-2 py-1 text-xs border rounded text-center"
-                    />
-                    <span className="text-xs text-gray-600">шт.</span>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    className="w-full text-xs"
-                    onClick={() => handleAddToCart({
-                      id: 'speed-valve-du32',
-                      name: 'Скоростной клапан межфланцевый ДУ32',
-                      price: 6202,
-                      image: 'https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg',
-                      description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
-                      quantity: quantity32
-                    })}
-                  >
-                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                    Заказать
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <SpeedValveProductCard
+              id="speed-valve-du32"
+              name="Скоростной клапан межфланцевый ДУ32"
+              description="Надежное решение для средних диаметров с высокой скоростью срабатывания"
+              price="6 202 ₽"
+              priceRaw={6202}
+              image="https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg"
+              imageAlt="Скоростной клапан межфланцевый ДУ32"
+              imageStyle={{ objectPosition: 'center -90%' }}
+              quantity={quantity32}
+              onQuantityChange={setQuantity32}
+              onAddToCart={handleAddToCart}
+              techTitle="Технические характеристики ДУ32"
+              techSpecs={[
+                ...commonSpecs.slice(0, 4),
+                { label: 'Проход условный, DN', value: '32' },
+                { label: 'Строительная длина, B (мм)', value: '40' },
+                ...commonSpecs.slice(4),
+              ]}
+            />
 
-            {/* ДУ50 */}
-            <Card className="max-w-xs mx-auto">
-              <CardContent className="p-4">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
-                      <img 
-                        src="https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg" 
-                        alt="Скоростной клапан межфланцевый ДУ50"
-                        className="w-full h-full object-cover rounded-lg"
-                        loading="lazy"
-                      />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-96 p-0">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                      <div className="bg-gray-50 p-4 border-b">
-                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ДУ50</h3>
-                      </div>
-                      <div className="p-4 space-y-3 text-sm">
-                        <div><span className="font-semibold">Условное давление:</span> 4,0 МПа (40 кгс/см²)</div>
-                        <div><span className="font-semibold">Климатическое исполнение:</span> УХЛI (от -60С до +40С)</div>
-                        <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
-                        <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
-                        <div><span className="font-semibold">Проход условный, DN:</span> 50</div>
-                        <div><span className="font-semibold">Диаметр клапана (мм):</span> 107</div>
-                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 50</div>
-                        <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
-                        <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Пружина:</span> Проволока по ГОСТ9389-75 с покрытием МЗН3</div>
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-                <div className="text-center">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
-                    Скоростной клапан межфланцевый ДУ50
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Надежное решение для средних диаметров с высокой скоростью срабатывания
-                  </p>
-                  <div className="text-lg font-bold text-primary mb-3">
-                    10 065 ₽ <span className="text-xs text-gray-500">с НДС</span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <input 
-                      type="number" 
-                      value={quantity50}
-                      onChange={(e) => setQuantity50(Math.max(1, parseInt(e.target.value) || 1))}
-                      min="1" 
-                      className="w-16 px-2 py-1 text-xs border rounded text-center"
-                    />
-                    <span className="text-xs text-gray-600">шт.</span>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    className="w-full text-xs"
-                    onClick={() => handleAddToCart({
-                      id: 'speed-valve-du50',
-                      name: 'Скоростной клапан межфланцевый ДУ50',
-                      price: 10065,
-                      image: 'https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg',
-                      description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
-                      quantity: quantity50
-                    })}
-                  >
-                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                    Заказать
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <SpeedValveProductCard
+              id="speed-valve-du50"
+              name="Скоростной клапан межфланцевый ДУ50"
+              description="Надежное решение для средних диаметров с высокой скоростью срабатывания"
+              price="10 065 ₽"
+              priceRaw={10065}
+              image="https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg"
+              imageAlt="Скоростной клапан межфланцевый ДУ50"
+              quantity={quantity50}
+              onQuantityChange={setQuantity50}
+              onAddToCart={handleAddToCart}
+              techTitle="Технические характеристики ДУ50"
+              techSpecs={[
+                ...commonSpecs.slice(0, 4),
+                { label: 'Проход условный, DN', value: '50' },
+                { label: 'Диаметр клапана (мм)', value: '107' },
+                { label: 'Строительная длина, B (мм)', value: '50' },
+                ...commonSpecs.slice(4),
+              ]}
+            />
 
-            {/* ДУ40 */}
-            <Card className="max-w-xs mx-auto">
-              <CardContent className="p-4">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-32 h-32 mx-auto cursor-pointer hover:shadow-lg transition-shadow">
-                      <img 
-                        src="https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg" 
-                        alt="Скоростной клапан межфланцевый ДУ40"
-                        className="w-full h-full object-cover rounded-lg"
-                        loading="lazy"
-                      />
-                    </div>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-96 p-0">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                      <div className="bg-gray-50 p-4 border-b">
-                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ДУ40</h3>
-                      </div>
-                      <div className="p-4 space-y-3 text-sm">
-                        <div><span className="font-semibold">Условное давление:</span> 4,0 МПа (40 кгс/см²)</div>
-                        <div><span className="font-semibold">Климатическое исполнение:</span> УХЛI (от -60С до +40С)</div>
-                        <div><span className="font-semibold">Температура рабочей среды:</span> не более 300С</div>
-                        <div><span className="font-semibold">Присоединение к трубопроводу:</span> межфланцевое</div>
-                        <div><span className="font-semibold">Проход условный, DN:</span> 40</div>
-                        <div><span className="font-semibold">Диаметр клапана (мм):</span> 90</div>
-                        <div><span className="font-semibold">Строительная длина, B (мм):</span> 50</div>
-                        <div><span className="font-semibold">Средний срок службы:</span> 5 лет</div>
-                        <div><span className="font-semibold">Материал корпуса:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Материал тарелки:</span> сталь 12X18H10T</div>
-                        <div><span className="font-semibold">Пружина:</span> Проволока по ГОСТ9389-75 с покрытием МЗН3</div>
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
-                <div className="text-center">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
-                    Скоростной клапан межфланцевый ДУ40
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-2">
-                    Надежное решение для средних диаметров с высокой скоростью срабатывания
-                  </p>
-                  <div className="text-lg font-bold text-primary mb-3">
-                    7 015 ₽ <span className="text-xs text-gray-500">с НДС</span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <input 
-                      type="number" 
-                      value={quantity40}
-                      onChange={(e) => setQuantity40(Math.max(1, parseInt(e.target.value) || 1))}
-                      min="1" 
-                      className="w-16 px-2 py-1 text-xs border rounded text-center"
-                    />
-                    <span className="text-xs text-gray-600">шт.</span>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    className="w-full text-xs"
-                    onClick={() => handleAddToCart({
-                      id: 'speed-valve-du40',
-                      name: 'Скоростной клапан межфланцевый ДУ40',
-                      price: 7015,
-                      image: 'https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg',
-                      description: 'Надежное решение для средних диаметров с высокой скоростью срабатывания',
-                      quantity: quantity40
-                    })}
-                  >
-                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                    Заказать
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <SpeedValveProductCard
+              id="speed-valve-du40"
+              name="Скоростной клапан межфланцевый ДУ40"
+              description="Надежное решение для средних диаметров с высокой скоростью срабатывания"
+              price="7 015 ₽"
+              priceRaw={7015}
+              image="https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg"
+              imageAlt="Скоростной клапан межфланцевый ДУ40"
+              quantity={quantity40}
+              onQuantityChange={setQuantity40}
+              onAddToCart={handleAddToCart}
+              techTitle="Технические характеристики ДУ40"
+              techSpecs={[
+                ...commonSpecs.slice(0, 4),
+                { label: 'Проход условный, DN', value: '40' },
+                { label: 'Диаметр клапана (мм)', value: '90' },
+                { label: 'Строительная длина, B (мм)', value: '50' },
+                ...commonSpecs.slice(4),
+              ]}
+            />
           </div>
-
         </div>
 
-        {/* МОЯ КОРЗИНА */}
-        {cart.length > 0 && (
-          <section className="bg-white py-8 border-t">
-            <div className="max-w-4xl mx-auto px-4">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">МОЯ КОРЗИНА</h2>
-              
-              <div className="space-y-4">
-                {cart.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
-                    <img 
-                      src={item.image} 
-                      alt={item.name}
-                      className="w-16 h-16 object-cover rounded"
-                    />
-                    
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-600">{item.description}</p>
-                      <div className="text-lg font-bold text-primary mt-1">
-                        {item.price.toLocaleString()} ₽
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      >
-                        -
-                      </Button>
-                      <span className="w-8 text-center">{item.quantity}</span>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      >
-                        +
-                      </Button>
-                    </div>
-                    
-                    <div className="text-right">
-                      <div className="font-bold text-lg">
-                        {(item.price * item.quantity).toLocaleString()} ₽
-                      </div>
-                      <Button
-                        size="sm"
-                        variant="destructive"
-                        onClick={() => removeFromCart(item.id)}
-                        className="mt-2"
-                      >
-                        <Icon name="Trash2" className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-6 pt-6 border-t">
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-bold">ИТОГО:</span>
-                  <span className="text-2xl font-bold text-primary">
-                    {getTotalPrice().toLocaleString()} ₽
-                  </span>
-                </div>
-                
-                <div className="mt-4 flex gap-4">
-                  <Button 
-                    className="flex-1"
-                    onClick={() => window.location.href = '/dashboard'}
-                  >
-                    <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
-                    Оформить заказ
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={clearCart}
-                  >
-                    <Icon name="Trash2" className="mr-2 h-4 w-4" />
-                    Очистить корзину
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+        <SpeedValveCart />
       </main>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -540,7 +164,6 @@ export default function SpeedValve() {
                 <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
               </ul>
             </div>
-
             <div className="sm:col-span-2 lg:col-span-1">
               <h6 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Контакты</h6>
               <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
