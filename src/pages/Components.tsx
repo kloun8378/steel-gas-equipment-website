@@ -7,6 +7,41 @@ import ComponentsHeader from '@/components/components-page/ComponentsHeader';
 import ComponentsProductCard from '@/components/components-page/ComponentsProductCard';
 import ComponentsCart from '@/components/components-page/ComponentsCart';
 
+const allRelated = [
+  {
+    id: 'spring-ppcz12',
+    name: 'Пружина ППЦЗ-12',
+    description: 'Пружина предохранительного клапана для замены в старом клапане',
+    price: 2745,
+    priceLabel: '2 745 ₽',
+    image: 'https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg',
+  },
+  {
+    id: 'valve-ppcz12',
+    name: 'Золотник ППЦЗ-12',
+    description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12',
+    price: 1129,
+    priceLabel: '1 129 ₽',
+    image: 'https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg',
+  },
+  {
+    id: 'flange4-ppcz12',
+    name: 'Фланец на 4 отверстия к ППЦЗ-12',
+    description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
+    price: 4372,
+    priceLabel: '4 372 ₽',
+    image: 'https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG',
+  },
+  {
+    id: 'flange-ppcz12',
+    name: 'Фланец на 8 отверстий к ППЦЗ-12',
+    description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
+    price: 4372,
+    priceLabel: '4 372 ₽',
+    image: 'https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG',
+  },
+];
+
 const flangeSpecs = [
   { label: 'Вид арматуры', value: 'Фланцы' },
   { label: 'Тип арматуры', value: 'Предохранительная арматура' },
@@ -79,6 +114,7 @@ export default function Components() {
                   { text: 'Служит для замены пружины в старом клапане, которая потеряла свои свойства.' },
                   { isPrice: true, price: '2 745 ₽' },
                 ]}
+                relatedProducts={allRelated.filter(p => p.id !== 'spring-ppcz12')}
               />
 
               <ComponentsProductCard
@@ -96,6 +132,7 @@ export default function Components() {
                   { text: 'Золотник для пружинного клапана прямого действия ППЦЗ-12, который предназначен для установки на перевозчиках и стационарных емкостях работающих с сжиженными углеводородными газами (СУГ).' },
                   { isPrice: true, price: '1 129 ₽' },
                 ]}
+                relatedProducts={allRelated.filter(p => p.id !== 'valve-ppcz12')}
               />
 
               <ComponentsProductCard
@@ -113,6 +150,7 @@ export default function Components() {
                   ...flangeSpecs,
                   { isPrice: true, price: '4 372 ₽' },
                 ]}
+                relatedProducts={allRelated.filter(p => p.id !== 'flange4-ppcz12')}
               />
 
               <ComponentsProductCard
@@ -130,6 +168,7 @@ export default function Components() {
                   ...flangeSpecs,
                   { isPrice: true, price: '4 372 ₽' },
                 ]}
+                relatedProducts={allRelated.filter(p => p.id !== 'flange-ppcz12')}
               />
             </div>
           </div>
