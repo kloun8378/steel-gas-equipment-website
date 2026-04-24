@@ -1,11 +1,11 @@
-import { Helmet } from 'react-helmet-async';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
+import Icon from '@/components/ui/icon';
+import SafetyValveHead from '@/components/safety-valve/SafetyValveHead';
+import SafetyValveProductCard from '@/components/safety-valve/SafetyValveProductCard';
+import SafetyValveRelatedDialog from '@/components/safety-valve/SafetyValveRelatedDialog';
+import SafetyValveCart from '@/components/safety-valve/SafetyValveCart';
 
 const relatedProducts = [
   {
@@ -42,6 +42,50 @@ const relatedProducts = [
   },
 ];
 
+const specsContentPpcz12 = (
+  <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 w-[420px] -translate-x-1/4">
+    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+      <div className="bg-gray-50 p-4 border-b">
+        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ППЦЗ-12</h3>
+      </div>
+      <div className="p-4 space-y-2 text-sm">
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Тип клапана:</span> Пружинный прямого действия</div>
+          <div><span className="font-semibold">Рабочая среда:</span> СУГ по ГОСТ 20448-90 или ГОСТ 27578-87</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Рабочее давление Рр, МПа:</span> 1,6</div>
+          <div><span className="font-semibold">Расчетное давление Ррасч, МПа:</span> 1,84</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Давление настройки Рн, МПа:</span> от 1,6 до 1,84</div>
+          <div><span className="font-semibold">Диаметр условного прохода Ду,мм:</span> 25</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Расчетное проходное сечение F, мм²:</span> 412</div>
+          <div><span className="font-semibold">Пропускная способность G, кг/час:</span> 4271</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Коэффициент расхода для газообразных сред:</span> 0,58</div>
+          <div><span className="font-semibold">Рабочая температура, °С:</span> от -40 до +45</div>
+        </div>
+        <div className="border-t pt-3 mt-3">
+          <div className="font-semibold mb-2">Габаритные размеры:</div>
+          <div className="grid grid-cols-3 gap-4 text-xs">
+            <div><span className="font-medium">Диаметр, мм:</span> 83(92)</div>
+            <div><span className="font-medium">Высота, мм:</span> 231(238)</div>
+            <div><span className="font-medium">Масса, кг не более:</span> 3,6</div>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Средний срок службы, лет, не менее:</span> 15</div>
+          <div><span className="font-semibold">Тип соединения с сосудом:</span> Резьбовое М 72х2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export default function SafetyValve() {
   const [quantity, setQuantity] = useState(1);
   const [quantity2, setQuantity2] = useState(1);
@@ -49,55 +93,43 @@ export default function SafetyValve() {
   const [showSpecs2, setShowSpecs2] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
   const [relatedQuantities, setRelatedQuantities] = useState<Record<string, number>>({});
-  const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart();
   const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
     if (!user) {
-      // Автоматически перенаправляем на регистрацию
       window.location.href = '/login';
       return;
     }
-    // Если авторизован, добавляем в корзину
     addToCart(product);
   };
+
+  const specsContentPk32l = (
+    <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 w-[420px] -translate-x-1/4">
+      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+        <div className="bg-gray-50 p-4 border-b flex justify-between items-center">
+          <h3 className="text-lg font-bold text-gray-900">Технические характеристики ПК-32-Л</h3>
+          <button onClick={() => setShowSpecs2(false)} className="text-gray-400 hover:text-gray-600">
+            <Icon name="X" className="h-4 w-4" />
+          </button>
+        </div>
+        <div className="p-4 space-y-2 text-sm">
+          <div><span className="font-semibold">Тип:</span> Пружинный предохранительный</div>
+          <div><span className="font-semibold">Рабочая среда:</span> СУГ</div>
+          <div><span className="font-semibold">Условный диаметр:</span> DN32</div>
+          <div><span className="font-semibold">Комплектация:</span> ПК-32-Л + запорный клапан ЗК-32 + уплотнительное кольцо</div>
+          <div className="border-t pt-2 mt-2">
+            <span className="text-base font-bold text-primary">15 860 ₽</span>
+            <span className="text-xs text-gray-500 ml-1">с НДС</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <Helmet>
-        <title>Предохранительный клапан ППЦЗ-12 купить — СтальПроКлапан Барнаул</title>
-        <meta name="description" content="Предохранительный клапан ППЦЗ-12 для СУГ — защита автоцистерн и резервуаров от превышения давления. Рабочее давление 1,6 МПа, температура от -40 до +45°С, срок службы 15 лет. Аналог REGO RS3132, CD32. Цена 9 659 ₽ с НДС. Доставка по РФ." />
-        <meta name="keywords" content="предохранительный клапан ППЦЗ-12, клапан ППЦЗ-12 купить, предохранительный клапан СУГ, клапан для автоцистерны СУГ, клапан ГНС АГЗС, REGO RS3132, REGO CD32, предохранительный клапан 1.6 МПа, арматура СУГ, клапан предохранительный пружинный, VENGO клапан аналог, AZT аналог, запорная арматура СУГ, клапан Барнаул, СтальПроКлапан" />
-        <meta property="og:title" content="Предохранительный клапан ППЦЗ-12 для СУГ — СтальПроКлапан" />
-        <meta property="og:description" content="Предохранительный клапан ППЦЗ-12 — надёжная защита резервуаров и автоцистерн СУГ от превышения давления. Рабочее давление 1,6 МПа. Цена 9 659 ₽ с НДС." />
-        <meta property="og:url" content="https://xn--80awjdfch6f.com/safety-valve" />
-        <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://xn--80awjdfch6f.com/safety-valve" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Предохранительный клапан ППЦЗ-12",
-          "description": "Предохранительный клапан пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа, температура от -40 до +45°С, срок службы 15 лет.",
-          "image": "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg",
-          "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
-          "offers": {
-            "@type": "Offer",
-            "price": "9659",
-            "priceCurrency": "RUB",
-            "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "СтальПроКлапан" }
-          },
-          "additionalProperty": [
-            { "@type": "PropertyValue", "name": "Рабочая среда", "value": "СУГ" },
-            { "@type": "PropertyValue", "name": "Рабочее давление", "value": "1,6 МПа" },
-            { "@type": "PropertyValue", "name": "Температура", "value": "от -40 до +45°С" },
-            { "@type": "PropertyValue", "name": "Срок службы", "value": "15 лет" },
-            { "@type": "PropertyValue", "name": "Соединение", "value": "Резьбовое М 72х2" }
-          ]
-        })}</script>
-      </Helmet>
+      <SafetyValveHead />
 
       <header className="bg-primary text-white py-4 px-4 md:px-6">
         <div className="container mx-auto flex items-center justify-between">
@@ -116,17 +148,14 @@ export default function SafetyValve() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 md:px-6 py-8">
         <div className="max-w-6xl mx-auto">
-          {/* Breadcrumb */}
           <div className="mb-6 text-sm text-gray-600">
             <a href="/" className="hover:text-primary">Главная</a>
             <span className="mx-2">/</span>
             <span>Предохранительный клапан</span>
           </div>
 
-          {/* Page Title */}
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Предохранительный клапан
@@ -136,345 +165,71 @@ export default function SafetyValve() {
             </p>
           </div>
 
-          {/* Product Gallery */}
           <div className="flex flex-wrap justify-center gap-6 items-stretch">
-            {/* ППЦЗ-12 */}
-            <Card className="w-full max-w-md flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-1">
-                <div className="relative">
-                    <div
-                      className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden w-56 h-56 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
-                      onClick={() => setShowSpecs(!showSpecs)}
-                    >
-                      <img 
-                        src="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" 
-                        alt="Предохранительные клапаны ППЦЗ-12"
-                        className="w-full h-full object-contain rounded-lg p-2"
-                        loading="lazy"
-                      />
-                    </div>
-                  {showSpecs && (
-                    <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 w-[420px] -translate-x-1/4">
-                    <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                      <div className="bg-gray-50 p-4 border-b">
-                        <h3 className="text-lg font-bold text-gray-900">Технические характеристики ППЦЗ-12</h3>
-                      </div>
-                      <div className="p-4 space-y-2 text-sm">
-                        <div className="grid grid-cols-2 gap-4">
-                          <div><span className="font-semibold">Тип клапана:</span> Пружинный прямого действия</div>
-                          <div><span className="font-semibold">Рабочая среда:</span> СУГ по ГОСТ 20448-90 или ГОСТ 27578-87</div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div><span className="font-semibold">Рабочее давление Рр, МПа:</span> 1,6</div>
-                          <div><span className="font-semibold">Расчетное давление Ррасч, МПа:</span> 1,84</div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div><span className="font-semibold">Давление настройки Рн, МПа:</span> от 1,6 до 1,84</div>
-                          <div><span className="font-semibold">Диаметр условного прохода Ду,мм:</span> 25</div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div><span className="font-semibold">Расчетное проходное сечение F, мм²:</span> 412</div>
-                          <div><span className="font-semibold">Пропускная способность G, кг/час:</span> 4271</div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div><span className="font-semibold">Коэффициент расхода для газообразных сред:</span> 0,58</div>
-                          <div><span className="font-semibold">Рабочая температура, °С:</span> от -40 до +45</div>
-                        </div>
-                        <div className="border-t pt-3 mt-3">
-                          <div className="font-semibold mb-2">Габаритные размеры:</div>
-                          <div className="grid grid-cols-3 gap-4 text-xs">
-                            <div><span className="font-medium">Диаметр, мм:</span> 83(92)</div>
-                            <div><span className="font-medium">Высота, мм:</span> 231(238)</div>
-                            <div><span className="font-medium">Масса, кг не более:</span> 3,6</div>
-                          </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div><span className="font-semibold">Средний срок службы, лет, не менее:</span> 15</div>
-                          <div><span className="font-semibold">Тип соединения с сосудом:</span> Резьбовое М 72х2</div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  )}
-                </div>
-                <div className="text-center flex flex-col flex-1">
-                  <h3 className="text-base font-semibold text-gray-900 mb-2 min-h-[3rem] flex items-start justify-center">
-                    Предохранительные клапаны ППЦЗ-12
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">
-                    Надежная защита оборудования от превышения давления
-                  </p>
-                  <div className="text-2xl font-bold text-primary mb-4">
-                    9 659 ₽ <span className="text-sm text-gray-500">с НДС</span>
-                  </div>
-                  <div className="mt-auto">
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                      <input 
-                        type="number" 
-                        value={quantity}
-                        onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                        min="1" 
-                        className="w-20 px-3 py-2 text-sm border rounded text-center"
-                      />
-                      <span className="text-sm text-gray-600">шт.</span>
-                    </div>
-                    <Button 
-                      size="lg" 
-                      className="w-full"
-                      onClick={() => handleAddToCart({
-                        id: 'safety-valve-ppcz12',
-                        name: 'Предохранительные клапаны ППЦЗ-12',
-                        price: 9659,
-                        image: 'https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg',
-                        description: 'Надежная защита оборудования от превышения давления',
-                        quantity: quantity
-                      })}
-                    >
-                      <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                      Заказать
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="w-full mt-2"
-                      onClick={() => setRelatedOpen(true)}
-                    >
-                      <Icon name="Package" className="mr-2 h-5 w-5" />
-                      Сопутствующие товары
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <SafetyValveProductCard
+              image="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg"
+              imageAlt="Предохранительные клапаны ППЦЗ-12"
+              name="Предохранительные клапаны ППЦЗ-12"
+              description="Надежная защита оборудования от превышения давления"
+              priceLabel="9 659 ₽"
+              quantity={quantity}
+              onQuantityChange={setQuantity}
+              onAddToCart={() => handleAddToCart({
+                id: 'safety-valve-ppcz12',
+                name: 'Предохранительные клапаны ППЦЗ-12',
+                price: 9659,
+                image: 'https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg',
+                description: 'Надежная защита оборудования от превышения давления',
+                quantity,
+              })}
+              onRelatedOpen={() => setRelatedOpen(true)}
+              showSpecs={showSpecs}
+              onToggleSpecs={() => setShowSpecs(!showSpecs)}
+              specsContent={specsContentPpcz12}
+            />
 
-            {/* ПК-32-Л */}
-            <Card className="w-full max-w-md flex flex-col">
-              <CardContent className="p-6 flex flex-col flex-1">
-                <div className="relative">
-                  <div
-                    className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden w-56 h-56 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
-                    onClick={() => setShowSpecs2(!showSpecs2)}
-                  >
-                    <img
-                      src="https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg"
-                      alt="Клапан предохранительный пружинный ПК-32-Л"
-                      className="w-full h-full object-contain rounded-lg p-2"
-                      loading="lazy"
-                    />
-                  </div>
-                  {showSpecs2 && (
-                    <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 w-[420px] -translate-x-1/4">
-                      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                        <div className="bg-gray-50 p-4 border-b flex justify-between items-center">
-                          <h3 className="text-lg font-bold text-gray-900">Технические характеристики ПК-32-Л</h3>
-                          <button onClick={() => setShowSpecs2(false)} className="text-gray-400 hover:text-gray-600">
-                            <Icon name="X" className="h-4 w-4" />
-                          </button>
-                        </div>
-                        <div className="p-4 space-y-2 text-sm">
-                          <div><span className="font-semibold">Тип:</span> Пружинный предохранительный</div>
-                          <div><span className="font-semibold">Рабочая среда:</span> СУГ</div>
-                          <div><span className="font-semibold">Условный диаметр:</span> DN32</div>
-                          <div><span className="font-semibold">Комплектация:</span> ПК-32-Л + запорный клапан ЗК-32 + уплотнительное кольцо</div>
-                          <div className="border-t pt-2 mt-2">
-                            <span className="text-base font-bold text-primary">15 860 ₽</span>
-                            <span className="text-xs text-gray-500 ml-1">с НДС</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <div className="text-center flex flex-col flex-1">
-                  <h3 className="text-base font-semibold text-gray-900 mb-2 min-h-[3rem] flex items-start justify-center">
-                    Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">
-                    Комплект для надёжной защиты резервуаров СУГ
-                  </p>
-                  <div className="text-2xl font-bold text-primary mb-4">
-                    15 860 ₽ <span className="text-sm text-gray-500">с НДС</span>
-                  </div>
-                  <div className="mt-auto">
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                      <input
-                        type="number"
-                        value={quantity2}
-                        onChange={(e) => setQuantity2(Math.max(1, parseInt(e.target.value) || 1))}
-                        min="1"
-                        className="w-20 px-3 py-2 text-sm border rounded text-center"
-                      />
-                      <span className="text-sm text-gray-600">шт.</span>
-                    </div>
-                    <Button
-                      size="lg"
-                      className="w-full"
-                      onClick={() => handleAddToCart({
-                        id: 'safety-valve-pk32l',
-                        name: 'Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом',
-                        price: 15860,
-                        image: 'https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg',
-                        description: 'Комплект для надёжной защиты резервуаров СУГ',
-                        quantity: quantity2
-                      })}
-                    >
-                      <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                      Заказать
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="w-full mt-2"
-                      onClick={() => setRelatedOpen(true)}
-                    >
-                      <Icon name="Package" className="mr-2 h-5 w-5" />
-                      Сопутствующие товары
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <SafetyValveProductCard
+              image="https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg"
+              imageAlt="Клапан предохранительный пружинный ПК-32-Л"
+              name="Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом"
+              description="Комплект для надёжной защиты резервуаров СУГ"
+              priceLabel="15 860 ₽"
+              quantity={quantity2}
+              onQuantityChange={setQuantity2}
+              onAddToCart={() => handleAddToCart({
+                id: 'safety-valve-pk32l',
+                name: 'Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом',
+                price: 15860,
+                image: 'https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg',
+                description: 'Комплект для надёжной защиты резервуаров СУГ',
+                quantity: quantity2,
+              })}
+              onRelatedOpen={() => setRelatedOpen(true)}
+              showSpecs={showSpecs2}
+              onToggleSpecs={() => setShowSpecs2(!showSpecs2)}
+              specsContent={specsContentPk32l}
+            />
           </div>
-
         </div>
 
-        <Dialog open={relatedOpen} onOpenChange={setRelatedOpen}>
-          <DialogContent className="max-w-3xl">
-            <DialogHeader>
-              <DialogTitle className="text-xl">Сопутствующие товары к ППЦЗ-12</DialogTitle>
-            </DialogHeader>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-              {relatedProducts.map((product) => (
-                <div key={product.id} className="border rounded-xl p-5 flex flex-col gap-3">
-                  <div className="w-full h-56 rounded-lg overflow-hidden bg-gray-100">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
-                  </div>
-                  <div className="font-semibold text-base text-gray-900">{product.name}</div>
-                  <div className="text-sm text-gray-500">{product.description}</div>
-                  <div className="text-xl font-bold text-primary">{product.priceLabel}</div>
-                  <div className="flex items-center gap-3 mt-auto">
-                    <input
-                      type="number"
-                      min="1"
-                      value={relatedQuantities[product.id] ?? 1}
-                      onChange={(e) => setRelatedQuantities(prev => ({
-                        ...prev,
-                        [product.id]: Math.max(1, parseInt(e.target.value) || 1)
-                      }))}
-                      className="w-18 px-3 py-2 text-sm border rounded text-center"
-                    />
-                    <span className="text-sm text-gray-500">шт.</span>
-                    <Button
-                      size="default"
-                      className="flex-1"
-                      onClick={() => handleAddToCart({
-                        id: product.id,
-                        name: product.name,
-                        price: product.price,
-                        image: product.image,
-                        description: product.description,
-                        quantity: relatedQuantities[product.id] ?? 1,
-                      })}
-                    >
-                      <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
-                      В корзину
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </DialogContent>
-        </Dialog>
+        <SafetyValveRelatedDialog
+          open={relatedOpen}
+          onOpenChange={setRelatedOpen}
+          relatedProducts={relatedProducts}
+          relatedQuantities={relatedQuantities}
+          onQuantityChange={(id, val) => setRelatedQuantities(prev => ({ ...prev, [id]: val }))}
+          onAddToCart={handleAddToCart}
+        />
 
-        {/* МОЯ КОРЗИНА */}
-        {cart.length > 0 && (
-          <section className="bg-white py-8 border-t">
-            <div className="max-w-4xl mx-auto px-4">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">МОЯ КОРЗИНА</h2>
-              
-              <div className="space-y-4">
-                {cart.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4 p-4 border rounded-lg">
-                    <img 
-                      src={item.image} 
-                      alt={item.name}
-                      className="w-16 h-16 object-cover rounded"
-                    />
-                    
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-600">{item.description}</p>
-                      <div className="text-lg font-bold text-primary mt-1">
-                        {item.price.toLocaleString()} ₽
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      >
-                        -
-                      </Button>
-                      <span className="w-8 text-center">{item.quantity}</span>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      >
-                        +
-                      </Button>
-                    </div>
-                    
-                    <div className="text-right">
-                      <div className="font-bold text-lg">
-                        {(item.price * item.quantity).toLocaleString()} ₽
-                      </div>
-                      <Button
-                        size="sm"
-                        variant="destructive"
-                        onClick={() => removeFromCart(item.id)}
-                        className="mt-2"
-                      >
-                        <Icon name="Trash2" className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-6 pt-6 border-t">
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-bold">ИТОГО:</span>
-                  <span className="text-2xl font-bold text-primary">
-                    {getTotalPrice().toLocaleString()} ₽
-                  </span>
-                </div>
-                
-                <div className="mt-4 flex gap-4">
-                  <Button 
-                    className="flex-1"
-                    onClick={() => window.location.href = '/dashboard'}
-                  >
-                    <Icon name="ShoppingCart" className="mr-2 h-4 w-4" />
-                    Оформить заказ
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={clearCart}
-                  >
-                    <Icon name="Trash2" className="mr-2 h-4 w-4" />
-                    Очистить корзину
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+        <SafetyValveCart
+          cart={cart}
+          onUpdateQuantity={updateQuantity}
+          onRemoveFromCart={removeFromCart}
+          onClearCart={clearCart}
+          getTotalPrice={getTotalPrice}
+        />
       </main>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
