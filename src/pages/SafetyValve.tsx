@@ -44,7 +44,9 @@ const relatedProducts = [
 
 export default function SafetyValve() {
   const [quantity, setQuantity] = useState(1);
+  const [quantity2, setQuantity2] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [showSpecs2, setShowSpecs2] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
   const [relatedQuantities, setRelatedQuantities] = useState<Record<string, number>>({});
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
@@ -135,7 +137,7 @@ export default function SafetyValve() {
           </div>
 
           {/* Product Gallery */}
-          <div className="flex justify-center">
+          <div className="flex flex-wrap justify-center gap-6">
             {/* ППЦЗ-12 */}
             <Card className="w-full max-w-sm">
               <CardContent className="p-4">
@@ -225,6 +227,92 @@ export default function SafetyValve() {
                       image: 'https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg',
                       description: 'Надежная защита оборудования от превышения давления',
                       quantity: quantity
+                    })}
+                  >
+                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
+                    Заказать
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full mt-2"
+                    onClick={() => setRelatedOpen(true)}
+                  >
+                    <Icon name="Package" className="mr-2 h-5 w-5" />
+                    Сопутствующие товары
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* ПК-32-Л */}
+            <Card className="w-full max-w-sm">
+              <CardContent className="p-4">
+                <div className="relative">
+                  <div
+                    className="aspect-square bg-white rounded-lg mb-3 border overflow-hidden w-40 h-40 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
+                    onClick={() => setShowSpecs2(!showSpecs2)}
+                  >
+                    <img
+                      src="https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg"
+                      alt="Клапан предохранительный пружинный ПК-32-Л"
+                      className="w-full h-full object-contain rounded-lg p-2"
+                      loading="lazy"
+                    />
+                  </div>
+                  {showSpecs2 && (
+                    <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 w-[420px] -translate-x-1/4">
+                      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div className="bg-gray-50 p-4 border-b flex justify-between items-center">
+                          <h3 className="text-lg font-bold text-gray-900">Технические характеристики ПК-32-Л</h3>
+                          <button onClick={() => setShowSpecs2(false)} className="text-gray-400 hover:text-gray-600">
+                            <Icon name="X" className="h-4 w-4" />
+                          </button>
+                        </div>
+                        <div className="p-4 space-y-2 text-sm">
+                          <div><span className="font-semibold">Тип:</span> Пружинный предохранительный</div>
+                          <div><span className="font-semibold">Рабочая среда:</span> СУГ</div>
+                          <div><span className="font-semibold">Условный диаметр:</span> DN32</div>
+                          <div><span className="font-semibold">Комплектация:</span> ПК-32-Л + запорный клапан ЗК-32 + уплотнительное кольцо</div>
+                          <div className="border-t pt-2 mt-2">
+                            <span className="text-base font-bold text-primary">15 860 ₽</span>
+                            <span className="text-xs text-gray-500 ml-1">с НДС</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="text-center">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-2">
+                    Комплект для надёжной защиты резервуаров СУГ
+                  </p>
+                  <div className="text-lg font-bold text-primary mb-3">
+                    15 860 ₽ <span className="text-xs text-gray-500">с НДС</span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <input
+                      type="number"
+                      value={quantity2}
+                      onChange={(e) => setQuantity2(Math.max(1, parseInt(e.target.value) || 1))}
+                      min="1"
+                      className="w-16 px-2 py-1 text-xs border rounded text-center"
+                    />
+                    <span className="text-xs text-gray-600">шт.</span>
+                  </div>
+                  <Button
+                    size="lg"
+                    className="w-full"
+                    onClick={() => handleAddToCart({
+                      id: 'safety-valve-pk32l',
+                      name: 'Клапан предохранительный пружинный ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом',
+                      price: 15860,
+                      image: 'https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg',
+                      description: 'Комплект для надёжной защиты резервуаров СУГ',
+                      quantity: quantity2
                     })}
                   >
                     <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
