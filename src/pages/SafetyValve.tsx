@@ -137,7 +137,7 @@ export default function SafetyValve() {
           {/* Product Gallery */}
           <div className="flex justify-center">
             {/* ППЦЗ-12 */}
-            <Card className="max-w-xs">
+            <Card className="w-full max-w-sm">
               <CardContent className="p-4">
                 <div className="relative">
                     <div
@@ -216,8 +216,8 @@ export default function SafetyValve() {
                     <span className="text-xs text-gray-600">шт.</span>
                   </div>
                   <Button 
-                    size="sm" 
-                    className="w-full text-xs"
+                    size="lg" 
+                    className="w-full"
                     onClick={() => handleAddToCart({
                       id: 'safety-valve-ppcz12',
                       name: 'Предохранительные клапаны ППЦЗ-12',
@@ -231,12 +231,12 @@ export default function SafetyValve() {
                     Заказать
                   </Button>
                   <Button
-                    size="sm"
+                    size="lg"
                     variant="outline"
-                    className="w-full text-xs mt-2"
+                    className="w-full mt-2"
                     onClick={() => setRelatedOpen(true)}
                   >
-                    <Icon name="Package" className="mr-1 h-3 w-3" />
+                    <Icon name="Package" className="mr-2 h-5 w-5" />
                     Сопутствующие товары
                   </Button>
                 </div>
