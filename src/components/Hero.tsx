@@ -24,10 +24,10 @@ export default function Hero() {
         <div className="container mx-auto py-8 sm:py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div className="text-center lg:text-left px-4 lg:px-0">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 lg:mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 lg:mb-6">
                 НАДЁЖНОЕ РЕШЕНИЕ
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-primary-50">
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-white/90">
                 Производство и поставка промышленного оборудования с 2020 года
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
