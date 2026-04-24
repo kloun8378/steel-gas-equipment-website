@@ -21,6 +21,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
+const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
@@ -138,6 +139,11 @@ const App = () => (
                     <Dashboard />
                   </Suspense>
                 </ProtectedRoute>
+              } />
+              <Route path="/pump-equipment" element={
+                <Suspense fallback={<PageLoader />}>
+                  <PumpEquipment />
+                </Suspense>
               } />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={

@@ -10,7 +10,7 @@ export default function Products() {
           <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Наша продукция</h3>
           <p className="text-lg sm:text-xl text-gray-600">Полный спектр промышленного газового оборудования</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/speed-valve'}>
             <CardHeader>
               <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
@@ -47,6 +47,19 @@ export default function Products() {
             <CardContent>
               <p className="text-gray-600 mb-4">Широкий ассортимент деталей и компонентов для газового оборудования</p>
               <Badge variant="outline">В наличии</Badge>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => window.location.href = '/pump-equipment'}>
+            <CardHeader>
+              <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
+                <img src="https://cdn.poehali.dev/files/02ef56fb-0d28-41ed-a52f-7dec4005566b.png" alt="Насосное оборудование" className="h-48 w-48 object-contain rounded" loading="lazy" />
+              </div>
+              <CardTitle>Насосное оборудование</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 mb-4">Насосы для перекачки сжиженных углеводородных газов</p>
+              <Badge variant="secondary">Производительность</Badge>
             </CardContent>
           </Card>
 
