@@ -9,6 +9,14 @@ import ComponentsCart from '@/components/components-page/ComponentsCart';
 
 const allRelated = [
   {
+    id: 'ppcz12',
+    name: 'Предохранительный клапан ППЦЗ-12',
+    description: 'Клапан пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа',
+    price: 9659,
+    priceLabel: '9 659 ₽',
+    image: 'https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg',
+  },
+  {
     id: 'spring-ppcz12',
     name: 'Пружина ППЦЗ-12',
     description: 'Пружина предохранительного клапана для замены в старом клапане',
