@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function PumpEquipment() {
-  const [quantity, setQuantity] = useState(1);
   const [quantity2, setQuantity2] = useState(1);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
@@ -64,57 +63,6 @@ export default function PumpEquipment() {
 
         {/* Product Gallery */}
         <div className="flex flex-wrap justify-center gap-6 items-stretch">
-          <Card className="w-full max-w-md flex flex-col">
-            <CardContent className="p-6 flex flex-col flex-1">
-              <div className="w-56 h-56 mx-auto mb-4 rounded-lg border overflow-hidden bg-white flex items-center justify-center">
-                <img
-                  src="https://cdn.poehali.dev/files/02ef56fb-0d28-41ed-a52f-7dec4005566b.png"
-                  alt="Насос для СУГ"
-                  className="w-full h-full object-contain p-2"
-                  loading="lazy"
-                />
-              </div>
-              <div className="text-center flex flex-col flex-1">
-                <h3 className="text-base font-semibold text-gray-900 mb-2">
-                  Насос для перекачки СУГ
-                </h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  Надёжный насос для перекачки сжиженных углеводородных газов
-                </p>
-                <div className="text-2xl font-bold text-primary mb-4">
-                  По запросу
-                </div>
-                <div className="mt-auto">
-                  <div className="flex items-center justify-center gap-2 mb-3">
-                    <input
-                      type="number"
-                      value={quantity}
-                      onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                      min="1"
-                      className="w-20 px-3 py-2 text-sm border rounded text-center"
-                    />
-                    <span className="text-sm text-gray-600">шт.</span>
-                  </div>
-                  <Button
-                    size="lg"
-                    className="w-full"
-                    onClick={() => handleAddToCart({
-                      id: 'pump-sug',
-                      name: 'Насос для перекачки СУГ',
-                      price: 0,
-                      image: 'https://cdn.poehali.dev/files/02ef56fb-0d28-41ed-a52f-7dec4005566b.png',
-                      description: 'Надёжный насос для перекачки сжиженных углеводородных газов',
-                      quantity: quantity
-                    })}
-                  >
-                    <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
-                    Заказать
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
           {/* Рама насоса Corken FD 150 */}
           <Card className="w-full max-w-md flex flex-col">
             <CardContent className="p-6 flex flex-col flex-1">
