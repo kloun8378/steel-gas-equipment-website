@@ -20,22 +20,27 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
   const [isPasswordResetSent, setIsPasswordResetSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [resetError, setResetError] = useState('');
+
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setResetError('');
 
     try {
-      const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(forgotPasswordEmail)}`;
-      const emailjs = await import('@emailjs/browser');
-      emailjs.init('UsA8zjcYvrlcSqY1b');
-      await emailjs.send('service_osw4pc5', 'template_hgdylqe', {
-        to_email: forgotPasswordEmail,
-        reset_link: resetLink,
-        user_email: forgotPasswordEmail
+      const res = await fetch('https://functions.poehali.dev/4a312aa2-5743-44c4-ad6b-b07f359c919e?action=forgot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: forgotPasswordEmail })
       });
-      setIsPasswordResetSent(true);
+      const data = await res.json();
+      if (res.ok) {
+        setIsPasswordResetSent(true);
+      } else {
+        setResetError(data.error || 'Ошибка отправки письма');
+      }
     } catch {
-      setIsPasswordResetSent(true);
+      setResetError('Произошла ошибка. Попробуйте позже.');
     } finally {
       setIsLoading(false);
     }
@@ -45,6 +50,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
     setIsForgotPasswordOpen(false);
     setForgotPasswordEmail('');
     setIsPasswordResetSent(false);
+    setResetError('');
   };
 
   return (
@@ -142,6 +148,9 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                               disabled={isLoading}
                             />
                           </div>
+                          {resetError && (
+                            <div className="text-red-600 text-sm bg-red-50 p-2 rounded">{resetError}</div>
+                          )}
                           
                           <div className="flex gap-2">
                             <Button 
