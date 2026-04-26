@@ -7,7 +7,6 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
-import emailjs from '@emailjs/browser';
 
 const LoginPage = () => {
   const { login, register, isLoading } = useAuth();
@@ -72,24 +71,6 @@ const LoginPage = () => {
     }
   };
 
-  const sendPasswordReset = async (email: string) => {
-    try {
-      const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=reset_token_here`;
-      emailjs.init('UsA8zjcYvrlcSqY1b');
-      await emailjs.send('service_osw4pc5', 'template_hgdylqe', {
-        to_email: email,
-        user_email: email,
-        reset_link: resetLink,
-        message: `Для восстановления пароля перейдите по ссылке: ${resetLink}`,
-        from_name: 'СтальПро - Система закупок'
-      });
-      return { success: true };
-    } catch (error: unknown) {
-      const err = error as Error;
-      return { success: false, error: err.message || 'Ошибка отправки письма' };
-    }
-  };
-
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     setResetLoading(true);
@@ -102,23 +83,23 @@ const LoginPage = () => {
     }
 
     try {
-      console.log('🎯 Отправляем восстановление пароля для:', forgotEmail);
-      const result = await sendPasswordReset(forgotEmail);
-      
-      console.log('📋 Результат отправки:', result);
-      
-      if (result.success) {
-        setResetMessage('✅ Письмо с инструкциями отправлено на ваш email');
+      const res = await fetch('https://functions.poehali.dev/4a312aa2-5743-44c4-ad6b-b07f359c919e?action=forgot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: forgotEmail })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setResetMessage('Письмо с ссылкой для восстановления отправлено на ваш email');
         setForgotEmail('');
-        setTimeout(() => setShowForgotPassword(false), 3000);
+        setTimeout(() => setShowForgotPassword(false), 4000);
       } else {
-        console.error('❌ Ошибка отправки EmailJS:', result.error);
-        setResetMessage(`❌ Ошибка отправки: ${result.error || 'Неизвестная ошибка'}`);
+        setResetMessage(data.error || 'Ошибка отправки письма');
       }
     } catch {
-      setResetMessage('Произошла ошибка при отправке письма');
+      setResetMessage('Произошла ошибка. Попробуйте позже.');
     }
-    
+
     setResetLoading(false);
   };
 

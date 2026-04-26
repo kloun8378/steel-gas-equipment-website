@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Unknown email returns 404",
+      "method": "POST",
+      "path": "/?action=forgot",
+      "body": {"email": "notexist@test.com"},
+      "expectedStatus": 404,
+      "expectedBody": {"error": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
