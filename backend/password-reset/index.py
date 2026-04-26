@@ -4,8 +4,9 @@ import os
 import hashlib
 import secrets
 import psycopg2
-import urllib.request
-import urllib.parse
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
@@ -29,33 +30,32 @@ def json_response(status, body):
         'body': json.dumps(body, ensure_ascii=False)
     }
 
-def send_via_emailjs(to_email, reset_link):
-    public_key = os.environ['EMAILJS_PUBLIC_KEY']
-    private_key = os.environ['EMAILJS_PRIVATE_KEY']
-    service_id = os.environ['EMAILJS_SERVICE_ID']
-    template_id = 'template_hgdylqe'
+def send_reset_email(to_email, reset_link):
+    sender = 'sadoxa1996@mail.ru'
+    password = os.environ['MAIL_APP_PASSWORD']
 
-    payload = json.dumps({
-        'service_id': service_id,
-        'template_id': template_id,
-        'user_id': public_key,
-        'accessToken': private_key,
-        'template_params': {
-            'to_email': to_email,
-            'user_email': to_email,
-            'reset_link': reset_link,
-            'from_name': 'СтальПро'
-        }
-    }).encode('utf-8')
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = 'Восстановление пароля — СтальПро'
+    msg['From'] = f'СтальПро <{sender}>'
+    msg['To'] = to_email
 
-    req = urllib.request.Request(
-        'https://api.emailjs.com/api/v1.0/email/send',
-        data=payload,
-        headers={'Content-Type': 'application/json', 'origin': 'https://стальпро.com'},
-        method='POST'
-    )
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return resp.status == 200
+    html = f"""
+    <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto;">
+        <h2 style="color: #1d4ed8;">Восстановление пароля</h2>
+        <p>Вы запросили восстановление пароля для вашего аккаунта на сайте <b>СтальПро</b>.</p>
+        <p>Нажмите на кнопку ниже, чтобы задать новый пароль. Ссылка действительна <b>1 час</b>.</p>
+        <a href="{reset_link}" style="display:inline-block;margin:16px 0;padding:12px 28px;background:#1d4ed8;color:#fff;text-decoration:none;border-radius:6px;font-size:15px;">
+            Восстановить пароль
+        </a>
+        <p style="color:#6b7280;font-size:13px;">Если вы не запрашивали восстановление пароля — просто проигнорируйте это письмо.</p>
+        <p style="color:#6b7280;font-size:13px;">Ссылка: {reset_link}</p>
+    </div>
+    """
+    msg.attach(MIMEText(html, 'html', 'utf-8'))
+
+    with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
+        server.login(sender, password)
+        server.sendmail(sender, to_email, msg.as_string())
 
 def handler(event: dict, context) -> dict:
     if event.get('httpMethod') == 'OPTIONS':
@@ -92,7 +92,7 @@ def handler(event: dict, context) -> dict:
         origin = event.get('headers', {}).get('origin', 'https://стальпро.com')
         reset_link = f"{origin}/reset-password?token={token}"
 
-        send_via_emailjs(email, reset_link)
+        send_reset_email(email, reset_link)
 
         cur.close(); conn.close()
         return json_response(200, {'success': True, 'message': 'Письмо отправлено'})
