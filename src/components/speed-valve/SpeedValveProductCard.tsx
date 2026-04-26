@@ -98,7 +98,7 @@ export default function SpeedValveProductCard({
             asChild
           >
             <a
-              href="https://drive.google.com/file/d/1fw_t7-b8aIGwIjK1clLeFe6aOZq0wS15/view?usp=drive_link"
+              href="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/docs/passport-speed-valve.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
