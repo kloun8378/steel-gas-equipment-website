@@ -7,6 +7,7 @@ import psycopg2
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.header import Header
 
 CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
@@ -35,8 +36,8 @@ def send_reset_email(to_email, reset_link):
     password = os.environ['MAIL_APP_PASSWORD']
 
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = 'Восстановление пароля — СтальПро'
-    msg['From'] = f'СтальПро <{sender}>'
+    msg['Subject'] = Header('Восстановление пароля - СтальПро', 'utf-8')
+    msg['From'] = sender
     msg['To'] = to_email
 
     html = f"""
