@@ -92,7 +92,13 @@ def handler(event: dict, context) -> dict:
         origin = event.get('headers', {}).get('origin', 'https://стальпро.com')
         reset_link = f"{origin}/reset-password?token={token}"
 
-        send_reset_email(email, reset_link)
+        try:
+            send_reset_email(email, reset_link)
+            print(f"[OK] Reset email sent to {email}")
+        except Exception as e:
+            print(f"[ERROR] Failed to send email to {email}: {e}")
+            cur.close(); conn.close()
+            return json_response(500, {'error': f'Ошибка отправки письма: {str(e)}'})
 
         cur.close(); conn.close()
         return json_response(200, {'success': True, 'message': 'Письмо отправлено'})
