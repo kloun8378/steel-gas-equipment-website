@@ -13,6 +13,7 @@ interface SafetyValveProductCardProps {
   onQuantityChange: (val: number) => void;
   onAddToCart: () => void;
   onRelatedOpen: () => void;
+  passportUrl?: string;
   showSpecs: boolean;
   onToggleSpecs: () => void;
   specsContent: ReactNode;
@@ -28,6 +29,7 @@ export default function SafetyValveProductCard({
   onQuantityChange,
   onAddToCart,
   onRelatedOpen,
+  passportUrl = 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/docs/passport-safety-valve.pdf',
   showSpecs,
   onToggleSpecs,
   specsContent,
@@ -70,7 +72,7 @@ export default function SafetyValveProductCard({
             </div>
             <Button size="lg" variant="outline" className="w-full mb-2" asChild>
               <a
-                href="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/docs/passport-safety-valve.pdf"
+                href={passportUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
