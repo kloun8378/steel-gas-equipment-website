@@ -26,6 +26,7 @@ import {
   Users,
   Building2,
   CircleAlert,
+  FileText,
   type LucideProps
 } from 'lucide-react';
 
@@ -62,6 +63,7 @@ const iconMap: Record<string, React.FC<LucideProps>> = {
   Users,
   Building2,
   CircleAlert,
+  FileText,
 };
 
 const Icon: React.FC<IconProps> = ({ name, fallback = 'CircleAlert', ...props }) => {
