@@ -91,6 +91,15 @@ export default function SpeedValveProductCard({
             />
             <span className="text-xs text-gray-600">шт.</span>
           </div>
+          <a
+            href="https://drive.google.com/file/d/1fw_t7-b8aIGwIjK1clLeFe6aOZq0wS15/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-1 w-full text-xs mb-2 px-3 py-1.5 rounded-md border border-red-500 text-red-600 hover:bg-red-50 transition-colors font-medium"
+          >
+            <Icon name="FileText" className="h-3 w-3" />
+            ПАСПОРТ
+          </a>
           <Button
             size="sm"
             className="w-full text-xs"
