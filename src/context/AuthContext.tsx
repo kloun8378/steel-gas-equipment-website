@@ -80,6 +80,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = () => {
     api.logout();
     setUser(null);
+    window.location.href = '/';
   };
 
   return (
