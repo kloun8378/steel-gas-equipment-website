@@ -3,7 +3,7 @@
     {
       "name": "Upload passport PDF",
       "method": "GET",
-      "path": "/",
+      "path": "/?file_id=17RlQqXHz_fFnk6rs8QvpKGotOeXph5QH&filename=passport-safety-valve.pdf",
       "expectedStatus": 200,
       "expectedBody": {"url": "string"},
       "bodyMatcher": "partial"

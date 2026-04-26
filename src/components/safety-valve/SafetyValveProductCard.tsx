@@ -68,6 +68,16 @@ export default function SafetyValveProductCard({
               />
               <span className="text-sm text-gray-600">шт.</span>
             </div>
+            <Button size="lg" variant="outline" className="w-full mb-2" asChild>
+              <a
+                href="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/docs/passport-safety-valve.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="FileText" className="mr-1 h-3 w-3" />
+                ПАСПОРТ
+              </a>
+            </Button>
             <Button size="lg" className="w-full" onClick={onAddToCart}>
               <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
               Заказать
