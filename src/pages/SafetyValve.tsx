@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
@@ -96,7 +95,6 @@ export default function SafetyValve() {
   const [relatedQuantities, setRelatedQuantities] = useState<Record<string, number>>({});
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart();
   const { user } = useAuth();
-  const navigate = useNavigate();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
     if (!user) {
@@ -144,8 +142,8 @@ export default function SafetyValve() {
           </div>
           <nav className="hidden md:flex space-x-6 text-sm">
             <a href="/" className="hover:text-gray-200 transition-colors">Главная</a>
-            <button onClick={() => { navigate('/'); setTimeout(() => { document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' }); }, 100); }} className="hover:text-gray-200 transition-colors font-medium">Продукция</button>
-            <button onClick={() => { navigate('/'); setTimeout(() => { document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' }); }, 100); }} className="hover:text-gray-200 transition-colors">Контакты</button>
+            <a href="/#products" className="hover:text-gray-200 transition-colors">Продукция</a>
+            <a href="/#contacts" className="hover:text-gray-200 transition-colors">Контакты</a>
           </nav>
         </div>
       </header>

@@ -36,23 +36,23 @@ const Index = () => {
   });
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#products') {
-        setTimeout(() => {
-          const element = document.getElementById('products');
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      }
+    const scrollToHash = (hash: string) => {
+      setTimeout(() => {
+        const el = document.getElementById(hash.replace('#', ''));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 400);
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+    if (window.location.hash) {
+      scrollToHash(window.location.hash);
+    }
+
+    const handleHashChange = () => {
+      if (window.location.hash) scrollToHash(window.location.hash);
     };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const handleRegister = async () => {
