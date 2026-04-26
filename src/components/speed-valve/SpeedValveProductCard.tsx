@@ -102,7 +102,7 @@ export default function SpeedValveProductCard({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icon name="FileText" className="mr-1 h-3 w-3" />
+              <Icon name="BookOpen" className="mr-1 h-3 w-3" />
               ПАСПОРТ
             </a>
           </Button>
