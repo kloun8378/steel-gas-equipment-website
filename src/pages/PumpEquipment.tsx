@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
@@ -19,6 +20,17 @@ export default function PumpEquipment() {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Насосное оборудование для СУГ купить — СтальПроКлапан, Барнаул</title>
+      <meta name="description" content="Насосы для перекачки сжиженных углеводородных газов. Применение: АГЗС, ГНС, автоцистерны. Насосное оборудование СУГ в наличии. Доставка по РФ от СтальПроКлапан." />
+      <meta name="keywords" content="насосное оборудование СУГ, насос сжиженный газ, насос АГЗС, насос ГНС, насос перекачка СУГ купить, СтальПроКлапан Барнаул" />
+      <meta property="og:title" content="Насосное оборудование для СУГ — СтальПроКлапан" />
+      <meta property="og:description" content="Насосы для перекачки сжиженных углеводородных газов. Доставка по всей России." />
+      <meta property="og:url" content="https://xn--80awjdfch6f.com/pump-equipment" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://xn--80awjdfch6f.com/pump-equipment" />
+    </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
@@ -164,5 +176,6 @@ export default function PumpEquipment() {
         </section>
       )}
     </div>
+    </>
   );
 }

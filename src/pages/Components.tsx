@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
@@ -82,6 +83,17 @@ export default function Components() {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Комплектующие для клапанов СУГ купить — СтальПроКлапан, Барнаул</title>
+      <meta name="description" content="Комплектующие и запчасти для клапанов СУГ: пружины, уплотнители, мембраны. Совместимы с ППЦЗ-12, ТПА11. Широкий ассортимент в наличии. Доставка по РФ." />
+      <meta name="keywords" content="комплектующие клапаны СУГ, запчасти ППЦЗ-12, запчасти ТПА11, пружина клапан, уплотнитель клапан, арматура СУГ купить, СтальПроКлапан Барнаул" />
+      <meta property="og:title" content="Комплектующие для клапанов СУГ — СтальПроКлапан" />
+      <meta property="og:description" content="Запчасти и детали для газового оборудования. Совместимы с ППЦЗ-12 и ТПА11. Доставка по всей России." />
+      <meta property="og:url" content="https://xn--80awjdfch6f.com/components" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />
+    </Helmet>
     <div className="min-h-screen bg-gray-50">
       <ComponentsHead />
       <ComponentsHeader />
@@ -218,5 +230,6 @@ export default function Components() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

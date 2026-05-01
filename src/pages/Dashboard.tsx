@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -121,6 +122,12 @@ const Dashboard = () => {
   }
 
   return (
+    <>
+    <Helmet>
+      <title>Личный кабинет — СтальПроКлапан</title>
+      <meta name="description" content="Личный кабинет покупателя СтальПроКлапан. Управление заказами, данные компании, история покупок." />
+      <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
       <header className="bg-white shadow-sm">
@@ -461,6 +468,7 @@ const Dashboard = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 

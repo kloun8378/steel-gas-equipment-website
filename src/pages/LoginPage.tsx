@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -106,6 +107,12 @@ const LoginPage = () => {
 
 
   return (
+    <>
+    <Helmet>
+      <title>Войти в личный кабинет — СтальПроКлапан</title>
+      <meta name="description" content="Вход в личный кабинет покупателя СтальПроКлапан. Управляйте заказами газового оборудования." />
+      <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
@@ -340,6 +347,7 @@ const LoginPage = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

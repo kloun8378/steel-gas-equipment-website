@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
@@ -128,6 +129,17 @@ export default function SafetyValve() {
   );
 
   return (
+    <>
+    <Helmet>
+      <title>Предохранительный клапан ППЦЗ-12 купить — СтальПроКлапан, Барнаул</title>
+      <meta name="description" content="Предохранительный клапан ППЦЗ-12 для СУГ. Рабочее давление 1,6 МПа. Применение: АГЗС, ГНС, автоцистерны. Запчасти и комплектующие. Доставка по РФ. Цена от 9 659 ₽." />
+      <meta name="keywords" content="предохранительный клапан ППЦЗ-12, ППЦЗ-12 купить, ППЦЗ-12 цена, клапан СУГ предохранительный, ПК-32-Л, запчасти ППЦЗ-12, пружина ППЦЗ-12, СтальПроКлапан Барнаул" />
+      <meta property="og:title" content="Предохранительный клапан ППЦЗ-12 — СтальПроКлапан" />
+      <meta property="og:description" content="Клапаны пружинные прямого действия для СУГ. ППЦЗ-12, ПК-32-Л. Доставка по всей России." />
+      <meta property="og:url" content="https://xn--80awjdfch6f.com/safety-valve" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://xn--80awjdfch6f.com/safety-valve" />
+    </Helmet>
     <div className="min-h-screen bg-gray-50">
       <SafetyValveHead />
 
@@ -265,5 +277,6 @@ export default function SafetyValve() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

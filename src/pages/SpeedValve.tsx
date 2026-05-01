@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import SpeedValveHead from '@/components/speed-valve/SpeedValveHead';
@@ -35,6 +36,17 @@ export default function SpeedValve() {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Скоростной клапан межфланцевый ТПА11 купить — СтальПроКлапан, Барнаул</title>
+      <meta name="description" content="Скоростные клапаны межфланцевые ТПА11-025/032/040/050 для СУГ. Аналог VENGO, AZT, REGO. Применение: АГЗС, ГНС, автоцистерны. Доставка по РФ. Цена от 5 592 ₽." />
+      <meta name="keywords" content="скоростной клапан ТПА11, скоростной клапан межфланцевый, клапан СУГ ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050, скоростной клапан купить Барнаул, аналог VENGO, аналог AZT, аналог REGO" />
+      <meta property="og:title" content="Скоростной клапан ТПА11 — СтальПроКлапан" />
+      <meta property="og:description" content="Быстрозакрывающиеся клапаны для аварийного отключения газопроводов. ТПА11-025/032/040/050. Доставка по всей России." />
+      <meta property="og:url" content="https://xn--80awjdfch6f.com/speed-valve" />
+      <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
+    </Helmet>
     <div className="min-h-screen bg-gray-50">
       <SpeedValveHead />
       <SpeedValveHeader />
@@ -179,5 +191,6 @@ export default function SpeedValve() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
