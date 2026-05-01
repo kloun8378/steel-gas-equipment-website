@@ -158,7 +158,7 @@ export default function SafetyValve() {
               "image": "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg",
               "sku": "ППЦЗ-12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -169,7 +169,7 @@ export default function SafetyValve() {
               "description": "Пружинный предохранительный клапан в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом.",
               "sku": "ПК-32-Л",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

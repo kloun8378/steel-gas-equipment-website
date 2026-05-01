@@ -65,7 +65,7 @@ export default function SpeedValve() {
               "image": "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
               "sku": "ТПА11-025",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "5592", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "5592", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -77,7 +77,7 @@ export default function SpeedValve() {
               "image": "https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg",
               "sku": "ТПА11-032",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "6202", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "6202", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -89,7 +89,7 @@ export default function SpeedValve() {
               "image": "https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg",
               "sku": "ТПА11-040",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "7015", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "7015", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -101,7 +101,7 @@ export default function SpeedValve() {
               "image": "https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg",
               "sku": "ТПА11-050",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "10065", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "10065", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]
