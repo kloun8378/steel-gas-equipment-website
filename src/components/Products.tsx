@@ -20,7 +20,10 @@ export default function Products() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 mb-4">Быстрозакрывающиеся клапаны для аварийного отключения газопроводов</p>
-              <Badge>Безопасность</Badge>
+              <div className="flex items-center justify-between">
+                <Badge>Безопасность</Badge>
+                <span className="text-blue-600 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Подробнее <Icon name="ArrowRight" size={14} /></span>
+              </div>
             </CardContent>
           </Card>
 
@@ -33,7 +36,10 @@ export default function Products() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 mb-4">Автоматические клапаны для защиты от превышения давления в системах</p>
-              <Badge variant="secondary">Надёжность</Badge>
+              <div className="flex items-center justify-between">
+                <Badge variant="secondary">Надёжность</Badge>
+                <span className="text-blue-600 text-sm font-medium flex items-center gap-1">Подробнее <Icon name="ArrowRight" size={14} /></span>
+              </div>
             </CardContent>
           </Card>
 
@@ -46,7 +52,10 @@ export default function Products() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 mb-4">Широкий ассортимент деталей и компонентов для газового оборудования</p>
-              <Badge variant="outline">В наличии</Badge>
+              <div className="flex items-center justify-between">
+                <Badge variant="outline">В наличии</Badge>
+                <span className="text-blue-600 text-sm font-medium flex items-center gap-1">Подробнее <Icon name="ArrowRight" size={14} /></span>
+              </div>
             </CardContent>
           </Card>
 
@@ -59,7 +68,10 @@ export default function Products() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 mb-4">Насосы для перекачки сжиженных углеводородных газов</p>
-              <Badge variant="secondary">Производительность</Badge>
+              <div className="flex items-center justify-between">
+                <Badge variant="secondary">Производительность</Badge>
+                <span className="text-blue-600 text-sm font-medium flex items-center gap-1">Подробнее <Icon name="ArrowRight" size={14} /></span>
+              </div>
             </CardContent>
           </Card>
 
