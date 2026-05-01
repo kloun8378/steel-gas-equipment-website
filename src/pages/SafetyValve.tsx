@@ -139,6 +139,37 @@ export default function SafetyValve() {
       <meta property="og:url" content="https://xn--80awjdfch6f.com/safety-valve" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/safety-valve" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Предохранительные клапаны для СУГ",
+        "url": "https://xn--80awjdfch6f.com/safety-valve",
+        "itemListElement": [
+          {
+            "@type": "ListItem", "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Предохранительный клапан ППЦЗ-12",
+              "description": "Клапан пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. Применение: АГЗС, ГНС, автоцистерны.",
+              "image": "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg",
+              "sku": "ППЦЗ-12",
+              "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          },
+          {
+            "@type": "ListItem", "position": 2,
+            "item": {
+              "@type": "Product",
+              "name": "Предохранительный клапан ПК-32-Л",
+              "description": "Пружинный предохранительный клапан в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом.",
+              "sku": "ПК-32-Л",
+              "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          }
+        ]
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
       <SafetyValveHead />

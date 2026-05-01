@@ -30,6 +30,26 @@ export default function PumpEquipment() {
       <meta property="og:url" content="https://xn--80awjdfch6f.com/pump-equipment" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/pump-equipment" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Насосное оборудование для СУГ",
+        "url": "https://xn--80awjdfch6f.com/pump-equipment",
+        "itemListElement": [
+          {
+            "@type": "ListItem", "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Рама насоса Corken FD 150",
+              "description": "Единая усиленная стальная рама для крепления насоса и двигателя. Обеспечивает жёсткость конструкции, предотвращает перекосы при монтаже.",
+              "image": "https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png",
+              "sku": "pump-frame-corken-fd150",
+              "brand": {"@type": "Brand", "name": "Corken"},
+              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/pump-equipment", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          }
+        ]
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
       {/* Header */}

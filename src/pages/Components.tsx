@@ -93,6 +93,62 @@ export default function Components() {
       <meta property="og:url" content="https://xn--80awjdfch6f.com/components" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Комплектующие и запчасти для клапанов СУГ",
+        "url": "https://xn--80awjdfch6f.com/components",
+        "itemListElement": [
+          {
+            "@type": "ListItem", "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Пружина ППЦЗ-12",
+              "description": "Пружина предохранительного клапана для замены в старом клапане ППЦЗ-12",
+              "image": "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
+              "sku": "spring-ppcz12",
+              "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+              "offers": {"@type": "Offer", "price": "2745", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          },
+          {
+            "@type": "ListItem", "position": 2,
+            "item": {
+              "@type": "Product",
+              "name": "Золотник ППЦЗ-12",
+              "description": "Золотник для пружинного клапана прямого действия ППЦЗ-12",
+              "image": "https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg",
+              "sku": "valve-ppcz12",
+              "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+              "offers": {"@type": "Offer", "price": "1129", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          },
+          {
+            "@type": "ListItem", "position": 3,
+            "item": {
+              "@type": "Product",
+              "name": "Фланец на 4 отверстия к ППЦЗ-12",
+              "description": "Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ",
+              "image": "https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG",
+              "sku": "flange4-ppcz12",
+              "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          },
+          {
+            "@type": "ListItem", "position": 4,
+            "item": {
+              "@type": "Product",
+              "name": "Фланец на 8 отверстий к ППЦЗ-12",
+              "description": "Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ",
+              "image": "https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG",
+              "sku": "flange8-ppcz12",
+              "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+            }
+          }
+        ]
+      })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
       <ComponentsHead />
