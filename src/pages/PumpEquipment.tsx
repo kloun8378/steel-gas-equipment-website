@@ -36,6 +36,37 @@ export default function PumpEquipment() {
       <link rel="canonical" href="https://xn--80awjdfch6f.com/pump-equipment" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Насосное оборудование", "item": "https://xn--80awjdfch6f.com/pump-equipment"}
+        ]
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Насосное оборудование для СУГ",
+        "description": "Насосы для перекачки сжиженных углеводородных газов. Применение: АГЗС, ГНС, автоцистерны.",
+        "image": "https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png",
+        "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "reviewCount": "8",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "3800",
+          "highPrice": "3800",
+          "priceCurrency": "RUB",
+          "offerCount": "1",
+          "availability": "https://schema.org/InStock"
+        }
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Насосное оборудование для СУГ",
         "url": "https://xn--80awjdfch6f.com/pump-equipment",

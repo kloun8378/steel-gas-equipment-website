@@ -52,6 +52,37 @@ export default function SpeedValve() {
       <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Скоростной клапан", "item": "https://xn--80awjdfch6f.com/speed-valve"}
+        ]
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Скоростной клапан межфланцевый ТПА11",
+        "description": "Быстрозакрывающиеся клапаны для аварийного отключения газопроводов СУГ. ДУ25/32/40/50.",
+        "image": "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
+        "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "18",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "5592",
+          "highPrice": "10065",
+          "priceCurrency": "RUB",
+          "offerCount": "4",
+          "availability": "https://schema.org/InStock"
+        }
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Скоростные клапаны межфланцевые ТПА11",
         "url": "https://xn--80awjdfch6f.com/speed-valve",

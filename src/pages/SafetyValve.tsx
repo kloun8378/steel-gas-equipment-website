@@ -145,6 +145,37 @@ export default function SafetyValve() {
       <link rel="canonical" href="https://xn--80awjdfch6f.com/safety-valve" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Предохранительный клапан", "item": "https://xn--80awjdfch6f.com/safety-valve"}
+        ]
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Предохранительный клапан ППЦЗ-12",
+        "description": "Клапан пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. АГЗС, ГНС, автоцистерны.",
+        "image": "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg",
+        "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "24",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "9659",
+          "highPrice": "15860",
+          "priceCurrency": "RUB",
+          "offerCount": "2",
+          "availability": "https://schema.org/InStock"
+        }
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Предохранительные клапаны для СУГ",
         "url": "https://xn--80awjdfch6f.com/safety-valve",

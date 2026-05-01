@@ -99,6 +99,37 @@ export default function Components() {
       <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Комплектующие", "item": "https://xn--80awjdfch6f.com/components"}
+        ]
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Комплектующие для клапанов СУГ",
+        "description": "Запасные части и комплектующие для ППЦЗ-12 и ТПА11: пружины, золотники, фланцы.",
+        "image": "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
+        "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "12",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "1129",
+          "highPrice": "4372",
+          "priceCurrency": "RUB",
+          "offerCount": "4",
+          "availability": "https://schema.org/InStock"
+        }
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Комплектующие и запчасти для клапанов СУГ",
         "url": "https://xn--80awjdfch6f.com/components",
