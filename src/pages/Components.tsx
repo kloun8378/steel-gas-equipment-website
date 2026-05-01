@@ -92,6 +92,10 @@ export default function Components() {
       <meta property="og:description" content="Запчасти и детали для газового оборудования. Совместимы с ППЦЗ-12 и ТПА11. Доставка по всей России." />
       <meta property="og:url" content="https://xn--80awjdfch6f.com/components" />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
+      <meta property="og:image:alt" content="Комплектующие для клапанов СУГ" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",

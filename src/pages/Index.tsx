@@ -142,6 +142,11 @@ const Index = () => {
       <meta property="og:description" content="Производство и поставка промышленного оборудования с 2020 года. ППЦЗ-12, ТПА11-025/032/040/050. Комплектующие и запчасти. Доставка по всей России." />
       <meta property="og:url" content="https://xn--80awjdfch6f.com/" />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:alt" content="СтальПроКлапан — клапаны СУГ" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/" />
     </Helmet>
     <div className="min-h-screen bg-white">

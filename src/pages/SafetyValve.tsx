@@ -138,6 +138,10 @@ export default function SafetyValve() {
       <meta property="og:description" content="Клапаны пружинные прямого действия для СУГ. ППЦЗ-12, ПК-32-Л. Доставка по всей России." />
       <meta property="og:url" content="https://xn--80awjdfch6f.com/safety-valve" />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
+      <meta property="og:image:alt" content="Предохранительный клапан ППЦЗ-12" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/safety-valve" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",

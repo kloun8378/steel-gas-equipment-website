@@ -45,6 +45,10 @@ export default function SpeedValve() {
       <meta property="og:description" content="Быстрозакрывающиеся клапаны для аварийного отключения газопроводов. ТПА11-025/032/040/050. Доставка по всей России." />
       <meta property="og:url" content="https://xn--80awjdfch6f.com/speed-valve" />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
+      <meta property="og:image:alt" content="Скоростной клапан межфланцевый ТПА11-025" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",

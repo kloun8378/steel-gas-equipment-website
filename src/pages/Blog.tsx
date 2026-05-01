@@ -25,6 +25,10 @@ export default function Blog() {
       <meta property="og:description" content="Технические статьи и новости о клапанах и оборудовании для СУГ." />
       <meta property="og:url" content="https://xn--80awjdfch6f.com/blog" />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
+      <meta property="og:image:alt" content="СтальПроКлапан — блог о газовом оборудовании" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/blog" />
     </Helmet>
     <div className="min-h-screen flex flex-col">

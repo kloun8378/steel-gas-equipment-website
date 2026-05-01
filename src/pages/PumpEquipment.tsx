@@ -29,6 +29,10 @@ export default function PumpEquipment() {
       <meta property="og:description" content="Насосы для перекачки сжиженных углеводородных газов. Доставка по всей России." />
       <meta property="og:url" content="https://xn--80awjdfch6f.com/pump-equipment" />
       <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
+      <meta property="og:image:alt" content="Насосное оборудование для СУГ" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/pump-equipment" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
