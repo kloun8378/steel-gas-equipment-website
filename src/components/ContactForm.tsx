@@ -75,7 +75,6 @@ export default function ContactForm() {
                 className="flex items-center gap-3 bg-[#1C9B48] hover:bg-[#178040] text-white px-4 py-3 rounded-lg transition-colors w-fit"
               >
                 <img src="https://cdn.poehali.dev/files/d4c4dcf3-0809-4058-bcc8-e73dd9734d5e.png" alt="2ГИС" className="hidden" />
-                <span className="text-lg font-bold">2</span>
                 <span className="font-medium">Мы на 2ГИС</span>
                 <Icon name="ExternalLink" className="h-4 w-4" />
               </a>
