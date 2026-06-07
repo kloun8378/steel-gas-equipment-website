@@ -1,6 +1,7 @@
 export const blogPosts = [
   {
     id: 1,
+    slug: "kak-vybrat-skorostnoj-klapan",
     title: "Как выбрать скоростной клапан для газопровода",
     excerpt: "Подробное руководство по выбору скоростных клапанов аварийного отключения с учетом диаметра трубопровода, рабочего давления и условий эксплуатации.",
     content: `Скоростные клапаны аварийного отключения — критически важный элемент безопасности газопроводных систем. Правильный выбор клапана обеспечивает надежную защиту оборудования и персонала.
@@ -60,6 +61,7 @@ export const blogPosts = [
 - Заедание штока`,
     category: "Обслуживание",
     date: "2024-12-10",
+    slug: "obsluzhivanie-ppczj-12",
     author: "Сервисная служба",
     image: "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg"
   },
@@ -97,6 +99,7 @@ export const blogPosts = [
 - Проверяйте актуальность сертификатов`,
     category: "Новости отрасли",
     date: "2024-12-05",
+    slug: "trebovaniya-gazovaya-armatura-2024",
     author: "Отдел качества",
     image: "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg"
   },
@@ -147,6 +150,7 @@ export const blogPosts = [
 - Контроль загазованности при работах`,
     category: "Монтаж",
     date: "2024-11-28",
+    slug: "montazh-grp-poshagovoe-rukovodstvo",
     author: "Монтажная служба",
     image: "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg"
   },
@@ -193,6 +197,7 @@ export const blogPosts = [
 Типовые системы автоматизации окупаются за 2-3 года за счет снижения эксплуатационных расходов и предотвращения аварий.`,
     category: "Автоматизация",
     date: "2024-11-20",
+    slug: "avtomatizaciya-gazovyh-sistem",
     author: "Отдел автоматизации",
     image: "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg"
   },
@@ -232,6 +237,7 @@ export const blogPosts = [
 - Быстрая поставка со склада в Барнауле`,
     category: "Техническая информация",
     date: "2025-01-10",
+    slug: "tpa11-050-du50-harakteristiki-agzs",
     author: "Инженер СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg"
   },
@@ -280,6 +286,7 @@ export const blogPosts = [
 Запчасти ППЦЗ-12 (пружина, золотник, фланцы) в наличии на складе СтальПроКлапан в Барнауле.`,
     category: "Обслуживание",
     date: "2025-01-20",
+    slug: "zamena-pruzhiny-zolotnika-ppczj-12",
     author: "Сервисный отдел СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg"
   },
@@ -321,6 +328,7 @@ export const blogPosts = [
 Для большинства объектов АГЗС и ГНС в России ППЦЗ-12 от СтальПроКлапан — оптимальный выбор по соотношению цены, качества и доступности сервиса.`,
     category: "Техническая информация",
     date: "2025-02-05",
+    slug: "ppczj-12-vs-rego-rs3132-sravnenie",
     author: "Технический отдел СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg"
   },
@@ -364,6 +372,7 @@ export const blogPosts = [
 СтальПроКлапан поставляет скоростные клапаны ТПА11 (ДУ25/32/40/50) и предохранительные ППЦЗ-12 с сертификатом EAC, климатическим исполнением УХЛI. Отгрузка со склада в Барнауле в день оплаты. Доставка по всей России.`,
     category: "Техническая информация",
     date: "2025-03-10",
+    slug: "klapan-dlya-agzs-kakoy-vybrat",
     author: "Технический отдел СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png"
   },
@@ -412,6 +421,7 @@ export const blogPosts = [
 СтальПроКлапан поставляет клапаны ТПА11 для автоцистерн с полным комплектом документов: паспорт изделия, сертификат EAC, декларация соответствия. Доставка по России транспортными компаниями.`,
     category: "Техническая информация",
     date: "2025-03-25",
+    slug: "skorostnoj-klapan-dlya-avtoczisterny",
     author: "Технический отдел СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg"
   },
@@ -464,6 +474,7 @@ export const blogPosts = [
 Пружины для ППЦЗ-12 есть в наличии на складе СтальПроКлапан. Отдельная продажа, доставка по России.`,
     category: "Обслуживание",
     date: "2025-04-15",
+    slug: "davlenie-srabatyvaniya-ppczj-12",
     author: "Сервисный отдел СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg"
   },
@@ -512,6 +523,7 @@ export const blogPosts = [
 Все документы в электронном и бумажном виде. Запрос документов по ранее купленной продукции — бесплатно.`,
     category: "Новости отрасли",
     date: "2025-05-10",
+    slug: "klapany-sug-trebovaniya-rostekhnadzora-2025",
     author: "Отдел качества СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png"
   },
@@ -559,6 +571,7 @@ export const blogPosts = [
 При выборе насоса для АГЗС запросите у поставщика полный комплект документов: паспорт, сертификат EAC, схему обвязки. Надёжный поставщик также предоставляет техническую поддержку при монтаже и пусконаладке.`,
     category: "Техническая информация",
     date: "2025-06-01",
+    slug: "nasosnoe-oborudovanie-dlya-agzs",
     author: "Технический отдел СтальПроКлапан",
     image: "https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png"
   }

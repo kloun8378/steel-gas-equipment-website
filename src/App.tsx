@@ -24,6 +24,7 @@ const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Delivery = lazy(() => import("./pages/Delivery"));
+const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const About = lazy(() => import("./pages/About"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 
@@ -124,6 +125,11 @@ const App = () => (
               <Route path="/blog" element={
                 <Suspense fallback={<PageLoader />}>
                   <Blog />
+                </Suspense>
+              } />
+              <Route path="/blog/:slug" element={
+                <Suspense fallback={<PageLoader />}>
+                  <BlogArticle />
                 </Suspense>
               } />
               <Route path="/login" element={

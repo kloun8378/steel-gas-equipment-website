@@ -69,12 +69,14 @@ export default function BlogList({
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <a href={`/blog/${post.slug}`}>
                 <img
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 object-cover"
                   loading="lazy"
                 />
+                </a>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <span className="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">
@@ -97,13 +99,13 @@ export default function BlogList({
                     <span className="text-sm text-gray-500">
                       {post.author}
                     </span>
-                    <button
-                      onClick={() => onSelectPost(post)}
+                    <a
+                      href={`/blog/${post.slug}`}
                       className="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-1"
                     >
                       Читать далее
                       <Icon name="ArrowRight" className="h-4 w-4" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </article>
