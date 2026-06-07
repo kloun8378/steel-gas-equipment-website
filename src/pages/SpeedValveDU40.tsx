@@ -168,6 +168,7 @@ export default function SpeedValveDU40() {
             onAddToCart={handleAddToCart}
             techTitle="Технические характеристики ТПА11-040 ДУ40"
             techSpecs={techSpecs}
+            ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du40-3082079691/"
           />
 
           <SpeedValveDetails du="40" />
