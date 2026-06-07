@@ -68,16 +68,26 @@ export default function ContactForm() {
                   <p className="text-gray-600">Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</p>
                 </div>
               </div>
-              <a
-                href="https://2gis.ru/barnaul/firm/70000001099007177/83.669911%2C53.381012?m=83.672704%2C53.378973%2F16.76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-[#1C9B48] hover:bg-[#178040] text-white px-4 py-3 rounded-lg transition-colors w-fit"
-              >
-                <img src="https://cdn.poehali.dev/files/d4c4dcf3-0809-4058-bcc8-e73dd9734d5e.png" alt="2ГИС" className="hidden" />
-                <span className="font-medium">Мы на 2ГИС</span>
-                <Icon name="ExternalLink" className="h-4 w-4" />
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://2gis.ru/barnaul/firm/70000001099007177/83.669911%2C53.381012?m=83.672704%2C53.378973%2F16.76"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#1C9B48] hover:bg-[#178040] text-white px-4 py-3 rounded-lg transition-colors"
+                >
+                  <span className="font-medium">Мы на 2ГИС</span>
+                  <Icon name="ExternalLink" className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://www.ozon.ru/seller/stalpro-3601542/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#005BFF] hover:bg-[#0047CC] text-white px-4 py-3 rounded-lg transition-colors"
+                >
+                  <span className="font-medium">Мы на Ozon</span>
+                  <Icon name="ExternalLink" className="h-4 w-4" />
+                </a>
+              </div>
               <div className="flex items-center">
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                   <Icon name="Phone" className="h-6 w-6 text-primary" />
