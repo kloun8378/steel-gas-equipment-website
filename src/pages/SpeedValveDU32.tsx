@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCard';
 import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
+import SpeedValveDetails from '@/components/speed-valve/SpeedValveDetails';
 import Icon from '@/components/ui/icon';
 
 const commonSpecs = [
@@ -168,6 +169,8 @@ export default function SpeedValveDU32() {
             techTitle="Технические характеристики ТПА11-032 ДУ32"
             techSpecs={techSpecs}
           />
+
+          <SpeedValveDetails du="32" />
         </div>
 
         <SpeedValveCart />
