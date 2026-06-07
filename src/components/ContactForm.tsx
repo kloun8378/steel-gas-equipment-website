@@ -87,6 +87,15 @@ export default function ContactForm() {
                   <span className="font-medium">Мы на Ozon</span>
                   <Icon name="ExternalLink" className="h-4 w-4" />
                 </a>
+                <a
+                  href="https://yandex.ru/maps/org/metalloobrabotka/137150057980/?ll=83.668348%2C53.377527&z=17"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#FC3F1D] hover:bg-[#e03518] text-white px-4 py-3 rounded-lg transition-colors"
+                >
+                  <span className="font-medium">Мы на Яндекс Картах</span>
+                  <Icon name="ExternalLink" className="h-4 w-4" />
+                </a>
               </div>
               <div className="flex items-center">
                 <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
