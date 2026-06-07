@@ -27,6 +27,10 @@ const Delivery = lazy(() => import("./pages/Delivery"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const About = lazy(() => import("./pages/About"));
 const Reviews = lazy(() => import("./pages/Reviews"));
+const SpeedValveDU25 = lazy(() => import("./pages/SpeedValveDU25"));
+const SpeedValveDU32 = lazy(() => import("./pages/SpeedValveDU32"));
+const SpeedValveDU40 = lazy(() => import("./pages/SpeedValveDU40"));
+const SpeedValveDU50 = lazy(() => import("./pages/SpeedValveDU50"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -161,6 +165,10 @@ const App = () => (
               } />
               <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
               <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><Reviews /></Suspense>} />
+              <Route path="/speed-valve/tpa11-025" element={<Suspense fallback={<PageLoader />}><SpeedValveDU25 /></Suspense>} />
+              <Route path="/speed-valve/tpa11-032" element={<Suspense fallback={<PageLoader />}><SpeedValveDU32 /></Suspense>} />
+              <Route path="/speed-valve/tpa11-040" element={<Suspense fallback={<PageLoader />}><SpeedValveDU40 /></Suspense>} />
+              <Route path="/speed-valve/tpa11-050" element={<Suspense fallback={<PageLoader />}><SpeedValveDU50 /></Suspense>} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={
                 <Suspense fallback={<PageLoader />}>

@@ -111,6 +111,27 @@ export default function FAQ() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <link rel="canonical" href="https://xn--80awjdfch6f.com/faq" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.answer
+            }
+          }))
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
+            {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://xn--80awjdfch6f.com/faq"}
+          ]
+        })}</script>
       </Helmet>
       <SEOHead 
         title="FAQ - Часто задаваемые вопросы | СтальПроКлапан"

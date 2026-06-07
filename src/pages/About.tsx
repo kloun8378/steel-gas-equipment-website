@@ -12,6 +12,41 @@ const breadcrumbLd = JSON.stringify({
   ]
 });
 
+const organizationLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "СтальПроКлапан",
+  "alternateName": "стальпро.com",
+  "url": "https://xn--80awjdfch6f.com",
+  "logo": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
+  "description": "Производство и поставка скоростных и предохранительных клапанов для СУГ. ППЦЗ-12, ТПА11. Барнаул, Алтайский край.",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Кавалерийская 14, бокс 171",
+    "addressLocality": "Барнаул",
+    "addressRegion": "Алтайский край",
+    "postalCode": "656000",
+    "addressCountry": "RU"
+  },
+  "contactPoint": [
+    { "@type": "ContactPoint", "telephone": "+79609373542", "contactType": "sales", "availableLanguage": "Russian" },
+    { "@type": "ContactPoint", "telephone": "+79609505904", "contactType": "customer service", "availableLanguage": "Russian" }
+  ],
+  "sameAs": ["https://стальпро.com", "https://2gis.ru/barnaul/firm/70000001099007177", "https://www.ozon.ru/seller/stalpro-3601542/"],
+  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
+  "areaServed": { "@type": "Country", "name": "Россия" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Клапаны для СУГ",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Скоростной клапан ТПА11", "url": "https://xn--80awjdfch6f.com/speed-valve" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Предохранительный клапан ППЦЗ-12", "url": "https://xn--80awjdfch6f.com/safety-valve" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Комплектующие для клапанов СУГ", "url": "https://xn--80awjdfch6f.com/components" } }
+    ]
+  }
+});
+
 const stats = [
   { icon: "CalendarDays", label: "на рынке", value: "с 2020 года", color: "bg-blue-50 text-blue-600" },
   { icon: "Users", label: "клиентов", value: "500+", color: "bg-green-50 text-green-600" },
@@ -60,6 +95,7 @@ export default function About() {
         <meta property="og:url" content="https://xn--80awjdfch6f.com/about" />
         <link rel="canonical" href="https://xn--80awjdfch6f.com/about" />
         <script type="application/ld+json">{breadcrumbLd}</script>
+        <script type="application/ld+json">{organizationLd}</script>
       </Helmet>
 
       <Header />
