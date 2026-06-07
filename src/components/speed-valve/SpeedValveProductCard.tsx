@@ -22,6 +22,7 @@ interface SpeedValveProductCardProps {
   onAddToCart: (product: Record<string, unknown>) => void;
   techTitle: string;
   techSpecs: TechSpec[];
+  ozonUrl?: string;
 }
 
 export default function SpeedValveProductCard({
@@ -38,6 +39,7 @@ export default function SpeedValveProductCard({
   onAddToCart,
   techTitle,
   techSpecs,
+  ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
 }: SpeedValveProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
 
@@ -107,7 +109,7 @@ export default function SpeedValveProductCard({
             </a>
           </Button>
           <Button size="sm" variant="outline" className="w-full text-xs mb-2" asChild>
-            <a href="https://www.ozon.ru/seller/stalpro-3601542/" target="_blank" rel="noopener noreferrer">
+            <a href={ozonUrl} target="_blank" rel="noopener noreferrer">
               <Icon name="ShoppingBag" className="mr-1 h-3 w-3" />
               Купить на Ozon
             </a>
