@@ -69,10 +69,10 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
           <div className="hidden md:flex space-x-8">
             <a href="/" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
             <a href="#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
+            <a href="/about" className="text-gray-700 hover:text-primary transition-colors">О нас</a>
             <a href="/blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
-            <a href="/faq" className="text-gray-700 hover:text-primary transition-colors">FAQ</a>
             <a href="/delivery" className="text-gray-700 hover:text-primary transition-colors">Доставка</a>
-            <a href="#certificates" className="text-gray-700 hover:text-primary transition-colors">Сертификаты</a>
+            <a href="/reviews" className="text-gray-700 hover:text-primary transition-colors">Отзывы</a>
             <a href="#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
           </div>
           
@@ -224,6 +224,13 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                   Продукция
                 </a>
                 <a 
+                  href="/about" 
+                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  О нас
+                </a>
+                <a 
                   href="/blog" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
@@ -231,18 +238,18 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                   Блог
                 </a>
                 <a 
-                  href="/faq" 
-                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  FAQ
-                </a>
-                <a 
                   href="/delivery" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   Доставка
+                </a>
+                <a 
+                  href="/reviews" 
+                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Отзывы
                 </a>
                 <a 
                   href="#certificates" 

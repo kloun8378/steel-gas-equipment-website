@@ -47,6 +47,8 @@ export default function Blog() {
           <BlogPostView
             post={selectedPost}
             onBack={() => setSelectedPost(null)}
+            allPosts={blogPosts}
+            onSelectPost={setSelectedPost}
           />
         )}
       </main>

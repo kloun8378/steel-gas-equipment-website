@@ -24,6 +24,8 @@ const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Delivery = lazy(() => import("./pages/Delivery"));
+const About = lazy(() => import("./pages/About"));
+const Reviews = lazy(() => import("./pages/Reviews"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -151,6 +153,8 @@ const App = () => (
                   <Delivery />
                 </Suspense>
               } />
+              <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
+              <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><Reviews /></Suspense>} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={
                 <Suspense fallback={<PageLoader />}>

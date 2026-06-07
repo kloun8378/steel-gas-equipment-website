@@ -27,6 +27,8 @@ export default function Footer() {
               <li><a href="/delivery" className="hover:text-white transition-colors">Доставка и оплата</a></li>
               <li><a href="/faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li><a href="/blog" className="hover:text-white transition-colors">Блог</a></li>
+              <li><a href="/about" className="hover:text-white transition-colors">О компании</a></li>
+              <li><a href="/reviews" className="hover:text-white transition-colors">Отзывы</a></li>
             </ul>
           </div>
 
