@@ -223,6 +223,7 @@ export default function SpeedValve() {
               onQuantityChange={setQuantity50}
               onAddToCart={handleAddToCart}
               techTitle="Технические характеристики ДУ50"
+              ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du-50-3084031673/"
               techSpecs={[
                 ...commonSpecs.slice(0, 4),
                 { label: 'Проход условный, DN', value: '50' },
