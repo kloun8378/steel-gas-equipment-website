@@ -23,6 +23,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Delivery = lazy(() => import("./pages/Delivery"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -143,6 +144,11 @@ const App = () => (
               <Route path="/pump-equipment" element={
                 <Suspense fallback={<PageLoader />}>
                   <PumpEquipment />
+                </Suspense>
+              } />
+              <Route path="/delivery" element={
+                <Suspense fallback={<PageLoader />}>
+                  <Delivery />
                 </Suspense>
               } />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

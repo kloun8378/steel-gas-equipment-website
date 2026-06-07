@@ -162,6 +162,12 @@ export default function PumpEquipment() {
                     />
                     <span className="text-sm text-gray-600">шт.</span>
                   </div>
+                  <Button size="lg" variant="outline" className="w-full mb-2" asChild>
+                    <a href="https://www.ozon.ru/seller/stalpro-3601542/" target="_blank" rel="noopener noreferrer">
+                      <Icon name="ShoppingBag" className="mr-1 h-3 w-3" />
+                      Купить на Ozon
+                    </a>
+                  </Button>
                   <Button
                     size="lg"
                     className="w-full"

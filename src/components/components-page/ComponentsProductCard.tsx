@@ -117,6 +117,12 @@ export default function ComponentsProductCard({
               className="w-16 px-2 py-1 border rounded text-center"
             />
           </div>
+          <Button className="w-full mb-2" size="lg" variant="outline" asChild>
+            <a href="https://www.ozon.ru/seller/stalpro-3601542/" target="_blank" rel="noopener noreferrer">
+              <Icon name="ShoppingBag" className="mr-2 h-5 w-5" />
+              Купить на Ozon
+            </a>
+          </Button>
           <Button
             className="w-full mb-2"
             size="lg"
@@ -147,7 +153,7 @@ export default function ComponentsProductCard({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
             {relatedProducts.map((product) => (
               <div key={product.id} className="border rounded-lg p-4 flex flex-col gap-2">
-                <img src={product.image} alt={product.name} className="w-full h-32 object-contain rounded bg-white border" />
+                <img src={product.image} alt={product.name} className="w-full h-32 object-contain rounded bg-white border" loading="lazy" />
                 <div className="font-semibold text-sm text-gray-900">{product.name}</div>
                 <div className="text-xs text-gray-500">{product.description}</div>
                 <div className="text-sm font-bold text-primary">{product.priceLabel} <span className="text-xs text-gray-500 font-normal">с НДС</span></div>

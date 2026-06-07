@@ -22,6 +22,15 @@ export default function Footer() {
           </div>
 
           <div>
+            <h6 className="font-semibold mb-4">Информация</h6>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="/delivery" className="hover:text-white transition-colors">Доставка и оплата</a></li>
+              <li><a href="/faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="/blog" className="hover:text-white transition-colors">Блог</a></li>
+            </ul>
+          </div>
+
+          <div>
             <h6 className="font-semibold mb-4">Контакты</h6>
             <ul className="space-y-2 text-gray-400">
               <li>Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</li>
