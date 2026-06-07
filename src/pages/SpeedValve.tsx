@@ -187,6 +187,7 @@ export default function SpeedValve() {
                 { label: 'Строительная длина, B (мм)', value: '35' },
                 ...commonSpecs.slice(4),
               ]}
+              ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du25-3081882065/"
             />
 
             <SpeedValveProductCard

@@ -168,6 +168,7 @@ export default function SpeedValveDU25() {
             onAddToCart={handleAddToCart}
             techTitle="Технические характеристики ТПА11-025 ДУ25"
             techSpecs={techSpecs}
+            ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du25-3081882065/"
           />
 
           <SpeedValveDetails du="25" />
