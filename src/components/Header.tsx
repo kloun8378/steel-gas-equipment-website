@@ -207,7 +207,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                 <Icon name="Menu" className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[400px]">
+            <SheetContent side="right" className="w-[min(85vw,300px)] sm:w-[400px]">
               <nav className="flex flex-col space-y-4 mt-8">
                 <a 
                   href="/" 

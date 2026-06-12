@@ -53,8 +53,8 @@ export default function Products() {
               onClick={() => window.location.href = p.href}
             >
               <CardHeader>
-                <div className="bg-primary/10 w-56 h-56 rounded-lg flex items-center justify-center mb-12">
-                  <img src={p.img} alt={p.alt} className="h-48 w-48 object-contain rounded" loading="lazy" />
+                <div className="bg-primary/10 w-full aspect-square max-w-[224px] mx-auto rounded-lg flex items-center justify-center mb-4">
+                  <img src={p.img} alt={p.alt} className="w-4/5 h-4/5 object-contain rounded" loading="lazy" />
                 </div>
                 <CardTitle>{p.title}</CardTitle>
               </CardHeader>
