@@ -70,6 +70,24 @@ export default function ContactForm() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <a
+                  href="https://wa.me/79609373542"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white px-4 py-3 rounded-lg transition-colors"
+                >
+                  <span className="font-medium">WhatsApp Макс</span>
+                  <Icon name="ExternalLink" className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://t.me/+79609373542"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#229ED9] hover:bg-[#1a8ec4] text-white px-4 py-3 rounded-lg transition-colors"
+                >
+                  <span className="font-medium">Telegram Макс</span>
+                  <Icon name="ExternalLink" className="h-4 w-4" />
+                </a>
+                <a
                   href="https://2gis.ru/barnaul/firm/70000001099007177/83.669911%2C53.381012?m=83.672704%2C53.378973%2F16.76"
                   target="_blank"
                   rel="noopener noreferrer"
