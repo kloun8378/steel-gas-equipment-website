@@ -68,12 +68,12 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
           {/* Десктоп меню */}
           <div className="hidden md:flex space-x-8">
             <a href="/" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
-            <a href="#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
+            <a href="/#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
             <a href="/about" className="text-gray-700 hover:text-primary transition-colors">О нас</a>
             <a href="/blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
             <a href="/delivery" className="text-gray-700 hover:text-primary transition-colors">Доставка</a>
             <a href="/reviews" className="text-gray-700 hover:text-primary transition-colors">Отзывы</a>
-            <a href="#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
+            <a href="/#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
           </div>
           
           {/* Десктоп личный кабинет */}
@@ -217,7 +217,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                   Главная
                 </a>
                 <a 
-                  href="#products" 
+                  href="/#products" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
@@ -259,7 +259,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                   Сертификаты
                 </a>
                 <a 
-                  href="#contacts" 
+                  href="/#contacts" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
