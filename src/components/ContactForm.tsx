@@ -197,8 +197,8 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Карта 2ГИС */}
-        <div className="mt-12">
+        {/* Карта 2ГИС - удалена */}
+        <div className="hidden mt-12">
           <h4 className="text-xl font-semibold mb-4 text-gray-900">Как нас найти</h4>
           <div className="rounded-xl overflow-hidden border border-gray-200" style={{height: '360px'}}>
             <iframe
