@@ -59,14 +59,19 @@ function ScrollToAnchor() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
-      const element = document.getElementById(location.hash.slice(1));
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    let attempts = 0;
+    const tryScroll = () => {
+      const element = document.getElementById(id);
       if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (attempts < 20) {
+        attempts++;
+        setTimeout(tryScroll, 150);
       }
-    }
+    };
+    setTimeout(tryScroll, 100);
   }, [location]);
 
   return null;
