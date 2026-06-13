@@ -79,6 +79,10 @@ export default function SpeedValveProductCard({
         </div>
         <div className="text-center">
           <h3 className="text-sm font-semibold text-gray-900 mb-1">{name}</h3>
+          <div className="flex items-center justify-center gap-1 mb-1">
+            <div className="flex text-yellow-400 text-sm">{'★★★★★'}</div>
+            <span className="text-xs text-gray-500">4.9 (18 отзывов)</span>
+          </div>
           <p className="text-xs text-gray-600 mb-2">{description}</p>
           <div className="text-lg font-bold text-primary mb-3">
             {price} <span className="text-xs text-gray-500">с НДС</span>
