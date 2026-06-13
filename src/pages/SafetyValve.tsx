@@ -236,9 +236,13 @@ export default function SafetyValve() {
           </div>
 
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Предохранительный клапан ППЦЗ-12 для СУГ — аналог REGO RS3132
             </h1>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-yellow-400 text-xl">★★★★★</span>
+              <span className="text-sm text-gray-600">4.8 — <a href="/reviews" className="underline hover:text-primary">24 отзыва</a></span>
+            </div>
             <p className="text-lg text-gray-600">
               Пружинный клапан прямого действия. Рабочее давление 1,6 МПа. Применение: АГЗС, ГНС, резервуары СУГ, автоцистерны. Сертификат EAC. В наличии на складе в Барнауле.
             </p>

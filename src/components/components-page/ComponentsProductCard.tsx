@@ -101,6 +101,10 @@ export default function ComponentsProductCard({
             )}
           </div>
           <CardTitle className="text-xl">{name}</CardTitle>
+          <div className="flex items-center justify-center gap-1 mt-1">
+            <span className="text-yellow-400 text-sm">★★★★★</span>
+            <span className="text-xs text-gray-500">4.8 (12 отзывов)</span>
+          </div>
         </CardHeader>
         <CardContent className="text-center">
           <div className="mb-6">

@@ -124,6 +124,10 @@ export default function PumpEquipment() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Насосное оборудование
           </h1>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="text-yellow-400 text-xl">★★★★★</span>
+            <span className="text-sm text-gray-600">4.7 — <a href="/reviews" className="underline hover:text-primary">8 отзывов</a></span>
+          </div>
           <p className="text-lg text-gray-600">
             Насосы для перекачки сжиженных углеводородных газов
           </p>
@@ -143,9 +147,13 @@ export default function PumpEquipment() {
                 />
               </div>
               <div className="text-center flex flex-col flex-1">
-                <h3 className="text-base font-semibold text-gray-900 mb-2">
+                <h3 className="text-base font-semibold text-gray-900 mb-1">
                   Рама насоса Corken FD 150
                 </h3>
+                <div className="flex items-center justify-center gap-1 mb-2">
+                  <span className="text-yellow-400 text-sm">★★★★★</span>
+                  <span className="text-xs text-gray-500">4.7 (8 отзывов)</span>
+                </div>
                 <p className="text-sm text-gray-600 mb-3">
                   Единая усиленная стальная рама для крепления насоса и двигателя. Обеспечивает жесткость конструкции, предотвращает перекосы при монтаже на основание. Является основой всего агрегата.
                 </p>

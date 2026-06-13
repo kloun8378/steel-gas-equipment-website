@@ -52,9 +52,13 @@ export default function SafetyValveProductCard({
           {showSpecs && specsContent}
         </div>
         <div className="text-center flex flex-col flex-1">
-          <h3 className="text-base font-semibold text-gray-900 mb-2 min-h-[3rem] flex items-start justify-center">
+          <h3 className="text-base font-semibold text-gray-900 mb-1 min-h-[3rem] flex items-start justify-center">
             {name}
           </h3>
+          <div className="flex items-center justify-center gap-1 mb-2">
+            <span className="text-yellow-400 text-sm">★★★★★</span>
+            <span className="text-xs text-gray-500">4.8 (24 отзыва)</span>
+          </div>
           <p className="text-sm text-gray-600 mb-3">{description}</p>
           <div className="text-2xl font-bold text-primary mb-4">
             {priceLabel} <span className="text-sm text-gray-500">с НДС</span>
