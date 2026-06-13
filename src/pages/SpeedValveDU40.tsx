@@ -119,11 +119,8 @@ export default function SpeedValveDU40() {
 
           <div className="mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Скоростной клапан межфланцевый ТПА11-040 (ДУ40)
+              Скоростной межфланцевый клапан
             </h1>
-            <p className="text-base sm:text-lg text-gray-600">
-              Аварийное отключение потока СУГ. Аналог ZNW DN40, VENGO 40. Цена 7 015 ₽ с НДС.
-            </p>
           </div>
 
           {/* Ссылки на другие модели */}

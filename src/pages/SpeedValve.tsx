@@ -153,11 +153,8 @@ export default function SpeedValve() {
 
           <div className="mb-6 sm:mb-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Скоростной клапан межфланцевый ТПА11 для АГЗС и ГНС
+              Скоростной межфланцевый клапан
             </h1>
-            <p className="text-base sm:text-lg text-gray-600 mb-4">
-              Аналог ZNW, VENGO, AZT, КС-40 — аварийное отключение потока СУГ. Сертификат EAC. В наличии на складе в Барнауле.
-            </p>
             <div className="flex flex-wrap gap-2">
               <span className="text-sm text-gray-500 self-center">Выбрать модель:</span>
               <a href="/speed-valve/tpa11-025" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-025 ДУ25 — 5 592 ₽</a>
