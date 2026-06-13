@@ -165,7 +165,7 @@ export default function SpeedValve() {
 
           <div className="mb-6 sm:mb-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              Купить скоростной клапан межфланцевый ТПА11 — ДУ25, ДУ32, ДУ40, ДУ50
+              Скоростной межфланцевый клапан — ДУ25, ДУ32, ДУ40, ДУ50
             </h1>
             <div className="flex items-center gap-2 mb-4">
               <span className="text-yellow-400 text-xl">★★★★★</span>
