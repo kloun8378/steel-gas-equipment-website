@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCard';
 import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
 import SpeedValveDetails from '@/components/speed-valve/SpeedValveDetails';
+import SpeedValveFAQ from '@/components/speed-valve/SpeedValveFAQ';
 import Icon from '@/components/ui/icon';
 
 const commonSpecs = [
@@ -173,6 +174,7 @@ export default function SpeedValveDU40() {
           />
 
           <SpeedValveDetails du="40" />
+          <SpeedValveFAQ du="40" />
         </div>
 
         <SpeedValveCart />
