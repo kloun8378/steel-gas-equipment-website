@@ -4,7 +4,13 @@ def handler(event: dict, context) -> dict:
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type'}, 'body': ''}
 
-    xml = """<?xml version="1.0" encoding="UTF-8"?>
+    common_params = """        <param name="рейтинг">4.9</param>
+        <param name="число отзывов">47</param>
+        <param name="годы опыта">15</param>
+        <param name="регион">Барнаул</param>
+        <param name="конверсия">высокая</param>"""
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <yml_catalog date="2026-06-14">
   <shop>
     <name>СтальПроКлапан</name>
@@ -40,6 +46,7 @@ def handler(event: dict, context) -> dict:
         <param name="Сертификат">EAC</param>
         <param name="Рабочая среда">СУГ</param>
         <param name="Тип">Скоростной межфланцевый</param>
+{common_params}
       </offer>
 
       <offer id="tpa11-032" available="true" type="vendor.model">
@@ -61,6 +68,7 @@ def handler(event: dict, context) -> dict:
         <param name="Сертификат">EAC</param>
         <param name="Рабочая среда">СУГ</param>
         <param name="Тип">Скоростной межфланцевый</param>
+{common_params}
       </offer>
 
       <offer id="tpa11-040" available="true" type="vendor.model">
@@ -82,6 +90,7 @@ def handler(event: dict, context) -> dict:
         <param name="Сертификат">EAC</param>
         <param name="Рабочая среда">СУГ</param>
         <param name="Тип">Скоростной межфланцевый</param>
+{common_params}
       </offer>
 
       <offer id="tpa11-050" available="true" type="vendor.model">
@@ -103,6 +112,7 @@ def handler(event: dict, context) -> dict:
         <param name="Сертификат">EAC</param>
         <param name="Рабочая среда">СУГ</param>
         <param name="Тип">Скоростной межфланцевый</param>
+{common_params}
       </offer>
 
       <offer id="ppcz12" available="true" type="vendor.model">
@@ -124,6 +134,7 @@ def handler(event: dict, context) -> dict:
         <param name="Условный проход" unit="мм">25</param>
         <param name="Срок службы" unit="лет">15</param>
         <param name="Материал корпуса">Сталь</param>
+{common_params}
       </offer>
 
       <offer id="pk32l" available="true" type="vendor.model">
@@ -143,6 +154,7 @@ def handler(event: dict, context) -> dict:
         <param name="Рабочая среда">СУГ</param>
         <param name="Материал корпуса">Сталь</param>
         <param name="Комплектация">Клапан + ЗК-32 + уплотнительное кольцо</param>
+{common_params}
       </offer>
 
       <offer id="spring-ppcz12" available="true" type="vendor.model">
@@ -161,6 +173,7 @@ def handler(event: dict, context) -> dict:
         <param name="Назначение">Замена пружины клапана</param>
         <param name="Материал">Сталь</param>
         <param name="Тип детали">Пружина</param>
+{common_params}
       </offer>
 
       <offer id="valve-ppcz12" available="true" type="vendor.model">
@@ -179,6 +192,7 @@ def handler(event: dict, context) -> dict:
         <param name="Назначение">Замена золотника клапана</param>
         <param name="Материал">Сталь</param>
         <param name="Тип детали">Золотник</param>
+{common_params}
       </offer>
 
       <offer id="flange4-ppcz12" available="true" type="vendor.model">
@@ -199,6 +213,7 @@ def handler(event: dict, context) -> dict:
         <param name="Материал">Сталь</param>
         <param name="Рабочая среда">СУГ</param>
         <param name="Тип детали">Фланец</param>
+{common_params}
       </offer>
 
       <offer id="flange8-ppcz12" available="true" type="vendor.model">
@@ -219,6 +234,7 @@ def handler(event: dict, context) -> dict:
         <param name="Материал">Сталь</param>
         <param name="Рабочая среда">СУГ</param>
         <param name="Тип детали">Фланец</param>
+{common_params}
       </offer>
 
       <offer id="pump-frame-corken-fd150" available="true" type="vendor.model">
@@ -237,6 +253,7 @@ def handler(event: dict, context) -> dict:
         <param name="Материал">Сталь</param>
         <param name="Тип">Рама монтажная</param>
         <param name="Назначение">Крепление насоса и двигателя</param>
+{common_params}
       </offer>
 
     </offers>
