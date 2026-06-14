@@ -266,6 +266,7 @@ export default function SafetyValve() {
                 quantity,
               })}
               onRelatedOpen={() => setRelatedOpen(true)}
+              ozonUrl="https://www.ozon.ru/product/predohranitelnyy-klapan-pptsz-12-3084148966/"
               showSpecs={showSpecs}
               onToggleSpecs={() => setShowSpecs(!showSpecs)}
               specsContent={specsContentPpcz12}

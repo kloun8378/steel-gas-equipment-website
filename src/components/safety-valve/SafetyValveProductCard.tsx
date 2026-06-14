@@ -14,6 +14,7 @@ interface SafetyValveProductCardProps {
   onAddToCart: () => void;
   onRelatedOpen: () => void;
   passportUrl?: string;
+  ozonUrl?: string;
   showSpecs: boolean;
   onToggleSpecs: () => void;
   specsContent: ReactNode;
@@ -30,6 +31,7 @@ export default function SafetyValveProductCard({
   onAddToCart,
   onRelatedOpen,
   passportUrl = 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/docs/passport-safety-valve.pdf',
+  ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
   showSpecs,
   onToggleSpecs,
   specsContent,
@@ -85,7 +87,7 @@ export default function SafetyValveProductCard({
               </a>
             </Button>
             <Button size="lg" variant="outline" className="w-full mb-2" asChild>
-              <a href="https://www.ozon.ru/seller/stalpro-3601542/" target="_blank" rel="noopener noreferrer">
+              <a href={ozonUrl} target="_blank" rel="noopener noreferrer">
                 <Icon name="ShoppingBag" className="mr-1 h-3 w-3" />
                 Купить на Ozon
               </a>
