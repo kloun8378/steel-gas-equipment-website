@@ -224,6 +224,7 @@ export default function Components() {
                 quantity={quantitySpring}
                 onQuantityChange={setQuantitySpring}
                 onAddToCart={handleAddToCart}
+                ozonUrl="https://www.ozon.ru/product/pruzhina-k-predohranitelnomu-klapanu-pptsz-12-3084160991/"
                 popoverWidth="w-80"
                 popoverRows={[
                   { text: 'Пружина предохранительного клапана применяется в клапане ППЦЗ-12.' },

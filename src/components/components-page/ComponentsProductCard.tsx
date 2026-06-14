@@ -35,6 +35,7 @@ interface ComponentsProductCardProps {
   popoverWidth?: string;
   popoverRows: PopoverRow[];
   relatedProducts?: RelatedProduct[];
+  ozonUrl?: string;
 }
 
 export default function ComponentsProductCard({
@@ -50,6 +51,7 @@ export default function ComponentsProductCard({
   onAddToCart,
   popoverRows,
   relatedProducts = [],
+  ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
 }: ComponentsProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
@@ -122,7 +124,7 @@ export default function ComponentsProductCard({
             />
           </div>
           <Button className="w-full mb-2" size="lg" variant="outline" asChild>
-            <a href="https://www.ozon.ru/seller/stalpro-3601542/" target="_blank" rel="noopener noreferrer">
+            <a href={ozonUrl} target="_blank" rel="noopener noreferrer">
               <Icon name="ShoppingBag" className="mr-2 h-5 w-5" />
               Купить на Ozon
             </a>
