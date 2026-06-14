@@ -289,6 +289,7 @@ export default function SafetyValve() {
                 quantity: quantity2,
               })}
               onRelatedOpen={() => setRelatedOpen(true)}
+              ozonUrl="https://www.ozon.ru/product/klapan-predohranitelnyy-rs3132-3201218309/"
               passportUrl="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/docs/passport-pk32l.pdf"
               showSpecs={showSpecs2}
               onToggleSpecs={() => setShowSpecs2(!showSpecs2)}
