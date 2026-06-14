@@ -4,11 +4,13 @@ def handler(event: dict, context) -> dict:
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type'}, 'body': ''}
 
-    common_params = """        <param name="рейтинг">4.9</param>
-        <param name="число отзывов">47</param>
-        <param name="годы опыта">15</param>
-        <param name="регион">Барнаул</param>
-        <param name="конверсия">высокая</param>"""
+    common_params = """        <params>
+          <param name="рейтинг" type="numeric">4.9</param>
+          <param name="число отзывов" type="numeric">47</param>
+          <param name="годы опыта" type="numeric">15</param>
+          <param name="регион" type="string">Барнаул</param>
+          <param name="конверсия" type="string">высокая</param>
+        </params>"""
 
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <yml_catalog date="2026-06-14">
