@@ -86,7 +86,7 @@ def handler(event: dict, context) -> dict:
       </offer>
       <offer id="ppcz12" available="true">
         <name>Предохранительный клапан ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve</url>
+        <url>https://www.ozon.ru/product/predohranitelnyy-klapan-pptsz-12-3084148966/</url>
         <price>9659</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
