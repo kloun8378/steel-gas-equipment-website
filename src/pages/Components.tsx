@@ -263,6 +263,7 @@ export default function Components() {
                 quantity={quantityFlange4}
                 onQuantityChange={setQuantityFlange4}
                 onAddToCart={handleAddToCart}
+                ozonUrl="https://www.ozon.ru/product/flanets-dlya-pptsz-12-07-00-000-3527815507/"
                 popoverRows={[
                   ...flangeSpecs,
                   { isPrice: true, price: '4 372 ₽' },
