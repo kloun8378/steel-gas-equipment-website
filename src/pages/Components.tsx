@@ -282,6 +282,7 @@ export default function Components() {
                 quantity={quantityFlange}
                 onQuantityChange={setQuantityFlange}
                 onAddToCart={handleAddToCart}
+                ozonUrl="https://www.ozon.ru/product/flanets-dlya-predohranitelnogo-klapana-pptsz-12-3084202121/"
                 popoverRows={[
                   ...flangeSpecs,
                   { isPrice: true, price: '4 372 ₽' },
