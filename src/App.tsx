@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-route
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import StructuredData from "./components/StructuredData";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Главная страница загружается сразу
 import Index from "./pages/Index";
@@ -110,6 +111,7 @@ const App = () => (
           <CartProvider>
             <StructuredData />
             <ScrollToAnchor />
+            <ErrorBoundary>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/speed-valve" element={
@@ -187,6 +189,7 @@ const App = () => (
                 </Suspense>
               } />
             </Routes>
+            </ErrorBoundary>
           </CartProvider>
         </AuthProvider>
       </BrowserRouter>
