@@ -23,6 +23,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const ServiceUnavailable = lazy(() => import("./pages/ServiceUnavailable"));
 const Delivery = lazy(() => import("./pages/Delivery"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const About = lazy(() => import("./pages/About"));
@@ -174,6 +175,11 @@ const App = () => (
               <Route path="/speed-valve/tpa11-032" element={<Suspense fallback={<PageLoader />}><SpeedValveDU32 /></Suspense>} />
               <Route path="/speed-valve/tpa11-040" element={<Suspense fallback={<PageLoader />}><SpeedValveDU40 /></Suspense>} />
               <Route path="/speed-valve/tpa11-050" element={<Suspense fallback={<PageLoader />}><SpeedValveDU50 /></Suspense>} />
+              <Route path="/service-unavailable" element={
+                <Suspense fallback={<PageLoader />}>
+                  <ServiceUnavailable />
+                </Suspense>
+              } />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={
                 <Suspense fallback={<PageLoader />}>
