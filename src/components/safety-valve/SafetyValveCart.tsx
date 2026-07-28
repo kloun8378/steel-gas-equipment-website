@@ -38,6 +38,7 @@ export default function SafetyValveCart({
               <img
                 src={item.image}
                 alt={item.name}
+                loading="lazy"
                 className="w-16 h-16 object-cover rounded"
               />
 

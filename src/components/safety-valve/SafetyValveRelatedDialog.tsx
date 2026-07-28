@@ -38,7 +38,7 @@ export default function SafetyValveRelatedDialog({
           {relatedProducts.map((product) => (
             <div key={product.id} className="border rounded-xl p-5 flex flex-col gap-3">
               <div className="w-full h-56 rounded-lg overflow-hidden bg-gray-100">
-                <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
+                <img src={product.image} alt={product.name} loading="lazy" className="w-full h-full object-contain" />
               </div>
               <div className="font-semibold text-base text-gray-900">{product.name}</div>
               <div className="text-sm text-gray-500">{product.description}</div>
