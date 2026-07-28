@@ -110,6 +110,7 @@ export default function Reviews() {
         <meta name="keywords" content="отзывы СтальПроКлапан, отзывы клапаны ППЦЗ-12, ТПА11 отзывы, оборудование СУГ отзывы" />
         <meta property="og:title" content="Отзывы клиентов о СтальПроКлапан — клапаны ППЦЗ-12 и ТПА11" />
         <meta property="og:description" content="Рейтинг 4.9 из 5 по 23 отзывам. Клиенты о клапанах для АГЗС и ГНС от СтальПроКлапан." />
+        <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://xn--80awjdfch6f.com/reviews" />
         <link rel="canonical" href="https://xn--80awjdfch6f.com/reviews" />

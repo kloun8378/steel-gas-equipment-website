@@ -91,6 +91,7 @@ export default function About() {
         <meta name="keywords" content="о компании СтальПроКлапан, производитель клапанов СУГ, Барнаул, ППЦЗ-12, ТПА11, история компании" />
         <meta property="og:title" content="О компании СтальПроКлапан — производство клапанов СУГ с 2020 года" />
         <meta property="og:description" content="Российский производитель клапанов для АГЗС и ГНС. Основана в 2020 году, Барнаул. 500+ клиентов, сертификат EAC." />
+        <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://xn--80awjdfch6f.com/about" />
         <link rel="canonical" href="https://xn--80awjdfch6f.com/about" />

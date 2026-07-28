@@ -2,16 +2,12 @@ import { useEffect } from 'react';
 
 export default function StructuredData() {
   useEffect(() => {
-    // Удаляем предыдущие ld+json scripts
-    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-    existingScripts.forEach(script => script.remove());
-
     // Организация (компания)
     const organizationSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "СтальПро",
-      "legalName": "СтальПро",
+      "name": "СтальПроКлапан",
+      "legalName": "СтальПроКлапан",
       "url": "https://xn--80awjdfch6f.com",
       "logo": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
       "description": "Производство и поставка газовой арматуры, промышленного газового оборудования",
@@ -51,7 +47,7 @@ export default function StructuredData() {
     const localBusinessSchema = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "СтальПро",
+      "name": "СтальПроКлапан",
       "image": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
       "address": {
         "@type": "PostalAddress",
@@ -63,8 +59,8 @@ export default function StructuredData() {
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 53.3606,
-        "longitude": 83.7636
+        "latitude": 53.3548,
+        "longitude": 83.7524
       },
       "telephone": "+7-960-937-35-42",
       "email": "sadoxa1996@mail.ru",
@@ -148,7 +144,7 @@ export default function StructuredData() {
     const websiteSchema = {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "СтальПро - Газовая арматура",
+      "name": "СтальПроКлапан - Газовая арматура",
       "description": "Производство и поставка газовой арматуры, промышленного газового оборудования",
       "url": "https://xn--80awjdfch6f.com",
       "potentialAction": {
@@ -161,7 +157,7 @@ export default function StructuredData() {
       },
       "publisher": {
         "@type": "Organization",
-        "name": "СтальПро"
+        "name": "СтальПроКлапан"
       },
       "copyrightYear": "2024",
       "inLanguage": "ru-RU"
