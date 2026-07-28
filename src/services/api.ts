@@ -1,6 +1,7 @@
 import funcUrls from '../../backend/func2url.json';
 
 const API_URL = funcUrls.api;
+const BLOG_URL = funcUrls['blog-generate'];
 
 function getToken(): string | null {
   return localStorage.getItem('authToken');
@@ -87,6 +88,16 @@ export const api = {
 
   sendEmail: async (data: { type: string; name?: string; email?: string; phone?: string; message?: string; params?: Record<string, unknown>; template_id?: string }) => {
     return await request('send-email', 'POST', data);
+  },
+
+  getBlogPosts: async () => {
+    const res = await fetch(BLOG_URL);
+    return await res.json();
+  },
+
+  getBlogPost: async (slug: string) => {
+    const res = await fetch(`${BLOG_URL}?slug=${encodeURIComponent(slug)}`);
+    return await res.json();
   },
 
   getToken,

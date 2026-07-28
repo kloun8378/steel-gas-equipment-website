@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS запрос возвращает CORS заголовки",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Получить список статей блога",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}

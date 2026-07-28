@@ -1,12 +1,13 @@
 import IndustryNews from "@/components/IndustryNews";
 import Icon from "@/components/ui/icon";
-import { categories, BlogPost } from "./blogData";
+import { BlogPost } from "./blogData";
 
 interface BlogListProps {
   filteredPosts: BlogPost[];
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
   onSelectPost: (post: BlogPost) => void;
+  categories: string[];
 }
 
 export default function BlogList({
@@ -14,6 +15,7 @@ export default function BlogList({
   selectedCategory,
   onSelectCategory,
   onSelectPost,
+  categories,
 }: BlogListProps) {
   return (
     <>

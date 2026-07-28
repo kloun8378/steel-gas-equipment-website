@@ -1,15 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogHead from "@/components/blog/BlogHead";
 import BlogList from "@/components/blog/BlogList";
 import BlogPostView from "@/components/blog/BlogPost";
-import { blogPosts, BlogPost } from "@/components/blog/blogData";
+import { BlogPost, defaultCategories } from "@/components/blog/blogData";
+import api from "@/services/api";
 
 export default function Blog() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<string[]>(defaultCategories);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("Все");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+
+  useEffect(() => {
+    api.getBlogPosts()
+      .then((data) => {
+        const posts: BlogPost[] = data.posts || [];
+        setBlogPosts(posts);
+        setCategories(["Все", ...Array.from(new Set(posts.map((p) => p.category)))]);
+      })
+      .catch(() => setBlogPosts([]))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   const filteredPosts = selectedCategory === "Все"
     ? blogPosts
@@ -36,12 +51,15 @@ export default function Blog() {
       <Header />
 
       <main className="flex-1">
-        {!selectedPost ? (
+        {isLoading ? (
+          <div className="py-24 text-center text-gray-500">Загрузка статей...</div>
+        ) : !selectedPost ? (
           <BlogList
             filteredPosts={filteredPosts}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
             onSelectPost={setSelectedPost}
+            categories={categories}
           />
         ) : (
           <BlogPostView

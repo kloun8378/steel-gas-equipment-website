@@ -1,26 +1,56 @@
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/icon";
-import { blogPosts } from "@/components/blog/blogData";
+import { BlogPost } from "@/components/blog/blogData";
+import api from "@/services/api";
 
 export default function BlogArticle() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [related, setRelated] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const post = blogPosts.find(p => p.slug === slug);
+  useEffect(() => {
+    if (!slug) return;
+    setIsLoading(true);
+    api.getBlogPost(slug)
+      .then((data) => {
+        if (!data.post) {
+          navigate("/blog", { replace: true });
+          return;
+        }
+        setPost(data.post);
+        return api.getBlogPosts().then((all) => {
+          const allPosts: BlogPost[] = all.posts || [];
+          const rel = allPosts
+            .filter((p) => p.id !== data.post.id && p.category === data.post.category)
+            .slice(0, 3)
+            .concat(allPosts.filter((p) => p.id !== data.post.id && p.category !== data.post.category))
+            .slice(0, 3);
+          setRelated(rel);
+        });
+      })
+      .catch(() => navigate("/blog", { replace: true }))
+      .finally(() => setIsLoading(false));
+  }, [slug, navigate]);
 
-  if (!post) {
-    navigate("/blog", { replace: true });
-    return null;
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <div className="min-h-screen flex items-center justify-center text-gray-500">Загрузка статьи...</div>
+        <Footer />
+      </>
+    );
   }
 
-  const related = blogPosts
-    .filter(p => p.id !== post.id && p.category === post.category)
-    .slice(0, 3)
-    .concat(blogPosts.filter(p => p.id !== post.id && p.category !== post.category))
-    .slice(0, 3);
+  if (!post) {
+    return null;
+  }
 
   const ldJson = JSON.stringify({
     "@context": "https://schema.org",
