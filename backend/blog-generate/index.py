@@ -1,4 +1,4 @@
-"""Блог: чтение статей (GET) и автогенерация новой статьи через OpenAI (action=generate).
+"""Блог: чтение статей (GET) и автогенерация новой статьи через YandexGPT (action=generate).
 Функция generate предназначена для периодического вызова внешним планировщиком (например, раз в неделю)."""
 import json
 import os
@@ -94,30 +94,47 @@ def slugify(text):
     return result[:80].strip('-')
 
 
-def call_openai(topic, category_hint):
-    api_key = os.environ['OPENAI_API_KEY']
+def extract_json(text):
+    text = text.strip()
+    if text.startswith('```'):
+        text = re.sub(r'^```(?:json)?\s*', '', text)
+        text = re.sub(r'\s*```$', '', text)
+    start = text.find('{')
+    end = text.rfind('}')
+    if start != -1 and end != -1:
+        text = text[start:end + 1]
+    return json.loads(text)
+
+
+def call_yandex_gpt(topic, category_hint):
+    api_key = os.environ['YANDEX_GPT_API_KEY']
+    folder_id = os.environ['YANDEX_FOLDER_ID']
     payload = {
-        'model': 'gpt-4o-mini',
+        'modelUri': f'gpt://{folder_id}/yandexgpt/latest',
+        'completionOptions': {
+            'stream': False,
+            'temperature': 0.7,
+            'maxTokens': '2000'
+        },
         'messages': [
-            {'role': 'system', 'content': SYSTEM_PROMPT},
-            {'role': 'user', 'content': f'Тема статьи: {topic}\nПредпочтительная категория: {category_hint}'}
-        ],
-        'temperature': 0.7,
-        'response_format': {'type': 'json_object'}
+            {'role': 'system', 'text': SYSTEM_PROMPT},
+            {'role': 'user', 'text': f'Тема статьи: {topic}\nПредпочтительная категория: {category_hint}'}
+        ]
     }
     req = urllib.request.Request(
-        'https://api.openai.com/v1/chat/completions',
+        'https://llm.api.cloud.yandex.net/foundationModels/v1/completion',
         data=json.dumps(payload).encode('utf-8'),
         headers={
             'Content-Type': 'application/json',
-            'Authorization': f'Bearer {api_key}'
+            'Authorization': f'Api-Key {api_key}',
+            'x-folder-id': folder_id
         },
         method='POST'
     )
     with urllib.request.urlopen(req, timeout=60) as resp:
         data = json.loads(resp.read().decode('utf-8'))
-    content = data['choices'][0]['message']['content']
-    return json.loads(content)
+    content = data['result']['alternatives'][0]['message']['text']
+    return extract_json(content)
 
 
 def handle_generate(event, conn):
@@ -138,11 +155,11 @@ def handle_generate(event, conn):
     category_hint = random.choice(CATEGORIES)
 
     try:
-        generated = call_openai(topic, category_hint)
+        generated = call_yandex_gpt(topic, category_hint)
     except urllib.error.HTTPError as e:
         cur.close()
         error_body = e.read().decode('utf-8', errors='ignore')
-        return json_response(502, {'error': 'Ошибка запроса к OpenAI', 'details': error_body})
+        return json_response(502, {'error': 'Ошибка запроса к YandexGPT', 'details': error_body})
     except Exception as e:
         cur.close()
         return json_response(500, {'error': f'Ошибка генерации: {str(e)}'})
@@ -210,7 +227,7 @@ def handle_list_or_get(event, conn):
 
 def handler(event: dict, context) -> dict:
     """Блог: GET без параметров — список статей, GET?slug=... — одна статья,
-    GET/POST?action=generate — сгенерировать новую статью через OpenAI (требует X-Secret-Key)"""
+    GET/POST?action=generate — сгенерировать новую статью через YandexGPT (требует X-Secret-Key)"""
     method = event.get('httpMethod', 'GET')
 
     if method == 'OPTIONS':
