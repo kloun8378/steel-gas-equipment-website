@@ -9,6 +9,7 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import StructuredData from "./components/StructuredData";
 import ErrorBoundary from "./components/ErrorBoundary";
+import SEOHead from "./components/SEOHead";
 
 // Главная страница загружается сразу
 import Index from "./pages/Index";
@@ -185,6 +186,11 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={
                 <Suspense fallback={<PageLoader />}>
+                  <SEOHead
+                    title="Страница не найдена — СтальПроКлапан"
+                    description="Запрашиваемая страница не существует или была перемещена."
+                    noindex={true}
+                  />
                   <NotFound />
                 </Suspense>
               } />
