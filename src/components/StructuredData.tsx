@@ -1,79 +1,9 @@
 import { useEffect } from 'react';
 
+// Organization, LocalBusiness и WebSite schema уже добавлены статически в index.html
+// (видны краулерам без выполнения JS). Здесь только уникальные данные, которых там нет.
 export default function StructuredData() {
   useEffect(() => {
-    // Организация (компания)
-    const organizationSchema = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "СтальПроКлапан",
-      "legalName": "СтальПроКлапан",
-      "url": "https://xn--80awjdfch6f.com",
-      "logo": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
-      "description": "Производство и поставка газовой арматуры, промышленного газового оборудования",
-      "foundingDate": "2020",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ул. Кавалерийская 14, бокс 171",
-        "addressLocality": "Барнаул",
-        "addressRegion": "Алтайский край",
-        "addressCountry": "RU"
-      },
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+7-960-937-35-42",
-        "contactType": "sales"
-      }, {
-        "@type": "ContactPoint", 
-        "telephone": "+7-960-950-59-04",
-        "contactType": "customer service"
-      }, {
-        "@type": "ContactPoint",
-        "email": "sadoxa1996@mail.ru",
-        "contactType": "customer service"
-      }],
-      "sameAs": [
-        "https://стальпро.com"
-      ],
-      "industry": "Газовое оборудование",
-      "numberOfEmployees": "10-50",
-      "areaServed": {
-        "@type": "Country",
-        "name": "Россия"
-      }
-    };
-
-    // Локальный бизнес
-    const localBusinessSchema = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "СтальПроКлапан",
-      "image": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ул. Кавалерийская 14, бокс 171",
-        "addressLocality": "Барнаул",
-        "addressRegion": "Алтайский край",
-        "postalCode": "656000",
-        "addressCountry": "RU"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 53.3548,
-        "longitude": 83.7524
-      },
-      "telephone": "+7-960-937-35-42",
-      "email": "sadoxa1996@mail.ru",
-      "url": "https://xn--80awjdfch6f.com",
-      "priceRange": "$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    };
-
     // Продукты компании
     const productsSchema = {
       "@context": "https://schema.org",
@@ -140,29 +70,6 @@ export default function StructuredData() {
       }]
     };
 
-    // Веб-сайт
-    const websiteSchema = {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "СтальПроКлапан - Газовая арматура",
-      "description": "Производство и поставка газовой арматуры, промышленного газового оборудования",
-      "url": "https://xn--80awjdfch6f.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://xn--80awjdfch6f.com/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "СтальПроКлапан"
-      },
-      "copyrightYear": "2024",
-      "inLanguage": "ru-RU"
-    };
-
     // FAQ Schema
     const faqSchema = {
       "@context": "https://schema.org",
@@ -200,10 +107,7 @@ export default function StructuredData() {
 
     // Добавляем все schema на страницу
     const schemas = [
-      organizationSchema,
-      localBusinessSchema, 
       productsSchema,
-      websiteSchema,
       faqSchema
     ];
 

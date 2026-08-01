@@ -1,18 +1,9 @@
 User-agent: *
 Allow: /
-
-# Закрываем служебные страницы от индексации
 Disallow: /login
 Disallow: /reset-password
 Disallow: /dashboard
 Disallow: /api/
-
-# Googlebot
-User-agent: Googlebot
-Allow: /
-Disallow: /login
-Disallow: /reset-password
-Disallow: /dashboard
 
 # Yandex
 User-agent: Yandex
@@ -20,6 +11,7 @@ Allow: /
 Disallow: /login
 Disallow: /reset-password
 Disallow: /dashboard
+Disallow: /api/
 Crawl-delay: 1
 
 # Sitemap
