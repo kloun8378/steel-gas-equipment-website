@@ -5,6 +5,12 @@
       "method": "GET",
       "path": "/",
       "expectedStatus": 200
+    },
+    {
+      "name": "Турбо-фид блога возвращает XML",
+      "method": "GET",
+      "path": "/?type=turbo",
+      "expectedStatus": 200
     }
   ]
 }

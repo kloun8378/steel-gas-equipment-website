@@ -1,8 +1,126 @@
+import os
+import html
+import re
+from datetime import datetime, timezone
+import psycopg2
+
+SITE_URL = "https://xn--80awjdfch6f.com"
+SITE_NAME = "СтальПроКлапан"
+LOGO_URL = "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg"
+
+
+def xml_escape(text):
+    return html.escape(text or '', quote=True)
+
+
+def content_to_turbo_html(content):
+    """Конвертирует markdown-подобный текст статьи (**заголовки**, \\n\\n абзацы,
+    списки через - или цифры) в упрощённый HTML для Turbo Pages."""
+    blocks = content.split('\n\n')
+    html_parts = []
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+        if block.startswith('**') and block.endswith('**'):
+            heading = html.escape(block[2:-2].strip())
+            html_parts.append(f'<h2>{heading}</h2>')
+            continue
+        lines = block.split('\n')
+        is_list = all(re.match(r'^(-|\d+\.)\s+', ln.strip()) for ln in lines if ln.strip())
+        if is_list and lines:
+            items = []
+            for ln in lines:
+                ln = ln.strip()
+                if not ln:
+                    continue
+                item_text = re.sub(r'^(-|\d+\.)\s+', '', ln)
+                item_text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html.escape(item_text))
+                items.append(f'<li>{item_text}</li>')
+            tag = 'ol' if re.match(r'^\d+\.', lines[0].strip()) else 'ul'
+            html_parts.append(f'<{tag}>' + ''.join(items) + f'</{tag}>')
+            continue
+        paragraph = html.escape(block)
+        paragraph = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', paragraph)
+        paragraph = paragraph.replace('\n', '<br/>')
+        html_parts.append(f'<p>{paragraph}</p>')
+    return ''.join(html_parts)
+
+
+def build_turbo_item(row):
+    slug, title, excerpt, content, category, post_date, author, image = row
+    article_url = f"{SITE_URL}/blog/{slug}"
+    pub_date = datetime.combine(post_date, datetime.min.time(), tzinfo=timezone.utc).strftime('%a, %d %b %Y %H:%M:%S %z')
+    turbo_content = content_to_turbo_html(content)
+
+    return f"""    <item turbo="true">
+      <link>{xml_escape(article_url)}</link>
+      <turbo:extendedHtml>true</turbo:extendedHtml>
+      <turbo:source>{xml_escape(article_url)}</turbo:source>
+      <title>{xml_escape(title)}</title>
+      <author>{xml_escape(author)}</author>
+      <pubDate>{pub_date}</pubDate>
+      <category>{xml_escape(category)}</category>
+      <description>{xml_escape(excerpt)}</description>
+      <turbo:content><![CDATA[
+        <img src="{xml_escape(image)}" alt="{xml_escape(title)}"/>
+        {turbo_content}
+      ]]></turbo:content>
+    </item>"""
+
+
+def handle_turbo_feed():
+    """RSS-фид Яндекс.Турбо со статьями блога"""
+    conn = psycopg2.connect(os.environ['DATABASE_URL'])
+    cur = conn.cursor()
+    cur.execute(
+        """SELECT slug, title, excerpt, content, category, post_date, author, image
+           FROM blog_posts ORDER BY post_date DESC"""
+    )
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    items_xml = '\n'.join(build_turbo_item(row) for row in rows)
+    build_date = datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S %z')
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:turbo="http://turbo.yandex.ru" version="2.0">
+  <channel>
+    <title>{xml_escape(SITE_NAME)} — Блог</title>
+    <link>{SITE_URL}/blog</link>
+    <description>Статьи о газовой арматуре, клапанах СУГ и промышленном газовом оборудовании</description>
+    <language>ru</language>
+    <lastBuildDate>{build_date}</lastBuildDate>
+    <image>
+      <url>{xml_escape(LOGO_URL)}</url>
+      <title>{xml_escape(SITE_NAME)}</title>
+      <link>{SITE_URL}</link>
+    </image>
+{items_xml}
+  </channel>
+</rss>"""
+
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'application/xml; charset=utf-8',
+            'Access-Control-Allow-Origin': '*',
+        },
+        'body': xml,
+    }
+
+
 def handler(event: dict, context) -> dict:
-    """Товарный YML-фид для Яндекс.Вебмастер"""
+    """Товарный YML-фид для Яндекс.Вебмастер (по умолчанию) и RSS-фид Яндекс.Турбо
+    для статей блога (?type=turbo)"""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type'}, 'body': ''}
+
+    params = event.get('queryStringParameters') or {}
+    if params.get('type') == 'turbo':
+        return handle_turbo_feed()
 
     common_params = """        <param name="рейтинг">4.9</param>
         <param name="число отзывов">47</param>
