@@ -98,6 +98,8 @@ export default function SpeedValveDU32() {
         <meta property="og:type" content="product" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
         <meta property="og:image:alt" content="Скоростной клапан межфланцевый ТПА11-032 ДУ32" />
+        <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
+        <meta property="product:price:currency" content="RUB" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
