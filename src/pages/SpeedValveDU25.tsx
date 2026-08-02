@@ -44,6 +44,7 @@ const productLd = JSON.stringify({
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),
     priceCurrency: 'RUB',
+    priceValidUntil: '2026-12-31',
     availability: 'https://schema.org/InStock',
     itemCondition: 'https://schema.org/NewCondition',
     url: CANONICAL,

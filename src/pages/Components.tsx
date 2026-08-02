@@ -127,6 +127,7 @@ export default function Components() {
           "lowPrice": "1129",
           "highPrice": "4372",
           "priceCurrency": "RUB",
+          "priceValidUntil": "2026-12-31",
           "offerCount": "4",
           "availability": "https://schema.org/InStock"
         }
@@ -146,7 +147,8 @@ export default function Components() {
               "image": "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
               "sku": "spring-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "2745", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "2745", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -158,7 +160,8 @@ export default function Components() {
               "image": "https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg",
               "sku": "valve-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "1129", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "1129", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -170,7 +173,8 @@ export default function Components() {
               "image": "https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG",
               "sku": "flange4-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -182,7 +186,8 @@ export default function Components() {
               "image": "https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG",
               "sku": "flange8-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

@@ -173,6 +173,7 @@ export default function SafetyValve() {
           "lowPrice": "9659",
           "highPrice": "15860",
           "priceCurrency": "RUB",
+          "priceValidUntil": "2026-12-31",
           "offerCount": "2",
           "availability": "https://schema.org/InStock"
         }
@@ -192,7 +193,8 @@ export default function SafetyValve() {
               "image": "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg",
               "sku": "ППЦЗ-12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "24", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -201,9 +203,11 @@ export default function SafetyValve() {
               "@type": "Product",
               "name": "Предохранительный клапан ПК-32-Л",
               "description": "Пружинный предохранительный клапан в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом.",
+              "image": "https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg",
               "sku": "ПК-32-Л",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
-              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "24", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

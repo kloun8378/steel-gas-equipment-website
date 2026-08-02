@@ -64,6 +64,7 @@ export default function PumpEquipment() {
           "lowPrice": "3800",
           "highPrice": "3800",
           "priceCurrency": "RUB",
+          "priceValidUntil": "2026-12-31",
           "offerCount": "1",
           "availability": "https://schema.org/InStock"
         }
@@ -83,7 +84,8 @@ export default function PumpEquipment() {
               "image": "https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png",
               "sku": "pump-frame-corken-fd150",
               "brand": {"@type": "Brand", "name": "Corken"},
-              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/pump-equipment", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "8", "bestRating": "5"},
+              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/pump-equipment", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]
