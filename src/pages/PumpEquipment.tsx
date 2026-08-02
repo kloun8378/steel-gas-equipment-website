@@ -32,6 +32,8 @@ export default function PumpEquipment() {
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
       <meta property="og:image:alt" content="Насосное оборудование для СУГ" />
+      <meta property="product:price:amount" content="3800" />
+      <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/pump-equipment" />

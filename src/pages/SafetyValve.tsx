@@ -141,6 +141,8 @@ export default function SafetyValve() {
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
       <meta property="og:image:alt" content="Предохранительный клапан ППЦЗ-12" />
+      <meta property="product:price:amount" content="9659" />
+      <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/safety-valve" />

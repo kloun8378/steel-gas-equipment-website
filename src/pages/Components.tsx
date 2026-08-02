@@ -95,6 +95,8 @@ export default function Components() {
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
       <meta property="og:image:alt" content="Комплектующие для клапанов СУГ" />
+      <meta property="product:price:amount" content="1129" />
+      <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />

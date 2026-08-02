@@ -49,6 +49,8 @@ export default function SpeedValve() {
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
       <meta property="og:image:alt" content="Скоростной клапан межфланцевый ТПА11-025" />
+      <meta property="product:price:amount" content="5592" />
+      <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
       <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
