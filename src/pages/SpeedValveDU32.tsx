@@ -86,7 +86,7 @@ export default function SpeedValveDU32() {
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ32, ТПА11-032, клапан межфланцевый ДУ32 СУГ, аналог ZNW DN32, скоростной клапан ДУ32 купить, клапан ДУ32 АГЗС"
+          content="скоростной клапан ДУ32, ТПА11-032, клапан межфланцевый ДУ32 СУГ, аналог ZNW DN32, скоростной клапан ДУ32 купить, клапан ДУ32 АГЗС, ТП11 ДУ32"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />

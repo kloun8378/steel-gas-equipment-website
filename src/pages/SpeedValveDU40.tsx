@@ -87,7 +87,7 @@ export default function SpeedValveDU40() {
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ40, ТПА11-040, клапан межфланцевый ДУ40 СУГ, аналог ZNW DN40, скоростной клапан ДУ40 купить, клапан ДУ40 АГЗС"
+          content="скоростной клапан ДУ40, ТПА11-040, клапан межфланцевый ДУ40 СУГ, аналог ZNW DN40, скоростной клапан ДУ40 купить, клапан ДУ40 АГЗС, ТП11 ДУ40"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
