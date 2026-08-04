@@ -67,7 +67,7 @@ export default function Delivery() {
                   Самовывоз
                 </h3>
                 <p className="text-gray-600 text-sm mb-3">Забрать товар можно самостоятельно по адресу:</p>
-                <p className="text-sm text-gray-700 font-medium">г. Барнаул, ул. Кавалерийская 14, бокс 171</p>
+                <p className="text-sm text-gray-700 font-medium">Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</p>
                 <p className="text-sm text-gray-600 mt-2">Пн–Пт: 09:00–18:00</p>
                 <p className="text-sm text-gray-500 mt-1">Предварительно позвоните для подтверждения наличия</p>
               </div>
