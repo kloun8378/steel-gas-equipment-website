@@ -216,6 +216,7 @@ export default function SpeedValveDU25() {
             image={PRODUCT_IMAGE}
             imageAlt="Скоростной клапан межфланцевый ТПА11-025 ДУ25"
             imageStyle={{ objectPosition: 'center -90%' }}
+            priority
             quantity={quantity}
             onQuantityChange={setQuantity}
             onAddToCart={handleAddToCart}

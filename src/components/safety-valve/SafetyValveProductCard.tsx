@@ -18,6 +18,7 @@ interface SafetyValveProductCardProps {
   showSpecs: boolean;
   onToggleSpecs: () => void;
   specsContent: ReactNode;
+  priority?: boolean;
 }
 
 export default function SafetyValveProductCard({
@@ -35,6 +36,7 @@ export default function SafetyValveProductCard({
   showSpecs,
   onToggleSpecs,
   specsContent,
+  priority = false,
 }: SafetyValveProductCardProps) {
   return (
     <Card className="w-full max-w-md flex flex-col">
@@ -48,7 +50,8 @@ export default function SafetyValveProductCard({
               src={image}
               alt={imageAlt}
               className="w-full h-full object-contain rounded-lg p-2"
-              loading="lazy"
+              loading={priority ? 'eager' : 'lazy'}
+              fetchPriority={priority ? 'high' : undefined}
             />
           </div>
           {showSpecs && specsContent}

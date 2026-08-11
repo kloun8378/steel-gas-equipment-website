@@ -276,6 +276,7 @@ export default function Components() {
                 priceRaw={2745}
                 image="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg"
                 imageAlt="Пружина ППЦЗ-12"
+                priority
                 quantity={quantitySpring}
                 onQuantityChange={setQuantitySpring}
                 onAddToCart={handleAddToCart}

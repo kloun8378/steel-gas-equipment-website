@@ -197,6 +197,7 @@ export default function SpeedValve() {
               image="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png"
               imageAlt="Скоростной клапан межфланцевый ДУ25"
               imageStyle={{ objectPosition: 'center -90%' }}
+              priority
               quantity={quantity25}
               onQuantityChange={setQuantity25}
               onAddToCart={handleAddToCart}

@@ -195,7 +195,8 @@ export default function PumpEquipment() {
                   src="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png"
                   alt="Рама насоса Corken FD 150"
                   className="w-full h-full object-contain p-2"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
               <div className="text-center flex flex-col flex-1">

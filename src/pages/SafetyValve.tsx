@@ -309,6 +309,7 @@ export default function SafetyValve() {
               name="Предохранительные клапаны ППЦЗ-12"
               description="Надежная защита оборудования от превышения давления"
               priceLabel="9 659 ₽"
+              priority
               quantity={quantity}
               onQuantityChange={setQuantity}
               onAddToCart={() => handleAddToCart({

@@ -36,6 +36,7 @@ interface ComponentsProductCardProps {
   popoverRows: PopoverRow[];
   relatedProducts?: RelatedProduct[];
   ozonUrl?: string;
+  priority?: boolean;
 }
 
 export default function ComponentsProductCard({
@@ -52,6 +53,7 @@ export default function ComponentsProductCard({
   popoverRows,
   relatedProducts = [],
   ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
+  priority = false,
 }: ComponentsProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
@@ -70,7 +72,8 @@ export default function ComponentsProductCard({
                 src={image}
                 alt={imageAlt}
                 className="w-full h-48 object-contain bg-white rounded"
-                loading="lazy"
+                loading={priority ? 'eager' : 'lazy'}
+                fetchPriority={priority ? 'high' : undefined}
               />
             </div>
             {showSpecs && (

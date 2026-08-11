@@ -23,6 +23,7 @@ interface SpeedValveProductCardProps {
   techTitle: string;
   techSpecs: TechSpec[];
   ozonUrl?: string;
+  priority?: boolean;
 }
 
 export default function SpeedValveProductCard({
@@ -40,6 +41,7 @@ export default function SpeedValveProductCard({
   techTitle,
   techSpecs,
   ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
+  priority = false,
 }: SpeedValveProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
 
@@ -55,7 +57,8 @@ export default function SpeedValveProductCard({
               src={image}
               alt={imageAlt}
               className="w-full h-full object-cover object-top rounded-lg"
-              loading="lazy"
+              loading={priority ? 'eager' : 'lazy'}
+              fetchPriority={priority ? 'high' : undefined}
               style={imageStyle}
             />
           </div>
