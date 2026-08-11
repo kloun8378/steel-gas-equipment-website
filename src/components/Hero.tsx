@@ -24,7 +24,7 @@ export default function Hero() {
         <div className="container mx-auto py-8 sm:py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div className="text-center lg:text-left px-4 lg:px-0">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 lg:mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4 lg:mb-6">
                 Скоростные и предохранительные клапаны СУГ
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 lg:mb-8 text-white/90">
