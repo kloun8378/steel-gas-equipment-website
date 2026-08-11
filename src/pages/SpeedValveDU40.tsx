@@ -69,6 +69,53 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Чем скоростной клапан отличается от предохранительного?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Скоростной клапан срабатывает при резком увеличении скорости потока СУГ (аварийный разрыв трубопровода), а предохранительный — при превышении давления. Это разные защитные устройства, выполняющие разные функции.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как правильно выбрать диаметр клапана ДУ25, ДУ32, ДУ40 или ДУ50?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Диаметр клапана должен соответствовать условному проходу трубопровода. ДУ25 — для малых систем и сливных трубопроводов, ДУ32 и ДУ40 — для средних, ДУ50 — для крупных объектов (автоцистерны, большие АГЗС). Для точного подбора звоните: +7 960 937-35-42.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Нужно ли специальное обслуживание клапана ТПА11?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Клапан не требует регулярного обслуживания. После срабатывания (аварийного закрытия) сброс выполняется вручную: нужно медленно открыть запорную арматуру перед клапаном — давление выровняется и пружина вернёт тарель в рабочее положение.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Возможна ли доставка по всей России?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да. Клапаны ТПА11 отправляем транспортными компаниями (СДЭК, Деловые Линии, ПЭК) по всей России. Склад в Барнауле, отгрузка в день заказа при наличии товара. Также доступна доставка через маркетплейс Ozon.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Есть ли документы — сертификат и паспорт на клапан?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да. В комплекте поставки — паспорт изделия с сертификатом EAC. Документы можно скачать на сайте (кнопка "Паспорт" на странице товара) или запросить по email sadoxa1996@mail.ru.',
+      },
+    },
+  ],
+});
+
 export default function SpeedValveDU40() {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
@@ -106,6 +153,7 @@ export default function SpeedValveDU40() {
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>
+        <script type="application/ld+json">{faqLd}</script>
       </Helmet>
 
       <Header />
