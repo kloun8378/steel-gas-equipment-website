@@ -7,6 +7,8 @@ import SafetyValveHead from '@/components/safety-valve/SafetyValveHead';
 import SafetyValveProductCard from '@/components/safety-valve/SafetyValveProductCard';
 import SafetyValveRelatedDialog from '@/components/safety-valve/SafetyValveRelatedDialog';
 import SafetyValveCart from '@/components/safety-valve/SafetyValveCart';
+import SafetyValveDetails from '@/components/safety-valve/SafetyValveDetails';
+import SafetyValveFAQ from '@/components/safety-valve/SafetyValveFAQ';
 
 const relatedProducts = [
   {
@@ -302,6 +304,9 @@ export default function SafetyValve() {
               specsContent={specsContentPk32l}
             />
           </div>
+
+          <SafetyValveDetails />
+          <SafetyValveFAQ />
         </div>
 
         <SafetyValveRelatedDialog

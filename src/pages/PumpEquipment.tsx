@@ -5,6 +5,8 @@ import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import PumpEquipmentDetails from '@/components/pump-equipment/PumpEquipmentDetails';
+import PumpEquipmentFAQ from '@/components/pump-equipment/PumpEquipmentFAQ';
 
 export default function PumpEquipment() {
   const [quantity2, setQuantity2] = useState(1);
@@ -201,6 +203,9 @@ export default function PumpEquipment() {
             </CardContent>
           </Card>
         </div>
+
+        <PumpEquipmentDetails />
+        <PumpEquipmentFAQ />
       </div>
 
       {/* Корзина */}

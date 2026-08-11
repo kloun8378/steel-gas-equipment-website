@@ -7,6 +7,8 @@ import ComponentsHead from '@/components/components-page/ComponentsHead';
 import ComponentsHeader from '@/components/components-page/ComponentsHeader';
 import ComponentsProductCard from '@/components/components-page/ComponentsProductCard';
 import ComponentsCart from '@/components/components-page/ComponentsCart';
+import ComponentsDetails from '@/components/components-page/ComponentsDetails';
+import ComponentsFAQ from '@/components/components-page/ComponentsFAQ';
 
 const allRelated = [
   {
@@ -298,6 +300,9 @@ export default function Components() {
               />
             </div>
           </div>
+
+          <ComponentsDetails />
+          <ComponentsFAQ />
         </div>
 
         <ComponentsCart />
