@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import FlangesHeader from '@/components/flanges/FlangesHeader';
 import FlangesDetails from '@/components/flanges/FlangesDetails';
 import FlangesFAQ from '@/components/flanges/FlangesFAQ';
 
@@ -142,25 +143,7 @@ export default function Flanges() {
       })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => window.location.href = '/'}
-              className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
-            >
-              <Icon name="ArrowLeft" className="h-5 w-5" />
-              <span className="text-sm">На главную</span>
-            </button>
-            <span className="text-gray-300">|</span>
-            <div className="flex items-center gap-2">
-              <Icon name="CircleDot" className="h-5 w-5 text-primary" />
-              <span className="font-semibold text-gray-900">Фланцы ГОСТ 33259-2015</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      <FlangesHeader />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Breadcrumb */}

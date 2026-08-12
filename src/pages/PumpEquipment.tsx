@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import PumpEquipmentHeader from '@/components/pump-equipment/PumpEquipmentHeader';
 import PumpEquipmentDetails from '@/components/pump-equipment/PumpEquipmentDetails';
 import PumpEquipmentFAQ from '@/components/pump-equipment/PumpEquipmentFAQ';
 
@@ -140,25 +141,7 @@ export default function PumpEquipment() {
       })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => window.location.href = '/'}
-              className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
-            >
-              <Icon name="ArrowLeft" className="h-5 w-5" />
-              <span className="text-sm">На главную</span>
-            </button>
-            <span className="text-gray-300">|</span>
-            <div className="flex items-center gap-2">
-              <Icon name="Gauge" className="h-5 w-5 text-primary" />
-              <span className="font-semibold text-gray-900">Насосное оборудование</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      <PumpEquipmentHeader />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Breadcrumb */}
