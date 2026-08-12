@@ -12,6 +12,7 @@
       <category id="2">Предохранительные клапаны</category>
       <category id="3">Комплектующие</category>
       <category id="4">Насосное оборудование</category>
+      <category id="5">Фланцы</category>
     </categories>
     <offers>
 
@@ -176,6 +177,22 @@
         <description>Единая усиленная стальная рама для крепления насоса Corken FD 150 и двигателя. Обеспечивает жёсткость конструкции, предотвращает перекосы при монтаже на основание.</description>
         <param name="Совместимость">Corken FD 150</param>
         <param name="Материал">Сталь</param>
+      </offer>
+
+      <!-- Фланцы ГОСТ 33259-2015 -->
+      <offer id="flange-gost-33259-2015" available="true">
+        <name>Фланец стальной плоский приварной ГОСТ 33259-2015</name>
+        <url>https://xn--80awjdfch6f.com/flanges</url>
+        <price>2500</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/fe6a92f9-5b2f-4420-b6ac-7c91ea51ee20.jpg</picture>
+        <vendor>СтальПроКлапан</vendor>
+        <vendorCode>Flange-GOST-33259-2015</vendorCode>
+        <description>Фланец стальной плоский приварной по ГОСТ 33259-2015 для соединения трубопроводов и арматуры СУГ. Давление PN16, конструкционная сталь, точная механическая обработка посадочных поверхностей.</description>
+        <param name="Стандарт">ГОСТ 33259-2015</param>
+        <param name="Давление">PN16</param>
+        <param name="Материал">Конструкционная сталь</param>
       </offer>
 
     </offers>
