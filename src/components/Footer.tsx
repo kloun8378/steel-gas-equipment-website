@@ -18,6 +18,7 @@ export default function Footer() {
               <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
               <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
               <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
+              <li><a href="/flanges" className="hover:text-white transition-colors">Фланцы ГОСТ 33259-2015</a></li>
             </ul>
           </div>
 

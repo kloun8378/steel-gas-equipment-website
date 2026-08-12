@@ -24,6 +24,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
+const Flanges = lazy(() => import("./pages/Flanges"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ServiceUnavailable = lazy(() => import("./pages/ServiceUnavailable"));
 const Delivery = lazy(() => import("./pages/Delivery"));
@@ -165,6 +166,11 @@ const App = () => (
               <Route path="/pump-equipment" element={
                 <Suspense fallback={<PageLoader />}>
                   <PumpEquipment />
+                </Suspense>
+              } />
+              <Route path="/flanges" element={
+                <Suspense fallback={<PageLoader />}>
+                  <Flanges />
                 </Suspense>
               } />
               <Route path="/delivery" element={
