@@ -209,6 +209,7 @@ export default function SpeedValve() {
                 ...commonSpecs.slice(4),
               ]}
               ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du25-3081882065/"
+              detailUrl="/speed-valve/tpa11-025"
             />
 
             <SpeedValveProductCard
@@ -231,6 +232,7 @@ export default function SpeedValve() {
                 ...commonSpecs.slice(4),
               ]}
               ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du32-3082030569/"
+              detailUrl="/speed-valve/tpa11-032"
             />
 
             <SpeedValveProductCard
@@ -253,6 +255,7 @@ export default function SpeedValve() {
                 { label: 'Строительная длина, B (мм)', value: '50' },
                 ...commonSpecs.slice(4),
               ]}
+              detailUrl="/speed-valve/tpa11-050"
             />
 
             <SpeedValveProductCard
@@ -275,6 +278,7 @@ export default function SpeedValve() {
                 ...commonSpecs.slice(4),
               ]}
               ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du40-3082079691/"
+              detailUrl="/speed-valve/tpa11-040"
             />
           </div>
         </div>

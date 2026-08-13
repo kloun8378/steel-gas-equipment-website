@@ -24,6 +24,7 @@ interface SpeedValveProductCardProps {
   techSpecs: TechSpec[];
   ozonUrl?: string;
   priority?: boolean;
+  detailUrl?: string;
 }
 
 export default function SpeedValveProductCard({
@@ -42,6 +43,7 @@ export default function SpeedValveProductCard({
   techSpecs,
   ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
   priority = false,
+  detailUrl,
 }: SpeedValveProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
 
@@ -81,7 +83,13 @@ export default function SpeedValveProductCard({
           )}
         </div>
         <div className="text-center">
-          <h3 className="text-sm font-semibold text-gray-900 mb-1">{name}</h3>
+          <h3 className="text-sm font-semibold text-gray-900 mb-1">
+            {detailUrl ? (
+              <a href={detailUrl} className="hover:text-primary transition-colors">{name}</a>
+            ) : (
+              name
+            )}
+          </h3>
           <div className="flex items-center justify-center gap-1 mb-1">
             <div className="flex text-yellow-400 text-sm">{'★★★★★'}</div>
             <span className="text-xs text-gray-500">4.9 (18 отзывов)</span>
@@ -129,6 +137,14 @@ export default function SpeedValveProductCard({
             <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
             Заказать
           </Button>
+          {detailUrl && (
+            <Button size="sm" variant="ghost" className="w-full text-xs mt-2" asChild>
+              <a href={detailUrl}>
+                <Icon name="ArrowRight" className="mr-1 h-3 w-3" />
+                Подробнее о товаре
+              </a>
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>
