@@ -36,6 +36,13 @@ const SpeedValveDU25 = lazy(() => import("./pages/SpeedValveDU25"));
 const SpeedValveDU32 = lazy(() => import("./pages/SpeedValveDU32"));
 const SpeedValveDU40 = lazy(() => import("./pages/SpeedValveDU40"));
 const SpeedValveDU50 = lazy(() => import("./pages/SpeedValveDU50"));
+const SafetyValvePPCZ12 = lazy(() => import("./pages/SafetyValvePPCZ12"));
+const SafetyValvePK32L = lazy(() => import("./pages/SafetyValvePK32L"));
+const ComponentSpringPPCZ12 = lazy(() => import("./pages/ComponentSpringPPCZ12"));
+const ComponentValvePPCZ12 = lazy(() => import("./pages/ComponentValvePPCZ12"));
+const ComponentFlange4PPCZ12 = lazy(() => import("./pages/ComponentFlange4PPCZ12"));
+const ComponentFlange8PPCZ12 = lazy(() => import("./pages/ComponentFlange8PPCZ12"));
+const PumpFrameCorkenFD150 = lazy(() => import("./pages/PumpFrameCorkenFD150"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -190,6 +197,13 @@ const App = () => (
               <Route path="/speed-valve/tpa11-032" element={<Suspense fallback={<PageLoader />}><SpeedValveDU32 /></Suspense>} />
               <Route path="/speed-valve/tpa11-040" element={<Suspense fallback={<PageLoader />}><SpeedValveDU40 /></Suspense>} />
               <Route path="/speed-valve/tpa11-050" element={<Suspense fallback={<PageLoader />}><SpeedValveDU50 /></Suspense>} />
+              <Route path="/safety-valve/ppcz-12" element={<Suspense fallback={<PageLoader />}><SafetyValvePPCZ12 /></Suspense>} />
+              <Route path="/safety-valve/pk-32-l" element={<Suspense fallback={<PageLoader />}><SafetyValvePK32L /></Suspense>} />
+              <Route path="/components/spring-ppcz12" element={<Suspense fallback={<PageLoader />}><ComponentSpringPPCZ12 /></Suspense>} />
+              <Route path="/components/valve-ppcz12" element={<Suspense fallback={<PageLoader />}><ComponentValvePPCZ12 /></Suspense>} />
+              <Route path="/components/flange4-ppcz12" element={<Suspense fallback={<PageLoader />}><ComponentFlange4PPCZ12 /></Suspense>} />
+              <Route path="/components/flange8-ppcz12" element={<Suspense fallback={<PageLoader />}><ComponentFlange8PPCZ12 /></Suspense>} />
+              <Route path="/pump-equipment/corken-fd150-frame" element={<Suspense fallback={<PageLoader />}><PumpFrameCorkenFD150 /></Suspense>} />
               <Route path="/service-unavailable" element={
                 <Suspense fallback={<PageLoader />}>
                   <ServiceUnavailable />

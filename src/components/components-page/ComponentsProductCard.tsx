@@ -37,6 +37,7 @@ interface ComponentsProductCardProps {
   relatedProducts?: RelatedProduct[];
   ozonUrl?: string;
   priority?: boolean;
+  detailUrl?: string;
 }
 
 export default function ComponentsProductCard({
@@ -54,6 +55,7 @@ export default function ComponentsProductCard({
   relatedProducts = [],
   ozonUrl = 'https://www.ozon.ru/seller/stalpro-3601542/',
   priority = false,
+  detailUrl,
 }: ComponentsProductCardProps) {
   const [showSpecs, setShowSpecs] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
@@ -105,7 +107,13 @@ export default function ComponentsProductCard({
               </div>
             )}
           </div>
-          <CardTitle className="text-xl">{name}</CardTitle>
+          <CardTitle className="text-xl">
+            {detailUrl ? (
+              <a href={detailUrl} className="hover:text-primary transition-colors">{name}</a>
+            ) : (
+              name
+            )}
+          </CardTitle>
           <div className="flex items-center justify-center gap-1 mt-1">
             <span className="text-yellow-400 text-sm">★★★★★</span>
             <span className="text-xs text-gray-500">4.8 (12 отзывов)</span>
@@ -149,6 +157,14 @@ export default function ComponentsProductCard({
             >
               <Icon name="Package" className="mr-2 h-5 w-5" />
               Сопутствующие товары
+            </Button>
+          )}
+          {detailUrl && (
+            <Button className="w-full mt-2" size="lg" variant="ghost" asChild>
+              <a href={detailUrl}>
+                <Icon name="ArrowRight" className="mr-2 h-4 w-4" />
+                Подробнее о товаре
+              </a>
             </Button>
           )}
         </CardContent>

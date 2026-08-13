@@ -87,7 +87,7 @@
       <!-- Предохранительные клапаны -->
       <offer id="ppcz12" available="true">
         <name>Предохранительный клапан ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve</url>
+        <url>https://xn--80awjdfch6f.com/safety-valve/ppcz-12</url>
         <price>9659</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -102,7 +102,7 @@
 
       <offer id="pk32l" available="true">
         <name>Предохранительный клапан ПК-32-Л</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve</url>
+        <url>https://xn--80awjdfch6f.com/safety-valve/pk-32-l</url>
         <price>15860</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -117,7 +117,7 @@
       <!-- Комплектующие -->
       <offer id="spring-ppcz12" available="true">
         <name>Пружина для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components</url>
+        <url>https://xn--80awjdfch6f.com/components/spring-ppcz12</url>
         <price>2745</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -129,7 +129,7 @@
 
       <offer id="valve-ppcz12" available="true">
         <name>Золотник для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components</url>
+        <url>https://xn--80awjdfch6f.com/components/valve-ppcz12</url>
         <price>1129</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -141,7 +141,7 @@
 
       <offer id="flange4-ppcz12" available="true">
         <name>Фланец на 4 отверстия к ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components</url>
+        <url>https://xn--80awjdfch6f.com/components/flange4-ppcz12</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -153,7 +153,7 @@
 
       <offer id="flange8-ppcz12" available="true">
         <name>Фланец на 8 отверстий к ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components</url>
+        <url>https://xn--80awjdfch6f.com/components/flange8-ppcz12</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -166,7 +166,7 @@
       <!-- Насосное оборудование -->
       <offer id="pump-frame-corken-fd150" available="true">
         <name>Рама насоса Corken FD 150</name>
-        <url>https://xn--80awjdfch6f.com/pump-equipment</url>
+        <url>https://xn--80awjdfch6f.com/pump-equipment/corken-fd150-frame</url>
         <price>3800</price>
         <currencyId>RUR</currencyId>
         <categoryId>4</categoryId>

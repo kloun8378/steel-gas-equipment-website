@@ -288,6 +288,7 @@ export default function Components() {
                   { isPrice: true, price: '2 745 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'spring-ppcz12')}
+                detailUrl="/components/spring-ppcz12"
               />
 
               <ComponentsProductCard
@@ -306,6 +307,7 @@ export default function Components() {
                   { isPrice: true, price: '1 129 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'valve-ppcz12')}
+                detailUrl="/components/valve-ppcz12"
               />
 
               <ComponentsProductCard
@@ -325,6 +327,7 @@ export default function Components() {
                   { isPrice: true, price: '4 372 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'flange4-ppcz12')}
+                detailUrl="/components/flange4-ppcz12"
               />
 
               <ComponentsProductCard
@@ -344,6 +347,7 @@ export default function Components() {
                   { isPrice: true, price: '4 372 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'flange-ppcz12')}
+                detailUrl="/components/flange8-ppcz12"
               />
             </div>
           </div>

@@ -325,6 +325,7 @@ export default function SafetyValve() {
               showSpecs={showSpecs}
               onToggleSpecs={() => setShowSpecs(!showSpecs)}
               specsContent={specsContentPpcz12}
+              detailUrl="/safety-valve/ppcz-12"
             />
 
             <SafetyValveProductCard
@@ -349,6 +350,7 @@ export default function SafetyValve() {
               showSpecs={showSpecs2}
               onToggleSpecs={() => setShowSpecs2(!showSpecs2)}
               specsContent={specsContentPk32l}
+              detailUrl="/safety-valve/pk-32-l"
             />
           </div>
 

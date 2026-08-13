@@ -19,6 +19,7 @@ interface SafetyValveProductCardProps {
   onToggleSpecs: () => void;
   specsContent: ReactNode;
   priority?: boolean;
+  detailUrl?: string;
 }
 
 export default function SafetyValveProductCard({
@@ -37,6 +38,7 @@ export default function SafetyValveProductCard({
   onToggleSpecs,
   specsContent,
   priority = false,
+  detailUrl,
 }: SafetyValveProductCardProps) {
   return (
     <Card className="w-full max-w-md flex flex-col">
@@ -58,7 +60,11 @@ export default function SafetyValveProductCard({
         </div>
         <div className="text-center flex flex-col flex-1">
           <h3 className="text-base font-semibold text-gray-900 mb-1 min-h-[3rem] flex items-start justify-center">
-            {name}
+            {detailUrl ? (
+              <a href={detailUrl} className="hover:text-primary transition-colors">{name}</a>
+            ) : (
+              name
+            )}
           </h3>
           <div className="flex items-center justify-center gap-1 mb-2">
             <span className="text-yellow-400 text-sm">★★★★★</span>
@@ -103,6 +109,14 @@ export default function SafetyValveProductCard({
               <Icon name="Package" className="mr-2 h-5 w-5" />
               Сопутствующие товары
             </Button>
+            {detailUrl && (
+              <Button size="lg" variant="ghost" className="w-full mt-2" asChild>
+                <a href={detailUrl}>
+                  <Icon name="ArrowRight" className="mr-2 h-4 w-4" />
+                  Подробнее о товаре
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>
