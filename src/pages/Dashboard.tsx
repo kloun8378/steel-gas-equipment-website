@@ -5,12 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Icon from "@/components/ui/icon";
 import { sendOrderEmail } from "@/services/emailService";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/hooks/useToast";
 import api from "@/services/api";
+import DashboardProducts from "@/components/dashboard/DashboardProducts";
 
 interface OrderItem {
   id: string;
@@ -154,6 +156,23 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Tabs defaultValue="cabinet" className="w-full">
+          <TabsList className="mb-8">
+            <TabsTrigger value="cabinet">
+              <Icon name="LayoutDashboard" className="mr-2 h-4 w-4" />
+              Личный кабинет
+            </TabsTrigger>
+            <TabsTrigger value="products">
+              <Icon name="Package" className="mr-2 h-4 w-4" />
+              Наша продукция
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="products">
+            <DashboardProducts />
+          </TabsContent>
+
+          <TabsContent value="cabinet">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Карточка предприятия */}
@@ -467,6 +486,8 @@ const Dashboard = () => {
             )}
           </CardContent>
         </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
     </>
