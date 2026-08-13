@@ -269,7 +269,7 @@ export default function FlangesType01BDv116() {
               </div>
               <div className="flex gap-3">
                 <Button variant="outline" onClick={clearCart}>Очистить корзину</Button>
-                <Button size="lg">
+                <Button size="lg" onClick={() => window.location.href = '/dashboard'}>
                   <Icon name="Send" className="mr-2 h-4 w-4" />
                   Оформить заказ ({getTotalItems()} шт.)
                 </Button>
