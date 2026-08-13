@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,31 +8,100 @@ import FlangesHeader from '@/components/flanges/FlangesHeader';
 
 const CANONICAL = 'https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b';
 
+const PRODUCT_IMAGE = 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/files/609b9109-33c2-4b90-b40e-a09833bdc8cb.jpg';
+const PRODUCT_PRICE_RAW = 1241;
+const PRODUCT_PRICE = '1 241 ₽';
+const PRODUCT_NAME = 'Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015';
+const PRODUCT_ID = 'flange-100-1-01-1-b-st20';
+
+const techSpecs = [
+  { label: 'Условный проход Ду', value: '100' },
+  { label: 'Условное давление Ру', value: '16 (МПа 1,6)' },
+  { label: 'Внешний диаметр', value: '215 мм' },
+  { label: 'Межосевой диаметр', value: '180 мм' },
+  { label: 'Диаметр уплотнительного выступа', value: '158 мм' },
+  { label: 'Внутренний диаметр (посадка на трубу)', value: '110 мм' },
+  { label: 'Диаметр крепёжных отверстий', value: '18 мм' },
+  { label: 'Число крепёжных отверстий', value: '8 шт.' },
+  { label: 'Номинальный диаметр болтов', value: 'М16' },
+  { label: 'Высота уплотнительного выступа', value: '3 мм' },
+  { label: 'Температура рабочей среды', value: 'от -40 до +450 °C' },
+  { label: 'Уплотнительная поверхность', value: 'исполнение B (соединительный выступ)' },
+  { label: 'Материал', value: 'Сталь 20' },
+  { label: 'Монтаж', value: 'насадкой на трубу с обваркой двумя угловыми швами' },
+];
+
+const productLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: PRODUCT_NAME,
+  image: PRODUCT_IMAGE,
+  description: 'Фланец плоский стальной 100-16-01-1-B-Ст.20-IV ГОСТ 33259-2015 — плоский приварной фланец с проходом Ду-100 на давление Ру-16. Монтаж насадкой на трубу с обваркой двумя угловыми швами.',
+  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  offers: {
+    '@type': 'Offer',
+    price: String(PRODUCT_PRICE_RAW),
+    priceCurrency: 'RUB',
+    priceValidUntil: '2026-12-31',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    url: CANONICAL,
+    seller: { '@type': 'Organization', name: 'СтальПроКлапан' },
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '6',
+    bestRating: '5',
+  },
+});
+
+const breadcrumbLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://xn--80awjdfch6f.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Фланцы ГОСТ 33259-2015', item: 'https://xn--80awjdfch6f.com/flanges' },
+    { '@type': 'ListItem', position: 3, name: 'Тип 01, исполнение B', item: CANONICAL },
+  ],
+});
+
 export default function FlangesType01B() {
-  const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const [quantity, setQuantity] = useState(1);
+  const [showSpecs, setShowSpecs] = useState(false);
+  const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: PRODUCT_ID,
+      name: PRODUCT_NAME,
+      price: PRODUCT_PRICE_RAW,
+      image: PRODUCT_IMAGE,
+      description: 'Плоский приварной фланец ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B',
+      quantity,
+    });
+  };
 
   return (
     <>
     <Helmet>
-      <title>Фланец стальной плоский приварной тип 01 ГОСТ 33259-2015 исп B — СтальПроКлапан</title>
-      <meta name="description" content="Фланец стальной плоский приварной тип 01 ГОСТ 33259-2015 исполнение B общего назначения. СтальПроКлапан, Барнаул." />
+      <title>Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015 купить — СтальПроКлапан</title>
+      <meta name="description" content="Фланец плоский стальной 100-16-01-1-B-Ст.20 ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B. Цена 1 241 ₽ с НДС. В наличии на складе в Барнауле. Доставка по РФ." />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="keywords" content="фланец тип 01 исп B, фланец ГОСТ 33259-2015 тип 01, фланец плоский приварной исполнение B, фланец стальной приварной, СтальПроКлапан Барнаул" />
-      <meta property="og:title" content="Фланец тип 01 ГОСТ 33259-2015 исп B — СтальПроКлапан" />
-      <meta property="og:description" content="Фланец стальной плоский приварной тип 01 ГОСТ 33259-2015 исполнение B. Доставка по всей России." />
+      <meta name="keywords" content="фланец 100-1-01-1-B, фланец ГОСТ 33259-2015 Ду100, фланец плоский приварной Ру16, фланец Ст20 ГОСТ 33259-2015, фланец тип 01 исп B, СтальПроКлапан Барнаул" />
+      <meta property="og:title" content="Фланец 100-1-01-1-B-Ст 20 ГОСТ 33259-2015 — СтальПроКлапан" />
+      <meta property="og:description" content="Плоский приварной фланец Ду-100, Ру-16, исполнение B. Цена 1 241 ₽ с НДС. В наличии." />
       <meta property="og:url" content={CANONICAL} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content="product" />
+      <meta property="og:image" content={PRODUCT_IMAGE} />
+      <meta property="og:image:alt" content={PRODUCT_NAME} />
+      <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
+      <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={PRODUCT_IMAGE} />
       <link rel="canonical" href={CANONICAL} />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Фланцы ГОСТ 33259-2015", "item": "https://xn--80awjdfch6f.com/flanges"},
-          {"@type": "ListItem", "position": 3, "name": "Тип 01, исполнение B", "item": CANONICAL}
-        ]
-      })}</script>
+      <script type="application/ld+json">{breadcrumbLd}</script>
+      <script type="application/ld+json">{productLd}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
       <FlangesHeader />
@@ -57,41 +127,107 @@ export default function FlangesType01B() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Фланец стальной плоский приварной тип 01 ГОСТ 33259-2015 исп B
           </h1>
-          <p className="text-lg text-gray-600">
-            Раздел наполняется — товары появятся в ближайшее время
-          </p>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="text-yellow-400 text-xl">★★★★★</span>
+            <span className="text-sm text-gray-600">4.8 — <a href="/reviews" className="underline hover:text-primary">6 отзывов</a></span>
+          </div>
         </div>
 
-        {/* Информация о типе */}
-        <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 mb-8 max-w-3xl mx-auto">
+        {/* Карточка товара */}
+        <Card className="w-full max-w-md mx-auto flex flex-col">
+          <CardContent className="p-6 flex flex-col flex-1">
+            <div className="relative">
+              <div
+                className="aspect-square bg-white rounded-lg mb-4 border overflow-hidden w-56 h-56 mx-auto cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => setShowSpecs(!showSpecs)}
+              >
+                <img
+                  src={PRODUCT_IMAGE}
+                  alt={PRODUCT_NAME}
+                  className="w-full h-full object-contain rounded-lg p-2"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+              {showSpecs && (
+                <div className="absolute left-0 right-0 z-50 bg-white rounded-lg shadow-xl border mt-1 max-h-80 overflow-y-auto">
+                  <div className="bg-gray-50 p-3 border-b flex justify-between items-center sticky top-0">
+                    <h3 className="text-sm font-bold text-gray-900">Технические характеристики</h3>
+                    <button onClick={() => setShowSpecs(false)} className="text-gray-400 hover:text-gray-600">
+                      <Icon name="X" className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <div className="p-3 space-y-2 text-xs">
+                    {techSpecs.map((spec, i) => (
+                      <div key={i}>
+                        <span className="font-semibold">{spec.label}:</span> {spec.value}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="text-center flex flex-col flex-1">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">{PRODUCT_NAME}</h3>
+              <div className="flex items-center justify-center gap-1 mb-2">
+                <span className="text-yellow-400 text-sm">★★★★★</span>
+                <span className="text-xs text-gray-500">4.8 (6 отзывов)</span>
+              </div>
+              <p className="text-sm text-gray-600 mb-3">
+                Плоский приварной фланец с проходом Ду-100 на давление Ру-16. Монтаж насадкой на трубу с обваркой двумя угловыми швами.
+              </p>
+              <div className="text-2xl font-bold text-primary mb-4">
+                {PRODUCT_PRICE} <span className="text-sm text-gray-500">с НДС</span>
+              </div>
+              <div className="mt-auto">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <input
+                    type="number"
+                    value={quantity}
+                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                    min="1"
+                    className="w-20 px-3 py-2 text-sm border rounded text-center"
+                  />
+                  <span className="text-sm text-gray-600">шт.</span>
+                </div>
+                <Button size="lg" className="w-full" onClick={handleAddToCart}>
+                  <Icon name="ShoppingCart" className="mr-1 h-3 w-3" />
+                  Заказать
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Описание */}
+        <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 mt-8 max-w-3xl mx-auto">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Icon name="FileText" className="h-5 w-5 text-primary" />
-            О фланце типа 01, исполнение B
+            <Icon name="Info" className="h-5 w-5 text-primary" />
+            Описание
           </h2>
           <p className="text-gray-600 leading-relaxed mb-3">
-            Фланец плоский приварной типа 01 по ГОСТ 33259-2015 предназначен для разъёмного соединения трубопроводов и арматуры. Исполнение B определяет тип уплотнительной поверхности фланца согласно стандарту.
+            Фланец плоский стальной 100-16-01-1-B-Ст.20-IV ГОСТ 33259-2015 — плоский приварной фланец по ГОСТ 33259-2015 с проходом Ду-100 на давление Ру-16. Монтаж — насадкой на трубу с обваркой двумя угловыми швами. Размеры по ГОСТ 33259-2015, ряд 1.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            Применяется на промышленных трубопроводах общего назначения. Уточнить наличие конкретных типоразмеров и цены можно у наших менеджеров.
+            Ставят на водопроводе, отоплении и общепромышленных линиях, где нет сильной вибрации и знакопеременных нагрузок. Для сборки узла нужны ответный фланец, прокладка и болты с гайками на тот же Ду и Ру.
           </p>
         </section>
 
-        {/* Пустое состояние — товары скоро появятся */}
-        <Card className="max-w-2xl mx-auto">
-          <CardContent className="py-12 text-center">
-            <Icon name="Package" className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-500 font-medium mb-2">Товары скоро появятся</p>
-            <p className="text-sm text-gray-400 mb-6">
-              Мы наполняем этот раздел товарами. Чтобы уточнить наличие и цену прямо сейчас — свяжитесь с нами.
-            </p>
-            <Button asChild>
-              <a href="tel:+79609373542">
-                <Icon name="Phone" className="mr-2 h-4 w-4" />
-                +7 960 937-35-42
-              </a>
-            </Button>
-          </CardContent>
-        </Card>
+        {/* Технические характеристики */}
+        <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 mt-8 max-w-3xl mx-auto">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <Icon name="FileText" className="h-5 w-5 text-primary" />
+            Технические характеристики
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+            {techSpecs.map((spec, i) => (
+              <div key={i} className="flex justify-between text-sm py-2 border-b border-gray-50 last:border-0">
+                <span className="text-gray-500">{spec.label}</span>
+                <span className="text-gray-900 font-medium text-right">{spec.value}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
 
       {/* Корзина */}
