@@ -107,14 +107,14 @@ export default function Flanges() {
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100">
                 <img
-                  src="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/75ab14b4-3f9a-48be-ac0a-2e54bdb07b2c.jpg"
-                  alt="Тип 01, исполнение B"
+                  src="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/b3d1ebfc-6fa8-4d27-941b-d457d1f2597d.webp"
+                  alt="Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">Тип 01, исполнение B</h3>
+                <h3 className="font-semibold text-gray-900">Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015</h3>
                 <p className="text-sm text-gray-600">Фланец стальной плоский приварной ГОСТ 33259-2015</p>
               </div>
               <Icon name="ArrowRight" className="h-5 w-5 text-blue-600 flex-shrink-0" />
@@ -127,14 +127,14 @@ export default function Flanges() {
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100">
                 <img
-                  src="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp"
-                  alt="Тип 01, исполнение B, dв 116"
+                  src="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/b3d1ebfc-6fa8-4d27-941b-d457d1f2597d.webp"
+                  alt="Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">Тип 01, исполнение B, dв 116</h3>
+                <h3 className="font-semibold text-gray-900">Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015</h3>
                 <p className="text-sm text-gray-600">Фланец стальной плоский приварной ГОСТ 33259-2015</p>
               </div>
               <Icon name="ArrowRight" className="h-5 w-5 text-blue-600 flex-shrink-0" />
