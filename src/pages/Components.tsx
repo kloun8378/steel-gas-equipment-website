@@ -9,6 +9,7 @@ import ComponentsProductCard from '@/components/components-page/ComponentsProduc
 import ComponentsCart from '@/components/components-page/ComponentsCart';
 import ComponentsDetails from '@/components/components-page/ComponentsDetails';
 import ComponentsFAQ from '@/components/components-page/ComponentsFAQ';
+import OrderModal from '@/components/OrderModal';
 
 const allRelated = [
   {
@@ -73,19 +74,20 @@ export default function Components() {
   const [quantityValve, setQuantityValve] = useState(1);
   const [quantityFlange, setQuantityFlange] = useState(1);
   const [quantityFlange4, setQuantityFlange4] = useState(1);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
-    if (!user) {
-      window.location.href = '/login';
-      return;
+    if (user) {
+      addToCart(product);
     }
-    addToCart(product);
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+    <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
     <Helmet>
       <title>Комплектующие для клапанов СУГ купить — СтальПроКлапан, Барнаул</title>
       <meta name="description" content="Запчасти для ППЦЗ-12 и ТПА11: пружины, золотники, фланцы. В наличии на складе в Барнауле. Оригинальные комплектующие. Доставка по РФ. Цена от 1 129 ₽. Звоните!" />

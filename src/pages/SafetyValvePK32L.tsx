@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import SafetyValveDetails from '@/components/safety-valve/SafetyValveDetails';
 import SafetyValveFAQ from '@/components/safety-valve/SafetyValveFAQ';
+import OrderModal from '@/components/OrderModal';
 
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg';
 const PRODUCT_PRICE_RAW = 15860;
@@ -61,21 +63,27 @@ const breadcrumbLd = JSON.stringify({
 export default function SafetyValvePK32L() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    addToCart({
-      id: PRODUCT_ID,
-      name: PRODUCT_NAME,
-      price: PRODUCT_PRICE_RAW,
-      image: PRODUCT_IMAGE,
-      description: 'Комплект для надёжной защиты резервуаров СУГ',
-      quantity,
-    });
+    if (user) {
+      addToCart({
+        id: PRODUCT_ID,
+        name: PRODUCT_NAME,
+        price: PRODUCT_PRICE_RAW,
+        image: PRODUCT_IMAGE,
+        description: 'Комплект для надёжной защиты резервуаров СУГ',
+        quantity,
+      });
+    }
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+      <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
         <title>Предохранительный клапан ПК-32-Л купить — с запорным клапаном ЗК-32</title>
         <meta

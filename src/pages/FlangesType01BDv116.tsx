@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import FlangesHeader from '@/components/flanges/FlangesHeader';
+import OrderModal from '@/components/OrderModal';
 
 const CANONICAL = 'https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b-dv116';
 
@@ -70,21 +72,27 @@ const breadcrumbLd = JSON.stringify({
 export default function FlangesType01BDv116() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    addToCart({
-      id: PRODUCT_ID,
-      name: PRODUCT_NAME,
-      price: PRODUCT_PRICE_RAW,
-      image: PRODUCT_IMAGE,
-      description: 'Плоский приварной фланец ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B, dв 116',
-      quantity,
-    });
+    if (user) {
+      addToCart({
+        id: PRODUCT_ID,
+        name: PRODUCT_NAME,
+        price: PRODUCT_PRICE_RAW,
+        image: PRODUCT_IMAGE,
+        description: 'Плоский приварной фланец ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B, dв 116',
+        quantity,
+      });
+    }
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+    <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
     <Helmet>
       <title>Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015 купить — СтальПроКлапан</title>
       <meta name="description" content="Фланец плоский стальной 100-1-01-1-B-Ст.20 ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B, dв 116. Цена 1 241 ₽ с НДС. В наличии на складе в Барнауле. Доставка по РФ." />

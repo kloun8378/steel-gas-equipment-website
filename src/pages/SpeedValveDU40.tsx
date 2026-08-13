@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCard';
@@ -8,6 +9,7 @@ import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
 import SpeedValveDetails from '@/components/speed-valve/SpeedValveDetails';
 import SpeedValveFAQ from '@/components/speed-valve/SpeedValveFAQ';
 import Icon from '@/components/ui/icon';
+import OrderModal from '@/components/OrderModal';
 
 const commonSpecs = [
   { label: 'Рабочая среда', value: 'СУГ (пропан, бутан)' },
@@ -118,14 +120,20 @@ const faqLd = JSON.stringify({
 
 export default function SpeedValveDU40() {
   const [quantity, setQuantity] = useState(1);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
-    addToCart(product);
+    if (user) {
+      addToCart(product);
+    }
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+      <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
         <title>Скоростной клапан межфланцевый ТПА11-040 ДУ40 купить — аналог ZNW DN40, VENGO</title>
         <meta

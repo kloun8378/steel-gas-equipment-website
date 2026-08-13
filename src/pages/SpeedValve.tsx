@@ -8,21 +8,22 @@ import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCar
 import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
 import SpeedValveFAQ from '@/components/speed-valve/SpeedValveFAQ';
 import Icon from '@/components/ui/icon';
+import OrderModal from '@/components/OrderModal';
 
 export default function SpeedValve() {
   const [quantity25, setQuantity25] = useState(1);
   const [quantity32, setQuantity32] = useState(1);
   const [quantity40, setQuantity40] = useState(1);
   const [quantity50, setQuantity50] = useState(1);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
   const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
-    if (!user) {
-      window.location.href = '/login';
-      return;
+    if (user) {
+      addToCart(product);
     }
-    addToCart(product);
+    setOrderModalOpen(true);
   };
 
   const commonSpecs = [
@@ -38,6 +39,7 @@ export default function SpeedValve() {
 
   return (
     <>
+    <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
     <Helmet>
       <title>Скоростной клапан межфланцевый ТПА11 ДУ25/32/40/50 купить — аналог ZNW, VENGO, AZT</title>
       <meta name="description" content="Скоростной клапан ТПА11 ДУ25/32/40/50 для аварийного отключения СУГ. Аналог ZNW, VENGO, AZT. В наличии, доставка по РФ. Цена от 5 592 ₽." />

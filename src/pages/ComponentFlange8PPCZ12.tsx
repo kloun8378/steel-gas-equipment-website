@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import ComponentsDetails from '@/components/components-page/ComponentsDetails';
 import ComponentsFAQ from '@/components/components-page/ComponentsFAQ';
+import OrderModal from '@/components/OrderModal';
 
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG';
 const PRODUCT_PRICE_RAW = 4372;
@@ -69,21 +71,27 @@ const breadcrumbLd = JSON.stringify({
 export default function ComponentFlange8PPCZ12() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    addToCart({
-      id: PRODUCT_ID,
-      name: PRODUCT_NAME,
-      price: PRODUCT_PRICE_RAW,
-      image: PRODUCT_IMAGE,
-      description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
-      quantity,
-    });
+    if (user) {
+      addToCart({
+        id: PRODUCT_ID,
+        name: PRODUCT_NAME,
+        price: PRODUCT_PRICE_RAW,
+        image: PRODUCT_IMAGE,
+        description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
+        quantity,
+      });
+    }
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+      <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
         <title>Фланец на 8 отверстий к ППЦЗ-12 купить — крепление предохранительной арматуры</title>
         <meta

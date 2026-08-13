@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import SafetyValveDetails from '@/components/safety-valve/SafetyValveDetails';
 import SafetyValveFAQ from '@/components/safety-valve/SafetyValveFAQ';
+import OrderModal from '@/components/OrderModal';
 
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg';
 const PRODUCT_PRICE_RAW = 9659;
@@ -72,21 +74,27 @@ const breadcrumbLd = JSON.stringify({
 export default function SafetyValvePPCZ12() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    addToCart({
-      id: PRODUCT_ID,
-      name: PRODUCT_NAME,
-      price: PRODUCT_PRICE_RAW,
-      image: PRODUCT_IMAGE,
-      description: 'Надежная защита оборудования от превышения давления',
-      quantity,
-    });
+    if (user) {
+      addToCart({
+        id: PRODUCT_ID,
+        name: PRODUCT_NAME,
+        price: PRODUCT_PRICE_RAW,
+        image: PRODUCT_IMAGE,
+        description: 'Надежная защита оборудования от превышения давления',
+        quantity,
+      });
+    }
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+      <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
         <title>Предохранительный клапан ППЦЗ-12 купить — аналог REGO RS3132</title>
         <meta

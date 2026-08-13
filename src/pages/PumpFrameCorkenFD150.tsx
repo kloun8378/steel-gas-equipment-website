@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import PumpEquipmentDetails from '@/components/pump-equipment/PumpEquipmentDetails';
 import PumpEquipmentFAQ from '@/components/pump-equipment/PumpEquipmentFAQ';
+import OrderModal from '@/components/OrderModal';
 
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png';
 const PRODUCT_PRICE_RAW = 3800;
@@ -53,21 +55,27 @@ const breadcrumbLd = JSON.stringify({
 
 export default function PumpFrameCorkenFD150() {
   const [quantity, setQuantity] = useState(1);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    addToCart({
-      id: PRODUCT_ID,
-      name: PRODUCT_NAME,
-      price: PRODUCT_PRICE_RAW,
-      image: PRODUCT_IMAGE,
-      description: 'Единая усиленная стальная рама для крепления насоса и двигателя',
-      quantity,
-    });
+    if (user) {
+      addToCart({
+        id: PRODUCT_ID,
+        name: PRODUCT_NAME,
+        price: PRODUCT_PRICE_RAW,
+        image: PRODUCT_IMAGE,
+        description: 'Единая усиленная стальная рама для крепления насоса и двигателя',
+        quantity,
+      });
+    }
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+      <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
         <title>Рама насоса Corken FD 150 купить — СтальПроКлапан</title>
         <meta

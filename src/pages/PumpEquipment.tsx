@@ -8,22 +8,24 @@ import Icon from '@/components/ui/icon';
 import PumpEquipmentHeader from '@/components/pump-equipment/PumpEquipmentHeader';
 import PumpEquipmentDetails from '@/components/pump-equipment/PumpEquipmentDetails';
 import PumpEquipmentFAQ from '@/components/pump-equipment/PumpEquipmentFAQ';
+import OrderModal from '@/components/OrderModal';
 
 export default function PumpEquipment() {
   const [quantity2, setQuantity2] = useState(1);
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
-    if (!user) {
-      window.location.href = '/login';
-      return;
+    if (user) {
+      addToCart(product as Parameters<typeof addToCart>[0]);
     }
-    addToCart(product as Parameters<typeof addToCart>[0]);
+    setOrderModalOpen(true);
   };
 
   return (
     <>
+    <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
     <Helmet>
       <title>Насосное оборудование для СУГ купить — СтальПроКлапан, Барнаул</title>
       <meta name="description" content="Насосное оборудование для перекачки СУГ. Рамы Corken FD150. Применение: АГЗС, ГНС, автоцистерны. В наличии на складе в Барнауле. Доставка по РФ. Звоните!" />

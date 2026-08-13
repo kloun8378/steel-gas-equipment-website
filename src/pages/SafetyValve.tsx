@@ -9,6 +9,7 @@ import SafetyValveRelatedDialog from '@/components/safety-valve/SafetyValveRelat
 import SafetyValveCart from '@/components/safety-valve/SafetyValveCart';
 import SafetyValveDetails from '@/components/safety-valve/SafetyValveDetails';
 import SafetyValveFAQ from '@/components/safety-valve/SafetyValveFAQ';
+import OrderModal from '@/components/OrderModal';
 
 const relatedProducts = [
   {
@@ -96,15 +97,15 @@ export default function SafetyValve() {
   const [showSpecs2, setShowSpecs2] = useState(false);
   const [relatedOpen, setRelatedOpen] = useState(false);
   const [relatedQuantities, setRelatedQuantities] = useState<Record<string, number>>({});
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart();
   const { user } = useAuth();
 
   const handleAddToCart = (product: Record<string, unknown>) => {
-    if (!user) {
-      window.location.href = '/login';
-      return;
+    if (user) {
+      addToCart(product);
     }
-    addToCart(product);
+    setOrderModalOpen(true);
   };
 
   const specsContentPk32l = (
@@ -132,6 +133,7 @@ export default function SafetyValve() {
 
   return (
     <>
+    <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
     <Helmet>
       <title>Предохранительный клапан ППЦЗ-12 купить — СтальПроКлапан, Барнаул</title>
       <meta name="description" content="Предохранительный клапан ППЦЗ-12 для СУГ. 1,6 МПа. Аналог REGO RS3132. АГЗС, ГНС, автоцистерны. В наличии на складе в Барнауле. Доставка по РФ. Цена от 9 659 ₽. Звоните!" />
