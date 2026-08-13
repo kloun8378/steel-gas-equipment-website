@@ -8,7 +8,7 @@ import FlangesHeader from '@/components/flanges/FlangesHeader';
 
 const CANONICAL = 'https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b';
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/files/609b9109-33c2-4b90-b40e-a09833bdc8cb.jpg';
+const PRODUCT_IMAGE = 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/57eebbf3-d7f0-46b7-b9dd-1153812cd6e0.jpg';
 const PRODUCT_PRICE_RAW = 1241;
 const PRODUCT_PRICE = '1 241 ₽';
 const PRODUCT_NAME = 'Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015';
