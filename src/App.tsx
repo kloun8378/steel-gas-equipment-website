@@ -26,6 +26,7 @@ const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage"));
 const PumpEquipment = lazy(() => import("./pages/PumpEquipment"));
 const Flanges = lazy(() => import("./pages/Flanges"));
 const FlangesType01B = lazy(() => import("./pages/FlangesType01B"));
+const FlangesType01BDv116 = lazy(() => import("./pages/FlangesType01BDv116"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ServiceUnavailable = lazy(() => import("./pages/ServiceUnavailable"));
 const Delivery = lazy(() => import("./pages/Delivery"));
@@ -184,6 +185,11 @@ const App = () => (
               <Route path="/flanges/tip-01-ispolnenie-b" element={
                 <Suspense fallback={<PageLoader />}>
                   <FlangesType01B />
+                </Suspense>
+              } />
+              <Route path="/flanges/tip-01-ispolnenie-b-dv116" element={
+                <Suspense fallback={<PageLoader />}>
+                  <FlangesType01BDv116 />
                 </Suspense>
               } />
               <Route path="/delivery" element={

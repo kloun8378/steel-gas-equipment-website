@@ -99,7 +99,7 @@ export default function Flanges() {
         </div>
 
         {/* Категории фланцев */}
-        <div className="max-w-md mx-auto mb-10">
+        <div className="max-w-md mx-auto mb-10 space-y-4">
           <a
             href="/flanges/tip-01-ispolnenie-b"
             className="block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-lg hover:border-blue-500 hover:ring-2 hover:ring-blue-500 transition-all"
@@ -115,6 +115,26 @@ export default function Flanges() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900">Тип 01, исполнение B</h3>
+                <p className="text-sm text-gray-600">Фланец стальной плоский приварной ГОСТ 33259-2015</p>
+              </div>
+              <Icon name="ArrowRight" className="h-5 w-5 text-blue-600 flex-shrink-0" />
+            </div>
+          </a>
+          <a
+            href="/flanges/tip-01-ispolnenie-b-dv116"
+            className="block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-lg hover:border-blue-500 hover:ring-2 hover:ring-blue-500 transition-all"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100">
+                <img
+                  src="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp"
+                  alt="Тип 01, исполнение B, dв 116"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-900">Тип 01, исполнение B, dв 116</h3>
                 <p className="text-sm text-gray-600">Фланец стальной плоский приварной ГОСТ 33259-2015</p>
               </div>
               <Icon name="ArrowRight" className="h-5 w-5 text-blue-600 flex-shrink-0" />

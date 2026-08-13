@@ -196,6 +196,22 @@
         <param name="Исполнение">B</param>
       </offer>
 
+      <offer id="flange-100-1-01-1-b-st20-dv116" available="true">
+        <name>Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015</name>
+        <url>https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b-dv116</url>
+        <price>1241</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp</picture>
+        <vendor>СтальПроКлапан</vendor>
+        <vendorCode>100-1-01-1-B-St20-dv116</vendorCode>
+        <description>Фланец плоский стальной 100-1-01-1-B-Ст.20-I ГОСТ 33259-2015 — плоский приварной фланец с проходом Ду-100 на давление Ру-16, dв 116. Монтаж насадкой на трубу с обваркой двумя угловыми швами.</description>
+        <param name="Условный проход">Ду-100</param>
+        <param name="Условное давление">Ру-16</param>
+        <param name="Материал">Сталь 20</param>
+        <param name="Исполнение">B</param>
+      </offer>
+
     </offers>
   </shop>
 </yml_catalog>
