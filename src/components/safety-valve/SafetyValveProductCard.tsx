@@ -53,7 +53,7 @@ export default function SafetyValveProductCard({
               alt={imageAlt}
               className="w-full h-full object-contain rounded-lg p-2"
               loading={priority ? 'eager' : 'lazy'}
-              fetchPriority={priority ? 'high' : undefined}
+              fetchpriority={priority ? 'high' : undefined}
             />
           </div>
           {showSpecs && specsContent}

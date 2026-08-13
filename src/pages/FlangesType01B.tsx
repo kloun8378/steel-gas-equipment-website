@@ -147,7 +147,7 @@ export default function FlangesType01B() {
                   alt={PRODUCT_NAME}
                   className="w-full h-full object-contain rounded-lg p-2"
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                 />
               </div>
               {showSpecs && (

@@ -149,7 +149,7 @@ export default function ComponentFlange4PPCZ12() {
                   alt="Фланец на 4 отверстия к клапану ППЦЗ-12"
                   className="w-full h-48 object-contain bg-white rounded"
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                 />
                 {showSpecs && (
                   <div className="absolute left-0 right-0 top-full z-50 bg-white rounded-lg shadow-xl border mt-1 text-left max-h-72 overflow-y-auto">

@@ -75,7 +75,7 @@ export default function ComponentsProductCard({
                 alt={imageAlt}
                 className="w-full h-48 object-contain bg-white rounded"
                 loading={priority ? 'eager' : 'lazy'}
-                fetchPriority={priority ? 'high' : undefined}
+                fetchpriority={priority ? 'high' : undefined}
               />
             </div>
             {showSpecs && (
