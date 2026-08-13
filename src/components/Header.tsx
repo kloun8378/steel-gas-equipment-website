@@ -69,6 +69,7 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
           <div className="hidden md:flex space-x-8">
             <a href="/" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
             <a href="/#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
+            <a href="/flanges" className="text-gray-700 hover:text-primary transition-colors">Фланцы</a>
             <a href="/about" className="text-gray-700 hover:text-primary transition-colors">О нас</a>
             <a href="/blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
             <a href="/delivery" className="text-gray-700 hover:text-primary transition-colors">Доставка</a>
@@ -222,6 +223,13 @@ export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: He
                   onClick={() => setIsOpen(false)}
                 >
                   Продукция
+                </a>
+                <a 
+                  href="/flanges" 
+                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Фланцы
                 </a>
                 <a 
                   href="/about" 
