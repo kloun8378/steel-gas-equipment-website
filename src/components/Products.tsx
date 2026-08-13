@@ -40,7 +40,7 @@ const products = [
     img: 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/fe6a92f9-5b2f-4420-b6ac-7c91ea51ee20.jpg',
     alt: 'Фланцы ГОСТ 33259-2015',
     title: 'Фланцы ГОСТ 33259-2015',
-    desc: 'Стальные плоские приварные фланцы для трубопроводов СУГ',
+    desc: 'Стальные плоские приварные фланцы общего назначения',
     badge: <Badge variant="outline">По ГОСТ</Badge>,
   },
 ];
