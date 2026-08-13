@@ -105,8 +105,13 @@ export default function Flanges() {
             className="block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-lg hover:border-blue-500 hover:ring-2 hover:ring-blue-500 transition-all"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="CircleDashed" className="h-6 w-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100">
+                <img
+                  src="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/75ab14b4-3f9a-48be-ac0a-2e54bdb07b2c.jpg"
+                  alt="Тип 01, исполнение B"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900">Тип 01, исполнение B</h3>
