@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SEOHead from "@/components/SEOHead";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
@@ -133,10 +132,6 @@ export default function FAQ() {
           ]
         })}</script>
       </Helmet>
-      <SEOHead 
-        title="FAQ - Часто задаваемые вопросы | СтальПроКлапан"
-        description="Ответы на популярные вопросы о клапанах СУГ, ППЦЗ-12, ТПА11, доставке, гарантии и сервисе от СтальПроКлапан."
-      />
       <Header />
       
       <main className="flex-1">

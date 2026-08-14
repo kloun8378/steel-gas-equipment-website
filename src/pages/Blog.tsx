@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BlogHead from "@/components/blog/BlogHead";
 import BlogList from "@/components/blog/BlogList";
 import BlogPostView from "@/components/blog/BlogPost";
 import { BlogPost, defaultCategories } from "@/components/blog/blogData";
@@ -47,7 +46,6 @@ export default function Blog() {
       <link rel="canonical" href="https://стальпро.com/blog" />
     </Helmet>
     <div className="min-h-screen flex flex-col">
-      <BlogHead />
       <Header />
 
       <main className="flex-1">
