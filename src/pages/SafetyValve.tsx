@@ -76,14 +76,18 @@ const specsContentPpcz12 = (
         <div className="border-t pt-3 mt-3">
           <div className="font-semibold mb-2">Габаритные размеры:</div>
           <div className="grid grid-cols-3 gap-4 text-xs">
-            <div><span className="font-medium">Диаметр, мм:</span> 83(92)</div>
-            <div><span className="font-medium">Высота, мм:</span> 231(238)</div>
+            <div><span className="font-medium">Диаметр, мм, не более:</span> 92</div>
+            <div><span className="font-medium">Высота, мм, не более:</span> 238</div>
             <div><span className="font-medium">Масса, кг не более:</span> 3,6</div>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <div><span className="font-semibold">Средний срок службы, лет, не менее:</span> 15</div>
+          <div><span className="font-semibold">Назначенный срок службы, лет:</span> 10</div>
           <div><span className="font-semibold">Тип соединения с сосудом:</span> Резьбовое М 72х2</div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div><span className="font-semibold">Материал корпуса:</span> Сталь 20Х13, ГОСТ 5632-72</div>
+          <div><span className="font-semibold">Материал пружины:</span> Проволока 60С2А, ГОСТ 14963-78</div>
         </div>
       </div>
     </div>
@@ -249,7 +253,7 @@ export default function SafetyValve() {
             "name": "Как часто нужно менять пружину или золотник клапана?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Средний срок службы клапана — не менее 15 лет. При необходимости замены отдельные комплектующие (пружину, золотник, фланцы) можно заказать отдельно в разделе «Комплектующие»."
+              "text": "Назначенный срок службы клапана ППЦЗ-12 — 10 лет по паспорту изготовителя. При необходимости замены отдельные комплектующие (пружину, золотник, фланцы) можно заказать отдельно в разделе «Комплектующие»."
             }
           },
           {
