@@ -53,6 +53,7 @@ export default function Footer() {
                 style={{borderRadius: "8px"}} 
                 src="https://yandex.ru/cycounter?https://стальпро.com&theme=light&lang=ru"
                 className="mx-auto"
+                loading="lazy"
               />
             </a>
           </div>
