@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
-import SpeedValveHead from '@/components/speed-valve/SpeedValveHead';
 import SpeedValveHeader from '@/components/speed-valve/SpeedValveHeader';
 import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCard';
 import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
@@ -161,7 +160,6 @@ export default function SpeedValve() {
       })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
-      <SpeedValveHead />
       <SpeedValveHeader />
 
       <main className="container mx-auto px-4 md:px-6 py-6 sm:py-8">

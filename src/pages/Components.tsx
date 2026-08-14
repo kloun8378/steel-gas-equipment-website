@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
-import ComponentsHead from '@/components/components-page/ComponentsHead';
 import ComponentsHeader from '@/components/components-page/ComponentsHeader';
 import ComponentsProductCard from '@/components/components-page/ComponentsProductCard';
 import ComponentsCart from '@/components/components-page/ComponentsCart';
@@ -244,7 +243,6 @@ export default function Components() {
       })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
-      <ComponentsHead />
       <ComponentsHeader />
 
       <main className="container mx-auto px-4 md:px-6 py-8">

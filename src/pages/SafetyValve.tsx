@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
-import SafetyValveHead from '@/components/safety-valve/SafetyValveHead';
 import SafetyValveProductCard from '@/components/safety-valve/SafetyValveProductCard';
 import SafetyValveRelatedDialog from '@/components/safety-valve/SafetyValveRelatedDialog';
 import SafetyValveCart from '@/components/safety-valve/SafetyValveCart';
@@ -268,8 +267,6 @@ export default function SafetyValve() {
       })}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
-      <SafetyValveHead />
-
       <header className="bg-primary text-white py-4 px-4 md:px-6">
         <div className="container mx-auto flex items-center justify-between">
           <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
