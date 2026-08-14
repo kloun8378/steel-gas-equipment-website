@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <h6 className="font-semibold mb-4">Продукция</h6>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
+              <li><a href="/speed-valve" className="hover:text-white transition-colors">Обратные и скоростные клапаны для СУГ</a></li>
               <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
               <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
               <li><a href="/flanges" className="hover:text-white transition-colors">Фланцы ГОСТ 33259-2015</a></li>

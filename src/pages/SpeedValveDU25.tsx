@@ -23,6 +23,8 @@ const commonSpecs = [
 const techSpecs = [
   ...commonSpecs.slice(0, 4),
   { label: 'Проход условный, DN', value: '25' },
+  { label: 'Пропускная способность', value: 'по запросу' },
+  { label: 'Диаметр клапана (мм)', value: 'по запросу' },
   { label: 'Строительная длина, B (мм)', value: '35' },
   ...commonSpecs.slice(4),
 ];
@@ -30,7 +32,7 @@ const techSpecs = [
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png';
 const PRODUCT_PRICE_RAW = 5592;
 const PRODUCT_PRICE = '5 592 ₽';
-const PRODUCT_NAME = 'Скоростной клапан ТПА11-025 ДУ25';
+const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-025 ДУ25 PN40';
 const PRODUCT_ID = 'tpa11-025';
 const CANONICAL = 'https://xn--80awjdfch6f.com/speed-valve/tpa11-025';
 
@@ -65,8 +67,8 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://xn--80awjdfch6f.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Скоростной клапан', item: 'https://xn--80awjdfch6f.com/speed-valve' },
-    { '@type': 'ListItem', position: 3, name: 'ТПА11-025 ДУ25', item: CANONICAL },
+    { '@type': 'ListItem', position: 2, name: 'Обратные и скоростные клапаны для СУГ', item: 'https://xn--80awjdfch6f.com/speed-valve' },
+    { '@type': 'ListItem', position: 3, name: 'ТПА11-025 ДУ25 PN40', item: CANONICAL },
   ],
 });
 
@@ -134,18 +136,18 @@ export default function SpeedValveDU25() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной клапан межфланцевый ТПА11-025 ДУ25 купить — аналог ZNW DN25, VENGO</title>
+        <title>Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 купить — аналог ZNW DN25, VENGO</title>
         <meta
           name="description"
-          content="Скоростной клапан межфланцевый ТПА11-025 ДУ25 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN25, VENGO 25. Цена 5 592 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN25, VENGO 25. Цена 5 592 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ25, ТПА11-025, клапан межфланцевый ДУ25 СУГ, аналог ZNW DN25, скоростной клапан ДУ25 купить, клапан ДУ25 АГЗС, ТП11 ДУ25"
+          content="скоростной клапан ДУ25, ТПА11-025, клапан межфланцевый ДУ25 СУГ, аналог ZNW DN25, скоростной клапан ДУ25 купить, клапан ДУ25 АГЗС, ТП11 ДУ25, скоростной клапан ДУ25 PN40"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
-        <meta property="og:title" content="Скоростной клапан ТПА11-025 ДУ25 — СтальПроКлапан" />
+        <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
           content="Скоростной клапан межфланцевый ТПА11-025 ДУ25 для СУГ. Аналог ZNW DN25, VENGO 25. Цена 5 592 ₽ с НДС. В наличии."
@@ -171,14 +173,14 @@ export default function SpeedValveDU25() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/speed-valve" className="hover:text-primary">Скоростной клапан</a>
+            <a href="/speed-valve" className="hover:text-primary">Обратные и скоростные клапаны для СУГ</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <span className="text-gray-700">ТПА11-025 ДУ25</span>
+            <span className="text-gray-700">ТПА11-025 ДУ25 PN40</span>
           </nav>
 
           <div className="mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Купить скоростной клапан межфланцевый ТПА11-025 ДУ25
+              Купить скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40
             </h1>
             <div className="flex items-center gap-2">
               <span className="text-yellow-400 text-xl">★★★★★</span>

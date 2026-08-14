@@ -23,6 +23,7 @@ const commonSpecs = [
 const techSpecs = [
   ...commonSpecs.slice(0, 4),
   { label: 'Проход условный, DN', value: '50' },
+  { label: 'Пропускная способность', value: 'по запросу' },
   { label: 'Диаметр клапана (мм)', value: '107' },
   { label: 'Строительная длина, B (мм)', value: '50' },
   ...commonSpecs.slice(4),
@@ -31,7 +32,7 @@ const techSpecs = [
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg';
 const PRODUCT_PRICE_RAW = 10065;
 const PRODUCT_PRICE = '10 065 ₽';
-const PRODUCT_NAME = 'Скоростной клапан ТПА11-050 ДУ50';
+const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-050 ДУ50 PN40';
 const PRODUCT_ID = 'tpa11-050';
 const CANONICAL = 'https://xn--80awjdfch6f.com/speed-valve/tpa11-050';
 
@@ -66,8 +67,8 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://xn--80awjdfch6f.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Скоростной клапан', item: 'https://xn--80awjdfch6f.com/speed-valve' },
-    { '@type': 'ListItem', position: 3, name: 'ТПА11-050 ДУ50', item: CANONICAL },
+    { '@type': 'ListItem', position: 2, name: 'Обратные и скоростные клапаны для СУГ', item: 'https://xn--80awjdfch6f.com/speed-valve' },
+    { '@type': 'ListItem', position: 3, name: 'ТПА11-050 ДУ50 PN40', item: CANONICAL },
   ],
 });
 
@@ -135,18 +136,18 @@ export default function SpeedValveDU50() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной клапан межфланцевый ТПА11-050 ДУ50 купить — аналог ZNW DN50, VENGO</title>
+        <title>Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 купить — аналог ZNW DN50, VENGO</title>
         <meta
           name="description"
-          content="Скоростной клапан межфланцевый ТПА11-050 ДУ50 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN50, VENGO 50, КС-40. Цена 10 065 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN50, VENGO 50, КС-40. Цена 10 065 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ50, ТПА11-050, клапан межфланцевый ДУ50 СУГ, аналог ZNW DN50, скоростной клапан ДУ50 купить, клапан ДУ50 АГЗС, аналог КС-40, ТП11 ДУ50"
+          content="скоростной клапан ДУ50, ТПА11-050, клапан межфланцевый ДУ50 СУГ, аналог ZNW DN50, скоростной клапан ДУ50 купить, клапан ДУ50 АГЗС, аналог КС-40, ТП11 ДУ50, скоростной клапан ДУ50 PN40"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
-        <meta property="og:title" content="Скоростной клапан ТПА11-050 ДУ50 — СтальПроКлапан" />
+        <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
           content="Скоростной клапан межфланцевый ТПА11-050 ДУ50 для СУГ. Аналог ZNW DN50, VENGO 50, КС-40. Цена 10 065 ₽ с НДС. В наличии."
@@ -172,14 +173,14 @@ export default function SpeedValveDU50() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/speed-valve" className="hover:text-primary">Скоростной клапан</a>
+            <a href="/speed-valve" className="hover:text-primary">Обратные и скоростные клапаны для СУГ</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <span className="text-gray-700">ТПА11-050 ДУ50</span>
+            <span className="text-gray-700">ТПА11-050 ДУ50 PN40</span>
           </nav>
 
           <div className="mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Купить скоростной клапан межфланцевый ТПА11-050 ДУ50
+              Купить скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40
             </h1>
             <div className="flex items-center gap-2">
               <span className="text-yellow-400 text-xl">★★★★★</span>

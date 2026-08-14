@@ -18,7 +18,7 @@
 
       <!-- Скоростные клапаны ТПА11 -->
       <offer id="tpa11-025" available="true">
-        <name>Скоростной клапан межфланцевый ТПА11-025 ДУ25</name>
+        <name>Скоростной клапан межфланцевый ТПА11-025 ДУ25 PN40</name>
         <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-025</url>
         <price>5592</price>
         <currencyId>RUR</currencyId>
@@ -35,7 +35,7 @@
       </offer>
 
       <offer id="tpa11-032" available="true">
-        <name>Скоростной клапан межфланцевый ТПА11-032 ДУ32</name>
+        <name>Скоростной клапан межфланцевый ТПА11-032 ДУ32 PN40</name>
         <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-032</url>
         <price>6202</price>
         <currencyId>RUR</currencyId>
@@ -52,7 +52,7 @@
       </offer>
 
       <offer id="tpa11-040" available="true">
-        <name>Скоростной клапан межфланцевый ТПА11-040 ДУ40</name>
+        <name>Скоростной клапан межфланцевый ТПА11-040 ДУ40 PN40</name>
         <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-040</url>
         <price>7015</price>
         <currencyId>RUR</currencyId>
@@ -69,7 +69,7 @@
       </offer>
 
       <offer id="tpa11-050" available="true">
-        <name>Скоростной клапан межфланцевый ТПА11-050 ДУ50</name>
+        <name>Скоростной клапан межфланцевый ТПА11-050 ДУ50 PN40</name>
         <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-050</url>
         <price>10065</price>
         <currencyId>RUR</currencyId>
