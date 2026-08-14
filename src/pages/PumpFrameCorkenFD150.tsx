@@ -16,7 +16,7 @@ const PRODUCT_PRICE_RAW = 3800;
 const PRODUCT_PRICE = '3 800 ₽';
 const PRODUCT_NAME = 'Рама насоса Corken FD 150';
 const PRODUCT_ID = 'pump-frame-corken-fd150';
-const CANONICAL = 'https://xn--80awjdfch6f.com/pump-equipment/corken-fd150-frame';
+const CANONICAL = 'https://стальпро.com/pump-equipment/corken-fd150-frame';
 
 const productLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -47,8 +47,8 @@ const breadcrumbLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://xn--80awjdfch6f.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Насосное оборудование', item: 'https://xn--80awjdfch6f.com/pump-equipment' },
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Насосное оборудование', item: 'https://стальпро.com/pump-equipment' },
     { '@type': 'ListItem', position: 3, name: 'Рама Corken FD 150', item: CANONICAL },
   ],
 });

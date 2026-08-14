@@ -59,12 +59,12 @@ export default function BlogArticle() {
     "description": post.excerpt,
     "image": post.image,
     "datePublished": post.date,
-    "url": `https://xn--80awjdfch6f.com/blog/${post.slug}`,
+    "url": `https://стальпро.com/blog/${post.slug}`,
     "author": { "@type": "Person", "name": post.author },
     "publisher": {
       "@type": "Organization",
       "name": "СтальПроКлапан",
-      "url": "https://xn--80awjdfch6f.com",
+      "url": "https://стальпро.com",
       "logo": { "@type": "ImageObject", "url": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" }
     }
   });
@@ -73,9 +73,9 @@ export default function BlogArticle() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://xn--80awjdfch6f.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://xn--80awjdfch6f.com/blog/${post.slug}` }
+      { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://стальпро.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://стальпро.com/blog/${post.slug}` }
     ]
   });
 
@@ -85,12 +85,12 @@ export default function BlogArticle() {
         <title>{post.title} — СтальПроКлапан</title>
         <meta name="description" content={post.excerpt} />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-        <link rel="canonical" href={`https://xn--80awjdfch6f.com/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://стальпро.com/blog/${post.slug}`} />
         <meta property="og:title" content={`${post.title} — СтальПроКлапан`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://xn--80awjdfch6f.com/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://стальпро.com/blog/${post.slug}`} />
         <meta property="article:published_time" content={post.date} />
         <script type="application/ld+json">{ldJson}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>

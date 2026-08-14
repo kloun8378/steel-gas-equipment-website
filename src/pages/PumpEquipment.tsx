@@ -33,7 +33,7 @@ export default function PumpEquipment() {
       <meta name="keywords" content="насосное оборудование СУГ, насос сжиженный газ, насос АГЗС, насос ГНС, насос перекачка СУГ купить, СтальПроКлапан Барнаул" />
       <meta property="og:title" content="Насосное оборудование для СУГ — СтальПроКлапан" />
       <meta property="og:description" content="Насосы для перекачки сжиженных углеводородных газов. Доставка по всей России." />
-      <meta property="og:url" content="https://xn--80awjdfch6f.com/pump-equipment" />
+      <meta property="og:url" content="https://стальпро.com/pump-equipment" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
       <meta property="og:image:alt" content="Насосное оборудование для СУГ" />
@@ -41,13 +41,13 @@ export default function PumpEquipment() {
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
-      <link rel="canonical" href="https://xn--80awjdfch6f.com/pump-equipment" />
+      <link rel="canonical" href="https://стальпро.com/pump-equipment" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Насосное оборудование", "item": "https://xn--80awjdfch6f.com/pump-equipment"}
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Насосное оборудование", "item": "https://стальпро.com/pump-equipment"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -78,7 +78,7 @@ export default function PumpEquipment() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Насосное оборудование для СУГ",
-        "url": "https://xn--80awjdfch6f.com/pump-equipment",
+        "url": "https://стальпро.com/pump-equipment",
         "itemListElement": [
           {
             "@type": "ListItem", "position": 1,
@@ -90,7 +90,7 @@ export default function PumpEquipment() {
               "sku": "pump-frame-corken-fd150",
               "brand": {"@type": "Brand", "name": "Corken"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "8", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/pump-equipment", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/pump-equipment", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

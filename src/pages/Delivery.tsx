@@ -14,14 +14,14 @@ export default function Delivery() {
         <meta property="og:description" content="Условия доставки и оплаты газовой арматуры. Доставка по всей России, безналичный расчёт." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://xn--80awjdfch6f.com/delivery" />
-        <link rel="canonical" href="https://xn--80awjdfch6f.com/delivery" />
+        <meta property="og:url" content="https://стальпро.com/delivery" />
+        <link rel="canonical" href="https://стальпро.com/delivery" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Доставка и оплата", "item": "https://xn--80awjdfch6f.com/delivery"}
+            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Доставка и оплата", "item": "https://стальпро.com/delivery"}
           ]
         })}</script>
       </Helmet>

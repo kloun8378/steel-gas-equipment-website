@@ -95,7 +95,7 @@ export default function Components() {
       <meta name="keywords" content="комплектующие клапаны СУГ, запчасти ППЦЗ-12, запчасти ТПА11, пружина клапан, уплотнитель клапан, арматура СУГ купить, СтальПроКлапан Барнаул" />
       <meta property="og:title" content="Комплектующие для клапанов СУГ — СтальПроКлапан" />
       <meta property="og:description" content="Запчасти и детали для газового оборудования. Совместимы с ППЦЗ-12 и ТПА11. Доставка по всей России." />
-      <meta property="og:url" content="https://xn--80awjdfch6f.com/components" />
+      <meta property="og:url" content="https://стальпро.com/components" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
       <meta property="og:image:alt" content="Комплектующие для клапанов СУГ" />
@@ -103,13 +103,13 @@ export default function Components() {
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
-      <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />
+      <link rel="canonical" href="https://стальпро.com/components" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Комплектующие", "item": "https://xn--80awjdfch6f.com/components"}
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Комплектующие", "item": "https://стальпро.com/components"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -140,7 +140,7 @@ export default function Components() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Комплектующие и запчасти для клапанов СУГ",
-        "url": "https://xn--80awjdfch6f.com/components",
+        "url": "https://стальпро.com/components",
         "itemListElement": [
           {
             "@type": "ListItem", "position": 1,
@@ -152,7 +152,7 @@ export default function Components() {
               "sku": "spring-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "2745", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "2745", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -165,7 +165,7 @@ export default function Components() {
               "sku": "valve-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "1129", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "1129", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -178,7 +178,7 @@ export default function Components() {
               "sku": "flange4-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -191,7 +191,7 @@ export default function Components() {
               "sku": "flange8-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "4372", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/components", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

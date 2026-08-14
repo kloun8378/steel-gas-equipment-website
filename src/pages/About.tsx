@@ -7,8 +7,8 @@ const breadcrumbLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/" },
-    { "@type": "ListItem", "position": 2, "name": "О компании", "item": "https://xn--80awjdfch6f.com/about" }
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/" },
+    { "@type": "ListItem", "position": 2, "name": "О компании", "item": "https://стальпро.com/about" }
   ]
 });
 
@@ -17,7 +17,7 @@ const organizationLd = JSON.stringify({
   "@type": "Organization",
   "name": "СтальПроКлапан",
   "alternateName": "стальпро.com",
-  "url": "https://xn--80awjdfch6f.com",
+  "url": "https://стальпро.com",
   "logo": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
   "description": "Производство и поставка скоростных и предохранительных клапанов для СУГ. ППЦЗ-12, ТПА11. Барнаул, Алтайский край.",
   "foundingDate": "2020",
@@ -33,16 +33,16 @@ const organizationLd = JSON.stringify({
     { "@type": "ContactPoint", "telephone": "+79609373542", "contactType": "sales", "availableLanguage": "Russian" },
     { "@type": "ContactPoint", "telephone": "+79609505904", "contactType": "customer service", "availableLanguage": "Russian" }
   ],
-  "sameAs": ["https://стальпро.com", "https://2gis.ru/barnaul/firm/70000001099007177", "https://www.ozon.ru/seller/stalpro-3601542/"],
+  "sameAs": ["https://xn--80awjdfch6f.com", "https://2gis.ru/barnaul/firm/70000001099007177", "https://www.ozon.ru/seller/stalpro-3601542/"],
   "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
   "areaServed": { "@type": "Country", "name": "Россия" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Клапаны для СУГ",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Скоростной клапан ТПА11", "url": "https://xn--80awjdfch6f.com/speed-valve" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Предохранительный клапан ППЦЗ-12", "url": "https://xn--80awjdfch6f.com/safety-valve" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Комплектующие для клапанов СУГ", "url": "https://xn--80awjdfch6f.com/components" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Скоростной клапан ТПА11", "url": "https://стальпро.com/speed-valve" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Предохранительный клапан ППЦЗ-12", "url": "https://стальпро.com/safety-valve" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Комплектующие для клапанов СУГ", "url": "https://стальпро.com/components" } }
     ]
   }
 });
@@ -93,8 +93,8 @@ export default function About() {
         <meta property="og:description" content="Российский производитель клапанов для АГЗС и ГНС. Основана в 2020 году, Барнаул. 500+ клиентов, сертификат EAC." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://xn--80awjdfch6f.com/about" />
-        <link rel="canonical" href="https://xn--80awjdfch6f.com/about" />
+        <meta property="og:url" content="https://стальпро.com/about" />
+        <link rel="canonical" href="https://стальпро.com/about" />
         <script type="application/ld+json">{breadcrumbLd}</script>
         <script type="application/ld+json">{organizationLd}</script>
       </Helmet>

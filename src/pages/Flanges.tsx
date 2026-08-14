@@ -14,16 +14,16 @@ export default function Flanges() {
       <meta name="keywords" content="фланцы ГОСТ 33259-2015, фланец стальной плоский приварной, фланец купить, фланец трубопровода, СтальПроКлапан Барнаул" />
       <meta property="og:title" content="Фланцы ГОСТ 33259-2015 — СтальПроКлапан" />
       <meta property="og:description" content="Фланцы стальные плоские приварные по ГОСТ 33259-2015 общего назначения. Доставка по всей России." />
-      <meta property="og:url" content="https://xn--80awjdfch6f.com/flanges" />
+      <meta property="og:url" content="https://стальпро.com/flanges" />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
-      <link rel="canonical" href="https://xn--80awjdfch6f.com/flanges" />
+      <link rel="canonical" href="https://стальпро.com/flanges" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Фланцы ГОСТ 33259-2015", "item": "https://xn--80awjdfch6f.com/flanges"}
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Фланцы ГОСТ 33259-2015", "item": "https://стальпро.com/flanges"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({

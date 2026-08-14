@@ -35,7 +35,7 @@ const PRODUCT_PRICE_RAW = 6202;
 const PRODUCT_PRICE = '6 202 ₽';
 const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-032 ДУ32 PN40';
 const PRODUCT_ID = 'tpa11-032';
-const CANONICAL = 'https://xn--80awjdfch6f.com/speed-valve/tpa11-032';
+const CANONICAL = 'https://стальпро.com/speed-valve/tpa11-032';
 
 const productLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -67,8 +67,8 @@ const breadcrumbLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://xn--80awjdfch6f.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Обратные и скоростные клапаны для СУГ', item: 'https://xn--80awjdfch6f.com/speed-valve' },
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Обратные и скоростные клапаны для СУГ', item: 'https://стальпро.com/speed-valve' },
     { '@type': 'ListItem', position: 3, name: 'ТПА11-032 ДУ32 PN40', item: CANONICAL },
   ],
 });

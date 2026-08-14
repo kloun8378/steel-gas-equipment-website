@@ -16,7 +16,7 @@ const PRODUCT_PRICE_RAW = 4372;
 const PRODUCT_PRICE = '4 372 ₽';
 const PRODUCT_NAME = 'Фланец на 4 отверстия к ППЦЗ-12';
 const PRODUCT_ID = 'flange4-ppcz12';
-const CANONICAL = 'https://xn--80awjdfch6f.com/components/flange4-ppcz12';
+const CANONICAL = 'https://стальпро.com/components/flange4-ppcz12';
 
 const flangeSpecs = [
   { label: 'Вид арматуры', value: 'Фланцы' },
@@ -62,8 +62,8 @@ const breadcrumbLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://xn--80awjdfch6f.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Комплектующие', item: 'https://xn--80awjdfch6f.com/components' },
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Комплектующие', item: 'https://стальпро.com/components' },
     { '@type': 'ListItem', position: 3, name: 'Фланец на 4 отверстия к ППЦЗ-12', item: CANONICAL },
   ],
 });

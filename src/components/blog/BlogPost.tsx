@@ -30,7 +30,7 @@ export default function BlogPost({ post, onBack, allPosts, onSelectPost }: BlogP
     "publisher": {
       "@type": "Organization",
       "name": "СтальПроКлапан",
-      "url": "https://xn--80awjdfch6f.com"
+      "url": "https://стальпро.com"
     }
   });
 

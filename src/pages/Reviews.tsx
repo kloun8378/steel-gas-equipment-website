@@ -64,8 +64,8 @@ const breadcrumbLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Отзывы", "item": "https://xn--80awjdfch6f.com/reviews" }
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Отзывы", "item": "https://стальпро.com/reviews" }
   ]
 });
 
@@ -73,7 +73,7 @@ const aggregateRatingLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "СтальПроКлапан",
-  "url": "https://xn--80awjdfch6f.com",
+  "url": "https://стальпро.com",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -112,8 +112,8 @@ export default function Reviews() {
         <meta property="og:description" content="Рейтинг 4.9 из 5 по 23 отзывам. Клиенты о клапанах для АГЗС и ГНС от СтальПроКлапан." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://xn--80awjdfch6f.com/reviews" />
-        <link rel="canonical" href="https://xn--80awjdfch6f.com/reviews" />
+        <meta property="og:url" content="https://стальпро.com/reviews" />
+        <link rel="canonical" href="https://стальпро.com/reviews" />
         <script type="application/ld+json">{breadcrumbLd}</script>
         <script type="application/ld+json">{aggregateRatingLd}</script>
       </Helmet>

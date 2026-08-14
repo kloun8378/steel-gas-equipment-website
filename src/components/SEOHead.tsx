@@ -16,7 +16,7 @@ export default function SEOHead({
   description = "Производство и поставка газовой арматуры, промышленного газового оборудования. Краны, редукторы, фильтры. Сертификаты качества.",
   keywords = seoKeywords,
   image = "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
-  url = typeof window !== 'undefined' ? window.location.href : "https://xn--80awjdfch6f.com",
+  url = typeof window !== 'undefined' ? window.location.href : "https://стальпро.com",
   type = "website",
   noindex = false
 }: SEOProps) {

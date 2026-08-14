@@ -3,7 +3,7 @@
   <shop>
     <name>СтальПроКлапан</name>
     <company>СтальПроКлапан</company>
-    <url>https://xn--80awjdfch6f.com</url>
+    <url>https://стальпро.com</url>
     <currencies>
       <currency id="RUR" rate="1"/>
     </currencies>
@@ -19,7 +19,7 @@
       <!-- Скоростные клапаны ТПА11 -->
       <offer id="tpa11-025" available="true">
         <name>Скоростной клапан межфланцевый ТПА11-025 ДУ25 PN40</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-025</url>
+        <url>https://стальпро.com/speed-valve/tpa11-025</url>
         <price>5592</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -36,7 +36,7 @@
 
       <offer id="tpa11-032" available="true">
         <name>Скоростной клапан межфланцевый ТПА11-032 ДУ32 PN40</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-032</url>
+        <url>https://стальпро.com/speed-valve/tpa11-032</url>
         <price>6202</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -53,7 +53,7 @@
 
       <offer id="tpa11-040" available="true">
         <name>Скоростной клапан межфланцевый ТПА11-040 ДУ40 PN40</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-040</url>
+        <url>https://стальпро.com/speed-valve/tpa11-040</url>
         <price>7015</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -70,7 +70,7 @@
 
       <offer id="tpa11-050" available="true">
         <name>Скоростной клапан межфланцевый ТПА11-050 ДУ50 PN40</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-050</url>
+        <url>https://стальпро.com/speed-valve/tpa11-050</url>
         <price>10065</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -88,7 +88,7 @@
       <!-- Предохранительные клапаны -->
       <offer id="ppcz12" available="true">
         <name>Предохранительный клапан ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve/ppcz-12</url>
+        <url>https://стальпро.com/safety-valve/ppcz-12</url>
         <price>9659</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -103,7 +103,7 @@
 
       <offer id="pk32l" available="true">
         <name>Предохранительный клапан ПК-32-Л</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve/pk-32-l</url>
+        <url>https://стальпро.com/safety-valve/pk-32-l</url>
         <price>15860</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -118,7 +118,7 @@
       <!-- Комплектующие -->
       <offer id="spring-ppcz12" available="true">
         <name>Пружина для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/spring-ppcz12</url>
+        <url>https://стальпро.com/components/spring-ppcz12</url>
         <price>2745</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -130,7 +130,7 @@
 
       <offer id="valve-ppcz12" available="true">
         <name>Золотник для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/valve-ppcz12</url>
+        <url>https://стальпро.com/components/valve-ppcz12</url>
         <price>1129</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -142,7 +142,7 @@
 
       <offer id="flange4-ppcz12" available="true">
         <name>Фланец на 4 отверстия к ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/flange4-ppcz12</url>
+        <url>https://стальпро.com/components/flange4-ppcz12</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -154,7 +154,7 @@
 
       <offer id="flange8-ppcz12" available="true">
         <name>Фланец на 8 отверстий к ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/flange8-ppcz12</url>
+        <url>https://стальпро.com/components/flange8-ppcz12</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -167,7 +167,7 @@
       <!-- Насосное оборудование -->
       <offer id="pump-frame-corken-fd150" available="true">
         <name>Рама насоса Corken FD 150</name>
-        <url>https://xn--80awjdfch6f.com/pump-equipment/corken-fd150-frame</url>
+        <url>https://стальпро.com/pump-equipment/corken-fd150-frame</url>
         <price>3800</price>
         <currencyId>RUR</currencyId>
         <categoryId>4</categoryId>
@@ -182,7 +182,7 @@
       <!-- Фланцы ГОСТ 33259-2015 -->
       <offer id="flange-100-1-01-1-b-st20" available="true">
         <name>Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015</name>
-        <url>https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b</url>
+        <url>https://стальпро.com/flanges/tip-01-ispolnenie-b</url>
         <price>1241</price>
         <currencyId>RUR</currencyId>
         <categoryId>5</categoryId>
@@ -198,7 +198,7 @@
 
       <offer id="flange-100-1-01-1-b-st20-dv116" available="true">
         <name>Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015</name>
-        <url>https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b-dv116</url>
+        <url>https://стальпро.com/flanges/tip-01-ispolnenie-b-dv116</url>
         <price>1241</price>
         <currencyId>RUR</currencyId>
         <categoryId>5</categoryId>

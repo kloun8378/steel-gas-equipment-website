@@ -47,7 +47,7 @@ export default function SpeedValve() {
       <meta name="keywords" content="скоростной клапан межфланцевый, клапан скоростной межфланцевый ДУ50, клапан скоростной межфланцевый ДУ40, клапан скоростной межфланцевый ДУ32, клапан скоростной межфланцевый ДУ25, ТПА11, ТПА11-025, ТПА11-032, ТПА11-040, ТПА11-050, аналог ZNW DN50, аналог ZNW DN40, аналог ZNW DN25, аналог VENGO, аналог AZT, аналог КС-40, клапан скоростной СУГ купить, клапан аварийного отключения СУГ, быстрозапорный клапан АГЗС, клапан для автоцистерны СУГ, скоростной клапан ГНС, скоростной клапан купить Барнаул, скоростной клапан купить Новосибирск, скоростной клапан купить Сибирь, тпа11 клапан, клапан тпа11, клапан быстродействующий СУГ, клапан отсечной СУГ, клапан аварийного перекрытия, клапан для газгольдера, клапан для резервуара СУГ, клапан для трубопровода СУГ, клапан для газоснабжения, клапан для налива СУГ, клапан для слива СУГ, купить клапан тпа11, цена клапан тпа11, продажа клапанов тпа11, клапан тпа11 цена, запорная арматура СУГ, клапан ду25 купить, клапан ду32 купить, клапан ду40 купить, клапан ду50 купить, ТПА-11, клапан ТПА-11, скоростной клапан ТПА-11, клапан ТПА-11 межфланцевый, клапан ТПА-11 Ду40, клапан ТПА-11 пружинный отсечной, клапан ТПА-11 нержавеющая сталь, клапан для сжиженных углеводородов, пружинный клапан для газа, защита от утечек газа, автоматическая защита трубопроводов СУГ, оборудование для АГЗС, оборудование для ГНС, ТП11 ДУ25, ТП11 ДУ32, ТП11 ДУ40, ТП11 ДУ50" />
       <meta property="og:title" content="Скоростной клапан ТПА11 — СтальПроКлапан" />
       <meta property="og:description" content="Быстрозакрывающиеся клапаны для аварийного отключения газопроводов. ТПА11-025/032/040/050. Доставка по всей России." />
-      <meta property="og:url" content="https://xn--80awjdfch6f.com/speed-valve" />
+      <meta property="og:url" content="https://стальпро.com/speed-valve" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
       <meta property="og:image:alt" content="Скоростной клапан межфланцевый ТПА11-025" />
@@ -55,7 +55,7 @@ export default function SpeedValve() {
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
-      <link rel="canonical" href="https://xn--80awjdfch6f.com/speed-valve" />
+      <link rel="canonical" href="https://стальпро.com/speed-valve" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -71,8 +71,8 @@ export default function SpeedValve() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--80awjdfch6f.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Обратные и скоростные клапаны для СУГ", "item": "https://xn--80awjdfch6f.com/speed-valve"}
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Обратные и скоростные клапаны для СУГ", "item": "https://стальпро.com/speed-valve"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -103,7 +103,7 @@ export default function SpeedValve() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Скоростные клапаны межфланцевые ТПА11",
-        "url": "https://xn--80awjdfch6f.com/speed-valve",
+        "url": "https://стальпро.com/speed-valve",
         "itemListElement": [
           {
             "@type": "ListItem", "position": 1,
@@ -115,7 +115,7 @@ export default function SpeedValve() {
               "sku": "ТПА11-025",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "5592", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "5592", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -128,7 +128,7 @@ export default function SpeedValve() {
               "sku": "ТПА11-032",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "6202", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "6202", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -141,7 +141,7 @@ export default function SpeedValve() {
               "sku": "ТПА11-040",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "7015", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "7015", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -154,7 +154,7 @@ export default function SpeedValve() {
               "sku": "ТПА11-050",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "10065", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://xn--80awjdfch6f.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "10065", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/speed-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

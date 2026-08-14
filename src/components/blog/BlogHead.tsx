@@ -10,8 +10,8 @@ export default function BlogHead() {
         <meta name="keywords" content="блог клапаны СУГ, ППЦЗ-12 обслуживание, скоростной клапан АГЗС, ТПА11-050 характеристики, REGO RS3132 аналог, замена пружины ППЦЗ-12, золотник ППЦЗ-12, арматура ГНС, клапан межфланцевый обзор" />
         <meta property="og:title" content="Блог о клапанах СУГ — СтальПроКлапан" />
         <meta property="og:description" content="Технические статьи о клапанах для АГЗС и ГНС: ППЦЗ-12, ТПА11, сравнения, инструкции по обслуживанию." />
-        <meta property="og:url" content="https://xn--80awjdfch6f.com/blog" />
-        <link rel="canonical" href="https://xn--80awjdfch6f.com/blog" />
+        <meta property="og:url" content="https://стальпро.com/blog" />
+        <link rel="canonical" href="https://стальпро.com/blog" />
       </Helmet>
       <SEOHead
         title="Блог о газовом оборудовании | СтальПроКлапан"

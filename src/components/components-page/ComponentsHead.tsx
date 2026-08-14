@@ -8,11 +8,11 @@ export default function ComponentsHead() {
       <meta name="keywords" content="пружина ППЦЗ-12, золотник ППЦЗ-12, фланец ППЦЗ-12, ремкомплект ППЦЗ-12, запчасти клапан ППЦЗ-12, комплектующие СУГ, запасные части АГЗС, арматура ГНС, фланец на 8 отверстий, фланец на 4 отверстия, запчасти предохранительный клапан, VENGO аналог, AZT аналог, клапан СУГ комплектующие, пружина клапана купить, золотник клапана купить, СтальПроКлапан Барнаул" />
       <meta property="og:title" content="Комплектующие для клапана ППЦЗ-12 — пружина, золотник, фланец" />
       <meta property="og:description" content="Запчасти для предохранительного клапана ППЦЗ-12: пружина, золотник, фланцы на 4 и 8 отверстий. Для АГЗС, ГНС, автоцистерн СУГ. Доставка по всей России." />
-      <meta property="og:url" content="https://xn--80awjdfch6f.com/components" />
+      <meta property="og:url" content="https://стальпро.com/components" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://xn--80awjdfch6f.com/components" />
+      <link rel="canonical" href="https://стальпро.com/components" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "ItemList",
