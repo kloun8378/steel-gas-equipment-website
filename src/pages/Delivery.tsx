@@ -10,6 +10,7 @@ export default function Delivery() {
         <title>Доставка и оплата — СтальПроКлапан</title>
         <meta name="description" content="Условия доставки и оплаты газовой арматуры. Доставка по всей России транспортными компаниями. Оплата по счёту, безналичный расчёт, НДС включён." />
         <meta name="keywords" content="доставка газовая арматура, оплата клапаны СУГ, транспортная компания, доставка по России, безналичный расчёт" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:title" content="Доставка и оплата — СтальПроКлапан" />
         <meta property="og:description" content="Условия доставки и оплаты газовой арматуры. Доставка по всей России, безналичный расчёт." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />

@@ -12,41 +12,6 @@ const breadcrumbLd = JSON.stringify({
   ]
 });
 
-const organizationLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "СтальПроКлапан",
-  "alternateName": "стальпро.com",
-  "url": "https://стальпро.com",
-  "logo": "https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg",
-  "description": "Производство и поставка скоростных и предохранительных клапанов для СУГ. ППЦЗ-12, ТПА11. Барнаул, Алтайский край.",
-  "foundingDate": "2020",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ул. Кавалерийская 14, бокс 171",
-    "addressLocality": "Барнаул",
-    "addressRegion": "Алтайский край",
-    "postalCode": "656000",
-    "addressCountry": "RU"
-  },
-  "contactPoint": [
-    { "@type": "ContactPoint", "telephone": "+79609373542", "contactType": "sales", "availableLanguage": "Russian" },
-    { "@type": "ContactPoint", "telephone": "+79609505904", "contactType": "customer service", "availableLanguage": "Russian" }
-  ],
-  "sameAs": ["https://xn--80awjdfch6f.com", "https://2gis.ru/barnaul/firm/70000001099007177", "https://www.ozon.ru/seller/stalpro-3601542/"],
-  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
-  "areaServed": { "@type": "Country", "name": "Россия" },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Клапаны для СУГ",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Скоростной клапан ТПА11", "url": "https://стальпро.com/speed-valve" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Предохранительный клапан ППЦЗ-12", "url": "https://стальпро.com/safety-valve" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Комплектующие для клапанов СУГ", "url": "https://стальпро.com/components" } }
-    ]
-  }
-});
-
 const stats = [
   { icon: "CalendarDays", label: "на рынке", value: "с 2020 года", color: "bg-blue-50 text-blue-600" },
   { icon: "Users", label: "клиентов", value: "500+", color: "bg-green-50 text-green-600" },
@@ -89,6 +54,7 @@ export default function About() {
           content="СтальПроКлапан — российский производитель клапанов для сжиженного углеводородного газа. Основана в 2020 году в Барнауле. Скоростные клапаны ТПА11, предохранительные ППЦЗ-12, насосное оборудование. 500+ клиентов по всей России."
         />
         <meta name="keywords" content="о компании СтальПроКлапан, производитель клапанов СУГ, Барнаул, ППЦЗ-12, ТПА11, история компании" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:title" content="О компании СтальПроКлапан — производство клапанов СУГ с 2020 года" />
         <meta property="og:description" content="Российский производитель клапанов для АГЗС и ГНС. Основана в 2020 году, Барнаул. 500+ клиентов, сертификат EAC." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
@@ -96,7 +62,6 @@ export default function About() {
         <meta property="og:url" content="https://стальпро.com/about" />
         <link rel="canonical" href="https://стальпро.com/about" />
         <script type="application/ld+json">{breadcrumbLd}</script>
-        <script type="application/ld+json">{organizationLd}</script>
       </Helmet>
 
       <Header />

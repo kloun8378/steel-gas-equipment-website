@@ -35,6 +35,7 @@ export default function Blog() {
       <title>Блог о газовом оборудовании СУГ — СтальПроКлапан, Барнаул</title>
       <meta name="description" content="Статьи и новости о клапанах СУГ, АГЗС, ГНС. Техническая информация о ППЦЗ-12, ТПА11, насосном оборудовании. Советы по эксплуатации и обслуживанию от СтальПроКлапан." />
       <meta name="keywords" content="блог клапаны СУГ, статьи ППЦЗ-12, техническая информация газовое оборудование, АГЗС ГНС, СтальПроКлапан Барнаул" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta property="og:title" content="Блог о газовом оборудовании — СтальПроКлапан" />
       <meta property="og:description" content="Технические статьи и новости о клапанах и оборудовании для СУГ." />
       <meta property="og:url" content="https://стальпро.com/blog" />

@@ -108,6 +108,7 @@ export default function Reviews() {
           content="Отзывы клиентов о компании СтальПроКлапан. Рейтинг 4.9 из 5 по 23 отзывам. Покупатели со всей России о клапанах ТПА11, ППЦЗ-12, насосном оборудовании и комплектующих для АГЗС и ГНС."
         />
         <meta name="keywords" content="отзывы СтальПроКлапан, отзывы клапаны ППЦЗ-12, ТПА11 отзывы, оборудование СУГ отзывы" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta property="og:title" content="Отзывы клиентов о СтальПроКлапан — клапаны ППЦЗ-12 и ТПА11" />
         <meta property="og:description" content="Рейтинг 4.9 из 5 по 23 отзывам. Клиенты о клапанах для АГЗС и ГНС от СтальПроКлапан." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />

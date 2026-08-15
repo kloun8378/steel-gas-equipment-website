@@ -104,6 +104,8 @@ export default function FAQ() {
         <meta name="description" content="Ответы на вопросы о клапанах СУГ: ППЦЗ-12, ТПА11-025/032/040/050. Цены, доставка, гарантия, запчасти, сертификаты. Клапаны для АГЗС и ГНС от СтальПроКлапан, Барнаул." />
         <meta name="keywords" content="FAQ клапаны СУГ, вопросы ППЦЗ-12, цена скоростной клапан, доставка арматура СУГ, гарантия клапан, запчасти ППЦЗ-12, сертификат EAC клапан, клапан АГЗС купить, ТПА11 вопросы" />
         <meta property="og:title" content="Вопросы и ответы о клапанах СУГ — СтальПроКлапан" />
+        <meta property="og:description" content="Ответы на вопросы о клапанах СУГ: ППЦЗ-12, ТПА11. Цены, доставка, гарантия, запчасти, сертификаты." />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://стальпро.com/faq" />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:image:alt" content="СтальПроКлапан — вопросы и ответы" />
