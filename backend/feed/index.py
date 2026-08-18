@@ -7,8 +7,7 @@ def handler(event: dict, context) -> dict:
     common_params = """        <param name="рейтинг">4.9</param>
         <param name="число отзывов">47</param>
         <param name="годы опыта">15</param>
-        <param name="регион">Барнаул</param>
-        <param name="конверсия">высокая</param>"""
+        <param name="регион">Барнаул</param>"""
 
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <yml_catalog date="2026-06-14">
@@ -117,7 +116,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="ppcz12" available="true" type="vendor.model">
         <name>Предохранительный клапан ППЦЗ-12</name>
-        <url>https://www.ozon.ru/product/predohranitelnyy-klapan-pptsz-12-3084148966/</url>
+        <url>https://xn--80awjdfch6f.com/safety-valve/ppcz-12</url>
         <price>9659</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -139,7 +138,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="pk32l" available="true" type="vendor.model">
         <name>Предохранительный клапан ПК-32-Л</name>
-        <url>https://www.ozon.ru/product/klapan-predohranitelnyy-rs3132-3201218309/</url>
+        <url>https://xn--80awjdfch6f.com/safety-valve/pk-32-l</url>
         <price>15860</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -159,7 +158,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="spring-ppcz12" available="true" type="vendor.model">
         <name>Пружина для клапана ППЦЗ-12</name>
-        <url>https://www.ozon.ru/product/pruzhina-k-predohranitelnomu-klapanu-pptsz-12-3084160991/</url>
+        <url>https://xn--80awjdfch6f.com/components/spring-ppcz12</url>
         <price>2745</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -178,7 +177,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="valve-ppcz12" available="true" type="vendor.model">
         <name>Золотник для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components</url>
+        <url>https://xn--80awjdfch6f.com/components/valve-ppcz12</url>
         <price>1129</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -197,7 +196,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="flange4-ppcz12" available="true" type="vendor.model">
         <name>Фланец на 4 отверстия к ППЦЗ-12</name>
-        <url>https://www.ozon.ru/product/flanets-dlya-pptsz-12-07-00-000-3527815507/</url>
+        <url>https://xn--80awjdfch6f.com/components/flange4-ppcz12</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -218,7 +217,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="flange8-ppcz12" available="true" type="vendor.model">
         <name>Фланец на 8 отверстий к ППЦЗ-12</name>
-        <url>https://www.ozon.ru/product/flanets-dlya-predohranitelnogo-klapana-pptsz-12-3084202121/</url>
+        <url>https://xn--80awjdfch6f.com/components/flange8-ppcz12</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -239,7 +238,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="pump-frame-corken-fd150" available="true" type="vendor.model">
         <name>Рама насоса Corken FD 150</name>
-        <url>https://xn--80awjdfch6f.com/pump-equipment</url>
+        <url>https://xn--80awjdfch6f.com/pump-equipment/corken-fd150-frame</url>
         <price>3800</price>
         <currencyId>RUR</currencyId>
         <categoryId>4</categoryId>
