@@ -2,13 +2,6 @@ import Icon from "@/components/ui/icon";
 
 const deliveryItems = [
   { icon: "Package", text: "Клапан ТПА11 — 1 шт." },
-  { icon: "Circle", text: "Прокладка паронитовая — 2 шт." },
-  { icon: "Disc", text: "Фланец ответный — 2 шт." },
-  { icon: "Wrench", text: "Болт М16 — 4 шт." },
-  { icon: "Minus", text: "Шайба зубчатая — 4 шт." },
-  { icon: "Minus", text: "Гайка М16 — 4 шт." },
-  { icon: "Minus", text: "Шайба упругая — 4 шт." },
-  { icon: "Minus", text: "Шайба плоская — 4 шт." },
   { icon: "FileText", text: "Паспорт изделия с сертификатом EAC" },
 ];
 
@@ -78,7 +71,7 @@ export default function SpeedValveDetails({ du }: SpeedValveDetailsProps) {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-xs text-gray-400">* Фланцы и крепёж входят в комплект. Дополнительных покупок не требуется.</p>
+
       </section>
 
       {/* Правила монтажа */}
