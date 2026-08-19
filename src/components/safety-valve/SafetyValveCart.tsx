@@ -1,14 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
-
-interface CartItem {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { CartItem } from '@/context/CartContext';
 
 interface SafetyValveCartProps {
   cart: CartItem[];

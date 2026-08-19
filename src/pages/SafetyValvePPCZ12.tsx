@@ -168,7 +168,7 @@ export default function SafetyValvePPCZ12() {
                     alt="Предохранительный клапан ППЦЗ-12"
                     className="w-full h-full object-contain rounded-lg p-2"
                     loading="eager"
-                    fetchpriority="high"
+                    fetchPriority="high"
                   />
                 </div>
                 {showSpecs && (
@@ -235,8 +235,8 @@ export default function SafetyValvePPCZ12() {
             </CardContent>
           </Card>
 
-          <SafetyValveDetails />
-          <SafetyValveFAQ />
+          <SafetyValveDetails model="ppcz-12" />
+          <SafetyValveFAQ model="ppcz-12" />
         </div>
       </main>
 

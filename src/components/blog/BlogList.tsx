@@ -6,7 +6,6 @@ interface BlogListProps {
   filteredPosts: BlogPost[];
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
-  onSelectPost: (post: BlogPost) => void;
   categories: string[];
 }
 
@@ -14,7 +13,6 @@ export default function BlogList({
   filteredPosts,
   selectedCategory,
   onSelectCategory,
-  onSelectPost,
   categories,
 }: BlogListProps) {
   return (

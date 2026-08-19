@@ -57,7 +57,6 @@ export default function Blog() {
             filteredPosts={filteredPosts}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
-            onSelectPost={setSelectedPost}
             categories={categories}
           />
         ) : (

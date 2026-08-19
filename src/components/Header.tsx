@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -6,14 +7,23 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
+import { useAuth } from "@/context/AuthContext";
 interface HeaderProps {
-  isLoggedIn: boolean;
-  onLogin: () => void;
-  onRegister: () => void;
-  onLogout: () => void;
+  isLoggedIn?: boolean;
+  onLogin?: () => void;
+  onRegister?: () => void;
+  onLogout?: () => void;
 }
 
-export default function Header({ isLoggedIn, onLogin, onRegister, onLogout }: HeaderProps) {
+export default function Header(props: HeaderProps) {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const isLoggedIn = props.isLoggedIn ?? !!user;
+  const onLogin = props.onLogin ?? (() => navigate('/login'));
+  const onRegister = props.onRegister ?? (() => navigate('/login'));
+  const onLogout = props.onLogout ?? (() => logout());
+
   const [isOpen, setIsOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');

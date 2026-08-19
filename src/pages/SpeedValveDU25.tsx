@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useCart } from '@/context/CartContext';
+import { useCart, CartItem } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -126,7 +126,7 @@ export default function SpeedValveDU25() {
   const { addToCart } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: Record<string, unknown>) => {
+  const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
     if (user) {
       addToCart(product);
     }

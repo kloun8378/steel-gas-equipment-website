@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from '@/components/ui/icon';
+import { CartItem } from '@/context/CartContext';
 
 interface TechSpec {
   label: string;
@@ -19,7 +20,7 @@ interface SpeedValveProductCardProps {
   id: string;
   quantity: number;
   onQuantityChange: (val: number) => void;
-  onAddToCart: (product: Record<string, unknown>) => void;
+  onAddToCart: (product: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
   techTitle: string;
   techSpecs: TechSpec[];
   ozonUrl?: string;
@@ -60,7 +61,7 @@ export default function SpeedValveProductCard({
               alt={imageAlt}
               className="w-full h-full object-cover object-top rounded-lg"
               loading={priority ? 'eager' : 'lazy'}
-              fetchpriority={priority ? 'high' : undefined}
+              fetchPriority={priority ? 'high' : undefined}
               style={imageStyle}
             />
           </div>

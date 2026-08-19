@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Icon from '@/components/ui/icon';
+import { CartItem } from '@/context/CartContext';
 
 interface PopoverRow {
   label?: string;
@@ -31,7 +32,7 @@ interface ComponentsProductCardProps {
   imageAlt: string;
   quantity: number;
   onQuantityChange: (val: number) => void;
-  onAddToCart: (product: Record<string, unknown>) => void;
+  onAddToCart: (product: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
   popoverWidth?: string;
   popoverRows: PopoverRow[];
   relatedProducts?: RelatedProduct[];
@@ -75,7 +76,7 @@ export default function ComponentsProductCard({
                 alt={imageAlt}
                 className="w-full h-48 object-contain bg-white rounded"
                 loading={priority ? 'eager' : 'lazy'}
-                fetchpriority={priority ? 'high' : undefined}
+                fetchPriority={priority ? 'high' : undefined}
               />
             </div>
             {showSpecs && (

@@ -132,7 +132,7 @@ export default function PumpFrameCorkenFD150() {
                   alt="Рама насоса Corken FD 150"
                   className="w-full h-full object-contain p-2"
                   loading="eager"
-                  fetchpriority="high"
+                  fetchPriority="high"
                 />
               </div>
               <div className="text-center flex flex-col flex-1">

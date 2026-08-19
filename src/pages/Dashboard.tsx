@@ -50,7 +50,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
-  const { cart, addToCart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
+  const { cart, addToCart, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart();
   const { showSuccess, showError, showInfo } = useToast();
   const [orders, setOrders] = useState<Order[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(true);

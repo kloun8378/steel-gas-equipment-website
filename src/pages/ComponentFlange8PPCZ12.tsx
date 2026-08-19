@@ -82,7 +82,7 @@ export default function ComponentFlange8PPCZ12() {
         name: PRODUCT_NAME,
         price: PRODUCT_PRICE_RAW,
         image: PRODUCT_IMAGE,
-        description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
+        description: 'Фланец предохранительной арматуры на 8 отверстий для автоцистерн и резервуаров СУГ',
         quantity,
       });
     }
@@ -105,7 +105,7 @@ export default function ComponentFlange8PPCZ12() {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content="Фланец на 8 отверстий к ППЦЗ-12 — СтальПроКлапан" />
-        <meta property="og:description" content="Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ. Цена 4 372 ₽ с НДС." />
+        <meta property="og:description" content="Фланец предохранительной арматуры на 8 отверстий для автоцистерн и резервуаров СУГ. Цена 4 372 ₽ с НДС." />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
@@ -157,7 +157,7 @@ export default function ComponentFlange8PPCZ12() {
                   alt="Фланец на 8 отверстий к клапану ППЦЗ-12"
                   className="w-full h-48 object-contain bg-white rounded"
                   loading="eager"
-                  fetchpriority="high"
+                  fetchPriority="high"
                 />
                 {showSpecs && (
                   <div className="absolute left-0 right-0 top-full z-50 bg-white rounded-lg shadow-xl border mt-1 text-left max-h-72 overflow-y-auto">

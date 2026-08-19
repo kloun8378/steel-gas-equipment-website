@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { CartItem } from '@/context/CartContext';
 
 interface RelatedProduct {
   id: string;
@@ -17,7 +18,7 @@ interface SafetyValveRelatedDialogProps {
   relatedProducts: RelatedProduct[];
   relatedQuantities: Record<string, number>;
   onQuantityChange: (id: string, val: number) => void;
-  onAddToCart: (product: Record<string, unknown>) => void;
+  onAddToCart: (product: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
 }
 
 export default function SafetyValveRelatedDialog({

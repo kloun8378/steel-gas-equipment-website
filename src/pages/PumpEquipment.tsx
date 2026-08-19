@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useCart } from '@/context/CartContext';
+import { useCart, CartItem } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,7 +16,7 @@ export default function PumpEquipment() {
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: Record<string, unknown>) => {
+  const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
     if (user) {
       addToCart(product as Parameters<typeof addToCart>[0]);
     }
@@ -181,7 +181,7 @@ export default function PumpEquipment() {
                   alt="Рама насоса Corken FD 150"
                   className="w-full h-full object-contain p-2"
                   loading="eager"
-                  fetchpriority="high"
+                  fetchPriority="high"
                 />
               </div>
               <div className="text-center flex flex-col flex-1">

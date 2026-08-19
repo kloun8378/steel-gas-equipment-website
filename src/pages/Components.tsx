@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useCart } from '@/context/CartContext';
+import { useCart, CartItem } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
 import ComponentsHeader from '@/components/components-page/ComponentsHeader';
@@ -77,7 +77,7 @@ export default function Components() {
   const { addToCart } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: Record<string, unknown>) => {
+  const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
     if (user) {
       addToCart(product);
     }

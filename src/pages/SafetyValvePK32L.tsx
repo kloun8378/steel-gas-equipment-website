@@ -150,7 +150,7 @@ export default function SafetyValvePK32L() {
                     alt="Клапан предохранительный пружинный ПК-32-Л"
                     className="w-full h-full object-contain rounded-lg p-2"
                     loading="eager"
-                    fetchpriority="high"
+                    fetchPriority="high"
                   />
                 </div>
                 {showSpecs && (
@@ -217,8 +217,8 @@ export default function SafetyValvePK32L() {
             </CardContent>
           </Card>
 
-          <SafetyValveDetails />
-          <SafetyValveFAQ />
+          <SafetyValveDetails model="pk-32-l" />
+          <SafetyValveFAQ model="pk-32-l" />
         </div>
       </main>
 
