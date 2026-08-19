@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Скоростной клапан межфланцевый ТПА11-050 ДУ50 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN50, VENGO 50, КС-40.',
+    'Самый производительный скоростной клапан линейки ТПА11-050 ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ. Аналог ZNW DN50, VENGO 50, КС-40.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -221,7 +221,7 @@ export default function SpeedValveDU50() {
           <SpeedValveProductCard
             id={PRODUCT_ID}
             name={PRODUCT_NAME}
-            description="Межфланцевый быстрозапорный клапан для аварийного отключения СУГ"
+            description="Самый производительный межфланцевый клапан линейки ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ"
             price={PRODUCT_PRICE}
             priceRaw={PRODUCT_PRICE_RAW}
             image={PRODUCT_IMAGE}

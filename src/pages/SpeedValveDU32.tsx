@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Скоростной клапан межфланцевый ТПА11-032 ДУ32 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN32, VENGO 32.',
+    'Скоростной клапан ТПА11-032 ДУ32 для трубопроводов СУГ среднего диаметра — ГНС, узлы налива. Аварийное отключение потока за доли секунды. Аналог ZNW DN32, VENGO 32.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -221,7 +221,7 @@ export default function SpeedValveDU32() {
           <SpeedValveProductCard
             id={PRODUCT_ID}
             name={PRODUCT_NAME}
-            description="Межфланцевый быстрозапорный клапан для аварийного отключения СУГ"
+            description="Межфланцевый клапан ДУ32 для аварийного отключения СУГ на трубопроводах среднего диаметра — ГНС, узлы налива"
             price={PRODUCT_PRICE}
             priceRaw={PRODUCT_PRICE_RAW}
             image={PRODUCT_IMAGE}
