@@ -6,7 +6,17 @@
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="Expires" content="0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"/>
-    <title>СтальПроКлапан — скоростные и предохранительные клапаны СУГ, Барнаул</title>
+    <title>Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015 купить — СтальПроКлапан</title>
+    <meta name="description" content="Фланец плоский стальной 100-1-01-1-B-Ст.20 ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B, dв 116. Цена 1 241 ₽ с НДС. В наличии на складе в Барнауле. Доставка по РФ." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://стальпро.com/flanges/tip-01-ispolnenie-b-dv116" />
+    <meta property="og:title" content="Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015 — СтальПроКлапан" />
+    <meta property="og:description" content="Плоский приварной фланец Ду-100, Ру-16, исполнение B, dв 116. Цена 1 241 ₽ с НДС. В наличии." />
+    <meta property="og:url" content="https://стальпро.com/flanges/tip-01-ispolnenie-b-dv116" />
+    <meta property="og:type" content="product" />
+    <meta property="og:image" content="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp" />
     <!-- description, keywords, robots и og/twitter-теги задаются индивидуально на каждой странице через react-helmet-async (см. src/pages/*.tsx) -->
     <meta name="author" content="СтальПроКлапан"/>
     <meta name="language" content="Russian"/>
@@ -182,7 +192,30 @@
 
 <body>
 <div id="root"></div>
-<script type="module" src="/src/main.tsx"></script>
+<script>
+  // Эта страница — статичная SEO-версия для поисковых роботов (title/description/canonical
+  // видны сразу, без выполнения JS). Реальным посетителям с включённым JS подгружаем
+  // актуальную собранную версию приложения (имя файла сборки меняется при каждом деплое,
+  // поэтому берём его динамически с главной страницы, а не жёстко прописываем).
+  fetch('/').then(function(r){return r.text();}).then(function(html){
+    var scriptMatch = html.match(/<script type="module"[^>]*src="([^"]+)"[^>]*><\/script>/);
+    var cssMatch = html.match(/<link rel="stylesheet"[^>]*href="([^"]+)"/);
+    if (cssMatch) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cssMatch[1];
+      document.head.appendChild(link);
+    }
+    if (scriptMatch) {
+      var script = document.createElement('script');
+      script.type = 'module';
+      script.src = scriptMatch[1];
+      document.body.appendChild(script);
+    }
+  }).catch(function(){
+    window.location.reload();
+  });
+</script>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
