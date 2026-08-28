@@ -3,7 +3,9 @@ Allow: /
 Disallow: /login
 Disallow: /reset-password
 Disallow: /dashboard
+Disallow: /service-unavailable
 Disallow: /api/
+Disallow: /*?*
 
 # Yandex
 User-agent: Yandex
@@ -11,7 +13,10 @@ Allow: /
 Disallow: /login
 Disallow: /reset-password
 Disallow: /dashboard
+Disallow: /service-unavailable
 Disallow: /api/
+Disallow: /*?*
+Clean-param: etext&ybaip&utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&_openstat&fbclid
 Crawl-delay: 1
 
 # Sitemap
