@@ -199,14 +199,14 @@ export default function ContactForm() {
         {/* Карта 2ГИС - удалена */}
         <div className="hidden mt-12">
           <h4 className="text-xl font-semibold mb-4 text-gray-900">Как нас найти</h4>
-          <div className="rounded-xl overflow-hidden border border-gray-200" style={{height: '360px'}}>
+          <div className="rounded-xl overflow-hidden border border-gray-200 h-[360px]">
             <iframe
               src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A53.381012%2C%22lon%22%3A83.669911%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22barnaul%22%7D%2C%22org%22%3A%7B%22id%22%3A%2270000001099007177%22%7D%7D"
               width="100%"
               height="360"
               allowFullScreen
               title="СтальПроКлапан на карте 2ГИС"
-              style={{border: 0}}
+              className="border-0"
             />
           </div>
         </div>

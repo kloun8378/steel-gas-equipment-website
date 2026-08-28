@@ -50,9 +50,8 @@ export default function Footer() {
                 width="88" 
                 height="31" 
                 alt="Яндекс.Вебмастер" 
-                style={{borderRadius: "8px"}} 
                 src="https://yandex.ru/cycounter?https://стальпро.com&theme=light&lang=ru"
-                className="mx-auto"
+                className="mx-auto rounded-lg"
                 loading="lazy"
               />
             </a>
