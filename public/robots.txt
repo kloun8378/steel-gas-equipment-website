@@ -15,8 +15,7 @@ Disallow: /reset-password
 Disallow: /dashboard
 Disallow: /service-unavailable
 Disallow: /api/
-Disallow: /*?*
-Clean-param: etext&ybaip&utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&_openstat&fbclid
+Clean-param: etext&ybaip&utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&_openstat&fbclid&from&ref&source
 Crawl-delay: 1
 
 # Sitemap
