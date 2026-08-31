@@ -144,7 +144,7 @@ export default function SpeedValveDU25() {
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ25, ТПА11-025, клапан межфланцевый ДУ25 СУГ, скоростной клапан ДУ25 купить, клапан ДУ25 АГЗС, ТП11 ДУ25, скоростной клапан ДУ25 PN40"
+          content="Скоростной межфланцевый клапан, скоростной клапан ДУ25, ТПА11-025, клапан межфланцевый ДУ25 СУГ, скоростной клапан ДУ25 купить, клапан ДУ25 АГЗС, ТП11 ДУ25, скоростной клапан ДУ25 PN40"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />

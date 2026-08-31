@@ -144,7 +144,7 @@ export default function SpeedValveDU50() {
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ50, ТПА11-050, клапан межфланцевый ДУ50 СУГ, скоростной клапан ДУ50 купить, клапан ДУ50 АГЗС, ТП11 ДУ50, скоростной клапан ДУ50 PN40"
+          content="Скоростной межфланцевый клапан, скоростной клапан ДУ50, ТПА11-050, клапан межфланцевый ДУ50 СУГ, скоростной клапан ДУ50 купить, клапан ДУ50 АГЗС, ТП11 ДУ50, скоростной клапан ДУ50 PN40"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
