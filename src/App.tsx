@@ -90,6 +90,28 @@ function ScrollToAnchor() {
   return null;
 }
 
+// Адреса вида /path/index.html (нужны поисковым роботам для SEO-версий страниц)
+// у живых посетителей должны вести на тот же товар без /index.html на конце.
+function CatchAllRoute() {
+  const location = useLocation();
+
+  if (location.pathname.endsWith('/index.html')) {
+    const cleanPath = location.pathname.replace(/\/index\.html$/, '') || '/';
+    return <Navigate to={cleanPath + location.search + location.hash} replace />;
+  }
+
+  return (
+    <>
+      <SEOHead
+        title="Страница не найдена — СтальПроКлапан"
+        description="Запрашиваемая страница не существует или была перемещена."
+        noindex={true}
+      />
+      <NotFound />
+    </>
+  );
+}
+
 // Компонент для защищенных маршрутов
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
@@ -218,12 +240,7 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={
                 <Suspense fallback={<PageLoader />}>
-                  <SEOHead
-                    title="Страница не найдена — СтальПроКлапан"
-                    description="Запрашиваемая страница не существует или была перемещена."
-                    noindex={true}
-                  />
-                  <NotFound />
+                  <CatchAllRoute />
                 </Suspense>
               } />
             </Routes>
