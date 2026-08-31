@@ -90,7 +90,7 @@ function ScrollToAnchor() {
   return null;
 }
 
-// Адреса вида /path/index.html (нужны поисковым роботам для SEO-версий страниц)
+// Адреса вида /path/index.html (нужны поисковым роботам для SEO-версий страниц) —
 // у живых посетителей должны вести на тот же товар без /index.html на конце.
 function CatchAllRoute() {
   const location = useLocation();
