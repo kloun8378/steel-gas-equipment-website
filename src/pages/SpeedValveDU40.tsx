@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС. Аналог ZNW DN40.',
+    'Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -137,21 +137,21 @@ export default function SpeedValveDU40() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 купить — аналог ZNW DN40</title>
+        <title>Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 купить — СтальПроКлапан</title>
         <meta
           name="description"
-          content="Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN40. Цена 7 015 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Цена 7 015 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
-          content="скоростной клапан ДУ40, ТПА11-040, клапан межфланцевый ДУ40 СУГ, аналог ZNW DN40, скоростной клапан ДУ40 купить, клапан ДУ40 АГЗС, ТП11 ДУ40, скоростной клапан ДУ40 PN40"
+          content="скоростной клапан ДУ40, ТПА11-040, клапан межфланцевый ДУ40 СУГ, скоростной клапан ДУ40 купить, клапан ДУ40 АГЗС, ТП11 ДУ40, скоростной клапан ДУ40 PN40"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
-          content="Скоростной клапан межфланцевый ТПА11-040 ДУ40 для СУГ. Аналог ZNW DN40. Цена 7 015 ₽ с НДС. В наличии."
+          content="Скоростной клапан межфланцевый ТПА11-040 ДУ40 для СУГ. Цена 7 015 ₽ с НДС. В наличии."
         />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
