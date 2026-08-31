@@ -95,8 +95,8 @@ function ScrollToAnchor() {
 function CatchAllRoute() {
   const location = useLocation();
 
-  if (location.pathname.endsWith('/index.html')) {
-    const cleanPath = location.pathname.replace(/\/index\.html$/, '') || '/';
+  if (/\/index\.html$/i.test(location.pathname)) {
+    const cleanPath = location.pathname.replace(/\/index\.html$/i, '') || '/';
     return <Navigate to={cleanPath + location.search + location.hash} replace />;
   }
 
