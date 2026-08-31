@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Компактный скоростной клапан ТПА11-025 ДУ25 для сливных трубопроводов и локальных систем СУГ. Аварийное отключение потока за доли секунды. Аналог ZNW DN25, VENGO 25.',
+    'Компактный скоростной клапан ТПА11-025 ДУ25 для сливных трубопроводов и локальных систем СУГ. Аварийное отключение потока за доли секунды. Аналог ZNW DN25.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -137,10 +137,10 @@ export default function SpeedValveDU25() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 купить — аналог ZNW DN25, VENGO</title>
+        <title>Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 купить — аналог ZNW DN25</title>
         <meta
           name="description"
-          content="Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN25, VENGO 25. Цена 5 592 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN25. Цена 5 592 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
@@ -151,7 +151,7 @@ export default function SpeedValveDU25() {
         <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-025 ДУ25 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
-          content="Скоростной клапан межфланцевый ТПА11-025 ДУ25 для СУГ. Аналог ZNW DN25, VENGO 25. Цена 5 592 ₽ с НДС. В наличии."
+          content="Скоростной клапан межфланцевый ТПА11-025 ДУ25 для СУГ. Аналог ZNW DN25. Цена 5 592 ₽ с НДС. В наличии."
         />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />

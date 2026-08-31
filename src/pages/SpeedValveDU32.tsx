@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Скоростной клапан ТПА11-032 ДУ32 для трубопроводов СУГ среднего диаметра — ГНС, узлы налива. Аварийное отключение потока за доли секунды. Аналог ZNW DN32, VENGO 32.',
+    'Скоростной клапан ТПА11-032 ДУ32 для трубопроводов СУГ среднего диаметра — ГНС, узлы налива. Аварийное отключение потока за доли секунды. Аналог ZNW DN32.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -137,10 +137,10 @@ export default function SpeedValveDU32() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной межфланцевый клапан ТПА11-032 ДУ32 PN40 купить — аналог ZNW DN32, VENGO</title>
+        <title>Скоростной межфланцевый клапан ТПА11-032 ДУ32 PN40 купить — аналог ZNW DN32</title>
         <meta
           name="description"
-          content="Скоростной межфланцевый клапан ТПА11-032 ДУ32 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN32, VENGO 32. Цена 6 202 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-032 ДУ32 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN32. Цена 6 202 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
@@ -151,7 +151,7 @@ export default function SpeedValveDU32() {
         <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-032 ДУ32 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
-          content="Скоростной клапан межфланцевый ТПА11-032 ДУ32 для СУГ. Аналог ZNW DN32, VENGO 32. Цена 6 202 ₽ с НДС. В наличии."
+          content="Скоростной клапан межфланцевый ТПА11-032 ДУ32 для СУГ. Аналог ZNW DN32. Цена 6 202 ₽ с НДС. В наличии."
         />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />

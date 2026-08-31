@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Самый производительный скоростной клапан линейки ТПА11-050 ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ. Аналог ZNW DN50, VENGO 50, КС-40.',
+    'Самый производительный скоростной клапан линейки ТПА11-050 ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ. Аналог ZNW DN50, КС-40.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -137,10 +137,10 @@ export default function SpeedValveDU50() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 купить — аналог ZNW DN50, VENGO</title>
+        <title>Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 купить — аналог ZNW DN50</title>
         <meta
           name="description"
-          content="Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN50, VENGO 50, КС-40. Цена 10 065 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN50, КС-40. Цена 10 065 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
@@ -151,7 +151,7 @@ export default function SpeedValveDU50() {
         <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
-          content="Скоростной клапан межфланцевый ТПА11-050 ДУ50 для СУГ. Аналог ZNW DN50, VENGO 50, КС-40. Цена 10 065 ₽ с НДС. В наличии."
+          content="Скоростной клапан межфланцевый ТПА11-050 ДУ50 для СУГ. Аналог ZNW DN50, КС-40. Цена 10 065 ₽ с НДС. В наличии."
         />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />

@@ -43,7 +43,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description:
-    'Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС. Аналог ZNW DN40, VENGO 40.',
+    'Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС. Аналог ZNW DN40.',
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -137,10 +137,10 @@ export default function SpeedValveDU40() {
     <>
       <OrderModal open={orderModalOpen} onOpenChange={setOrderModalOpen} />
       <Helmet>
-        <title>Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 купить — аналог ZNW DN40, VENGO</title>
+        <title>Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 купить — аналог ZNW DN40</title>
         <meta
           name="description"
-          content="Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN40, VENGO 40. Цена 7 015 ₽. В наличии. Звоните!"
+          content="Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 для СУГ. Аварийное отключение потока. АГЗС, ГНС, автоцистерны. Аналог ZNW DN40. Цена 7 015 ₽. В наличии. Звоните!"
         />
         <meta
           name="keywords"
@@ -151,7 +151,7 @@ export default function SpeedValveDU40() {
         <meta property="og:title" content="Скоростной межфланцевый клапан ТПА11-040 ДУ40 PN40 — СтальПроКлапан" />
         <meta
           property="og:description"
-          content="Скоростной клапан межфланцевый ТПА11-040 ДУ40 для СУГ. Аналог ZNW DN40, VENGO 40. Цена 7 015 ₽ с НДС. В наличии."
+          content="Скоростной клапан межфланцевый ТПА11-040 ДУ40 для СУГ. Аналог ZNW DN40. Цена 7 015 ₽ с НДС. В наличии."
         />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
