@@ -110,7 +110,7 @@ export default function SafetyValvePPCZ12() {
         />
         <meta
           name="keywords"
-          content="предохранительный клапан ППЦЗ-12, ППЦЗ-12 купить, ППЦЗ-12 цена, ППЦЗ-12 характеристики, аналог REGO RS3132, клапан для АГЗС, предохранительный клапан резервуар СУГ"
+          content="предохранительный клапан ППЦЗ-12, ППЦЗ-12 купить, ППЦЗ-12 цена, ППЦЗ-12 характеристики, аналог REGO RS3132, клапан для АГЗС, предохранительный клапан резервуар СУГ, ППЦЗ12, ППЦЗ, #ППЦЗ12, #ППЦЗ, #ППЦЗ-12"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
