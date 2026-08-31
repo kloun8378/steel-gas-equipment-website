@@ -1,5 +1,5 @@
 def handler(event: dict, context) -> dict:
-    """Товарный YML-фид для Яндекс.Вебмастер"""
+    """Товарный YML-фид для Яндекс.Вебмастер (без строкового параметра 'конверсия')"""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type'}, 'body': ''}
