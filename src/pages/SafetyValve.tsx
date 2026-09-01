@@ -144,7 +144,7 @@ export default function SafetyValve() {
       <meta name="keywords" content="предохранительный клапан ППЦЗ-12, ППЦЗ-12 купить, ППЦЗ-12 цена, ППЦЗ-12 характеристики, клапан предохранительный СУГ, аналог REGO RS3132, аналог REGO CD32, предохранительный клапан ПК-32-Л, ПК-32-Л купить, ПК-32-Л цена, запорный клапан ЗК-32, клапан DN32 СУГ, предохранительный клапан для АГЗС, предохранительный клапан резервуар СУГ, предохранительный клапан автоцистерна, клапан 1.6 МПа СУГ, запчасти ППЦЗ-12, пружина ППЦЗ-12, золотник ППЦЗ-12, ремкомплект ППЦЗ-12, предохранительный клапан купить Барнаул, предохранительный клапан купить Новосибирск, предохранительный клапан купить Сибирь, ппцз12, клапан ппцз12, ппцз12 клапан, клапан предохранительный ппцз, клапан для СУГ, пружинный клапан, клапан прямого действия, арматура газгольдера, газовая арматура, клапан ду25, клапан 12бар, клапан М72х2, клапан для газгольдера, клапан для резервуара, клапан для трубопровода, клапан для газоснабжения, купить клапан ппцз12, цена клапан ппцз12, продажа клапанов ппцз, клапан ппцз купить, клапан ппцз цена, предохранительная арматура, газовый клапан ппцз, клапан регулировки давления, защита от перепадов давления, безопасность газоснабжения, клапан ппцз12 купить цена, предохранительный клапан ппцз12 ду25, клапан ппцз12 технические характеристики" />
       <meta property="og:title" content="Предохранительный клапан ППЦЗ-12, ПК-32-Л — СтальПроКлапан" />
       <meta property="og:description" content="Клапаны пружинные прямого действия для СУГ. ППЦЗ-12, ПК-32-Л. Доставка по всей России." />
-      <meta property="og:url" content="https://стальпро.com/safety-valve" />
+      <meta property="og:url" content="https://стальпро.com/safety-valve/index.html" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
       <meta property="og:image:alt" content="Предохранительный клапан ППЦЗ-12" />
@@ -152,7 +152,7 @@ export default function SafetyValve() {
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" />
-      <link rel="canonical" href="https://стальпро.com/safety-valve" />
+      <link rel="canonical" href="https://стальпро.com/safety-valve/index.html" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",

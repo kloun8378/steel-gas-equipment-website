@@ -16,7 +16,7 @@ const PRODUCT_PRICE_RAW = 1129;
 const PRODUCT_PRICE = '1 129 ₽';
 const PRODUCT_NAME = 'Золотник ППЦЗ-12';
 const PRODUCT_ID = 'valve-ppcz12';
-const CANONICAL = 'https://стальпро.com/components/valve-ppcz12';
+const CANONICAL = 'https://стальпро.com/components/valve-ppcz12/index.html';
 
 const productLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -48,7 +48,7 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Комплектующие', item: 'https://стальпро.com/components' },
+    { '@type': 'ListItem', position: 2, name: 'Комплектующие', item: 'https://стальпро.com/components/index.html' },
     { '@type': 'ListItem', position: 3, name: 'Золотник ППЦЗ-12', item: CANONICAL },
   ],
 });

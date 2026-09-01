@@ -14,11 +14,11 @@ export default function Flanges() {
       <meta name="keywords" content="фланцы ГОСТ 33259-2015, фланец стальной плоский приварной, фланец купить, фланец трубопровода, СтальПроКлапан Барнаул" />
       <meta property="og:title" content="Фланцы ГОСТ 33259-2015 — СтальПроКлапан" />
       <meta property="og:description" content="Фланцы стальные плоские приварные по ГОСТ 33259-2015 общего назначения. Доставка по всей России." />
-      <meta property="og:url" content="https://стальпро.com/flanges" />
+      <meta property="og:url" content="https://стальпро.com/flanges/index.html" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <link rel="canonical" href="https://стальпро.com/flanges" />
+      <link rel="canonical" href="https://стальпро.com/flanges/index.html" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",

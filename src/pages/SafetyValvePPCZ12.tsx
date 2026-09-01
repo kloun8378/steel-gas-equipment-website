@@ -16,7 +16,7 @@ const PRODUCT_PRICE_RAW = 9659;
 const PRODUCT_PRICE = '9 659 ₽';
 const PRODUCT_NAME = 'Предохранительный клапан ППЦЗ-12';
 const PRODUCT_ID = 'safety-valve-ppcz12';
-const CANONICAL = 'https://стальпро.com/safety-valve/ppcz-12';
+const CANONICAL = 'https://стальпро.com/safety-valve/ppcz-12/index.html';
 
 const techSpecs = [
   { label: 'Тип клапана', value: 'Пружинный прямого действия' },
@@ -73,7 +73,7 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Предохранительный клапан', item: 'https://стальпро.com/safety-valve' },
+    { '@type': 'ListItem', position: 2, name: 'Предохранительный клапан', item: 'https://стальпро.com/safety-valve/index.html' },
     { '@type': 'ListItem', position: 3, name: 'ППЦЗ-12', item: CANONICAL },
   ],
 });

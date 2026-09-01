@@ -8,7 +8,7 @@ import Icon from '@/components/ui/icon';
 import FlangesHeader from '@/components/flanges/FlangesHeader';
 import OrderModal from '@/components/OrderModal';
 
-const CANONICAL = 'https://стальпро.com/flanges/tip-01-ispolnenie-b-dv116';
+const CANONICAL = 'https://стальпро.com/flanges/tip-01-ispolnenie-b-dv116/index.html';
 
 const PRODUCT_IMAGE = 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp';
 const PRODUCT_PRICE_RAW = 1241;
@@ -64,7 +64,7 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Фланцы ГОСТ 33259-2015', item: 'https://стальпро.com/flanges' },
+    { '@type': 'ListItem', position: 2, name: 'Фланцы ГОСТ 33259-2015', item: 'https://стальпро.com/flanges/index.html' },
     { '@type': 'ListItem', position: 3, name: 'Тип 01, исполнение B, dв 116', item: CANONICAL },
   ],
 });

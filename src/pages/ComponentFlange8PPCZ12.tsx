@@ -16,7 +16,7 @@ const PRODUCT_PRICE_RAW = 4372;
 const PRODUCT_PRICE = '4 372 ₽';
 const PRODUCT_NAME = 'Фланец на 8 отверстий к ППЦЗ-12';
 const PRODUCT_ID = 'flange-ppcz12';
-const CANONICAL = 'https://стальпро.com/components/flange8-ppcz12';
+const CANONICAL = 'https://стальпро.com/components/flange8-ppcz12/index.html';
 
 const flangeSpecs = [
   { label: 'Вид арматуры', value: 'Фланцы' },
@@ -63,7 +63,7 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Комплектующие', item: 'https://стальпро.com/components' },
+    { '@type': 'ListItem', position: 2, name: 'Комплектующие', item: 'https://стальпро.com/components/index.html' },
     { '@type': 'ListItem', position: 3, name: 'Фланец на 8 отверстий к ППЦЗ-12', item: CANONICAL },
   ],
 });

@@ -16,7 +16,7 @@ const PRODUCT_PRICE_RAW = 15860;
 const PRODUCT_PRICE = '15 860 ₽';
 const PRODUCT_NAME = 'Клапан предохранительный пружинный ПК-32-Л';
 const PRODUCT_ID = 'safety-valve-pk32l';
-const CANONICAL = 'https://стальпро.com/safety-valve/pk-32-l';
+const CANONICAL = 'https://стальпро.com/safety-valve/pk-32-l/index.html';
 
 const techSpecs = [
   { label: 'Тип', value: 'Пружинный предохранительный' },
@@ -55,7 +55,7 @@ const breadcrumbLd = JSON.stringify({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://стальпро.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Предохранительный клапан', item: 'https://стальпро.com/safety-valve' },
+    { '@type': 'ListItem', position: 2, name: 'Предохранительный клапан', item: 'https://стальпро.com/safety-valve/index.html' },
     { '@type': 'ListItem', position: 3, name: 'ПК-32-Л', item: CANONICAL },
   ],
 });
