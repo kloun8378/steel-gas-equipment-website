@@ -8,7 +8,7 @@ const breadcrumbLd = JSON.stringify({
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/" },
-    { "@type": "ListItem", "position": 2, "name": "О компании", "item": "https://стальпро.com/about" }
+    { "@type": "ListItem", "position": 2, "name": "О компании", "item": "https://стальпро.com/about/index.html" }
   ]
 });
 
@@ -59,8 +59,8 @@ export default function About() {
         <meta property="og:description" content="Российский производитель клапанов для АГЗС и ГНС. Основана в 2020 году, Барнаул. 500+ клиентов, сертификат EAC." />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://стальпро.com/about" />
-        <link rel="canonical" href="https://стальпро.com/about" />
+        <meta property="og:url" content="https://стальпро.com/about/index.html" />
+        <link rel="canonical" href="https://стальпро.com/about/index.html" />
         <script type="application/ld+json">{breadcrumbLd}</script>
       </Helmet>
 

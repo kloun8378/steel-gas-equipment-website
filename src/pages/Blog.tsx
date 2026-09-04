@@ -38,13 +38,13 @@ export default function Blog() {
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta property="og:title" content="Блог о промышленной газовой арматуре — СтальПроКлапан" />
       <meta property="og:description" content="Технические статьи и новости о клапанах и оборудовании для СУГ." />
-      <meta property="og:url" content="https://стальпро.com/blog" />
+      <meta property="og:url" content="https://стальпро.com/blog/index.html" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
       <meta property="og:image:alt" content="СтальПроКлапан — блог о газовом оборудовании" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
-      <link rel="canonical" href="https://стальпро.com/blog" />
+      <link rel="canonical" href="https://стальпро.com/blog/index.html" />
     </Helmet>
     <div className="min-h-screen flex flex-col">
       <Header />

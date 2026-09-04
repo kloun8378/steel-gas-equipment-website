@@ -59,7 +59,7 @@ export default function BlogArticle() {
     "description": post.excerpt,
     "image": post.image,
     "datePublished": post.date,
-    "url": `https://стальпро.com/blog/${post.slug}`,
+    "url": `https://стальпро.com/blog/${post.slug}/index.html`,
     "author": { "@type": "Person", "name": post.author },
     "publisher": {
       "@type": "Organization",
@@ -74,8 +74,8 @@ export default function BlogArticle() {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://стальпро.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://стальпро.com/blog/${post.slug}` }
+      { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://стальпро.com/blog/index.html" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://стальпро.com/blog/${post.slug}/index.html` }
     ]
   });
 
@@ -85,12 +85,12 @@ export default function BlogArticle() {
         <title>{post.title} — СтальПроКлапан</title>
         <meta name="description" content={post.excerpt} />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-        <link rel="canonical" href={`https://стальпро.com/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://стальпро.com/blog/${post.slug}/index.html`} />
         <meta property="og:title" content={`${post.title} — СтальПроКлапан`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://стальпро.com/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://стальпро.com/blog/${post.slug}/index.html`} />
         <meta property="article:published_time" content={post.date} />
         <script type="application/ld+json">{ldJson}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>

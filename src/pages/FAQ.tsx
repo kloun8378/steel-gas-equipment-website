@@ -106,12 +106,12 @@ export default function FAQ() {
         <meta property="og:title" content="Вопросы и ответы о клапанах СУГ — СтальПроКлапан" />
         <meta property="og:description" content="Ответы на вопросы о клапанах СУГ: ППЦЗ-12, ТПА11. Цены, доставка, гарантия, запчасти, сертификаты." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://стальпро.com/faq" />
+        <meta property="og:url" content="https://стальпро.com/faq/index.html" />
         <meta property="og:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
         <meta property="og:image:alt" content="СтальПроКлапан — вопросы и ответы" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" />
-        <link rel="canonical" href="https://стальпро.com/faq" />
+        <link rel="canonical" href="https://стальпро.com/faq/index.html" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -130,7 +130,7 @@ export default function FAQ() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
-            {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://стальпро.com/faq"}
+            {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://стальпро.com/faq/index.html"}
           ]
         })}</script>
       </Helmet>
