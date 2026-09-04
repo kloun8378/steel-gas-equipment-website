@@ -25,7 +25,7 @@ export default function StructuredData() {
             "priceCurrency": "RUB",
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://стальпро.com/speed-valve",
+            "url": "https://стальпро.com/speed-valve/index.html",
             "seller": { "@type": "Organization", "name": "СтальПроКлапан" }
           }
         }
@@ -44,7 +44,7 @@ export default function StructuredData() {
             "priceCurrency": "RUB",
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://стальпро.com/safety-valve",
+            "url": "https://стальпро.com/safety-valve/index.html",
             "seller": { "@type": "Organization", "name": "СтальПроКлапан" }
           }
         }
@@ -63,7 +63,7 @@ export default function StructuredData() {
             "priceCurrency": "RUB",
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://стальпро.com/components",
+            "url": "https://стальпро.com/components/index.html",
             "seller": { "@type": "Organization", "name": "СтальПроКлапан" }
           }
         }

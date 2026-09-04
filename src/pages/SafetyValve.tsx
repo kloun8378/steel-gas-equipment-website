@@ -158,7 +158,7 @@ export default function SafetyValve() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Предохранительный клапан", "item": "https://стальпро.com/safety-valve"}
+          {"@type": "ListItem", "position": 2, "name": "Предохранительный клапан", "item": "https://стальпро.com/safety-valve/index.html"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -189,7 +189,7 @@ export default function SafetyValve() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Предохранительные клапаны для СУГ",
-        "url": "https://стальпро.com/safety-valve",
+        "url": "https://стальпро.com/safety-valve/index.html",
         "itemListElement": [
           {
             "@type": "ListItem", "position": 1,
@@ -201,7 +201,7 @@ export default function SafetyValve() {
               "sku": "ППЦЗ-12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "24", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "9659", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/safety-valve/index.html", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           },
           {
@@ -214,7 +214,7 @@ export default function SafetyValve() {
               "sku": "ПК-32-Л",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "24", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/safety-valve", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "15860", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/safety-valve/index.html", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]

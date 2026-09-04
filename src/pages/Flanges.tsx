@@ -24,7 +24,7 @@ export default function Flanges() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Фланцы ГОСТ 33259-2015", "item": "https://стальпро.com/flanges"}
+          {"@type": "ListItem", "position": 2, "name": "Фланцы ГОСТ 33259-2015", "item": "https://стальпро.com/flanges/index.html"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({

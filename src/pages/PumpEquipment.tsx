@@ -47,7 +47,7 @@ export default function PumpEquipment() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://стальпро.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Насосное оборудование", "item": "https://стальпро.com/pump-equipment"}
+          {"@type": "ListItem", "position": 2, "name": "Насосное оборудование", "item": "https://стальпро.com/pump-equipment/index.html"}
         ]
       })}</script>
       <script type="application/ld+json">{JSON.stringify({
@@ -78,7 +78,7 @@ export default function PumpEquipment() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Насосное оборудование для СУГ",
-        "url": "https://стальпро.com/pump-equipment",
+        "url": "https://стальпро.com/pump-equipment/index.html",
         "itemListElement": [
           {
             "@type": "ListItem", "position": 1,
@@ -90,7 +90,7 @@ export default function PumpEquipment() {
               "sku": "pump-frame-corken-fd150",
               "brand": {"@type": "Brand", "name": "Corken"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "8", "bestRating": "5"},
-              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/pump-equipment", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
+              "offers": {"@type": "Offer", "price": "3800", "priceCurrency": "RUB", "priceValidUntil": "2026-12-31", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://стальпро.com/pump-equipment/index.html", "seller": {"@type": "Organization", "name": "СтальПроКлапан"}}
             }
           }
         ]
