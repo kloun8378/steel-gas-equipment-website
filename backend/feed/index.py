@@ -23,12 +23,13 @@ def handler(event: dict, context) -> dict:
       <category id="2">Предохранительные клапаны</category>
       <category id="3">Комплектующие</category>
       <category id="4">Насосное оборудование</category>
+      <category id="5">Фланцы</category>
     </categories>
     <offers>
 
       <offer id="tpa11-025" available="true" type="vendor.model">
         <name>Скоростной клапан межфланцевый ТПА11-025 ДУ25</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-025</url>
+        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-025/index.html</url>
         <price>5592</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -50,7 +51,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="tpa11-032" available="true" type="vendor.model">
         <name>Скоростной клапан межфланцевый ТПА11-032 ДУ32</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-032</url>
+        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-032/index.html</url>
         <price>6202</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -72,7 +73,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="tpa11-040" available="true" type="vendor.model">
         <name>Скоростной клапан межфланцевый ТПА11-040 ДУ40</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-040</url>
+        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-040/index.html</url>
         <price>7015</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -94,7 +95,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="tpa11-050" available="true" type="vendor.model">
         <name>Скоростной клапан межфланцевый ТПА11-050 ДУ50</name>
-        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-050</url>
+        <url>https://xn--80awjdfch6f.com/speed-valve/tpa11-050/index.html</url>
         <price>10065</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
@@ -116,7 +117,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="ppcz12" available="true" type="vendor.model">
         <name>Предохранительный клапан ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve/ppcz-12</url>
+        <url>https://xn--80awjdfch6f.com/safety-valve/ppcz-12/index.html</url>
         <price>9659</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
@@ -138,11 +139,11 @@ def handler(event: dict, context) -> dict:
 
       <offer id="pk32l" available="true" type="vendor.model">
         <name>Предохранительный клапан ПК-32-Л</name>
-        <url>https://xn--80awjdfch6f.com/safety-valve/pk-32-l</url>
+        <url>https://xn--80awjdfch6f.com/safety-valve/pk-32-l/index.html</url>
         <price>15860</price>
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
-        <picture>https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg</picture>
+        <picture>https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>ПК-32-Л</model>
         <vendorCode>ПК-32-Л</vendorCode>
@@ -158,7 +159,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="spring-ppcz12" available="true" type="vendor.model">
         <name>Пружина для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/spring-ppcz12</url>
+        <url>https://xn--80awjdfch6f.com/components/spring-ppcz12/index.html</url>
         <price>2745</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -177,7 +178,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="valve-ppcz12" available="true" type="vendor.model">
         <name>Золотник для клапана ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/valve-ppcz12</url>
+        <url>https://xn--80awjdfch6f.com/components/valve-ppcz12/index.html</url>
         <price>1129</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -196,7 +197,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="flange4-ppcz12" available="true" type="vendor.model">
         <name>Фланец на 4 отверстия к ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/flange4-ppcz12</url>
+        <url>https://xn--80awjdfch6f.com/components/flange4-ppcz12/index.html</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -217,7 +218,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="flange8-ppcz12" available="true" type="vendor.model">
         <name>Фланец на 8 отверстий к ППЦЗ-12</name>
-        <url>https://xn--80awjdfch6f.com/components/flange8-ppcz12</url>
+        <url>https://xn--80awjdfch6f.com/components/flange8-ppcz12/index.html</url>
         <price>4372</price>
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
@@ -238,7 +239,7 @@ def handler(event: dict, context) -> dict:
 
       <offer id="pump-frame-corken-fd150" available="true" type="vendor.model">
         <name>Рама насоса Corken FD 150</name>
-        <url>https://xn--80awjdfch6f.com/pump-equipment/corken-fd150-frame</url>
+        <url>https://xn--80awjdfch6f.com/pump-equipment/corken-fd150-frame/index.html</url>
         <price>3800</price>
         <currencyId>RUR</currencyId>
         <categoryId>4</categoryId>
@@ -252,6 +253,44 @@ def handler(event: dict, context) -> dict:
         <param name="Материал">Сталь</param>
         <param name="Тип">Рама монтажная</param>
         <param name="Назначение">Крепление насоса и двигателя</param>
+{common_params}
+      </offer>
+
+      <offer id="flange-100-1-01-1-b-st20" available="true" type="vendor.model">
+        <name>Фланец 100-1-01-1-B-Ст 20-I-dв 110 ГОСТ 33259-2015</name>
+        <url>https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b/index.html</url>
+        <price>1241</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/65209240-7cda-4461-a3e8-489fcdb0c0e1.webp</picture>
+        <vendor>СтальПроКлапан</vendor>
+        <model>Фланец 100-1-01-1-B dв110</model>
+        <vendorCode>Фланец-100-1-01-1-B-dv110</vendorCode>
+        <description>Фланец стальной плоский приварной тип 01 ГОСТ 33259-2015, исполнение B, dв 110. DN 100 мм.</description>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="DN номинальный диаметр" unit="мм">100</param>
+        <param name="dв табличный диаметр отверстия" unit="мм">110</param>
+        <param name="Материал">Сталь 20 ГОСТ 1050-2013</param>
+        <param name="Масса" unit="кг">2,14</param>
+{common_params}
+      </offer>
+
+      <offer id="flange-100-1-01-1-b-st20-dv116" available="true" type="vendor.model">
+        <name>Фланец 100-1-01-1-B-Ст 20-I-dв 116 ГОСТ 33259-2015</name>
+        <url>https://xn--80awjdfch6f.com/flanges/tip-01-ispolnenie-b-dv116/index.html</url>
+        <price>1241</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp</picture>
+        <vendor>СтальПроКлапан</vendor>
+        <model>Фланец 100-1-01-1-B dв116</model>
+        <vendorCode>Фланец-100-1-01-1-B-dv116</vendorCode>
+        <description>Фланец стальной плоский приварной тип 01 ГОСТ 33259-2015, исполнение B, dв 116. DN 100 мм.</description>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="DN номинальный диаметр" unit="мм">100</param>
+        <param name="dв табличный диаметр отверстия" unit="мм">116</param>
+        <param name="Материал">Сталь 20 ГОСТ 1050-2013</param>
+        <param name="Масса" unit="кг">2,14</param>
 {common_params}
       </offer>
 
