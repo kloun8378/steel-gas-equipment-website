@@ -180,10 +180,10 @@ export default function SpeedValve() {
             </div>
             <div className="flex flex-wrap gap-2">
               <span className="text-sm text-gray-500 self-center">Выбрать модель:</span>
-              <a href="/speed-valve/tpa11-025" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-025 ДУ25 — 5 592 ₽</a>
-              <a href="/speed-valve/tpa11-032" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-032 ДУ32 — 6 202 ₽</a>
-              <a href="/speed-valve/tpa11-040" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-040 ДУ40 — 7 015 ₽</a>
-              <a href="/speed-valve/tpa11-050" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-050 ДУ50 — 10 065 ₽</a>
+              <a href="/speed-valve/tpa11-025/index.html" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-025 ДУ25 — 5 592 ₽</a>
+              <a href="/speed-valve/tpa11-032/index.html" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-032 ДУ32 — 6 202 ₽</a>
+              <a href="/speed-valve/tpa11-040/index.html" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-040 ДУ40 — 7 015 ₽</a>
+              <a href="/speed-valve/tpa11-050/index.html" className="px-3 py-1 rounded-full text-sm border border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors">ТПА11-050 ДУ50 — 10 065 ₽</a>
             </div>
           </div>
 
@@ -209,7 +209,7 @@ export default function SpeedValve() {
                 ...commonSpecs.slice(4),
               ]}
               ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du25-3081882065/"
-              detailUrl="/speed-valve/tpa11-025"
+              detailUrl="/speed-valve/tpa11-025/index.html"
             />
 
             <SpeedValveProductCard
@@ -232,7 +232,7 @@ export default function SpeedValve() {
                 ...commonSpecs.slice(4),
               ]}
               ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du32-3082030569/"
-              detailUrl="/speed-valve/tpa11-032"
+              detailUrl="/speed-valve/tpa11-032/index.html"
             />
 
             <SpeedValveProductCard
@@ -255,7 +255,7 @@ export default function SpeedValve() {
                 { label: 'Строительная длина, B (мм)', value: '50' },
                 ...commonSpecs.slice(4),
               ]}
-              detailUrl="/speed-valve/tpa11-050"
+              detailUrl="/speed-valve/tpa11-050/index.html"
             />
 
             <SpeedValveProductCard
@@ -278,7 +278,7 @@ export default function SpeedValve() {
                 ...commonSpecs.slice(4),
               ]}
               ozonUrl="https://www.ozon.ru/product/klapan-skorostnoy-mezhflantsevyy-du40-3082079691/"
-              detailUrl="/speed-valve/tpa11-040"
+              detailUrl="/speed-valve/tpa11-040/index.html"
             />
           </div>
         </div>
@@ -302,9 +302,9 @@ export default function SpeedValve() {
             <div>
               <h6 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Продукция</h6>
               <ul className="space-y-1 sm:space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
-                <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
-                <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
+                <li><a href="/speed-valve/index.html" className="hover:text-white transition-colors">Скоростной клапан</a></li>
+                <li><a href="/safety-valve/index.html" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
+                <li><a href="/components/index.html" className="hover:text-white transition-colors">Комплектующие</a></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">

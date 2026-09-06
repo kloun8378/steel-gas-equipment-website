@@ -288,7 +288,7 @@ export default function Components() {
                   { isPrice: true, price: '2 745 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'spring-ppcz12')}
-                detailUrl="/components/spring-ppcz12"
+                detailUrl="/components/spring-ppcz12/index.html"
               />
 
               <ComponentsProductCard
@@ -307,7 +307,7 @@ export default function Components() {
                   { isPrice: true, price: '1 129 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'valve-ppcz12')}
-                detailUrl="/components/valve-ppcz12"
+                detailUrl="/components/valve-ppcz12/index.html"
               />
 
               <ComponentsProductCard
@@ -327,7 +327,7 @@ export default function Components() {
                   { isPrice: true, price: '4 372 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'flange4-ppcz12')}
-                detailUrl="/components/flange4-ppcz12"
+                detailUrl="/components/flange4-ppcz12/index.html"
               />
 
               <ComponentsProductCard
@@ -347,7 +347,7 @@ export default function Components() {
                   { isPrice: true, price: '4 372 ₽' },
                 ]}
                 relatedProducts={allRelated.filter(p => p.id !== 'flange-ppcz12')}
-                detailUrl="/components/flange8-ppcz12"
+                detailUrl="/components/flange8-ppcz12/index.html"
               />
             </div>
           </div>
@@ -372,9 +372,9 @@ export default function Components() {
             <div>
               <h6 className="font-semibold mb-4">Продукция</h6>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
-                <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
-                <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
+                <li><a href="/speed-valve/index.html" className="hover:text-white transition-colors">Скоростной клапан</a></li>
+                <li><a href="/safety-valve/index.html" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
+                <li><a href="/components/index.html" className="hover:text-white transition-colors">Комплектующие</a></li>
               </ul>
             </div>
             <div>

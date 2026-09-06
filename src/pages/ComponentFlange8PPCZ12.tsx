@@ -125,7 +125,7 @@ export default function ComponentFlange8PPCZ12() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/components" className="hover:text-primary">Комплектующие</a>
+            <a href="/components/index.html" className="hover:text-primary">Комплектующие</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
             <span className="text-gray-700">Фланец на 8 отверстий</span>
           </nav>
@@ -142,8 +142,8 @@ export default function ComponentFlange8PPCZ12() {
 
           <div className="flex flex-wrap gap-2 mb-8">
             <span className="text-sm text-gray-500 self-center">Другие фланцы:</span>
-            <a href="/components/flange4-ppcz12" className="px-3 py-1 rounded-full text-sm border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors">4 отверстия</a>
-            <a href="/components/flange8-ppcz12" className="px-3 py-1 rounded-full text-sm border border-primary text-primary hover:bg-primary hover:text-white transition-colors">8 отверстий</a>
+            <a href="/components/flange4-ppcz12/index.html" className="px-3 py-1 rounded-full text-sm border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors">4 отверстия</a>
+            <a href="/components/flange8-ppcz12/index.html" className="px-3 py-1 rounded-full text-sm border border-primary text-primary hover:bg-primary hover:text-white transition-colors">8 отверстий</a>
           </div>
 
           <Card className="max-w-sm mx-auto hover:shadow-lg transition-shadow">

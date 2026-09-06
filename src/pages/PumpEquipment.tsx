@@ -186,7 +186,7 @@ export default function PumpEquipment() {
               </div>
               <div className="text-center flex flex-col flex-1">
                 <h3 className="text-base font-semibold text-gray-900 mb-1">
-                  <a href="/pump-equipment/corken-fd150-frame" className="hover:text-primary transition-colors">
+                  <a href="/pump-equipment/corken-fd150-frame/index.html" className="hover:text-primary transition-colors">
                     Рама насоса Corken FD 150
                   </a>
                 </h3>
@@ -233,7 +233,7 @@ export default function PumpEquipment() {
                     Заказать
                   </Button>
                   <Button size="lg" variant="ghost" className="w-full mt-2" asChild>
-                    <a href="/pump-equipment/corken-fd150-frame">
+                    <a href="/pump-equipment/corken-fd150-frame/index.html">
                       <Icon name="ArrowRight" className="mr-2 h-4 w-4" />
                       Подробнее о товаре
                     </a>

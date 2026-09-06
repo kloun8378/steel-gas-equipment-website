@@ -38,10 +38,10 @@ const advantages = [
 ];
 
 const products = [
-  { href: "/speed-valve", icon: "Zap", title: "Скоростной клапан ТПА11", desc: "Автоматическое перекрытие при аварийном разрыве трубопровода на АГЗС и ГНС" },
-  { href: "/safety-valve", icon: "Shield", title: "Предохранительный клапан ППЦЗ-12", desc: "Защита резервуаров СУГ от превышения давления, аналог REGO" },
-  { href: "/components", icon: "Settings", title: "Комплектующие и ЗИП", desc: "Ремонтные комплекты, уплотнения, детали для обслуживания газовой арматуры" },
-  { href: "/pump-equipment", icon: "Gauge", title: "Насосное оборудование", desc: "Насосы и агрегаты для перекачки сжиженного углеводородного газа" },
+  { href: "/speed-valve/index.html", icon: "Zap", title: "Скоростной клапан ТПА11", desc: "Автоматическое перекрытие при аварийном разрыве трубопровода на АГЗС и ГНС" },
+  { href: "/safety-valve/index.html", icon: "Shield", title: "Предохранительный клапан ППЦЗ-12", desc: "Защита резервуаров СУГ от превышения давления, аналог REGO" },
+  { href: "/components/index.html", icon: "Settings", title: "Комплектующие и ЗИП", desc: "Ремонтные комплекты, уплотнения, детали для обслуживания газовой арматуры" },
+  { href: "/pump-equipment/index.html", icon: "Gauge", title: "Насосное оборудование", desc: "Насосы и агрегаты для перекачки сжиженного углеводородного газа" },
 ];
 
 export default function About() {

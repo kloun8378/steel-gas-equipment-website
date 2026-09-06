@@ -328,7 +328,7 @@ export default function SafetyValve() {
               showSpecs={showSpecs}
               onToggleSpecs={() => setShowSpecs(!showSpecs)}
               specsContent={specsContentPpcz12}
-              detailUrl="/safety-valve/ppcz-12"
+              detailUrl="/safety-valve/ppcz-12/index.html"
             />
 
             <SafetyValveProductCard
@@ -353,7 +353,7 @@ export default function SafetyValve() {
               showSpecs={showSpecs2}
               onToggleSpecs={() => setShowSpecs2(!showSpecs2)}
               specsContent={specsContentPk32l}
-              detailUrl="/safety-valve/pk-32-l"
+              detailUrl="/safety-valve/pk-32-l/index.html"
             />
           </div>
 
@@ -392,9 +392,9 @@ export default function SafetyValve() {
             <div>
               <h6 className="font-semibold mb-4">Продукция</h6>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="/speed-valve" className="hover:text-white transition-colors">Скоростной клапан</a></li>
-                <li><a href="/safety-valve" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
-                <li><a href="/components" className="hover:text-white transition-colors">Комплектующие</a></li>
+                <li><a href="/speed-valve/index.html" className="hover:text-white transition-colors">Скоростной клапан</a></li>
+                <li><a href="/safety-valve/index.html" className="hover:text-white transition-colors">Предохранительный клапан</a></li>
+                <li><a href="/components/index.html" className="hover:text-white transition-colors">Комплектующие</a></li>
               </ul>
             </div>
 

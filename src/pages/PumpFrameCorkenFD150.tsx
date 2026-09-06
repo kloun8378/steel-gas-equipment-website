@@ -109,7 +109,7 @@ export default function PumpFrameCorkenFD150() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/pump-equipment" className="hover:text-primary">Насосное оборудование</a>
+            <a href="/pump-equipment/index.html" className="hover:text-primary">Насосное оборудование</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
             <span className="text-gray-700">Рама Corken FD 150</span>
           </nav>

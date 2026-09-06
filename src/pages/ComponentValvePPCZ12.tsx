@@ -110,7 +110,7 @@ export default function ComponentValvePPCZ12() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/components" className="hover:text-primary">Комплектующие</a>
+            <a href="/components/index.html" className="hover:text-primary">Комплектующие</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
             <span className="text-gray-700">Золотник ППЦЗ-12</span>
           </nav>

@@ -102,7 +102,7 @@ export default function Flanges() {
         {/* Категории фланцев */}
         <div className="max-w-md mx-auto mb-10 space-y-4">
           <a
-            href="/flanges/tip-01-ispolnenie-b"
+            href="/flanges/tip-01-ispolnenie-b/index.html"
             className="block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-lg hover:border-blue-500 hover:ring-2 hover:ring-blue-500 transition-all"
           >
             <div className="flex items-center gap-4">
@@ -122,7 +122,7 @@ export default function Flanges() {
             </div>
           </a>
           <a
-            href="/flanges/tip-01-ispolnenie-b-dv116"
+            href="/flanges/tip-01-ispolnenie-b-dv116/index.html"
             className="block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-lg hover:border-blue-500 hover:ring-2 hover:ring-blue-500 transition-all"
           >
             <div className="flex items-center gap-4">

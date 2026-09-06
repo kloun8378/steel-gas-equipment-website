@@ -174,7 +174,7 @@ export default function SpeedValveDU25() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/speed-valve" className="hover:text-primary">Обратные и скоростные клапаны для СУГ</a>
+            <a href="/speed-valve/index.html" className="hover:text-primary">Обратные и скоростные клапаны для СУГ</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
             <span className="text-gray-700">ТПА11-025 ДУ25 PN40</span>
           </nav>
@@ -193,25 +193,25 @@ export default function SpeedValveDU25() {
           <div className="flex flex-wrap gap-2 mb-8">
             <span className="text-sm text-gray-500 self-center">Другие модели:</span>
             <a
-              href="/speed-valve/tpa11-025"
+              href="/speed-valve/tpa11-025/index.html"
               className="px-3 py-1 rounded-full text-sm border border-primary text-primary hover:bg-primary hover:text-white transition-colors"
             >
               ДУ25
             </a>
             <a
-              href="/speed-valve/tpa11-032"
+              href="/speed-valve/tpa11-032/index.html"
               className="px-3 py-1 rounded-full text-sm border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors"
             >
               ДУ32
             </a>
             <a
-              href="/speed-valve/tpa11-040"
+              href="/speed-valve/tpa11-040/index.html"
               className="px-3 py-1 rounded-full text-sm border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors"
             >
               ДУ40
             </a>
             <a
-              href="/speed-valve/tpa11-050"
+              href="/speed-valve/tpa11-050/index.html"
               className="px-3 py-1 rounded-full text-sm border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors"
             >
               ДУ50
