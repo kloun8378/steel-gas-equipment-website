@@ -163,7 +163,7 @@ export default function PumpEquipment() {
           </h1>
           <div className="flex items-center justify-center gap-2 mb-2">
             <span className="text-yellow-400 text-xl">★★★★★</span>
-            <span className="text-sm text-gray-600">4.7 — <a href="/reviews" className="underline hover:text-primary">8 отзывов</a></span>
+            <span className="text-sm text-gray-600">4.7 — <a href="/reviews/index.html" className="underline hover:text-primary">8 отзывов</a></span>
           </div>
           <p className="text-lg text-gray-600">
             Насосы для перекачки сжиженных углеводородных газов

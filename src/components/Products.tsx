@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon";
 
 const products = [
   {
-    href: '/speed-valve',
+    href: '/speed-valve/index.html',
     img: 'https://cdn.poehali.dev/files/b2d17fd0-86c8-43bc-9f92-b0ff62fcc066.jpeg',
     alt: 'Скоростной клапан',
     title: 'Скоростной клапан',
@@ -12,7 +12,7 @@ const products = [
     badge: <Badge>Безопасность</Badge>,
   },
   {
-    href: '/safety-valve',
+    href: '/safety-valve/index.html',
     img: 'https://cdn.poehali.dev/files/b84b5f14-4911-46cd-bdc6-16727593726b.jpeg',
     alt: 'Предохранительный клапан',
     title: 'Предохранительный клапан',
@@ -20,7 +20,7 @@ const products = [
     badge: <Badge variant="secondary">Надёжность</Badge>,
   },
   {
-    href: '/components',
+    href: '/components/index.html',
     img: 'https://cdn.poehali.dev/files/824091c2-2817-4a8f-8c47-9734738ccefa.jpg',
     alt: 'Комплектующие',
     title: 'Комплектующие',
@@ -28,7 +28,7 @@ const products = [
     badge: <Badge variant="outline">В наличии</Badge>,
   },
   {
-    href: '/pump-equipment',
+    href: '/pump-equipment/index.html',
     img: 'https://cdn.poehali.dev/files/02ef56fb-0d28-41ed-a52f-7dec4005566b.png',
     alt: 'Насосное оборудование',
     title: 'Насосное оборудование',
@@ -36,7 +36,7 @@ const products = [
     badge: <Badge variant="secondary">Производительность</Badge>,
   },
   {
-    href: '/flanges',
+    href: '/flanges/index.html',
     img: 'https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/fe6a92f9-5b2f-4420-b6ac-7c91ea51ee20.jpg',
     alt: 'Фланцы ГОСТ 33259-2015',
     title: 'Фланцы ГОСТ 33259-2015',

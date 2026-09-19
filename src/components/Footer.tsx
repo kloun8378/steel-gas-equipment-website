@@ -25,11 +25,11 @@ export default function Footer() {
           <div>
             <h6 className="font-semibold mb-4">Информация</h6>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="/delivery" className="hover:text-white transition-colors">Доставка и оплата</a></li>
-              <li><a href="/faq" className="hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="/blog" className="hover:text-white transition-colors">Блог</a></li>
-              <li><a href="/about" className="hover:text-white transition-colors">О компании</a></li>
-              <li><a href="/reviews" className="hover:text-white transition-colors">Отзывы</a></li>
+              <li><a href="/delivery/index.html" className="hover:text-white transition-colors">Доставка и оплата</a></li>
+              <li><a href="/faq/index.html" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="/blog/index.html" className="hover:text-white transition-colors">Блог</a></li>
+              <li><a href="/about/index.html" className="hover:text-white transition-colors">О компании</a></li>
+              <li><a href="/reviews/index.html" className="hover:text-white transition-colors">Отзывы</a></li>
             </ul>
           </div>
 

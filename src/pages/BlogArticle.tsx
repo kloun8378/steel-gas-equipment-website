@@ -105,7 +105,7 @@ export default function BlogArticle() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <a href="/" className="hover:text-primary transition-colors">Главная</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
-            <a href="/blog" className="hover:text-primary transition-colors">Блог</a>
+            <a href="/blog/index.html" className="hover:text-primary transition-colors">Блог</a>
             <Icon name="ChevronRight" className="h-4 w-4" />
             <span className="text-gray-700 line-clamp-1">{post.title}</span>
           </nav>
@@ -208,7 +208,7 @@ export default function BlogArticle() {
           </article>
 
           <div className="mt-6">
-            <a href="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium">
+            <a href="/blog/index.html" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium">
               <Icon name="ArrowLeft" className="h-4 w-4" />
               Все статьи
             </a>

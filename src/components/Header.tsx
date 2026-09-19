@@ -79,10 +79,10 @@ export default function Header(props: HeaderProps) {
           <div className="hidden md:flex space-x-8">
             <a href="/" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
             <a href="/#products" className="text-gray-700 hover:text-primary transition-colors">Продукция</a>
-            <a href="/about" className="text-gray-700 hover:text-primary transition-colors">О нас</a>
-            <a href="/blog" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
-            <a href="/delivery" className="text-gray-700 hover:text-primary transition-colors">Доставка</a>
-            <a href="/reviews" className="text-gray-700 hover:text-primary transition-colors">Отзывы</a>
+            <a href="/about/index.html" className="text-gray-700 hover:text-primary transition-colors">О нас</a>
+            <a href="/blog/index.html" className="text-gray-700 hover:text-primary transition-colors">Блог</a>
+            <a href="/delivery/index.html" className="text-gray-700 hover:text-primary transition-colors">Доставка</a>
+            <a href="/reviews/index.html" className="text-gray-700 hover:text-primary transition-colors">Отзывы</a>
             <a href="/#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
           </div>
           
@@ -234,28 +234,28 @@ export default function Header(props: HeaderProps) {
                   Продукция
                 </a>
                 <a 
-                  href="/about" 
+                  href="/about/index.html" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   О нас
                 </a>
                 <a 
-                  href="/blog" 
+                  href="/blog/index.html" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   Блог
                 </a>
                 <a 
-                  href="/delivery" 
+                  href="/delivery/index.html" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   Доставка
                 </a>
                 <a 
-                  href="/reviews" 
+                  href="/reviews/index.html" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >

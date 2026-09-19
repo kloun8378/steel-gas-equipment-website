@@ -121,7 +121,7 @@ export default function ComponentValvePPCZ12() {
             </h1>
             <div className="flex items-center gap-2">
               <span className="text-yellow-400 text-xl">★★★★★</span>
-              <span className="text-sm text-gray-600">4.8 — <a href="/reviews" className="underline hover:text-primary">12 отзывов</a></span>
+              <span className="text-sm text-gray-600">4.8 — <a href="/reviews/index.html" className="underline hover:text-primary">12 отзывов</a></span>
             </div>
           </div>
 
