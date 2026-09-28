@@ -53,6 +53,53 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Подойдут ли эти комплектующие для старых клапанов ППЦЗ-12?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, детали совместимы с клапанами ППЦЗ-12 разных годов выпуска по стандартным посадочным размерам. Если сомневаетесь — пришлите фото маркировки клапана, поможем подобрать точно.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Можно ли заменить пружину и золотник самостоятельно?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, замена не требует специального оборудования, но клапан нужно предварительно отключить от системы под давлением. Рекомендуем привлекать специалиста, обслуживающего газовое оборудование.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Подходят ли фланцы для автоцистерн и стационарных резервуаров?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, фланцы на 4 и 8 отверстий предназначены для крепления предохранительной арматуры как на автоцистернах, так и на стационарных резервуарах СУГ.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Есть ли комплектующие для клапанов ТПА11?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, у нас в наличии запчасти для клапанов серии ТПА11. Уточните нужную деталь по телефону +7 960 937-35-42.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как быстро отправляете заказ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Склад в Барнауле, отгрузка в день заказа при наличии товара. Доставка транспортными компаниями по всей России, а также через маркетплейс Ozon.',
+      },
+    },
+  ],
+});
+
 export default function ComponentSpringPPCZ12() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
@@ -93,14 +140,19 @@ export default function ComponentSpringPPCZ12() {
         <meta property="og:description" content="Пружина предохранительного клапана для замены в старом клапане ППЦЗ-12. Цена 2 745 ₽ с НДС." />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="СтальПроКлапан" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
         <meta property="og:image:alt" content="Пружина ППЦЗ-12" />
         <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
         <meta property="product:price:currency" content="RUB" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Пружина ППЦЗ-12 — СтальПроКлапан" />
+        <meta name="twitter:description" content="Пружина предохранительного клапана для замены в старом клапане ППЦЗ-12. Цена 2 745 ₽ с НДС." />
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>
+        <script type="application/ld+json">{faqLd}</script>
       </Helmet>
 
       <Header />

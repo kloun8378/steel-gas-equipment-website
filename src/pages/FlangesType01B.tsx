@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import FlangesHeader from '@/components/flanges/FlangesHeader';
+import FlangesFAQ from '@/components/flanges/FlangesFAQ';
 import OrderModal from '@/components/OrderModal';
 
 const CANONICAL = 'https://стальпро.com/flanges/tip-01-ispolnenie-b/index.html';
@@ -69,6 +70,53 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Что означает стандарт ГОСТ 33259-2015?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'ГОСТ 33259-2015 — межгосударственный стандарт на фланцы арматуры, соединительных частей и трубопроводов, устанавливающий типы, конструкцию, размеры и технические требования к фланцевым соединениям.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как подобрать нужный диаметр фланца?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Диаметр фланца должен соответствовать условному проходу трубопровода или присоединительному размеру арматуры. Если сомневаетесь — уточните диаметр по телефону +7 960 937-35-42.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'На какое давление рассчитаны фланцы?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Фланцы изготовлены для давления PN16, что соответствует требованиям большинства промышленных трубопроводных систем общего назначения.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Возможна ли доставка по всей России?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да. Склад в Барнауле, отгрузка в день заказа при наличии товара. Доставка транспортными компаниями по всей России, а также через маркетплейс Ozon.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Есть ли документы на фланцы?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, в комплекте поставки — сертификат соответствия ГОСТ 33259-2015. Документы можно запросить по email sadoxa1996@mail.ru.',
+      },
+    },
+  ],
+});
+
 export default function FlangesType01B() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
@@ -102,15 +150,20 @@ export default function FlangesType01B() {
       <meta property="og:description" content="Плоский приварной фланец Ду-100, Ру-16, исполнение B. Цена 1 241 ₽ с НДС. В наличии." />
       <meta property="og:url" content={CANONICAL} />
       <meta property="og:type" content="product" />
+      <meta property="og:site_name" content="СтальПроКлапан" />
+      <meta property="og:locale" content="ru_RU" />
       <meta property="og:image" content={PRODUCT_IMAGE} />
       <meta property="og:image:alt" content={PRODUCT_NAME} />
       <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Фланец 100-1-01-1-B-Ст 20 ГОСТ 33259-2015 — СтальПроКлапан" />
+      <meta name="twitter:description" content="Плоский приварной фланец Ду-100, Ру-16, исполнение B. Цена 1 241 ₽ с НДС. В наличии." />
       <meta name="twitter:image" content={PRODUCT_IMAGE} />
       <link rel="canonical" href={CANONICAL} />
       <script type="application/ld+json">{breadcrumbLd}</script>
       <script type="application/ld+json">{productLd}</script>
+      <script type="application/ld+json">{faqLd}</script>
     </Helmet>
     <div className="min-h-screen bg-gray-50">
       <FlangesHeader />
@@ -237,6 +290,8 @@ export default function FlangesType01B() {
             ))}
           </div>
         </section>
+
+        <FlangesFAQ />
       </div>
 
       {/* Корзина */}

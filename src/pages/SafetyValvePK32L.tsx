@@ -60,6 +60,53 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Чем предохранительный клапан отличается от скоростного?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Предохранительный клапан ПК-32-Л срабатывает при превышении давления в системе, а скоростной — при резком увеличении скорости потока СУГ (аварийный разрыв трубопровода). Это разные защитные устройства, которые часто устанавливают вместе.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Зачем в комплекте ПК-32-Л запорный клапан ЗК-32?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Запорный клапан ЗК-32 позволяет отключить предохранительный клапан ПК-32-Л для обслуживания или замены без стравливания давления во всей системе резервуара.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'На какой диаметр трубопровода рассчитан ПК-32-Л?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Клапан ПК-32-Л рассчитан на условный диаметр DN32, подходит для резервуаров и автоцистерн СУГ с соответствующим присоединением.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как часто нужно проверять клапан ПК-32-Л?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Периодичность проверки определяется регламентом эксплуатации объекта СУГ. При необходимости замены комплектующие можно заказать отдельно в разделе «Комплектующие».',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Есть ли сертификат EAC на клапан?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да. В комплекте поставки — паспорт изделия с сертификатом EAC. Документы можно запросить по email sadoxa1996@mail.ru.',
+      },
+    },
+  ],
+});
+
 export default function SafetyValvePK32L() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
@@ -100,14 +147,19 @@ export default function SafetyValvePK32L() {
         <meta property="og:description" content="Пружинный предохранительный клапан DN32 в комплекте с запорным клапаном ЗК-32. Цена 15 860 ₽ с НДС. В наличии." />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="СтальПроКлапан" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
         <meta property="og:image:alt" content="Клапан предохранительный пружинный ПК-32-Л" />
         <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
         <meta property="product:price:currency" content="RUB" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Предохранительный клапан ПК-32-Л — СтальПроКлапан" />
+        <meta name="twitter:description" content="Пружинный предохранительный клапан DN32 в комплекте с запорным клапаном ЗК-32. Цена 15 860 ₽ с НДС. В наличии." />
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>
+        <script type="application/ld+json">{faqLd}</script>
       </Helmet>
 
       <Header />

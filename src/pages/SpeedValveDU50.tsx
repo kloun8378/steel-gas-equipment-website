@@ -155,11 +155,15 @@ export default function SpeedValveDU50() {
         />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="СтальПроКлапан" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
         <meta property="og:image:alt" content="Скоростной клапан межфланцевый ТПА11-050 ДУ50" />
         <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
         <meta property="product:price:currency" content="RUB" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Скоростной межфланцевый клапан ТПА11-050 ДУ50 PN40 — СтальПроКлапан" />
+        <meta name="twitter:description" content="Скоростной клапан межфланцевый ТПА11-050 ДУ50 для СУГ. Цена 10 065 ₽ с НДС. В наличии." />
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>

@@ -53,6 +53,53 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Для каких насосов подходит рама Corken FD 150?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Рама предназначена для насосов Corken серии FD и совместимого оборудования для перекачки СУГ на АГЗС и ГНС.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Можно ли использовать раму со старым насосом при ремонте?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, рама подходит для замены изношенной или повреждённой штатной рамы при капитальном ремонте насосного агрегата — посадочные размеры соответствуют оригиналу.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Нужна ли дополнительная подготовка основания перед монтажом?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да, рекомендуется ровное жёсткое основание без вибрации — это увеличивает срок службы насоса и предотвращает перекос вала.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Возможна ли доставка по всей России?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да. Склад в Барнауле, отгрузка в день заказа при наличии товара. Доставка транспортными компаниями по всей России, а также через маркетплейс Ozon.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Есть ли в наличии другое насосное оборудование для СУГ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ассортимент расширяется. Актуальное наличие и сроки поставки уточняйте по телефону +7 960 937-35-42.',
+      },
+    },
+  ],
+});
+
 export default function PumpFrameCorkenFD150() {
   const [quantity, setQuantity] = useState(1);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
@@ -92,14 +139,19 @@ export default function PumpFrameCorkenFD150() {
         <meta property="og:description" content="Единая усиленная стальная рама для крепления насоса и двигателя. Цена 3 800 ₽ с НДС." />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="СтальПроКлапан" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
         <meta property="og:image:alt" content="Рама насоса Corken FD 150" />
         <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
         <meta property="product:price:currency" content="RUB" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Рама насоса Corken FD 150 — СтальПроКлапан" />
+        <meta name="twitter:description" content="Единая усиленная стальная рама для крепления насоса и двигателя. Цена 3 800 ₽ с НДС." />
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>
+        <script type="application/ld+json">{faqLd}</script>
       </Helmet>
 
       <Header />
