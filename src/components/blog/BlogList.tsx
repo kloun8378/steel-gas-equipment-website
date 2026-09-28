@@ -69,7 +69,7 @@ export default function BlogList({
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <a href={`/blog/${post.slug}`}>
+                <a href={`/blog/${post.slug}/index.html`}>
                 <img
                   src={post.image}
                   alt={post.title}
@@ -100,7 +100,7 @@ export default function BlogList({
                       {post.author}
                     </span>
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={`/blog/${post.slug}/index.html`}
                       className="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-1"
                     >
                       Читать далее

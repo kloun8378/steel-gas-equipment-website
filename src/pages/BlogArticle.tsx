@@ -179,7 +179,7 @@ export default function BlogArticle() {
                     {related.map(p => (
                       <a
                         key={p.id}
-                        href={`/blog/${p.slug}`}
+                        href={`/blog/${p.slug}/index.html`}
                         className="text-left bg-gray-50 hover:bg-primary/5 border border-gray-100 hover:border-primary/20 rounded-xl p-4 transition-colors"
                       >
                         <span className="text-xs text-primary font-medium">{p.category}</span>

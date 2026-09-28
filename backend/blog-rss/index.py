@@ -31,7 +31,7 @@ def handler(event: dict, context) -> dict:
 
     items = []
     for slug, title, excerpt, post_date, author, image in rows:
-        link = f'{SITE_URL}/blog/{slug}'
+        link = f'{SITE_URL}/blog/{slug}/index.html'
         pub_dt = datetime.combine(post_date, datetime.min.time(), tzinfo=timezone.utc)
         pub_date = format_datetime(pub_dt)
         item = f"""    <item>
@@ -52,7 +52,7 @@ def handler(event: dict, context) -> dict:
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>СтальПроКлапан — Блог</title>
-    <link>{SITE_URL}/blog</link>
+    <link>{SITE_URL}/blog/index.html</link>
     <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
     <description>Статьи о клапанах для СУГ, монтаже и обслуживании газовой арматуры</description>
     <language>ru</language>
