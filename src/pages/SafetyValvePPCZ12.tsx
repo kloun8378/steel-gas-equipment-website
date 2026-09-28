@@ -78,6 +78,53 @@ const breadcrumbLd = JSON.stringify({
   ],
 });
 
+const faqLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Чем предохранительный клапан отличается от скоростного?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Предохранительный клапан ППЦЗ-12 срабатывает при превышении давления в системе (1,6–1,84 МПа), а скоростной — при резком увеличении скорости потока СУГ (аварийный разрыв трубопровода). Это разные защитные устройства, которые часто устанавливают вместе.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Нужна ли регулировка давления срабатывания клапана ППЦЗ-12?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Нет. Клапан настраивается на заводе на диапазон 1,6–1,84 МПа и не требует самостоятельной регулировки после установки.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Какой аналог у клапана ППЦЗ-12?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Клапан ППЦЗ-12 — российский аналог зарубежных предохранительных клапанов REGO RS3132 и REGO CD32, совместим по посадочным размерам и параметрам давления.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как часто нужно менять пружину или золотник клапана?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Назначенный срок службы клапана ППЦЗ-12 — 10 лет по паспорту изготовителя. При необходимости замены отдельные комплектующие (пружину, золотник, фланцы) можно заказать отдельно в разделе «Комплектующие».',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Есть ли сертификат EAC на клапан?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Да. В комплекте поставки — паспорт изделия с сертификатом EAC. Документы можно запросить по email sadoxa1996@mail.ru.',
+      },
+    },
+  ],
+});
+
 export default function SafetyValvePPCZ12() {
   const [quantity, setQuantity] = useState(1);
   const [showSpecs, setShowSpecs] = useState(false);
@@ -118,14 +165,19 @@ export default function SafetyValvePPCZ12() {
         <meta property="og:description" content="Клапан пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. Цена 9 659 ₽ с НДС. В наличии." />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="СтальПроКлапан" />
+        <meta property="og:locale" content="ru_RU" />
         <meta property="og:image" content={PRODUCT_IMAGE} />
         <meta property="og:image:alt" content="Предохранительный клапан ППЦЗ-12" />
         <meta property="product:price:amount" content={String(PRODUCT_PRICE_RAW)} />
         <meta property="product:price:currency" content="RUB" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Предохранительный клапан ППЦЗ-12 — СтальПроКлапан" />
+        <meta name="twitter:description" content="Клапан пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. Цена 9 659 ₽ с НДС. В наличии." />
         <meta name="twitter:image" content={PRODUCT_IMAGE} />
         <script type="application/ld+json">{productLd}</script>
         <script type="application/ld+json">{breadcrumbLd}</script>
+        <script type="application/ld+json">{faqLd}</script>
       </Helmet>
 
       <Header />
