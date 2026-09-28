@@ -85,7 +85,7 @@ export default function ComponentValvePPCZ12() {
         />
         <meta
           name="keywords"
-          content="золотник ППЦЗ-12, золотник клапана СУГ, запчасть ППЦЗ-12, ремкомплект ППЦЗ-12"
+          content="золотник ППЦЗ-12, золотник клапана СУГ, запчасть ППЦЗ-12, ремкомплект ППЦЗ-12, золотник ППЦЗ-12 купить, золотник ППЦЗ-12 цена, ремонт клапана ППЦЗ-12, запчасти ППЦЗ-12 Барнаул"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />

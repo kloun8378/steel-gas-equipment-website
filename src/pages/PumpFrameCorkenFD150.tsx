@@ -84,7 +84,7 @@ export default function PumpFrameCorkenFD150() {
         />
         <meta
           name="keywords"
-          content="рама насоса Corken FD 150, рама для насоса СУГ, крепление насоса Corken, запчасти для насоса АГЗС"
+          content="рама насоса Corken FD 150, рама для насоса СУГ, крепление насоса Corken, запчасти для насоса АГЗС, рама Corken купить, рама Corken цена, насосное оборудование Барнаул"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />

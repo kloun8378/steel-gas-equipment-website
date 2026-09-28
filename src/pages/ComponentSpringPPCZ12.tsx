@@ -85,7 +85,7 @@ export default function ComponentSpringPPCZ12() {
         />
         <meta
           name="keywords"
-          content="пружина ППЦЗ-12, пружина предохранительного клапана, запчасть ППЦЗ-12, ремкомплект ППЦЗ-12"
+          content="пружина ППЦЗ-12, пружина предохранительного клапана, запчасть ППЦЗ-12, ремкомплект ППЦЗ-12, пружина ППЦЗ-12 купить, пружина ППЦЗ-12 цена, замена пружины клапана СУГ, запчасти ППЦЗ-12 Барнаул"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />

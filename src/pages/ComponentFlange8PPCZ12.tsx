@@ -100,7 +100,7 @@ export default function ComponentFlange8PPCZ12() {
         />
         <meta
           name="keywords"
-          content="фланец на 8 отверстий ППЦЗ-12, фланец предохранительной арматуры, фланец для автоцистерны, фланец резервуар СУГ"
+          content="фланец на 8 отверстий ППЦЗ-12, фланец предохранительной арматуры, фланец для автоцистерны, фланец резервуар СУГ, фланец ППЦЗ-12 купить, фланец ППЦЗ-12 цена, крепление предохранительного клапана, запчасти ППЦЗ-12 Барнаул"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />

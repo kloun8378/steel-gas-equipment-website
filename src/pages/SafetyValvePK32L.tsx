@@ -92,7 +92,7 @@ export default function SafetyValvePK32L() {
         />
         <meta
           name="keywords"
-          content="предохранительный клапан ПК-32-Л, ПК-32-Л купить, ПК-32-Л цена, запорный клапан ЗК-32, клапан DN32 СУГ"
+          content="предохранительный клапан ПК-32-Л, ПК-32-Л купить, ПК-32-Л цена, запорный клапан ЗК-32, клапан DN32 СУГ, ПК-32-Л характеристики, клапан резервуар СУГ Барнаул, сертификат EAC клапан ПК-32-Л"
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={CANONICAL} />
