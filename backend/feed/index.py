@@ -36,7 +36,7 @@ def handler(event: dict, context) -> dict:
         <price>5592</price>
         <currencyId>RUB</currencyId>
         <categoryId>1</categoryId>
-        <picture>https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png</picture>
+        <picture>https://стальпро.com/img/tpa11-025.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>ТПА11-025</model>
         <vendorCode>ТПА11-025</vendorCode>
@@ -58,7 +58,7 @@ def handler(event: dict, context) -> dict:
         <price>6202</price>
         <currencyId>RUB</currencyId>
         <categoryId>1</categoryId>
-        <picture>https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg</picture>
+        <picture>https://стальпро.com/img/tpa11-032.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>ТПА11-032</model>
         <vendorCode>ТПА11-032</vendorCode>
@@ -80,7 +80,7 @@ def handler(event: dict, context) -> dict:
         <price>7015</price>
         <currencyId>RUB</currencyId>
         <categoryId>1</categoryId>
-        <picture>https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg</picture>
+        <picture>https://стальпро.com/img/tpa11-040.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>ТПА11-040</model>
         <vendorCode>ТПА11-040</vendorCode>
@@ -102,7 +102,7 @@ def handler(event: dict, context) -> dict:
         <price>10065</price>
         <currencyId>RUB</currencyId>
         <categoryId>1</categoryId>
-        <picture>https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg</picture>
+        <picture>https://стальпро.com/img/tpa11-050.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>ТПА11-050</model>
         <vendorCode>ТПА11-050</vendorCode>
@@ -166,7 +166,7 @@ def handler(event: dict, context) -> dict:
         <price>2745</price>
         <currencyId>RUB</currencyId>
         <categoryId>3</categoryId>
-        <picture>https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg</picture>
+        <picture>https://стальпро.com/img/spring-ppcz12.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>Пружина ППЦЗ-12</model>
         <vendorCode>Пружина-ППЦЗ12</vendorCode>
@@ -246,7 +246,7 @@ def handler(event: dict, context) -> dict:
         <price>3800</price>
         <currencyId>RUB</currencyId>
         <categoryId>4</categoryId>
-        <picture>https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png</picture>
+        <picture>https://стальпро.com/img/pump-frame-corken-fd150.jpg</picture>
         <vendor>Corken</vendor>
         <model>FD 150 Frame</model>
         <vendorCode>Corken-FD150-Frame</vendorCode>

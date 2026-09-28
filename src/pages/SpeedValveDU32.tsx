@@ -30,7 +30,7 @@ const techSpecs = [
   ...commonSpecs.slice(4),
 ];
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/tpa11-032.jpg';
 const PRODUCT_PRICE_RAW = 6202;
 const PRODUCT_PRICE = '6 202 ₽';
 const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-032 ДУ32 PN40';
@@ -44,6 +44,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description:
     'Скоростной клапан ТПА11-032 ДУ32 для трубопроводов СУГ среднего диаметра — ГНС, узлы налива. Аварийное отключение потока за доли секунды.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -61,6 +62,15 @@ const productLd = JSON.stringify({
     reviewCount: '18',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «ГазСервис»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Приобрели партию скоростных клапанов ТПА11 для модернизации двух АГЗС. Клапаны пришли точно в срок, упакованы надёжно. После установки прошли успешно проверку. Документы предоставили в полном объёме, счёт-фактура и сертификат соответствия — всё без вопросов. Однозначно будем брать ещё.',
+      datePublished: '2024-11-14',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({

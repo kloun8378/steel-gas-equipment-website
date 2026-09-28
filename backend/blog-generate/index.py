@@ -34,10 +34,10 @@ TOPICS = [
 CATEGORIES = ["Техническая информация", "Обслуживание", "Новости отрасли", "Монтаж", "Автоматизация"]
 
 DEFAULT_IMAGES = [
-    "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
+    "https://стальпро.com/img/tpa11-025.jpg",
     "https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg",
-    "https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg",
-    "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
+    "https://стальпро.com/img/tpa11-050.jpg",
+    "https://стальпро.com/img/spring-ppcz12.jpg",
 ]
 
 SYSTEM_PROMPT = """Ты — технический копирайтер компании "СтальПроКлапан", российского производителя клапанов для сжиженного углеводородного газа (СУГ): скоростных клапанов ТПА11, предохранительных клапанов ППЦЗ-12, насосного оборудования. Клиенты — АГЗС, ГНС, автоцистерны.

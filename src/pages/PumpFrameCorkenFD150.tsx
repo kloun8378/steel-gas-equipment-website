@@ -11,7 +11,7 @@ import PumpEquipmentDetails from '@/components/pump-equipment/PumpEquipmentDetai
 import PumpEquipmentFAQ from '@/components/pump-equipment/PumpEquipmentFAQ';
 import OrderModal from '@/components/OrderModal';
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/pump-frame-corken-fd150.jpg';
 const PRODUCT_PRICE_RAW = 3800;
 const PRODUCT_PRICE = '3 800 ₽';
 const PRODUCT_NAME = 'Рама насоса Corken FD 150';
@@ -24,6 +24,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description: 'Единая усиленная стальная рама для крепления насоса Corken FD 150 и двигателя. Обеспечивает жёсткость конструкции, предотвращает перекосы при монтаже.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'Corken' },
   offers: {
     '@type': 'Offer',
@@ -41,6 +42,15 @@ const productLd = JSON.stringify({
     reviewCount: '8',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ИП Петров А.Н.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Забирал насосное оборудование самовывозом со склада. Всё готово было к назначенному времени. Насосный агрегат в рабочем состоянии, проверили на месте. Порадовало, что можно забрать день в день без лишней бюрократии. Удобно, что находятся в Барнауле — экономит время на доставку.',
+      datePublished: '2024-07-15',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({
@@ -182,6 +192,8 @@ export default function PumpFrameCorkenFD150() {
                 <img
                   src={PRODUCT_IMAGE}
                   alt="Рама насоса Corken FD 150"
+                  width={224}
+                  height={224}
                   className="w-full h-full object-contain p-2"
                   loading="eager"
                   fetchPriority="high"

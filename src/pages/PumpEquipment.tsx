@@ -35,12 +35,12 @@ export default function PumpEquipment() {
       <meta property="og:description" content="Насосы для перекачки сжиженных углеводородных газов. Доставка по всей России." />
       <meta property="og:url" content="https://стальпро.com/pump-equipment/index.html" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
+      <meta property="og:image" content="https://стальпро.com/img/pump-frame-corken-fd150.jpg" />
       <meta property="og:image:alt" content="Насосное оборудование для СУГ" />
       <meta property="product:price:amount" content="3800" />
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" />
+      <meta name="twitter:image" content="https://стальпро.com/img/pump-frame-corken-fd150.jpg" />
       <link rel="canonical" href="https://стальпро.com/pump-equipment/index.html" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
@@ -55,7 +55,7 @@ export default function PumpEquipment() {
         "@type": "Product",
         "name": "Насосное оборудование для СУГ",
         "description": "Насосы для перекачки сжиженных углеводородных газов. Применение: АГЗС, ГНС, автоцистерны.",
-        "image": "https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png",
+        "image": "https://стальпро.com/img/pump-frame-corken-fd150.jpg",
         "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -86,7 +86,7 @@ export default function PumpEquipment() {
               "@type": "Product",
               "name": "Рама насоса Corken FD 150",
               "description": "Единая усиленная стальная рама для крепления насоса и двигателя. Обеспечивает жёсткость конструкции, предотвращает перекосы при монтаже.",
-              "image": "https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png",
+              "image": "https://стальпро.com/img/pump-frame-corken-fd150.jpg",
               "sku": "pump-frame-corken-fd150",
               "brand": {"@type": "Brand", "name": "Corken"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "8", "bestRating": "5"},
@@ -177,7 +177,7 @@ export default function PumpEquipment() {
             <CardContent className="p-6 flex flex-col flex-1">
               <div className="w-56 h-56 mx-auto mb-4 rounded-lg border overflow-hidden bg-white flex items-center justify-center">
                 <img
-                  src="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png"
+                  src="https://стальпро.com/img/pump-frame-corken-fd150.jpg"
                   alt="Рама насоса Corken FD 150"
                   className="w-full h-full object-contain p-2"
                   loading="eager"
@@ -224,7 +224,7 @@ export default function PumpEquipment() {
                       id: 'pump-frame-corken-fd150',
                       name: 'Рама насоса Corken FD 150',
                       price: 3800,
-                      image: 'https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png',
+                      image: 'https://стальпро.com/img/pump-frame-corken-fd150.jpg',
                       description: 'Единая усиленная стальная рама для крепления насоса и двигателя',
                       quantity: quantity2
                     })}

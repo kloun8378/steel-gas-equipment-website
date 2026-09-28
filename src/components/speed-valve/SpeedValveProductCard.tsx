@@ -59,6 +59,8 @@ export default function SpeedValveProductCard({
             <img
               src={image}
               alt={imageAlt}
+              width={128}
+              height={128}
               className="w-full h-full object-cover object-top rounded-lg"
               loading={priority ? 'eager' : 'lazy'}
               fetchPriority={priority ? 'high' : undefined}

@@ -41,6 +41,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description: 'Фланец плоский стальной 100-1-01-1-B-Ст.20-I ГОСТ 33259-2015 — плоский приварной фланец с проходом Ду-100 на давление Ру-16. Монтаж насадкой на трубу с обваркой двумя угловыми швами.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -206,6 +207,8 @@ export default function FlangesType01BDv116() {
                 <img
                   src={PRODUCT_IMAGE}
                   alt={PRODUCT_NAME}
+                  width={224}
+                  height={224}
                   className="w-full h-full object-contain rounded-lg p-2"
                   loading="eager"
                   fetchPriority="high"

@@ -48,12 +48,12 @@ export default function SpeedValve() {
       <meta property="og:description" content="Быстрозакрывающиеся клапаны для аварийного отключения газопроводов. ТПА11-025/032/040/050. Доставка по всей России." />
       <meta property="og:url" content="https://стальпро.com/speed-valve/index.html" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
+      <meta property="og:image" content="https://стальпро.com/img/tpa11-025.jpg" />
       <meta property="og:image:alt" content="Скоростной клапан межфланцевый ТПА11-025" />
       <meta property="product:price:amount" content="5592" />
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" />
+      <meta name="twitter:image" content="https://стальпро.com/img/tpa11-025.jpg" />
       <link rel="canonical" href="https://стальпро.com/speed-valve/index.html" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
@@ -79,7 +79,7 @@ export default function SpeedValve() {
         "@type": "Product",
         "name": "Скоростной клапан межфланцевый ТПА11",
         "description": "Быстрозакрывающиеся клапаны для аварийного отключения газопроводов СУГ. ДУ25/32/40/50.",
-        "image": "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
+        "image": "https://стальпро.com/img/tpa11-025.jpg",
         "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -110,7 +110,7 @@ export default function SpeedValve() {
               "@type": "Product",
               "name": "Скоростной клапан межфланцевый ДУ25 ТПА11-025",
               "description": "Компактный быстродействующий клапан для малых диаметров трубопроводов СУГ",
-              "image": "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
+              "image": "https://стальпро.com/img/tpa11-025.jpg",
               "sku": "ТПА11-025",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
@@ -123,7 +123,7 @@ export default function SpeedValve() {
               "@type": "Product",
               "name": "Скоростной клапан межфланцевый ДУ32 ТПА11-032",
               "description": "Надёжное решение для средних диаметров с высокой скоростью срабатывания",
-              "image": "https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg",
+              "image": "https://стальпро.com/img/tpa11-032.jpg",
               "sku": "ТПА11-032",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
@@ -136,7 +136,7 @@ export default function SpeedValve() {
               "@type": "Product",
               "name": "Скоростной клапан межфланцевый ДУ40 ТПА11-040",
               "description": "Надёжное решение для средних диаметров с высокой скоростью срабатывания",
-              "image": "https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg",
+              "image": "https://стальпро.com/img/tpa11-040.jpg",
               "sku": "ТПА11-040",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
@@ -149,7 +149,7 @@ export default function SpeedValve() {
               "@type": "Product",
               "name": "Скоростной клапан межфланцевый ДУ50 ТПА11-050",
               "description": "Надёжное решение для больших диаметров с высокой скоростью срабатывания",
-              "image": "https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg",
+              "image": "https://стальпро.com/img/tpa11-050.jpg",
               "sku": "ТПА11-050",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "18", "bestRating": "5"},
@@ -194,7 +194,7 @@ export default function SpeedValve() {
               description="Компактный быстродействующий клапан для малых диаметров трубопроводов"
               price="5 592 ₽"
               priceRaw={5592}
-              image="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png"
+              image="https://стальпро.com/img/tpa11-025.jpg"
               imageAlt="Скоростной клапан межфланцевый ДУ25"
               imageStyle={{ objectPosition: 'center -90%' }}
               priority
@@ -218,7 +218,7 @@ export default function SpeedValve() {
               description="Надежное решение для средних диаметров с высокой скоростью срабатывания"
               price="6 202 ₽"
               priceRaw={6202}
-              image="https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg"
+              image="https://стальпро.com/img/tpa11-032.jpg"
               imageAlt="Скоростной клапан межфланцевый ДУ32"
               imageStyle={{ objectPosition: 'center -90%' }}
               quantity={quantity32}
@@ -241,7 +241,7 @@ export default function SpeedValve() {
               description="Надежное решение для средних диаметров с высокой скоростью срабатывания"
               price="10 065 ₽"
               priceRaw={10065}
-              image="https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg"
+              image="https://стальпро.com/img/tpa11-050.jpg"
               imageAlt="Скоростной клапан межфланцевый ДУ50"
               quantity={quantity50}
               onQuantityChange={setQuantity50}
@@ -264,7 +264,7 @@ export default function SpeedValve() {
               description="Надежное решение для средних диаметров с высокой скоростью срабатывания"
               price="7 015 ₽"
               priceRaw={7015}
-              image="https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg"
+              image="https://стальпро.com/img/tpa11-040.jpg"
               imageAlt="Скоростной клапан межфланцевый ДУ40"
               quantity={quantity40}
               onQuantityChange={setQuantity40}

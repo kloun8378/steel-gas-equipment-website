@@ -11,7 +11,7 @@ import ComponentsDetails from '@/components/components-page/ComponentsDetails';
 import ComponentsFAQ from '@/components/components-page/ComponentsFAQ';
 import OrderModal from '@/components/OrderModal';
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/spring-ppcz12.jpg';
 const PRODUCT_PRICE_RAW = 2745;
 const PRODUCT_PRICE = '2 745 ₽';
 const PRODUCT_NAME = 'Пружина ППЦЗ-12';
@@ -24,6 +24,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description: 'Пружина предохранительного клапана ППЦЗ-12 для замены в старом клапане. Оригинальная комплектующая, совместима по посадочным размерам.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -41,6 +42,15 @@ const productLd = JSON.stringify({
     reviewCount: '12',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «СибГазМонтаж»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Регулярно берём комплектующие для планового обслуживания газовой арматуры. Ассортимент хороший — уплотнения, ремонтные комплекты есть в наличии. Цены конкурентные, работаем по договору поставки уже второй год. Ни разу не подвели ни по срокам, ни по качеству.',
+      datePublished: '2024-09-20',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({
@@ -186,6 +196,8 @@ export default function ComponentSpringPPCZ12() {
                 <img
                   src={PRODUCT_IMAGE}
                   alt="Пружина ППЦЗ-12"
+                  width={192}
+                  height={192}
                   className="w-full h-48 object-contain bg-white rounded"
                   loading="eager"
                   fetchPriority="high"

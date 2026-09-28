@@ -49,6 +49,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description: 'Предохранительный клапан ППЦЗ-12 пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. АГЗС, ГНС, автоцистерны.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -66,6 +67,22 @@ const productLd = JSON.stringify({
     reviewCount: '24',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ИП Захаров В.С.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Заказывал предохранительные клапаны ППЦЗ-12 для замены на резервуарной группе ГНС. Менеджер помог подобрать нужный типоразмер по давлению срабатывания. Отгрузили на следующий день после оплаты через Деловые Линии. Качество изготовления хорошее, резьба чистая, уплотнения в комплекте. Рекомендую.',
+      datePublished: '2024-10-03',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «ТомскГаз»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '4', bestRating: '5' },
+      reviewBody: 'Заказывали клапаны ППЦЗ-12 как замену REGO. По характеристикам подходят, сертификаты в порядке. Небольшое замечание по срокам — задержали отгрузку на один день из-за загруженности склада, но предупредили заранее. В целом работой довольны, продукцию рекомендуем как надёжный отечественный аналог.',
+      datePublished: '2024-06-28',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({
@@ -218,6 +235,8 @@ export default function SafetyValvePPCZ12() {
                   <img
                     src={PRODUCT_IMAGE}
                     alt="Предохранительный клапан ППЦЗ-12"
+                    width={224}
+                    height={224}
                     className="w-full h-full object-contain rounded-lg p-2"
                     loading="eager"
                     fetchPriority="high"

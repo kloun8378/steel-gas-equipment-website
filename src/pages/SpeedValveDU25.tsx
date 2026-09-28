@@ -30,7 +30,7 @@ const techSpecs = [
   ...commonSpecs.slice(4),
 ];
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/tpa11-025.jpg';
 const PRODUCT_PRICE_RAW = 5592;
 const PRODUCT_PRICE = '5 592 ₽';
 const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-025 ДУ25 PN40';
@@ -44,6 +44,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description:
     'Компактный скоростной клапан ТПА11-025 ДУ25 для сливных трубопроводов и локальных систем СУГ. Аварийное отключение потока за доли секунды.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -61,6 +62,15 @@ const productLd = JSON.stringify({
     reviewCount: '18',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «ГазСервис»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Приобрели партию скоростных клапанов ТПА11 для модернизации двух АГЗС. Клапаны пришли точно в срок, упакованы надёжно. После установки прошли успешно проверку. Документы предоставили в полном объёме, счёт-фактура и сертификат соответствия — всё без вопросов. Однозначно будем брать ещё.',
+      datePublished: '2024-11-14',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({

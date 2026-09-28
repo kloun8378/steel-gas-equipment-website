@@ -39,6 +39,7 @@ const productLd = JSON.stringify({
   name: PRODUCT_NAME,
   image: PRODUCT_IMAGE,
   description: 'Фланец предохранительной арматуры на 8 отверстий для автоцистерн и резервуаров СУГ. Совместим с клапаном ППЦЗ-12.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -56,6 +57,15 @@ const productLd = JSON.stringify({
     reviewCount: '12',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «СибГазМонтаж»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Регулярно берём комплектующие для планового обслуживания газовой арматуры. Ассортимент хороший — уплотнения, ремонтные комплекты есть в наличии. Цены конкурентные, работаем по договору поставки уже второй год. Ни разу не подвели ни по срокам, ни по качеству.',
+      datePublished: '2024-09-20',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({
@@ -207,6 +217,8 @@ export default function ComponentFlange8PPCZ12() {
                 <img
                   src={PRODUCT_IMAGE}
                   alt="Фланец на 8 отверстий к клапану ППЦЗ-12"
+                  width={192}
+                  height={192}
                   className="w-full h-48 object-contain bg-white rounded"
                   loading="eager"
                   fetchPriority="high"

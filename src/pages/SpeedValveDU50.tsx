@@ -30,7 +30,7 @@ const techSpecs = [
   ...commonSpecs.slice(4),
 ];
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/tpa11-050.jpg';
 const PRODUCT_PRICE_RAW = 10065;
 const PRODUCT_PRICE = '10 065 ₽';
 const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-050 ДУ50 PN40';
@@ -44,6 +44,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description:
     'Самый производительный скоростной клапан линейки ТПА11-050 ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -61,6 +62,15 @@ const productLd = JSON.stringify({
     reviewCount: '18',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «УралГазСтрой»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Брали скоростные клапаны ДУ50 под конкретный объект — строительство новой АГЗС. Сроки были сжатые, но СтальПроКлапан всё успел отгрузить вовремя. Клапаны прошли входной контроль и пуско-наладку без замечаний. Отдельное спасибо за оперативную техническую консультацию по выбору модели.',
+      datePublished: '2024-08-07',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({

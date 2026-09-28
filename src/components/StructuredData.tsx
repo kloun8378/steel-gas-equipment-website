@@ -17,7 +17,7 @@ export default function StructuredData() {
           "@type": "Product",
           "name": "Скоростной клапан межфланцевый ТПА11",
           "description": "Клапаны аварийного отключения для газопроводов. ДУ25/32/40/50. Для АГЗС, ГНС, автоцистерн.",
-          "image": "https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png",
+          "image": "https://стальпро.com/img/tpa11-025.jpg",
           "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
           "offers": {
             "@type": "Offer",
@@ -55,7 +55,7 @@ export default function StructuredData() {
           "@type": "Product",
           "name": "Комплектующие для клапанов СУГ",
           "description": "Запасные части и комплектующие для ППЦЗ-12 и ТПА11.",
-          "image": "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
+          "image": "https://стальпро.com/img/spring-ppcz12.jpg",
           "brand": { "@type": "Brand", "name": "СтальПроКлапан" },
           "offers": {
             "@type": "Offer",

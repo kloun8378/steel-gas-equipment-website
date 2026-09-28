@@ -30,7 +30,7 @@ const techSpecs = [
   ...commonSpecs.slice(4),
 ];
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/8a4392c5-af78-4f21-86ef-1d9f5da98262.jpg';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/tpa11-040.jpg';
 const PRODUCT_PRICE_RAW = 7015;
 const PRODUCT_PRICE = '7 015 ₽';
 const PRODUCT_NAME = 'Скоростной клапан межфланцевый ТПА11-040 ДУ40 PN40';
@@ -44,6 +44,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description:
     'Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС.',
+  sku: PRODUCT_ID,
   brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
   offers: {
     '@type': 'Offer',
@@ -61,6 +62,15 @@ const productLd = JSON.stringify({
     reviewCount: '18',
     bestRating: '5',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Organization', name: 'ООО «ГазСервис»' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Приобрели партию скоростных клапанов ТПА11 для модернизации двух АГЗС. Клапаны пришли точно в срок, упакованы надёжно. После установки прошли успешно проверку. Документы предоставили в полном объёме, счёт-фактура и сертификат соответствия — всё без вопросов. Однозначно будем брать ещё.',
+      datePublished: '2024-11-14',
+    },
+  ],
 });
 
 const breadcrumbLd = JSON.stringify({

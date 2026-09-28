@@ -25,7 +25,7 @@ const allRelated = [
     description: 'Пружина предохранительного клапана для замены в старом клапане',
     price: 2745,
     priceLabel: '2 745 ₽',
-    image: 'https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg',
+    image: 'https://стальпро.com/img/spring-ppcz12.jpg',
   },
   {
     id: 'valve-ppcz12',
@@ -96,12 +96,12 @@ export default function Components() {
       <meta property="og:description" content="Запчасти и детали для газового оборудования. Совместимы с ППЦЗ-12 и ТПА11. Доставка по всей России." />
       <meta property="og:url" content="https://стальпро.com/components/index.html" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
+      <meta property="og:image" content="https://стальпро.com/img/spring-ppcz12.jpg" />
       <meta property="og:image:alt" content="Комплектующие для клапанов СУГ" />
       <meta property="product:price:amount" content="1129" />
       <meta property="product:price:currency" content="RUB" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" />
+      <meta name="twitter:image" content="https://стальпро.com/img/spring-ppcz12.jpg" />
       <link rel="canonical" href="https://стальпро.com/components/index.html" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
@@ -116,7 +116,7 @@ export default function Components() {
         "@type": "Product",
         "name": "Комплектующие для клапанов СУГ",
         "description": "Запасные части и комплектующие для ППЦЗ-12 и ТПА11: пружины, золотники, фланцы.",
-        "image": "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
+        "image": "https://стальпро.com/img/spring-ppcz12.jpg",
         "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -147,7 +147,7 @@ export default function Components() {
               "@type": "Product",
               "name": "Пружина ППЦЗ-12",
               "description": "Пружина предохранительного клапана для замены в старом клапане ППЦЗ-12",
-              "image": "https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg",
+              "image": "https://стальпро.com/img/spring-ppcz12.jpg",
               "sku": "spring-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
@@ -274,7 +274,7 @@ export default function Components() {
                 description="Пружина предохранительного клапана для замены в старом клапане"
                 price="2 745 ₽"
                 priceRaw={2745}
-                image="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg"
+                image="https://стальпро.com/img/spring-ppcz12.jpg"
                 imageAlt="Пружина ППЦЗ-12"
                 priority
                 quantity={quantitySpring}

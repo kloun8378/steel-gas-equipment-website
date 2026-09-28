@@ -17,7 +17,7 @@ const relatedProducts = [
     description: 'Пружина предохранительного клапана для замены в старом клапане',
     price: 2745,
     priceLabel: '2 745 ₽',
-    image: 'https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg',
+    image: 'https://стальпро.com/img/spring-ppcz12.jpg',
   },
   {
     id: 'valve-ppcz12',
