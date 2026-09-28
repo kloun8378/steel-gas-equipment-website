@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>СтальПроКлапан — Блог</title>
+    <link>https://стальпро.com/blog/index.html</link>
+    <atom:link href="https://стальпро.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Статьи о клапанах для СУГ, монтаже и обслуживании газовой арматуры</description>
+    <language>ru</language>
+    <lastBuildDate>Mon, 28 Sep 2026 15:03:34 +0000</lastBuildDate>
+    <item>
+      <title>Скоростной или предохранительный клапан: что выбрать для объекта СУГ</title>
+      <link>https://стальпро.com/blog/skorostnoj-ili-predohranitelnyj-klapan-chto-vybrat/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/skorostnoj-ili-predohranitelnyj-klapan-chto-vybrat/index.html</guid>
+      <description>Разбираемся, чем отличаются скоростные и предохранительные клапаны, какие задачи решает каждый тип и почему на большинстве объектов СУГ нужны оба.</description>
+      <author>Технический отдел СтальПроКлапан</author>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Насосное оборудование для АГЗС: как выбрать насос для перекачки СУГ</title>
+      <link>https://стальпро.com/blog/nasosnoe-oborudovanie-dlya-agzs/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/nasosnoe-oborudovanie-dlya-agzs/index.html</guid>
+      <description>Руководство по выбору насосного оборудования для автогазозаправочных станций: типы насосов, производительность, совместимость с СУГ и критерии надёжности.</description>
+      <author>Технический отдел СтальПроКлапан</author>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/1e711c1f-0c57-4748-b5e9-177dc632096d.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Клапаны СУГ: требования Ростехнадзора в 2025 году</title>
+      <link>https://стальпро.com/blog/klapany-sug-trebovaniya-rostekhnadzora-2025/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/klapany-sug-trebovaniya-rostekhnadzora-2025/index.html</guid>
+      <description>Актуальные требования Ростехнадзора к клапанам для сжиженного углеводородного газа: сертификация, документация, периодичность проверок и типичные нарушения при инспекции.</description>
+      <author>Отдел качества СтальПроКлапан</author>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Давление срабатывания ППЦЗ-12: как проверить и отрегулировать</title>
+      <link>https://стальпро.com/blog/davlenie-srabatyvaniya-ppczj-12/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/davlenie-srabatyvaniya-ppczj-12/index.html</guid>
+      <description>Подробная инструкция по проверке и настройке давления срабатывания предохранительного клапана ППЦЗ-12 в условиях эксплуатации и при плановом ТО.</description>
+      <author>Сервисный отдел СтальПроКлапан</author>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Скоростной клапан для газовой автоцистерны: нормы, монтаж, обслуживание</title>
+      <link>https://стальпро.com/blog/skorostnoj-klapan-dlya-avtoczisterny/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/skorostnoj-klapan-dlya-avtoczisterny/index.html</guid>
+      <description>Всё о скоростных клапанах на автоцистернах для перевозки СУГ: где устанавливать по нормам, какой диаметр выбрать, как проводить ревизию и продлять ресурс.</description>
+      <author>Технический отдел СтальПроКлапан</author>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/a5f6db14-b102-4128-acba-cdd414c672d5.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Клапан для АГЗС: какой выбрать и почему</title>
+      <link>https://стальпро.com/blog/klapan-dlya-agzs-kakoy-vybrat/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/klapan-dlya-agzs-kakoy-vybrat/index.html</guid>
+      <description>Разбираем, какие клапаны обязательны на автогазозаправочной станции по нормам безопасности, чем отличаются скоростные и предохранительные клапаны, и как не ошибиться с выбором.</description>
+      <author>Технический отдел СтальПроКлапан</author>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/44a2bc16-d26e-426a-bfa5-6e85ea98ae8a.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Чем отличается ППЦЗ-12 от REGO RS3132: сравнение клапанов СУГ</title>
+      <link>https://стальпро.com/blog/ppczj-12-vs-rego-rs3132-sravnenie/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/ppczj-12-vs-rego-rs3132-sravnenie/index.html</guid>
+      <description>Сравнительный анализ отечественного предохранительного клапана ППЦЗ-12 и импортного REGO RS3132 (CD32): характеристики, совместимость, цена, доступность запчастей.</description>
+      <author>Технический отдел СтальПроКлапан</author>
+      <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Замена пружины и золотника ППЦЗ-12: пошаговая инструкция</title>
+      <link>https://стальпро.com/blog/zamena-pruzhiny-zolotnika-ppczj-12/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/zamena-pruzhiny-zolotnika-ppczj-12/index.html</guid>
+      <description>Как самостоятельно заменить пружину и золотник предохранительного клапана ППЦЗ-12. Инструменты, порядок разборки, настройка после сборки.</description>
+      <author>Сервисный отдел СтальПроКлапан</author>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/2656445e-5f43-4c26-ab5b-b420ef13dc40.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Скоростной клапан ТПА11-050 ДУ50: характеристики и применение на АГЗС</title>
+      <link>https://стальпро.com/blog/tpa11-050-du50-harakteristiki-agzs/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/tpa11-050-du50-harakteristiki-agzs/index.html</guid>
+      <description>Подробный обзор скоростного клапана ТПА11-050 межфланцевого исполнения: технические параметры, области применения на АГЗС и ГНС, порядок монтажа.</description>
+      <author>Инженер СтальПроКлапан</author>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/5ac93727-7216-4047-aa8d-69d6b828c2a1.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Как выбрать скоростной клапан для газопровода</title>
+      <link>https://стальпро.com/blog/kak-vybrat-skorostnoj-klapan/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/kak-vybrat-skorostnoj-klapan/index.html</guid>
+      <description>Подробное руководство по выбору скоростных клапанов аварийного отключения с учетом диаметра трубопровода, рабочего давления и условий эксплуатации.</description>
+      <author>Инженер СтальПро</author>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Обслуживание предохранительных клапанов ППЦЗ-12</title>
+      <link>https://стальпро.com/blog/obsluzhivanie-ppczj-12/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/obsluzhivanie-ppczj-12/index.html</guid>
+      <description>Регламент технического обслуживания предохранительных клапанов, график проверок и замены комплектующих для обеспечения безотказной работы.</description>
+      <author>Сервисная служба</author>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Новые требования к газовой арматуре в 2024 году</title>
+      <link>https://стальпро.com/blog/trebovaniya-gazovaya-armatura-2024/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/trebovaniya-gazovaya-armatura-2024/index.html</guid>
+      <description>Обзор изменений в технических регламентах и стандартах для газового оборудования, вступивших в силу в 2024 году.</description>
+      <author>Отдел качества</author>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Монтаж газорегуляторных пунктов: пошаговое руководство</title>
+      <link>https://стальпро.com/blog/montazh-grp-poshagovoe-rukovodstvo/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/montazh-grp-poshagovoe-rukovodstvo/index.html</guid>
+      <description>Детальная инструкция по монтажу ГРП с описанием всех этапов работ, требований безопасности и нормативной базы.</description>
+      <author>Монтажная служба</author>
+      <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Автоматизация газовых систем: современные решения</title>
+      <link>https://стальпро.com/blog/avtomatizaciya-gazovyh-sistem/index.html</link>
+      <guid isPermaLink="true">https://стальпро.com/blog/avtomatizaciya-gazovyh-sistem/index.html</guid>
+      <description>Обзор современных систем автоматизации для газового оборудования, включая SCADA, телеметрию и дистанционное управление.</description>
+      <author>Отдел автоматизации</author>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.poehali.dev/files/45a7939a-7492-4be4-b61c-bd5e955991a8.jpg" type="image/jpeg" />
+    </item>
+  </channel>
+</rss>
