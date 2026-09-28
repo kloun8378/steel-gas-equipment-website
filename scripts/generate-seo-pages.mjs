@@ -244,9 +244,21 @@ function removeSchemaBlock(html, marker) {
   return html.replace(re, '');
 }
 
+// Вставляет видимую картинку товара прямо в <div id="root"> статичного HTML.
+// Зачем: Googlebot и другие роботы для миниатюры товара в выдаче ("как у
+// конкурентов") используют картинку, которую видно СРАЗУ, без выполнения JS.
+// og:image/JSON-LD этого не гарантируют — они лишь метаданные. У реальных
+// посетителей с включённым JS React почти сразу перерисовывает #root поверх
+// этой разметки, так что пользователи её не видят.
+function injectVisibleProductImage(html, { image, name }) {
+  const markup = `<div id="root"><img src="${escapeAttr(image)}" alt="${escapeAttr(name)}" width="600" height="600" style="max-width:100%;height:auto"/><h1>${escapeHtml(name)}</h1></div>`;
+  return html.replace('<div id="root"></div>', markup);
+}
+
 function buildProductHtml(template, data) {
   let html = applyCommonTags(template, data);
   html = replaceSchemaBlock(html, 'Product Schema', data.productLd);
+  html = injectVisibleProductImage(html, { image: data.image, name: data.name });
   return html;
 }
 
@@ -267,7 +279,7 @@ function generateProductPages(template) {
   for (const page of PRODUCT_PAGES) {
     try {
       const helmetTags = extractHelmetTags(page.src);
-      const pageData = extractPageData(page.src, ['CANONICAL', 'PRODUCT_IMAGE', 'productLd']);
+      const pageData = extractPageData(page.src, ['CANONICAL', 'PRODUCT_IMAGE', 'PRODUCT_NAME', 'productLd']);
 
       if (!pageData || !pageData.CANONICAL || !pageData.PRODUCT_IMAGE || !pageData.productLd) {
         throw new Error(
@@ -282,6 +294,7 @@ function generateProductPages(template) {
         ogDescription: helmetTags.ogDescription,
         canonical: pageData.CANONICAL,
         image: pageData.PRODUCT_IMAGE,
+        name: pageData.PRODUCT_NAME || helmetTags.ogTitle,
         productLd: pageData.productLd,
       });
 
