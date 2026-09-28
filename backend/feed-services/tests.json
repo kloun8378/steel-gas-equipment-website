@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "name": "YML фид исполнителей возвращает XML",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
