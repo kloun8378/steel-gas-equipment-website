@@ -41,7 +41,7 @@ const allRelated = [
     description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
     price: 4372,
     priceLabel: '4 372 ₽',
-    image: 'https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG',
+    image: 'https://стальпро.com/img/flange4-ppcz12.jpg',
   },
   {
     id: 'flange-ppcz12',
@@ -49,7 +49,7 @@ const allRelated = [
     description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
     price: 4372,
     priceLabel: '4 372 ₽',
-    image: 'https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG',
+    image: 'https://стальпро.com/img/flange8-ppcz12.jpg',
   },
 ];
 
@@ -173,7 +173,7 @@ export default function Components() {
               "@type": "Product",
               "name": "Фланец на 4 отверстия к ППЦЗ-12",
               "description": "Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ",
-              "image": "https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG",
+              "image": "https://стальпро.com/img/flange4-ppcz12.jpg",
               "sku": "flange4-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
@@ -186,7 +186,7 @@ export default function Components() {
               "@type": "Product",
               "name": "Фланец на 8 отверстий к ППЦЗ-12",
               "description": "Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ",
-              "image": "https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG",
+              "image": "https://стальпро.com/img/flange8-ppcz12.jpg",
               "sku": "flange8-ppcz12",
               "brand": {"@type": "Brand", "name": "СтальПроКлапан"},
               "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5"},
@@ -316,7 +316,7 @@ export default function Components() {
                 description="Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ"
                 price="4 372 ₽"
                 priceRaw={4372}
-                image="https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG"
+                image="https://стальпро.com/img/flange4-ppcz12.jpg"
                 imageAlt="Фланец на 4 отверстия к клапану ППЦЗ-12"
                 quantity={quantityFlange4}
                 onQuantityChange={setQuantityFlange4}
@@ -336,7 +336,7 @@ export default function Components() {
                 description="Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ"
                 price="4 372 ₽"
                 priceRaw={4372}
-                image="https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG"
+                image="https://стальпро.com/img/flange8-ppcz12.jpg"
                 imageAlt="Фланец на 8 отверстий к клапану ППЦЗ-12"
                 quantity={quantityFlange}
                 onQuantityChange={setQuantityFlange}

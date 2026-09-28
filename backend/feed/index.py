@@ -204,7 +204,7 @@ def handler(event: dict, context) -> dict:
         <price>4372</price>
         <currencyId>RUB</currencyId>
         <categoryId>3</categoryId>
-        <picture>https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG</picture>
+        <picture>https://стальпро.com/img/flange4-ppcz12.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>Фланец 4 отв. ППЦЗ-12</model>
         <vendorCode>Фланец4-ППЦЗ12</vendorCode>
@@ -225,7 +225,7 @@ def handler(event: dict, context) -> dict:
         <price>4372</price>
         <currencyId>RUB</currencyId>
         <categoryId>3</categoryId>
-        <picture>https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG</picture>
+        <picture>https://стальпро.com/img/flange8-ppcz12.jpg</picture>
         <vendor>СтальПроКлапан</vendor>
         <model>Фланец 8 отв. ППЦЗ-12</model>
         <vendorCode>Фланец8-ППЦЗ12</vendorCode>

@@ -33,7 +33,7 @@ const relatedProducts = [
     description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
     price: 4372,
     priceLabel: '4 372 ₽',
-    image: 'https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG',
+    image: 'https://стальпро.com/img/flange4-ppcz12.jpg',
   },
   {
     id: 'flange-ppcz12',
@@ -41,7 +41,7 @@ const relatedProducts = [
     description: 'Фланец предохранительной арматуры для автоцистерн и резервуаров СУГ',
     price: 4372,
     priceLabel: '4 372 ₽',
-    image: 'https://cdn.poehali.dev/files/c93d4236-8b9f-4ec4-8e77-8f18dd2ff13f.JPEG',
+    image: 'https://стальпро.com/img/flange8-ppcz12.jpg',
   },
 ];
 

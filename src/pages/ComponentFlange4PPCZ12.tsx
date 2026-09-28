@@ -11,7 +11,7 @@ import ComponentsDetails from '@/components/components-page/ComponentsDetails';
 import ComponentsFAQ from '@/components/components-page/ComponentsFAQ';
 import OrderModal from '@/components/OrderModal';
 
-const PRODUCT_IMAGE = 'https://cdn.poehali.dev/files/c16e6d83-1159-4dba-b0ec-18812a8b2f59.JPEG';
+const PRODUCT_IMAGE = 'https://стальпро.com/img/flange4-ppcz12.jpg';
 const PRODUCT_PRICE_RAW = 4372;
 const PRODUCT_PRICE = '4 372 ₽';
 const PRODUCT_NAME = 'Фланец на 4 отверстия к ППЦЗ-12';
