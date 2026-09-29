@@ -30,6 +30,7 @@ export default function Footer() {
               <li><a href="/blog/index.html" className="hover:text-white transition-colors">Блог</a></li>
               <li><a href="/about/index.html" className="hover:text-white transition-colors">О компании</a></li>
               <li><a href="/reviews/index.html" className="hover:text-white transition-colors">Отзывы</a></li>
+              <li><a href="/offer/index.html" className="hover:text-white transition-colors">Публичная оферта</a></li>
             </ul>
           </div>
 
