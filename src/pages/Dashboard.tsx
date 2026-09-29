@@ -30,6 +30,8 @@ interface Order {
   companyName: string;
   items: OrderItem[];
   createdAt: string;
+  paymentStatus?: string;
+  paymentUrl?: string;
 }
 
 const STATUS_LABELS: Record<string, string> = {
@@ -46,6 +48,18 @@ const STATUS_COLORS: Record<string, string> = {
   'shipped': 'bg-purple-100 text-purple-800',
   'delivered': 'bg-green-100 text-green-800',
   'cancelled': 'bg-red-100 text-red-800',
+};
+
+const PAYMENT_LABELS: Record<string, string> = {
+  'pending': 'Ожидает оплаты',
+  'paid': 'Оплачен',
+  'canceled': 'Оплата отменена',
+};
+
+const PAYMENT_COLORS: Record<string, string> = {
+  'pending': 'bg-orange-100 text-orange-800',
+  'paid': 'bg-green-100 text-green-800',
+  'canceled': 'bg-red-100 text-red-800',
 };
 
 const Dashboard = () => {
@@ -90,6 +104,13 @@ const Dashboard = () => {
           });
         });
       loadOrders();
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('payment') === 'success') {
+        showSuccess('Оплата обрабатывается. Статус заказа обновится через несколько секунд.');
+        window.history.replaceState({}, '', '/dashboard');
+        setTimeout(loadOrders, 3000);
+      }
     }
   }, [user]);
 
@@ -110,6 +131,20 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handlePayOrder = async (orderId: number) => {
+    showInfo('Готовлю оплату...');
+    try {
+      const result = await api.repayOrder(orderId);
+      if (result.paymentUrl) {
+        window.location.href = result.paymentUrl;
+      } else {
+        showError('Не удалось получить ссылку на оплату');
+      }
+    } catch (error) {
+      showError(error instanceof Error ? error.message : 'Ошибка при переходе к оплате');
+    }
   };
 
   if (!user) {
@@ -376,14 +411,19 @@ const Dashboard = () => {
                               console.error('EmailJS: письмо не отправлено');
                             }
 
-                            showSuccess(`Заказ #${orderResult.order.id} успешно оформлен!`);
+                            if (orderResult.order.paymentUrl) {
+                              showSuccess(`Заказ #${orderResult.order.id} оформлен! Переход к оплате...`);
+                              window.location.href = orderResult.order.paymentUrl;
+                            } else {
+                              showSuccess(`Заказ #${orderResult.order.id} успешно оформлен!`);
+                            }
                           } catch (error) {
                             showError(error instanceof Error ? error.message : 'Ошибка оформления заказа');
                           }
                         }}
                       >
-                        <Icon name="Send" className="mr-2 h-4 w-4" />
-                        Оформить заказ
+                        <Icon name="CreditCard" className="mr-2 h-4 w-4" />
+                        Оформить и оплатить
                       </Button>
                       <Button 
                         variant="outline"
@@ -441,6 +481,11 @@ const Dashboard = () => {
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${STATUS_COLORS[order.status] || 'bg-gray-100 text-gray-800'}`}>
                           {STATUS_LABELS[order.status] || order.status}
                         </span>
+                        {order.paymentStatus && (
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${PAYMENT_COLORS[order.paymentStatus] || 'bg-gray-100 text-gray-800'}`}>
+                            {PAYMENT_LABELS[order.paymentStatus] || order.paymentStatus}
+                          </span>
+                        )}
                         <span className="font-bold text-lg">{order.totalPrice.toLocaleString()} ₽</span>
                       </div>
                     </div>
@@ -454,7 +499,16 @@ const Dashboard = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 flex gap-2">
+                      {order.paymentStatus === 'pending' && (
+                        <Button
+                          size="sm"
+                          onClick={() => handlePayOrder(order.id)}
+                        >
+                          <Icon name="CreditCard" className="mr-2 h-4 w-4" />
+                          Оплатить
+                        </Button>
+                      )}
                       <Button
                         variant="outline"
                         size="sm"

@@ -86,6 +86,16 @@ export const api = {
     return await request('orders', 'GET');
   },
 
+  repayOrder: async (orderId: number) => {
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    const token = getToken();
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+    const res = await fetch(`${API_URL}?action=repay&id=${orderId}`, { method: 'POST', headers });
+    const data = await res.json();
+    if (!res.ok && data.error) throw new Error(data.error);
+    return data;
+  },
+
   sendEmail: async (data: { type: string; name?: string; email?: string; phone?: string; message?: string; params?: Record<string, unknown>; template_id?: string }) => {
     return await request('send-email', 'POST', data);
   },

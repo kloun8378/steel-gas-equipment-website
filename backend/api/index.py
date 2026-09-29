@@ -1,14 +1,19 @@
-"""API для авторизации, профиля компании, корзины и email-уведомлений"""
+"""API для авторизации, профиля компании, корзины, заказов и оплаты через ЮKassa"""
 import json
 import os
 import hashlib
 import secrets
+import uuid
+import base64
 import psycopg2
 import urllib.request
 import urllib.parse
+import urllib.error
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+SITE_URL = 'https://xn--80awjdfch6f.com'
 
 CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
@@ -253,10 +258,25 @@ def handle_create_order(event, conn):
 
     cur.execute("DELETE FROM cart_items WHERE user_id = %d" % user['id'])
     conn.commit()
-    cur.close()
 
     order_id = order_row[0]
     order_date = order_row[1]
+
+    # Создание платежа в ЮKassa
+    payment_url = None
+    try:
+        payment = create_yookassa_payment(order_id, total, email_val)
+        if payment:
+            payment_url = payment.get('confirmation', {}).get('confirmation_url')
+            cur.execute(
+                "UPDATE orders SET payment_id = '%s', payment_url = '%s' WHERE id = %d"
+                % (payment['id'], (payment_url or '').replace("'", "''"), order_id)
+            )
+            conn.commit()
+    except Exception as e:
+        print('YooKassa payment creation error: %s' % str(e))
+
+    cur.close()
 
     # Отправка письма о заказе через SMTP
     try:
@@ -290,7 +310,116 @@ def handle_create_order(event, conn):
     except Exception as e:
         print('Email send error: %s' % str(e))
 
-    return json_response(200, {'order': {'id': order_id, 'total': total, 'items': items, 'createdAt': str(order_date)}})
+    return json_response(200, {'order': {'id': order_id, 'total': total, 'items': items, 'createdAt': str(order_date), 'paymentUrl': payment_url}})
+
+def create_yookassa_payment(order_id, amount, receipt_email):
+    shop_id = os.environ.get('YOOKASSA_SHOP_ID', '')
+    secret_key = os.environ.get('YOOKASSA_SECRET_KEY', '')
+    if not shop_id or not secret_key:
+        print('YooKassa credentials not configured')
+        return None
+
+    idempotence_key = str(uuid.uuid4())
+    auth = base64.b64encode(('%s:%s' % (shop_id, secret_key)).encode()).decode()
+
+    payload = {
+        'amount': {'value': '%.2f' % float(amount), 'currency': 'RUB'},
+        'confirmation': {'type': 'redirect', 'return_url': '%s/dashboard?payment=success&order=%d' % (SITE_URL, order_id)},
+        'capture': True,
+        'description': 'Заказ №%d - СТАЛЬПРО' % order_id,
+        'metadata': {'order_id': str(order_id)},
+    }
+    if receipt_email:
+        payload['receipt'] = {
+            'customer': {'email': receipt_email},
+            'items': [{
+                'description': 'Заказ №%d' % order_id,
+                'quantity': '1.00',
+                'amount': {'value': '%.2f' % float(amount), 'currency': 'RUB'},
+                'vat_code': 1,
+                'payment_mode': 'full_payment',
+                'payment_subject': 'commodity',
+            }],
+        }
+
+    req = urllib.request.Request(
+        'https://api.yookassa.ru/v3/payments',
+        data=json.dumps(payload).encode('utf-8'),
+        headers={
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic %s' % auth,
+            'Idempotence-Key': idempotence_key,
+        },
+        method='POST',
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return json.loads(resp.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        print('YooKassa API error: %s' % e.read().decode('utf-8'))
+        return None
+
+def handle_payment_webhook(event, conn):
+    body = json.loads(event.get('body', '{}'))
+    obj = body.get('object', {})
+    payment_id = obj.get('id', '')
+    status = obj.get('status', '')
+    metadata = obj.get('metadata', {})
+    order_id = metadata.get('order_id')
+
+    if not payment_id or not order_id:
+        return json_response(200, {'ok': True})
+
+    cur = conn.cursor()
+    if status == 'succeeded':
+        cur.execute(
+            "UPDATE orders SET payment_status = 'paid', status = 'processing', paid_at = NOW() WHERE payment_id = '%s' AND id = %s"
+            % (payment_id.replace("'", "''"), order_id)
+        )
+    elif status == 'canceled':
+        cur.execute(
+            "UPDATE orders SET payment_status = 'canceled' WHERE payment_id = '%s' AND id = %s"
+            % (payment_id.replace("'", "''"), order_id)
+        )
+    conn.commit()
+    cur.close()
+    return json_response(200, {'ok': True})
+
+def handle_repay_order(event, conn):
+    token = get_auth_token(event)
+    user = get_user_by_token(conn, token)
+    if not user:
+        return json_response(401, {'error': 'Не авторизован'})
+
+    params = event.get('queryStringParameters') or {}
+    order_id = params.get('id', '')
+    if not order_id.isdigit():
+        return json_response(400, {'error': 'Некорректный ID заказа'})
+
+    cur = conn.cursor()
+    cur.execute("SELECT total_price, email, payment_status FROM orders WHERE id = %s AND user_id = %d" % (order_id, user['id']))
+    row = cur.fetchone()
+    if not row:
+        cur.close()
+        return json_response(404, {'error': 'Заказ не найден'})
+
+    if row[2] == 'paid':
+        cur.close()
+        return json_response(400, {'error': 'Заказ уже оплачен'})
+
+    payment = create_yookassa_payment(int(order_id), row[0], row[1])
+    if not payment:
+        cur.close()
+        return json_response(500, {'error': 'Не удалось создать платёж'})
+
+    payment_url = payment.get('confirmation', {}).get('confirmation_url')
+    cur.execute(
+        "UPDATE orders SET payment_id = '%s', payment_url = '%s' WHERE id = %s"
+        % (payment['id'], (payment_url or '').replace("'", "''"), order_id)
+    )
+    conn.commit()
+    cur.close()
+    return json_response(200, {'paymentUrl': payment_url})
 
 def send_smtp(subject, body, to_email='sadoxa1996@mail.ru'):
     from_email = 'sadoxa1996@mail.ru'
@@ -340,7 +469,7 @@ def handle_get_orders(event, conn):
 
     cur = conn.cursor()
     cur.execute(
-        "SELECT id, total_price, status, company_name, delivery_address, phone, email, items_json, created_at FROM orders WHERE user_id = %d ORDER BY created_at DESC"
+        "SELECT id, total_price, status, company_name, delivery_address, phone, email, items_json, created_at, payment_status, payment_url FROM orders WHERE user_id = %d ORDER BY created_at DESC"
         % user['id']
     )
     rows = cur.fetchall()
@@ -358,7 +487,9 @@ def handle_get_orders(event, conn):
             'phone': r[5],
             'email': r[6],
             'items': items,
-            'createdAt': str(r[8])
+            'createdAt': str(r[8]),
+            'paymentStatus': r[9],
+            'paymentUrl': r[10]
         })
 
     return json_response(200, {'orders': orders})
@@ -397,8 +528,12 @@ def handler(event, context):
             return handle_get_orders(event, conn)
         elif action == 'send-email' and method == 'POST':
             return handle_send_email(event, conn)
+        elif action == 'payment-webhook' and method == 'POST':
+            return handle_payment_webhook(event, conn)
+        elif action == 'repay' and method == 'POST':
+            return handle_repay_order(event, conn)
         else:
-            return json_response(200, {'status': 'ok', 'actions': ['register', 'login', 'me', 'logout', 'profile', 'cart', 'order', 'orders', 'send-email']})
+            return json_response(200, {'status': 'ok', 'actions': ['register', 'login', 'me', 'logout', 'profile', 'cart', 'order', 'orders', 'send-email', 'payment-webhook', 'repay']})
     except Exception as e:
         return json_response(500, {'error': str(e)})
     finally:
