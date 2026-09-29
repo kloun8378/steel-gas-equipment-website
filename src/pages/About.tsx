@@ -106,6 +106,34 @@ export default function About() {
             </div>
           </div>
 
+          {/* Реквизиты */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Icon name="FileText" className="h-6 w-6 text-primary" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Реквизиты</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4 text-gray-600">
+              <div>
+                <p className="text-sm text-gray-400">Индивидуальный предприниматель</p>
+                <p className="font-medium text-gray-900">ИП Алпеева Анастасия Сергеевна</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">ИНН</p>
+                <p className="font-medium text-gray-900">220807451225</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">ОГРНИП</p>
+                <p className="font-medium text-gray-900">322220200096633</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Юридический адрес</p>
+                <p className="font-medium text-gray-900">Алтайский край, г. Барнаул, ул. Кавалерийская 14, бокс 171</p>
+              </div>
+            </div>
+          </div>
+
           {/* Цифры */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Компания в цифрах</h2>
