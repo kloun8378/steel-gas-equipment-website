@@ -142,14 +142,14 @@ def handle_get_profile(event, conn):
         return json_response(401, {'error': 'Не авторизован'})
 
     cur = conn.cursor()
-    cur.execute("SELECT name, inn, address, phone, email, delivery_address FROM company_profiles WHERE user_id = %d" % user['id'])
+    cur.execute("SELECT name, inn, address, phone, email, delivery_address, profile_type, full_name FROM company_profiles WHERE user_id = %d" % user['id'])
     row = cur.fetchone()
     cur.close()
 
     if row:
-        profile = {'name': row[0], 'inn': row[1], 'address': row[2], 'phone': row[3], 'email': row[4], 'description': row[5]}
+        profile = {'name': row[0], 'inn': row[1], 'address': row[2], 'phone': row[3], 'email': row[4], 'description': row[5], 'profileType': row[6], 'fullName': row[7]}
     else:
-        profile = {'name': user.get('company', ''), 'inn': '', 'address': user.get('address', ''), 'phone': user.get('phone', ''), 'email': user.get('email', ''), 'description': ''}
+        profile = {'name': user.get('company', ''), 'inn': '', 'address': user.get('address', ''), 'phone': user.get('phone', ''), 'email': user.get('email', ''), 'description': '', 'profileType': 'company', 'fullName': user.get('name', '')}
 
     return json_response(200, {'profile': profile})
 
@@ -160,6 +160,10 @@ def handle_save_profile(event, conn):
         return json_response(401, {'error': 'Не авторизован'})
 
     body = json.loads(event.get('body', '{}'))
+    profile_type = body.get('profileType', 'company')
+    if profile_type not in ('company', 'individual'):
+        profile_type = 'company'
+    full_name = body.get('fullName', '').replace("'", "''")
     name = body.get('name', '').replace("'", "''")
     inn = body.get('inn', '').replace("'", "''")
     address = body.get('address', '').replace("'", "''")
@@ -173,13 +177,13 @@ def handle_save_profile(event, conn):
 
     if exists:
         cur.execute(
-            "UPDATE company_profiles SET name='%s', inn='%s', address='%s', phone='%s', email='%s', delivery_address='%s', updated_at=NOW() WHERE user_id=%d"
-            % (name, inn, address, phone, email, description, user['id'])
+            "UPDATE company_profiles SET name='%s', inn='%s', address='%s', phone='%s', email='%s', delivery_address='%s', profile_type='%s', full_name='%s', updated_at=NOW() WHERE user_id=%d"
+            % (name, inn, address, phone, email, description, profile_type, full_name, user['id'])
         )
     else:
         cur.execute(
-            "INSERT INTO company_profiles (user_id, name, inn, address, phone, email, delivery_address) VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s')"
-            % (user['id'], name, inn, address, phone, email, description)
+            "INSERT INTO company_profiles (user_id, name, inn, address, phone, email, delivery_address, profile_type, full_name) VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')"
+            % (user['id'], name, inn, address, phone, email, description, profile_type, full_name)
         )
     conn.commit()
     cur.close()

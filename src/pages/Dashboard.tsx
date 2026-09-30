@@ -84,7 +84,9 @@ const Dashboard = () => {
     address: '',
     phone: '',
     email: '',
-    description: ''
+    description: '',
+    profileType: 'company' as 'company' | 'individual',
+    fullName: ''
   });
 
   const loadOrders = () => {
@@ -100,7 +102,16 @@ const Dashboard = () => {
       api.getProfile()
         .then((data) => {
           if (data.profile) {
-            setCompanyData(data.profile);
+            setCompanyData({
+              name: data.profile.name || '',
+              inn: data.profile.inn || '',
+              address: data.profile.address || '',
+              phone: data.profile.phone || '',
+              email: data.profile.email || '',
+              description: data.profile.description || '',
+              profileType: data.profile.profileType === 'individual' ? 'individual' : 'company',
+              fullName: data.profile.fullName || ''
+            });
           }
         })
         .catch(() => {
@@ -110,7 +121,9 @@ const Dashboard = () => {
             address: user.address,
             phone: user.phone,
             email: user.email,
-            description: ''
+            description: '',
+            profileType: 'company',
+            fullName: user.name || ''
           });
         });
       loadOrders();
@@ -230,25 +243,75 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="company-name">Название предприятия</Label>
-                <Input
-                  id="company-name"
-                  value={companyData.name}
-                  onChange={(e) => handleCompanyDataChange('name', e.target.value)}
-                  placeholder="ООО 'Ваша компания'"
-                />
+                <Label className="mb-2 block">Тип клиента</Label>
+                <RadioGroup
+                  value={companyData.profileType}
+                  onValueChange={(value) => handleCompanyDataChange('profileType', value)}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+                >
+                  <label
+                    htmlFor="profile-individual"
+                    className={`flex items-center gap-3 border rounded-lg p-3 cursor-pointer transition-colors ${companyData.profileType === 'individual' ? 'border-primary bg-primary/5' : 'border-gray-200'}`}
+                  >
+                    <RadioGroupItem value="individual" id="profile-individual" />
+                    <div>
+                      <div className="font-medium flex items-center gap-2">
+                        <Icon name="User" className="h-4 w-4" />
+                        Физическое лицо
+                      </div>
+                      <p className="text-xs text-gray-500">Для частных покупателей</p>
+                    </div>
+                  </label>
+                  <label
+                    htmlFor="profile-company"
+                    className={`flex items-center gap-3 border rounded-lg p-3 cursor-pointer transition-colors ${companyData.profileType === 'company' ? 'border-primary bg-primary/5' : 'border-gray-200'}`}
+                  >
+                    <RadioGroupItem value="company" id="profile-company" />
+                    <div>
+                      <div className="font-medium flex items-center gap-2">
+                        <Icon name="Building2" className="h-4 w-4" />
+                        Юридическое лицо
+                      </div>
+                      <p className="text-xs text-gray-500">Для компаний и ИП</p>
+                    </div>
+                  </label>
+                </RadioGroup>
               </div>
-              
-              <div>
-                <Label htmlFor="company-inn">ИНН</Label>
-                <Input
-                  id="company-inn"
-                  value={companyData.inn}
-                  onChange={(e) => handleCompanyDataChange('inn', e.target.value)}
-                  placeholder="1234567890"
-                />
-              </div>
-              
+
+              {companyData.profileType === 'individual' ? (
+                <div>
+                  <Label htmlFor="full-name">ФИО</Label>
+                  <Input
+                    id="full-name"
+                    value={companyData.fullName}
+                    onChange={(e) => handleCompanyDataChange('fullName', e.target.value)}
+                    placeholder="Иванов Иван Иванович"
+                  />
+                </div>
+              ) : (
+                <>
+                  <div>
+                    <Label htmlFor="company-name">Название предприятия</Label>
+                    <Input
+                      id="company-name"
+                      value={companyData.name}
+                      onChange={(e) => handleCompanyDataChange('name', e.target.value)}
+                      placeholder="ООО 'Ваша компания'"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="company-inn">ИНН</Label>
+                    <Input
+                      id="company-inn"
+                      value={companyData.inn}
+                      onChange={(e) => handleCompanyDataChange('inn', e.target.value)}
+                      placeholder="1234567890"
+                    />
+                  </div>
+                </>
+              )}
+
               <div>
                 <Label htmlFor="company-address">Адрес</Label>
                 <Input

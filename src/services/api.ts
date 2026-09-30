@@ -66,7 +66,7 @@ export const api = {
     return await request('profile', 'GET');
   },
 
-  saveProfile: async (profile: { name: string; inn: string; address: string; phone: string; email: string; description: string }) => {
+  saveProfile: async (profile: { name: string; inn: string; address: string; phone: string; email: string; description: string; profileType: 'company' | 'individual'; fullName: string }) => {
     return await request('profile', 'POST', profile);
   },
 
