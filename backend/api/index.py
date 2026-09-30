@@ -318,8 +318,24 @@ def handle_create_order(event, conn):
             'ИТОГО: %s р'
         ) % (order_id, order_date_str, payment_label, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
 
-        send_smtp(subject, body)
-        print('Order email sent for order #%d' % order_id)
+        try:
+            send_smtp(subject, body)
+            print('Order email sent for order #%d' % order_id)
+        except Exception as smtp_error:
+            print('SMTP failed, trying EmailJS fallback: %s' % str(smtp_error))
+            send_via_emailjs(
+                order_number='#%d' % order_id,
+                company_name=company_name,
+                contact_person=company_name or email_val,
+                phone=phone_val,
+                email_address=email_val,
+                company_address=delivery_addr,
+                total_amount=total_str,
+                total_items=sum(i['quantity'] for i in items),
+                order_date=order_date_str,
+                message=body,
+            )
+            print('Order email sent via EmailJS fallback for order #%d' % order_id)
     except Exception as e:
         print('Email send error: %s' % str(e))
 
@@ -462,6 +478,50 @@ def send_smtp(subject, body, to_email='sadoxa1996@mail.ru'):
             last_error = e
             raise
     raise last_error
+
+def send_via_emailjs(order_number, company_name, contact_person, phone, email_address, company_address, total_amount, total_items, order_date, message, to_email='sadoxa1996@mail.ru'):
+    service_id = os.environ.get('EMAILJS_SERVICE_ID', '')
+    template_id = os.environ.get('EMAILJS_TEMPLATE_ORDER_ID', '')
+    public_key = os.environ.get('EMAILJS_PUBLIC_KEY', '')
+    private_key = os.environ.get('EMAILJS_PRIVATE_KEY', '')
+
+    if not (service_id and template_id and public_key and private_key):
+        print('EmailJS credentials not configured, skip fallback')
+        return False
+
+    payload = {
+        'service_id': service_id,
+        'template_id': template_id,
+        'user_id': public_key,
+        'accessToken': private_key,
+        'template_params': {
+            'to_email': to_email,
+            'order_number': order_number,
+            'company_name': company_name,
+            'contact_person': contact_person,
+            'phone': phone,
+            'email_address': email_address,
+            'company_address': company_address,
+            'total_amount': total_amount,
+            'total_items': total_items,
+            'order_date': order_date,
+            'message': message,
+        },
+    }
+
+    req = urllib.request.Request(
+        'https://api.emailjs.com/api/v1.0/email/send',
+        data=json.dumps(payload).encode('utf-8'),
+        headers={'Content-Type': 'application/json'},
+        method='POST',
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            resp.read()
+        return True
+    except urllib.error.HTTPError as e:
+        print('EmailJS API error: %s' % e.read().decode('utf-8'))
+        return False
 
 def handle_send_email(event, conn):
     body = json.loads(event.get('body', '{}'))
