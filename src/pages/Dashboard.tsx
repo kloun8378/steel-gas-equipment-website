@@ -225,7 +225,7 @@ const Dashboard = () => {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Icon name="Building2" className="mr-2 h-5 w-5" />
-                Карточка предприятия
+                Контактная информация
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
