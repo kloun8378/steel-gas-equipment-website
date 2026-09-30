@@ -10,6 +10,7 @@ import urllib.request
 import urllib.parse
 import urllib.error
 import smtplib
+import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
@@ -443,11 +444,24 @@ def send_smtp(subject, body, to_email='sadoxa1996@mail.ru'):
     msg['To'] = to_email
     msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
-    with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
-        server.login(from_email, password)
-        server.sendmail(from_email, to_email, msg.as_string())
-    print('SMTP email sent to %s' % to_email)
-    return True
+    last_error = None
+    for attempt in range(2):
+        try:
+            with smtplib.SMTP_SSL('smtp.mail.ru', 465, timeout=8) as server:
+                server.login(from_email, password)
+                server.sendmail(from_email, to_email, msg.as_string())
+            print('SMTP email sent to %s' % to_email)
+            return True
+        except smtplib.SMTPResponseException as e:
+            last_error = e
+            if e.smtp_code == 451 and attempt == 0:
+                time.sleep(1)
+                continue
+            raise
+        except Exception as e:
+            last_error = e
+            raise
+    raise last_error
 
 def handle_send_email(event, conn):
     body = json.loads(event.get('body', '{}'))
