@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Icon from "@/components/ui/icon";
 import { sendOrderEmail } from "@/services/emailService";
 import { useAuth } from "@/context/AuthContext";
@@ -32,6 +33,7 @@ interface Order {
   createdAt: string;
   paymentStatus?: string;
   paymentUrl?: string;
+  paymentMethod?: string;
 }
 
 const STATUS_LABELS: Record<string, string> = {
@@ -54,12 +56,19 @@ const PAYMENT_LABELS: Record<string, string> = {
   'pending': 'Ожидает оплаты',
   'paid': 'Оплачен',
   'canceled': 'Оплата отменена',
+  'invoice_pending': 'Ожидает оплаты по счёту',
 };
 
 const PAYMENT_COLORS: Record<string, string> = {
   'pending': 'bg-orange-100 text-orange-800',
   'paid': 'bg-green-100 text-green-800',
   'canceled': 'bg-red-100 text-red-800',
+  'invoice_pending': 'bg-blue-100 text-blue-800',
+};
+
+const PAYMENT_METHOD_LABELS: Record<string, string> = {
+  'card': 'Картой онлайн',
+  'invoice': 'По счёту',
 };
 
 const Dashboard = () => {
@@ -68,6 +77,7 @@ const Dashboard = () => {
   const { showSuccess, showError, showInfo } = useToast();
   const [orders, setOrders] = useState<Order[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
+  const [paymentMethod, setPaymentMethod] = useState<'card' | 'invoice'>('card');
   const [companyData, setCompanyData] = useState({
     name: '',
     inn: '',
@@ -373,6 +383,42 @@ const Dashboard = () => {
                   ))}
                   
                   <div className="border-t pt-4">
+                    <div className="mb-4">
+                      <Label className="mb-2 block">Способ оплаты</Label>
+                      <RadioGroup
+                        value={paymentMethod}
+                        onValueChange={(value) => setPaymentMethod(value as 'card' | 'invoice')}
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+                      >
+                        <label
+                          htmlFor="payment-card"
+                          className={`flex items-center gap-3 border rounded-lg p-3 cursor-pointer transition-colors ${paymentMethod === 'card' ? 'border-primary bg-primary/5' : 'border-gray-200'}`}
+                        >
+                          <RadioGroupItem value="card" id="payment-card" />
+                          <div>
+                            <div className="font-medium flex items-center gap-2">
+                              <Icon name="CreditCard" className="h-4 w-4" />
+                              Картой онлайн
+                            </div>
+                            <p className="text-xs text-gray-500">Оплата через ЮKassa сразу после оформления</p>
+                          </div>
+                        </label>
+                        <label
+                          htmlFor="payment-invoice"
+                          className={`flex items-center gap-3 border rounded-lg p-3 cursor-pointer transition-colors ${paymentMethod === 'invoice' ? 'border-primary bg-primary/5' : 'border-gray-200'}`}
+                        >
+                          <RadioGroupItem value="invoice" id="payment-invoice" />
+                          <div>
+                            <div className="font-medium flex items-center gap-2">
+                              <Icon name="FileText" className="h-4 w-4" />
+                              По счёту
+                            </div>
+                            <p className="text-xs text-gray-500">Безналичный расчёт для юрлиц и ИП</p>
+                          </div>
+                        </label>
+                      </RadioGroup>
+                    </div>
+
                     <div className="flex justify-between items-center font-bold text-lg mb-4">
                       <span>ИТОГО:</span>
                       <span>{getTotalPrice().toLocaleString()} ₽</span>
@@ -390,7 +436,7 @@ const Dashboard = () => {
                           showInfo('Оформляю заказ...');
 
                           try {
-                            const orderResult = await api.createOrder();
+                            const orderResult = await api.createOrder(paymentMethod);
 
                             const orderData = {
                               company: user?.company || 'Неизвестная компания',
@@ -414,6 +460,8 @@ const Dashboard = () => {
                             if (orderResult.order.paymentUrl) {
                               showSuccess(`Заказ #${orderResult.order.id} оформлен! Переход к оплате...`);
                               window.location.href = orderResult.order.paymentUrl;
+                            } else if (paymentMethod === 'invoice') {
+                              showSuccess(`Заказ #${orderResult.order.id} оформлен! Счёт на оплату придёт вам на почту.`);
                             } else {
                               showSuccess(`Заказ #${orderResult.order.id} успешно оформлен!`);
                             }
@@ -423,7 +471,7 @@ const Dashboard = () => {
                         }}
                       >
                         <Icon name="CreditCard" className="mr-2 h-4 w-4" />
-                        Оформить и оплатить
+                        {paymentMethod === 'card' ? 'Оформить и оплатить' : 'Оформить заказ'}
                       </Button>
                       <Button 
                         variant="outline"
@@ -486,6 +534,11 @@ const Dashboard = () => {
                             {PAYMENT_LABELS[order.paymentStatus] || order.paymentStatus}
                           </span>
                         )}
+                        {order.paymentMethod && (
+                          <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                            {PAYMENT_METHOD_LABELS[order.paymentMethod] || order.paymentMethod}
+                          </span>
+                        )}
                         <span className="font-bold text-lg">{order.totalPrice.toLocaleString()} ₽</span>
                       </div>
                     </div>
@@ -500,13 +553,13 @@ const Dashboard = () => {
                       </div>
                     </div>
                     <div className="mt-3 flex gap-2">
-                      {order.paymentStatus === 'pending' && (
+                      {(order.paymentStatus === 'pending' || order.paymentStatus === 'invoice_pending') && (
                         <Button
                           size="sm"
                           onClick={() => handlePayOrder(order.id)}
                         >
                           <Icon name="CreditCard" className="mr-2 h-4 w-4" />
-                          Оплатить
+                          Оплатить картой
                         </Button>
                       )}
                       <Button

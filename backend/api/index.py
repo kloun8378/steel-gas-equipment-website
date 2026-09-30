@@ -231,6 +231,11 @@ def handle_create_order(event, conn):
     if not user:
         return json_response(401, {'error': 'Не авторизован'})
 
+    body = json.loads(event.get('body') or '{}')
+    payment_method = body.get('paymentMethod', 'card')
+    if payment_method not in ('card', 'invoice'):
+        payment_method = 'card'
+
     cur = conn.cursor()
     cur.execute("SELECT product_id, product_name, price, quantity, image, description FROM cart_items WHERE user_id = %d" % user['id'])
     cart_rows = cur.fetchall()
@@ -251,8 +256,8 @@ def handle_create_order(event, conn):
 
     items_json = json.dumps(items, ensure_ascii=False).replace("'", "''")
     cur.execute(
-        "INSERT INTO orders (user_id, total_price, company_name, delivery_address, phone, email, items_json) VALUES (%d, %s, '%s', '%s', '%s', '%s', '%s') RETURNING id, created_at"
-        % (user['id'], total, company_name.replace("'", "''"), delivery_addr.replace("'", "''"), phone_val.replace("'", "''"), email_val.replace("'", "''"), items_json)
+        "INSERT INTO orders (user_id, total_price, company_name, delivery_address, phone, email, items_json, payment_method) VALUES (%d, %s, '%s', '%s', '%s', '%s', '%s', '%s') RETURNING id, created_at"
+        % (user['id'], total, company_name.replace("'", "''"), delivery_addr.replace("'", "''"), phone_val.replace("'", "''"), email_val.replace("'", "''"), items_json, payment_method)
     )
     order_row = cur.fetchone()
 
@@ -262,19 +267,24 @@ def handle_create_order(event, conn):
     order_id = order_row[0]
     order_date = order_row[1]
 
-    # Создание платежа в ЮKassa
+    # Создание платежа в ЮKassa (только для оплаты картой онлайн)
     payment_url = None
-    try:
-        payment = create_yookassa_payment(order_id, total, email_val)
-        if payment:
-            payment_url = payment.get('confirmation', {}).get('confirmation_url')
-            cur.execute(
-                "UPDATE orders SET payment_id = '%s', payment_url = '%s' WHERE id = %d"
-                % (payment['id'], (payment_url or '').replace("'", "''"), order_id)
-            )
-            conn.commit()
-    except Exception as e:
-        print('YooKassa payment creation error: %s' % str(e))
+    if payment_method == 'card':
+        try:
+            payment = create_yookassa_payment(order_id, total, email_val)
+            if payment:
+                payment_url = payment.get('confirmation', {}).get('confirmation_url')
+                cur.execute(
+                    "UPDATE orders SET payment_id = '%s', payment_url = '%s' WHERE id = %d"
+                    % (payment['id'], (payment_url or '').replace("'", "''"), order_id)
+                )
+                conn.commit()
+        except Exception as e:
+            print('YooKassa payment creation error: %s' % str(e))
+    else:
+        # Оплата по счёту — платёж не создаём, ждём оплату вручную
+        cur.execute("UPDATE orders SET payment_status = 'invoice_pending' WHERE id = %d" % order_id)
+        conn.commit()
 
     cur.close()
 
@@ -290,12 +300,14 @@ def handle_create_order(event, conn):
         ])
         total_str = '{:,.0f}'.format(total).replace(',', ' ')
         order_date_str = order_date.strftime('%d.%m.%Y %H:%M') if hasattr(order_date, 'strftime') else str(order_date)
+        payment_label = 'Онлайн-оплата картой' if payment_method == 'card' else 'Оплата по счёту (безналичный расчёт)'
 
         subject = 'Новый заказ #%d - СТАЛЬПРО' % order_id
         body = (
             'НОВЫЙ ЗАКАЗ - СТАЛЬПРО\n'
             '==================================================\n\n'
             'ЗАКАЗ #%d\n%s\n\n'
+            'СПОСОБ ОПЛАТЫ: %s\n\n'
             'ПРЕДПРИЯТИЕ:\n'
             'Компания: %s\n'
             'Телефон: %s\n'
@@ -303,7 +315,7 @@ def handle_create_order(event, conn):
             'Адрес доставки: %s\n\n'
             'ТОВАРЫ:\n%s\n\n'
             'ИТОГО: %s р'
-        ) % (order_id, order_date_str, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
+        ) % (order_id, order_date_str, payment_label, company_name, phone_val, email_val, delivery_addr, items_text, total_str)
 
         send_smtp(subject, body)
         print('Order email sent for order #%d' % order_id)
@@ -469,7 +481,7 @@ def handle_get_orders(event, conn):
 
     cur = conn.cursor()
     cur.execute(
-        "SELECT id, total_price, status, company_name, delivery_address, phone, email, items_json, created_at, payment_status, payment_url FROM orders WHERE user_id = %d ORDER BY created_at DESC"
+        "SELECT id, total_price, status, company_name, delivery_address, phone, email, items_json, created_at, payment_status, payment_url, payment_method FROM orders WHERE user_id = %d ORDER BY created_at DESC"
         % user['id']
     )
     rows = cur.fetchall()
@@ -489,7 +501,8 @@ def handle_get_orders(event, conn):
             'items': items,
             'createdAt': str(r[8]),
             'paymentStatus': r[9],
-            'paymentUrl': r[10]
+            'paymentUrl': r[10],
+            'paymentMethod': r[11]
         })
 
     return json_response(200, {'orders': orders})

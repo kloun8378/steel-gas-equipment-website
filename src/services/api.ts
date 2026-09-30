@@ -78,8 +78,8 @@ export const api = {
     return await request('cart', 'POST', { items });
   },
 
-  createOrder: async () => {
-    return await request('order', 'POST');
+  createOrder: async (paymentMethod: 'card' | 'invoice' = 'card') => {
+    return await request('order', 'POST', { paymentMethod });
   },
 
   getOrders: async () => {
