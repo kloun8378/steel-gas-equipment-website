@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { useAuth } from './AuthContext';
 import api from '@/services/api';
+import { reachGoal } from '@/lib/metrika';
 
 export interface CartItem {
   id: string;
@@ -100,6 +101,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const addToCart = (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => {
     const addQty = item.quantity ?? 1;
+    reachGoal('add_to_cart', { product: item.name, price: item.price, quantity: addQty });
     setCart(currentCart => {
       const existingItem = currentCart.find(cartItem => cartItem.id === item.id);
       let newCart: CartItem[];

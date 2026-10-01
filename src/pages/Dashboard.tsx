@@ -1,3 +1,4 @@
+import { reachGoal } from '@/lib/metrika';
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -500,6 +501,7 @@ const Dashboard = () => {
 
                           try {
                             const orderResult = await api.createOrder(paymentMethod);
+                            reachGoal('order_created', { order_id: orderResult.order.id, total: orderResult.order.total, payment: paymentMethod });
 
                             const orderData = {
                               company: user?.company || 'Неизвестная компания',

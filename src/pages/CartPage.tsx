@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
+import { reachGoal } from '@/lib/metrika';
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
@@ -13,6 +14,7 @@ export default function CartPage() {
   const navigate = useNavigate();
 
   const handleCheckout = () => {
+    reachGoal('begin_checkout', { total: getTotalPrice(), items: getTotalItems() });
     navigate(user ? '/dashboard' : '/login');
   };
 
