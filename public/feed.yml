@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-01 11:24">
+<yml_catalog date="2026-10-01 11:26">
   <shop>
     <name>СтальПроКлапан</name>
     <company>ИП Алпеева А.С.</company>
@@ -28,6 +28,10 @@
         <categoryId>1</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/tpa11-025.jpg</picture>
         <description><![CDATA[Компактный скоростной клапан ТПА11-025 ДУ25 для сливных трубопроводов и локальных систем СУГ. Аварийное отключение потока за доли секунды.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">25</param>
+        <param name="Давление" unit="МПа">4,0</param>
+        <param name="Материал">Сталь 12Х18Н10Т, ГОСТ 5632-2014</param>
+        <param name="Сертификат">Сертификат EAC</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -43,6 +47,10 @@
         <categoryId>1</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/tpa11-032.jpg</picture>
         <description><![CDATA[Скоростной клапан ТПА11-032 ДУ32 для трубопроводов СУГ среднего диаметра — ГНС, узлы налива. Аварийное отключение потока за доли секунды.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">32</param>
+        <param name="Давление" unit="МПа">4,0</param>
+        <param name="Материал">Сталь 12Х18Н10Т, ГОСТ 5632-2014</param>
+        <param name="Сертификат">Сертификат EAC</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -58,6 +66,10 @@
         <categoryId>1</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/tpa11-040.jpg</picture>
         <description><![CDATA[Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">40</param>
+        <param name="Давление" unit="МПа">4,0</param>
+        <param name="Материал">Сталь 12Х18Н10Т, ГОСТ 5632-2014</param>
+        <param name="Сертификат">Сертификат EAC</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -73,6 +85,10 @@
         <categoryId>1</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/tpa11-050.jpg</picture>
         <description><![CDATA[Самый производительный скоростной клапан линейки ТПА11-050 ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">50</param>
+        <param name="Давление" unit="МПа">4,0</param>
+        <param name="Материал">Сталь 12Х18Н10Т, ГОСТ 5632-2014</param>
+        <param name="Сертификат">Сертификат EAC</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -88,6 +104,10 @@
         <categoryId>2</categoryId>
         <picture>https://cdn.poehali.dev/files/848c3a31-030c-4548-a054-1475fca103c8.jpeg</picture>
         <description><![CDATA[Предохранительный клапан ППЦЗ-12 пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. АГЗС, ГНС, автоцистерны.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">25</param>
+        <param name="Давление" unit="МПа">1,6</param>
+        <param name="Материал">Сталь 20Х13, ГОСТ 5632-72</param>
+        <param name="Сертификат">Сертификат EAC</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -103,6 +123,8 @@
         <categoryId>2</categoryId>
         <picture>https://cdn.poehali.dev/files/f187ae93-500e-48da-b85b-e45604043b8c.jpg</picture>
         <description><![CDATA[Пружинный предохранительный клапан ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом. DN32, для СУГ.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">32</param>
+        <param name="Сертификат">Сертификат EAC</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -118,6 +140,7 @@
         <categoryId>3</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/spring-ppcz12.jpg</picture>
         <description><![CDATA[Пружина предохранительного клапана ППЦЗ-12 для замены в старом клапане. Оригинальная комплектующая, совместима по посадочным размерам.]]></description>
+        <param name="Материал">Проволока 60С2А, ГОСТ 14963-78</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -133,6 +156,7 @@
         <categoryId>3</categoryId>
         <picture>https://cdn.poehali.dev/files/9c839c8e-b655-47fd-b7b7-88de84d3c7ff.jpg</picture>
         <description><![CDATA[Золотник для пружинного клапана прямого действия ППЦЗ-12. Запасная часть для ремонта и обслуживания предохранительных клапанов СУГ.]]></description>
+        <param name="Материал">Сталь 45, ГОСТ 1050-88</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -148,6 +172,8 @@
         <categoryId>3</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/flange4-ppcz12.jpg</picture>
         <description><![CDATA[Фланец предохранительной арматуры на 4 отверстия для автоцистерн и резервуаров СУГ. Совместим с клапаном ППЦЗ-12.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">25</param>
+        <param name="Материал">Сталь</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -163,6 +189,8 @@
         <categoryId>3</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/flange8-ppcz12.jpg</picture>
         <description><![CDATA[Фланец предохранительной арматуры на 8 отверстий для автоцистерн и резервуаров СУГ. Совместим с клапаном ППЦЗ-12.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">25</param>
+        <param name="Материал">Сталь</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -178,6 +206,10 @@
         <categoryId>5</categoryId>
         <picture>https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/65209240-7cda-4461-a3e8-489fcdb0c0e1.webp</picture>
         <description><![CDATA[Фланец плоский стальной 100-16-01-1-B-Ст.20-IV ГОСТ 33259-2015 — плоский приварной фланец с проходом Ду-100 на давление Ру-16. Монтаж насадкой на трубу с обваркой двумя угловыми швами.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">100</param>
+        <param name="Давление" unit="МПа">1,6</param>
+        <param name="Материал">Сталь 20, ГОСТ 1050-2013</param>
+        <param name="Сертификат">Сертификат соответствия ГОСТ 33259-2015</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -193,6 +225,10 @@
         <categoryId>5</categoryId>
         <picture>https://cdn.poehali.dev/projects/cbca45d3-e5bd-4606-92f4-2a84a020c161/bucket/7800d7c0-8b08-4988-8523-65dc2a73c5f1.webp</picture>
         <description><![CDATA[Фланец плоский стальной 100-1-01-1-B-Ст.20-I ГОСТ 33259-2015 — плоский приварной фланец с проходом Ду-100 на давление Ру-16. Монтаж насадкой на трубу с обваркой двумя угловыми швами.]]></description>
+        <param name="Диаметр условного прохода" unit="мм">100</param>
+        <param name="Давление" unit="МПа">1,6</param>
+        <param name="Материал">Сталь 20, ГОСТ 1050-2013</param>
+        <param name="Сертификат">Сертификат соответствия ГОСТ 33259-2015</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
@@ -208,6 +244,7 @@
         <categoryId>4</categoryId>
         <picture>https://xn--80awjdfch6f.com/img/pump-frame-corken-fd150.jpg</picture>
         <description><![CDATA[Единая усиленная стальная рама для крепления насоса Corken FD 150 и двигателя. Обеспечивает жёсткость конструкции, предотвращает перекосы при монтаже.]]></description>
+        <param name="Материал">Сталь</param>
         <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>

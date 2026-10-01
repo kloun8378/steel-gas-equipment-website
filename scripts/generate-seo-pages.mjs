@@ -456,6 +456,36 @@ function toPunycodeUrl(url) {
   return url.replace('https://стальпро.com', `https://${FEED_HOST}`);
 }
 
+const EAC = 'Сертификат EAC';
+const TPA = { pressure: '4,0', material: 'Сталь 12Х18Н10Т, ГОСТ 5632-2014', cert: EAC };
+const FLANGE_CERT = 'Сертификат соответствия ГОСТ 33259-2015';
+
+const FEED_SPECS = {
+  'tpa11-025': { diameter: '25', ...TPA },
+  'tpa11-032': { diameter: '32', ...TPA },
+  'tpa11-040': { diameter: '40', ...TPA },
+  'tpa11-050': { diameter: '50', ...TPA },
+  'safety-valve-ppcz12': { diameter: '25', pressure: '1,6', material: 'Сталь 20Х13, ГОСТ 5632-72', cert: EAC },
+  'safety-valve-pk32l': { diameter: '32', cert: EAC },
+  'spring-ppcz12': { material: 'Проволока 60С2А, ГОСТ 14963-78' },
+  'valve-ppcz12': { material: 'Сталь 45, ГОСТ 1050-88' },
+  'flange4-ppcz12': { diameter: '25', material: 'Сталь' },
+  'flange-ppcz12': { diameter: '25', material: 'Сталь' },
+  'flange-100-1-01-1-b-st20': { diameter: '100', pressure: '1,6', material: 'Сталь 20, ГОСТ 1050-2013', cert: FLANGE_CERT },
+  'flange-100-1-01-1-b-st20-dv116': { diameter: '100', pressure: '1,6', material: 'Сталь 20, ГОСТ 1050-2013', cert: FLANGE_CERT },
+  'pump-frame-corken-fd150': { material: 'Сталь' },
+};
+
+function buildFeedParams(id) {
+  const sp = FEED_SPECS[id] || {};
+  const lines = [];
+  if (sp.diameter) lines.push(`        <param name="Диаметр условного прохода" unit="мм">${xmlEscape(sp.diameter)}</param>`);
+  if (sp.pressure) lines.push(`        <param name="Давление" unit="МПа">${xmlEscape(sp.pressure)}</param>`);
+  if (sp.material) lines.push(`        <param name="Материал">${xmlEscape(sp.material)}</param>`);
+  if (sp.cert) lines.push(`        <param name="Сертификат">${xmlEscape(sp.cert)}</param>`);
+  return lines.length ? lines.join('\n') + '\n' : '';
+}
+
 function generateFeed() {
   const offers = [];
   for (const page of PRODUCT_PAGES) {
@@ -488,7 +518,7 @@ function generateFeed() {
         <categoryId>${category ? category.id : 3}</categoryId>
         <picture>${xmlEscape(picture)}</picture>
         <description><![CDATA[${description}]]></description>
-        <delivery>true</delivery>
+${buildFeedParams(d.PRODUCT_ID)}        <delivery>true</delivery>
         <pickup>true</pickup>
         <store>true</store>
         <sales_notes>Оплата картой или по счёту. Отгрузка из Барнаула, доставка по России.</sales_notes>
