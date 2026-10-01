@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart, CartItem } from '@/context/CartContext';
-import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
 import SafetyValveProductCard from '@/components/safety-valve/SafetyValveProductCard';
 import SafetyValveRelatedDialog from '@/components/safety-valve/SafetyValveRelatedDialog';
@@ -102,12 +101,9 @@ export default function SafetyValve() {
   const [relatedQuantities, setRelatedQuantities] = useState<Record<string, number>>({});
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart();
-  const { user } = useAuth();
 
   const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
-    if (user) {
-      addToCart(product);
-    }
+    addToCart(product);
     setOrderModalOpen(true);
   };
 

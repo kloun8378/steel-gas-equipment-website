@@ -23,23 +23,75 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+const GUEST_CART_KEY = 'guest_cart';
+
+const readGuestCart = (): CartItem[] => {
+  try {
+    const raw = localStorage.getItem(GUEST_CART_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
+const writeGuestCart = (items: CartItem[]) => {
+  try {
+    if (items.length === 0) {
+      localStorage.removeItem(GUEST_CART_KEY);
+    } else {
+      localStorage.setItem(GUEST_CART_KEY, JSON.stringify(items));
+    }
+  } catch {
+    return;
+  }
+};
+
+const mergeCarts = (base: CartItem[], extra: CartItem[]): CartItem[] => {
+  const result = base.map(item => ({ ...item }));
+  extra.forEach(item => {
+    const existing = result.find(r => r.id === item.id);
+    if (existing) {
+      existing.quantity += item.quantity;
+    } else {
+      result.push({ ...item });
+    }
+  });
+  return result;
+};
+
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const { user } = useAuth();
+  const [cart, setCart] = useState<CartItem[]>(() => readGuestCart());
+  const { user, isLoading } = useAuth();
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    if (isLoading) return;
     if (user) {
+      const guestItems = readGuestCart();
       api.getCart()
-        .then((data) => setCart(data.cart || []))
-        .catch(() => setCart([]));
+        .then((data) => {
+          const serverItems: CartItem[] = data.cart || [];
+          if (guestItems.length > 0) {
+            const merged = mergeCarts(serverItems, guestItems);
+            writeGuestCart([]);
+            setCart(merged);
+            api.updateCart(merged).catch(() => {});
+          } else {
+            setCart(serverItems);
+          }
+        })
+        .catch(() => setCart(guestItems));
     } else {
-      setCart([]);
+      setCart(readGuestCart());
     }
-  }, [user]);
+  }, [user, isLoading]);
 
   const syncToServer = (items: CartItem[]) => {
-    if (!user) return;
+    if (!user) {
+      writeGuestCart(items);
+      return;
+    }
     if (syncTimer.current) clearTimeout(syncTimer.current);
     syncTimer.current = setTimeout(() => {
       api.updateCart(items).catch(() => {});
@@ -91,6 +143,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setCart([]);
     if (user) {
       api.updateCart([]).catch(() => {});
+    } else {
+      writeGuestCart([]);
     }
   };
 

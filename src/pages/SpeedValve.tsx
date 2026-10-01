@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart, CartItem } from '@/context/CartContext';
-import { useAuth } from '@/context/AuthContext';
 import SpeedValveHeader from '@/components/speed-valve/SpeedValveHeader';
 import SpeedValveProductCard from '@/components/speed-valve/SpeedValveProductCard';
 import SpeedValveCart from '@/components/speed-valve/SpeedValveCart';
@@ -16,12 +15,9 @@ export default function SpeedValve() {
   const [quantity50, setQuantity50] = useState(1);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
-  const { user } = useAuth();
 
   const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
-    if (user) {
-      addToCart(product);
-    }
+    addToCart(product);
     setOrderModalOpen(true);
   };
 

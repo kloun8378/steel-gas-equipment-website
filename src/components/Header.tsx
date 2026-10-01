@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Icon from "@/components/ui/icon";
 import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/context/CartContext";
 interface HeaderProps {
   isLoggedIn?: boolean;
   onLogin?: () => void;
@@ -17,6 +18,8 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const { user, logout } = useAuth();
+  const { getTotalItems } = useCart();
+  const totalItems = getTotalItems();
   const navigate = useNavigate();
 
   const isLoggedIn = props.isLoggedIn ?? !!user;
@@ -86,6 +89,15 @@ export default function Header(props: HeaderProps) {
             <a href="/#contacts" className="text-gray-700 hover:text-primary transition-colors">Контакты</a>
           </div>
           
+          <div className="flex items-center gap-2">
+          <a href="/cart" className="relative inline-flex items-center justify-center h-10 w-10 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100 transition-colors" aria-label="Корзина">
+            <Icon name="ShoppingCart" className="h-5 w-5" />
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-1 min-w-5 h-5 px-1 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
+          </a>
           {/* Десктоп личный кабинет */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -269,6 +281,13 @@ export default function Header(props: HeaderProps) {
                   Сертификаты
                 </a>
                 <a 
+                  href="/cart" 
+                  className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Корзина{totalItems > 0 ? ` (${totalItems})` : ''}
+                </a>
+                <a 
                   href="/#contacts" 
                   className="text-lg text-gray-700 hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
@@ -315,6 +334,7 @@ export default function Header(props: HeaderProps) {
               </nav>
             </SheetContent>
           </Sheet>
+          </div>
         </div>
       </nav>
     </header>

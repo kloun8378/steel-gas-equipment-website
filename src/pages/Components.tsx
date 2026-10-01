@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart, CartItem } from '@/context/CartContext';
-import { useAuth } from '@/context/AuthContext';
 import Icon from '@/components/ui/icon';
 import ComponentsHeader from '@/components/components-page/ComponentsHeader';
 import ComponentsProductCard from '@/components/components-page/ComponentsProductCard';
@@ -75,12 +74,9 @@ export default function Components() {
   const [quantityFlange4, setQuantityFlange4] = useState(1);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
-  const { user } = useAuth();
 
   const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
-    if (user) {
-      addToCart(product);
-    }
+    addToCart(product);
     setOrderModalOpen(true);
   };
 

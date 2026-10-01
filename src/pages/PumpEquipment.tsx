@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart, CartItem } from '@/context/CartContext';
-import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
@@ -14,12 +13,9 @@ export default function PumpEquipment() {
   const [quantity2, setQuantity2] = useState(1);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
-  const { user } = useAuth();
 
   const handleAddToCart = (product: Omit<CartItem, "quantity"> & { quantity?: number }) => {
-    if (user) {
-      addToCart(product as Parameters<typeof addToCart>[0]);
-    }
+    addToCart(product as Parameters<typeof addToCart>[0]);
     setOrderModalOpen(true);
   };
 

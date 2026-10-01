@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
-import { useAuth } from '@/context/AuthContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
@@ -123,19 +122,16 @@ export default function FlangesType01BDv116() {
   const [showSpecs, setShowSpecs] = useState(false);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart, cart, removeFromCart, updateQuantity, clearCart, getTotalPrice, getTotalItems } = useCart();
-  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    if (user) {
-      addToCart({
-        id: PRODUCT_ID,
-        name: PRODUCT_NAME,
-        price: PRODUCT_PRICE_RAW,
-        image: PRODUCT_IMAGE,
-        description: 'Плоский приварной фланец ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B, dв 116',
-        quantity,
-      });
-    }
+    addToCart({
+      id: PRODUCT_ID,
+      name: PRODUCT_NAME,
+      price: PRODUCT_PRICE_RAW,
+      image: PRODUCT_IMAGE,
+      description: 'Плоский приварной фланец ГОСТ 33259-2015, Ду-100, Ру-16, исполнение B, dв 116',
+      quantity,
+    });
     setOrderModalOpen(true);
   };
 

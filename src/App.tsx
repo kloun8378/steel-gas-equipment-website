@@ -32,6 +32,7 @@ const ServiceUnavailable = lazy(() => import("./pages/ServiceUnavailable"));
 const Delivery = lazy(() => import("./pages/Delivery"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const About = lazy(() => import("./pages/About"));
+const CartPage = lazy(() => import("./pages/CartPage"));
 const Offer = lazy(() => import("./pages/Offer"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const SpeedValveDU25 = lazy(() => import("./pages/SpeedValveDU25"));
@@ -221,6 +222,7 @@ const App = () => (
                 </Suspense>
               } />
               <Route path="/about" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
+              <Route path="/cart" element={<Suspense fallback={<PageLoader />}><CartPage /></Suspense>} />
               <Route path="/offer" element={<Suspense fallback={<PageLoader />}><Offer /></Suspense>} />
               <Route path="/reviews" element={<Suspense fallback={<PageLoader />}><Reviews /></Suspense>} />
               <Route path="/speed-valve/tpa11-025" element={<Suspense fallback={<PageLoader />}><SpeedValveDU25 /></Suspense>} />

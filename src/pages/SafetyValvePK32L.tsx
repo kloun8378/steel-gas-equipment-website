@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useCart } from '@/context/CartContext';
-import { useAuth } from '@/context/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -113,19 +112,16 @@ export default function SafetyValvePK32L() {
   const [showSpecs, setShowSpecs] = useState(false);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
   const { addToCart } = useCart();
-  const { user } = useAuth();
 
   const handleAddToCart = () => {
-    if (user) {
-      addToCart({
-        id: PRODUCT_ID,
-        name: PRODUCT_NAME,
-        price: PRODUCT_PRICE_RAW,
-        image: PRODUCT_IMAGE,
-        description: 'Комплект для надёжной защиты резервуаров СУГ',
-        quantity,
-      });
-    }
+    addToCart({
+      id: PRODUCT_ID,
+      name: PRODUCT_NAME,
+      price: PRODUCT_PRICE_RAW,
+      image: PRODUCT_IMAGE,
+      description: 'Комплект для надёжной защиты резервуаров СУГ',
+      quantity,
+    });
     setOrderModalOpen(true);
   };
 
