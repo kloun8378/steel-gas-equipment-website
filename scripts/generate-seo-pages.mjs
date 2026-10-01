@@ -435,11 +435,106 @@ async function generateBlogPages(template) {
   return errors;
 }
 
+const FEED_HOST = 'xn--80awjdfch6f.com';
+const FEED_CATEGORIES = [
+  { id: 1, name: 'Скоростные клапаны', match: '/speed-valve/' },
+  { id: 2, name: 'Предохранительные клапаны', match: '/safety-valve/' },
+  { id: 3, name: 'Комплектующие', match: '/components/' },
+  { id: 4, name: 'Насосное оборудование', match: '/pump-equipment/' },
+  { id: 5, name: 'Фланцы', match: '/flanges/' },
+];
+
+function xmlEscape(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function toPunycodeUrl(url) {
+  return url.replace('https://стальпро.com', `https://${FEED_HOST}`);
+}
+
+function generateFeed() {
+  const offers = [];
+  for (const page of PRODUCT_PAGES) {
+    const d = extractPageData(page.src, [
+      'CANONICAL',
+      'PRODUCT_IMAGE',
+      'PRODUCT_NAME',
+      'PRODUCT_ID',
+      'PRODUCT_PRICE_RAW',
+      'productLd',
+    ]);
+    if (!d || !d.PRODUCT_ID || !d.PRODUCT_NAME || !d.PRODUCT_PRICE_RAW || !d.CANONICAL) {
+      throw new Error(`Фид: в ${page.src} не хватает данных о товаре`);
+    }
+    const ld = JSON.parse(d.productLd);
+    const category = FEED_CATEGORIES.find((c) => d.CANONICAL.includes(c.match));
+    const vendor = /corken/i.test(d.PRODUCT_NAME) ? 'Corken' : 'СтальПроКлапан';
+    const description = String(ld.description || d.PRODUCT_NAME).slice(0, 2900);
+    const picture = d.PRODUCT_IMAGE.startsWith('https://стальпро.com')
+      ? toPunycodeUrl(d.PRODUCT_IMAGE)
+      : d.PRODUCT_IMAGE;
+
+    offers.push(`      <offer id="${xmlEscape(d.PRODUCT_ID)}" available="true">
+        <name>${xmlEscape(d.PRODUCT_NAME)}</name>
+        <vendor>${xmlEscape(vendor)}</vendor>
+        <vendorCode>${xmlEscape(d.PRODUCT_ID)}</vendorCode>
+        <url>${xmlEscape(toPunycodeUrl(d.CANONICAL))}</url>
+        <price>${d.PRODUCT_PRICE_RAW}</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>${category ? category.id : 3}</categoryId>
+        <picture>${xmlEscape(picture)}</picture>
+        <description><![CDATA[${description}]]></description>
+        <delivery>true</delivery>
+        <pickup>true</pickup>
+        <store>true</store>
+        <sales_notes>Оплата картой или по счёту. Отгрузка из Барнаула, доставка по России.</sales_notes>
+      </offer>`);
+  }
+
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}+03:00`;
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="${date}">
+  <shop>
+    <name>СтальПроКлапан</name>
+    <company>ИП Алпеева А.С.</company>
+    <url>https://${FEED_HOST}/</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+${FEED_CATEGORIES.map((c) => `      <category id="${c.id}">${xmlEscape(c.name)}</category>`).join('\n')}
+    </categories>
+    <delivery-options>
+      <option cost="0" days="3-10"/>
+    </delivery-options>
+    <offers>
+${offers.join('\n')}
+    </offers>
+  </shop>
+</yml_catalog>
+`;
+  writeFile('public/feed.xml', xml);
+  console.log(`OK  public/feed.xml (${offers.length} товаров)`);
+}
+
 async function main() {
   const template = readFile(TEMPLATE_FILE);
 
   const productErrors = generateProductPages(template);
   const infoErrors = generateInfoPages(template);
+  try {
+    generateFeed();
+  } catch (err) {
+    console.error(`FAIL feed: ${err.message}`);
+    productErrors.push(`feed: ${err.message}`);
+  }
   const blogErrors = await generateBlogPages(template);
 
   const allErrors = [...productErrors, ...infoErrors, ...blogErrors];
