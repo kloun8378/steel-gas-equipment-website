@@ -497,7 +497,7 @@ function generateFeed() {
 
   const now = new Date();
   const pad = (n) => String(n).padStart(2, '0');
-  const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}+03:00`;
+  const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <yml_catalog date="${date}">
@@ -520,8 +520,9 @@ ${offers.join('\n')}
   </shop>
 </yml_catalog>
 `;
+  writeFile('public/feed.yml', xml);
   writeFile('public/feed.xml', xml);
-  console.log(`OK  public/feed.xml (${offers.length} товаров)`);
+  console.log(`OK  public/feed.yml, public/feed.xml (${offers.length} товаров)`);
 }
 
 async function main() {
