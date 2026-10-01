@@ -24,7 +24,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description: 'Пружина предохранительного клапана ППЦЗ-12 для замены в старом клапане. Оригинальная комплектующая, совместима по посадочным размерам.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

@@ -31,7 +31,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description: 'Пружинный предохранительный клапан ПК-32-Л в комплекте с запорным клапаном ЗК-32 и уплотнительным кольцом. DN32, для СУГ.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

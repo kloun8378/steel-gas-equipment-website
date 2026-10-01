@@ -44,7 +44,7 @@ const productLd = JSON.stringify({
   description:
     'Самый производительный скоростной клапан линейки ТПА11-050 ДУ50 для крупных объектов — автоцистерн и АГЗС с высоким расходом СУГ.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

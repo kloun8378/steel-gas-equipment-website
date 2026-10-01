@@ -44,7 +44,7 @@ const productLd = JSON.stringify({
   description:
     'Компактный скоростной клапан ТПА11-025 ДУ25 для сливных трубопроводов и локальных систем СУГ. Аварийное отключение потока за доли секунды.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

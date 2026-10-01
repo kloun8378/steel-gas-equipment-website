@@ -44,7 +44,7 @@ const productLd = JSON.stringify({
   description:
     'Скоростной клапан ТПА11-032 ДУ32 для трубопроводов СУГ среднего диаметра — ГНС, узлы налива. Аварийное отключение потока за доли секунды.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

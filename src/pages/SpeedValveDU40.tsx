@@ -44,7 +44,7 @@ const productLd = JSON.stringify({
   description:
     'Скоростной клапан ТПА11-040 ДУ40 повышенной пропускной способности для линий налива автоцистерн и магистралей ГНС.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

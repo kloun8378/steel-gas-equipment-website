@@ -24,7 +24,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description: 'Единая усиленная стальная рама для крепления насоса Corken FD 150 и двигателя. Обеспечивает жёсткость конструкции, предотвращает перекосы при монтаже.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'Corken' },
+  brand: 'Corken',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

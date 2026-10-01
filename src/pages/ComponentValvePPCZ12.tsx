@@ -24,7 +24,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description: 'Золотник для пружинного клапана прямого действия ППЦЗ-12. Запасная часть для ремонта и обслуживания предохранительных клапанов СУГ.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

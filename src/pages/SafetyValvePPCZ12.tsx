@@ -49,7 +49,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description: 'Предохранительный клапан ППЦЗ-12 пружинный прямого действия для СУГ. Рабочее давление 1,6 МПа. АГЗС, ГНС, автоцистерны.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),

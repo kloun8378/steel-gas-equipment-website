@@ -39,7 +39,7 @@ const productLd = JSON.stringify({
   image: PRODUCT_IMAGE,
   description: 'Фланец предохранительной арматуры на 8 отверстий для автоцистерн и резервуаров СУГ. Совместим с клапаном ППЦЗ-12.',
   sku: PRODUCT_ID,
-  brand: { '@type': 'Brand', name: 'СтальПроКлапан' },
+  brand: 'СтальПроКлапан',
   offers: {
     '@type': 'Offer',
     price: String(PRODUCT_PRICE_RAW),
