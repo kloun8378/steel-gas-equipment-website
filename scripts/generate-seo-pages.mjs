@@ -250,26 +250,45 @@ function removeSchemaBlock(html, marker) {
 // og:image/JSON-LD этого не гарантируют — они лишь метаданные. У реальных
 // посетителей с включённым JS React почти сразу перерисовывает #root поверх
 // этой разметки, так что пользователи её не видят.
-function injectVisibleProductImage(html, { image, name }) {
-  const markup = `<div id="root"><img src="${escapeAttr(image)}" alt="${escapeAttr(name)}" width="600" height="600" style="max-width:100%;height:auto"/><h1>${escapeHtml(name)}</h1></div>`;
-  return html.replace('<div id="root"></div>', markup);
+function injectVisibleProductImage(html, { image, name, price, currency }) {
+  const priceMarkup = price
+    ? `<p><strong>Цена: ${escapeHtml(Number(price).toLocaleString('ru-RU').replace(/\u00a0/g, ' '))} ${currency === 'RUB' ? '₽' : escapeHtml(currency || '')}</strong> с НДС. В наличии.</p>`
+    : '';
+  const markup = `<div id="root"><img src="${escapeAttr(image)}" alt="${escapeAttr(name)}" width="600" height="600" style="max-width:100%;height:auto"/><h1>${escapeHtml(name)}</h1>${priceMarkup}</div>`;
+  return html.replace(/<div id="root">[\s\S]*?<\/div>/, () => markup);
 }
 
 function buildProductHtml(template, data) {
   let html = applyCommonTags(template, data);
   html = replaceSchemaBlock(html, 'Product Schema', data.productLd);
-  html = injectVisibleProductImage(html, { image: data.image, name: data.name });
+  let offer;
+  try {
+    const ld = JSON.parse(data.productLd);
+    offer = Array.isArray(ld.offers) ? ld.offers[0] : ld.offers;
+  } catch {
+    offer = undefined;
+  }
+  html = injectVisibleProductImage(html, {
+    image: data.image,
+    name: data.name,
+    price: offer && offer.price,
+    currency: offer && offer.priceCurrency,
+  });
   return html;
 }
 
+function resetRoot(html) {
+  return html.replace(/<div id="root">[\s\S]*?<\/div>/, () => '<div id="root"></div>');
+}
+
 function buildInfoHtml(template, data) {
-  let html = applyCommonTags(template, data);
+  let html = resetRoot(applyCommonTags(template, data));
   html = removeSchemaBlock(html, 'Product Schema');
   return html;
 }
 
 function buildArticleHtml(template, data) {
-  let html = applyCommonTags(template, data);
+  let html = resetRoot(applyCommonTags(template, data));
   html = replaceSchemaBlock(html, 'Product Schema', data.articleLd);
   return html;
 }
