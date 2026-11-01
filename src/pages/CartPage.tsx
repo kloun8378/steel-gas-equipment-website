@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { Helmet } from '@/components/Helmet';
+import { useNavigate } from "@/lib/router-compat";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';

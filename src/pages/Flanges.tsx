@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@/components/Helmet';
 import Icon from '@/components/ui/icon';
 import FlangesHeader from '@/components/flanges/FlangesHeader';
 import FlangesDetails from '@/components/flanges/FlangesDetails';

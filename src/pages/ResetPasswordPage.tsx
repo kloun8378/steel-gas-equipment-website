@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { useSearchParams, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from '@/components/Helmet';
+import { useSearchParams, Link, useNavigate } from "@/lib/router-compat";
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

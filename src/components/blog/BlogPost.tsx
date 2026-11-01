@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/components/Helmet";
 import Icon from "@/components/ui/icon";
 import { BlogPost as BlogPostType } from "./blogData";
 
@@ -68,7 +68,7 @@ export default function BlogPost({ post, onBack, allPosts, onSelectPost }: BlogP
                   {post.category}
                 </span>
                 <span className="text-gray-500">
-                  {new Date(post.date).toLocaleDateString('ru-RU')}
+                  {new Date(post.date).toLocaleDateString('ru-RU', { timeZone: 'UTC' })}
                 </span>
                 <span className="text-gray-500">•</span>
                 <span className="text-gray-500">{post.author}</span>

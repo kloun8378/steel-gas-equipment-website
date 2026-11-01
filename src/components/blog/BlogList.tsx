@@ -83,7 +83,7 @@ export default function BlogList({
                       {post.category}
                     </span>
                     <span className="text-sm text-gray-500">
-                      {new Date(post.date).toLocaleDateString('ru-RU')}
+                      {new Date(post.date).toLocaleDateString('ru-RU', { timeZone: 'UTC' })}
                     </span>
                   </div>
 

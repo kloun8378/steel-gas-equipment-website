@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/components/Helmet";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import { useAuth } from "@/context/AuthContext";

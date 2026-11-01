@@ -1,29 +1,19 @@
-import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import { Helmet } from "@/components/Helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogList from "@/components/blog/BlogList";
 import BlogPostView from "@/components/blog/BlogPost";
 import { BlogPost, defaultCategories } from "@/components/blog/blogData";
-import api from "@/services/api";
 
-export default function Blog() {
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [categories, setCategories] = useState<string[]>(defaultCategories);
-  const [isLoading, setIsLoading] = useState(true);
+export default function Blog({ posts }: { posts: BlogPost[] | null }) {
+  const blogPosts: BlogPost[] = posts ?? [];
+  const categories: string[] = posts
+    ? ["Все", ...Array.from(new Set(posts.map((p) => p.category)))]
+    : defaultCategories;
+  const isLoading = false;
   const [selectedCategory, setSelectedCategory] = useState("Все");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-
-  useEffect(() => {
-    api.getBlogPosts()
-      .then((data) => {
-        const posts: BlogPost[] = data.posts || [];
-        setBlogPosts(posts);
-        setCategories(["Все", ...Array.from(new Set(posts.map((p) => p.category)))]);
-      })
-      .catch(() => setBlogPosts([]))
-      .finally(() => setIsLoading(false));
-  }, []);
 
   const filteredPosts = selectedCategory === "Все"
     ? blogPosts

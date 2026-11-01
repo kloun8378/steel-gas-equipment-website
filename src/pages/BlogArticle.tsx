@@ -1,57 +1,15 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/components/Helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/icon";
 import { BlogPost } from "@/components/blog/blogData";
-import api from "@/services/api";
 
-export default function BlogArticle() {
-  const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [related, setRelated] = useState<BlogPost[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+interface BlogArticleProps {
+  post: BlogPost;
+  related: BlogPost[];
+}
 
-  useEffect(() => {
-    if (!slug) return;
-    setIsLoading(true);
-    api.getBlogPost(slug)
-      .then((data) => {
-        if (!data.post) {
-          navigate("/blog", { replace: true });
-          return;
-        }
-        setPost(data.post);
-        return api.getBlogPosts().then((all) => {
-          const allPosts: BlogPost[] = all.posts || [];
-          const rel = allPosts
-            .filter((p) => p.id !== data.post.id && p.category === data.post.category)
-            .slice(0, 3)
-            .concat(allPosts.filter((p) => p.id !== data.post.id && p.category !== data.post.category))
-            .slice(0, 3);
-          setRelated(rel);
-        });
-      })
-      .catch(() => navigate("/blog", { replace: true }))
-      .finally(() => setIsLoading(false));
-  }, [slug, navigate]);
-
-  if (isLoading) {
-    return (
-      <>
-        <Header />
-        <div className="min-h-screen flex items-center justify-center text-gray-500">Загрузка статьи...</div>
-        <Footer />
-      </>
-    );
-  }
-
-  if (!post) {
-    return null;
-  }
-
+export default function BlogArticle({ post, related }: BlogArticleProps) {
   const ldJson = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -122,7 +80,7 @@ export default function BlogArticle() {
                   {post.category}
                 </span>
                 <span className="text-gray-400 text-sm">
-                  {new Date(post.date).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  {new Date(post.date).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
                 </span>
                 <span className="text-gray-400 text-sm">• {post.author}</span>
               </div>
@@ -149,6 +107,7 @@ export default function BlogArticle() {
                     return (
                       <div key={index} className="overflow-x-auto my-4">
                         <table className="min-w-full border border-gray-200 rounded-lg text-sm">
+                          <tbody>
                           {rows.map((row, ri) => {
                             const cells = row.split('|').filter(c => c.trim());
                             return (
@@ -159,6 +118,7 @@ export default function BlogArticle() {
                               </tr>
                             );
                           })}
+                          </tbody>
                         </table>
                       </div>
                     );

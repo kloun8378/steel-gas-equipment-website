@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@/components/Helmet';
 import { useCart, CartItem } from '@/context/CartContext';
 import Icon from '@/components/ui/icon';
 import SafetyValveProductCard from '@/components/safety-valve/SafetyValveProductCard';

@@ -62,7 +62,7 @@ const mergeCarts = (base: CartItem[], extra: CartItem[]): CartItem[] => {
 };
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cart, setCart] = useState<CartItem[]>(() => readGuestCart());
+  const [cart, setCart] = useState<CartItem[]>([]);
   const { user, isLoading } = useAuth();
   const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
